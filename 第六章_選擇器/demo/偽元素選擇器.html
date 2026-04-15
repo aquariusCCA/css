@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>偽元素選擇器</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; }
+    p::first-letter { font-size: 2rem; color: #7c3aed; }
+    p::first-line { color: #2563eb; }
+    p::selection { background: #fde68a; }
+    .card {
+      width: 220px;
+      padding: 16px;
+      background: #fbcfe8;
+      position: relative;
+      margin-top: 16px;
+    }
+    .card::before {
+      content: '前綴';
+      display: inline-block;
+      margin-right: 8px;
+      color: #dc2626;
+    }
+    .card::after {
+      content: '後綴';
+      display: inline-block;
+      margin-left: 8px;
+      color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <h1>偽元素選擇器</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique consectetur quo recusandae eveniet magnam unde praesentium.</p>
+  <div class="card">內容</div>
+</body>
+</html>

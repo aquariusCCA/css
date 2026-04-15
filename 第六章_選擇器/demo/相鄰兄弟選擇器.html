@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>相鄰兄弟選擇器</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; }
+    h1 + p { color: #dc2626; font-weight: 700; }
+    li + li { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <h1>相鄰兄弟選擇器</h1>
+  <p>緊接在前一個元素後面的第一個同層兄弟元素會被選中。</p>
+  <p>這一段不會被 `h1 + p` 選到。</p>
+
+  <ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>屬性選擇器</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; }
+    input[value] { color: #dc2626; }
+    input[type=text] { border: 2px solid #2563eb; }
+    div[class^=icon] { color: #059669; }
+    section[class$=data] { color: #7c3aed; }
+    .row { margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <h1>屬性選擇器</h1>
+  <div class="row">
+    <input type="text" value="有 value">
+    <input type="text" placeholder="沒有 value">
+  </div>
+  <div class="row">
+    <input type="text">
+    <input type="password">
+  </div>
+  <div class="row">
+    <div class="icon1">icon1</div>
+    <div class="icon2">icon2</div>
+    <div class="icon3">icon3</div>
+  </div>
+  <div class="row">
+    <section class="icon1-data">1</section>
+    <section class="icon2-data">2</section>
+    <section class="icon3-data">3</section>
+  </div>
+</body>
+</html>
