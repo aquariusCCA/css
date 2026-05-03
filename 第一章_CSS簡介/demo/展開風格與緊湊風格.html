@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>展開風格與緊湊風格</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid #dbe4ee;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .sample {
+      color: #b91c1c;
+      font-size: 40px;
+      margin: 0 0 16px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 10px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h2>展開風格</h2>
+      <p class="sample">我是標題</p>
+      <pre>h1 {
+  color: red;
+  font-size: 40px;
+}</pre>
+      <p>可讀性較高，適合開發與教學。</p>
+    </section>
+
+    <section class="panel">
+      <h2>緊湊風格</h2>
+      <p class="sample">我是標題</p>
+      <pre>h1{color:red;font-size:40px;}</pre>
+      <p>功能相同，但通常由工具自動壓縮產生。</p>
+    </section>
+  </div>
+</body>
+</html>

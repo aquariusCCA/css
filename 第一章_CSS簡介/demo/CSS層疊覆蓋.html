@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 層疊覆蓋</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .box {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #dbe4ee;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    p {
+      color: red;
+      font-size: 20px;
+    }
+
+    p {
+      color: blue;
+    }
+
+    .note {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 10px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>CSS 層疊覆蓋</h1>
+    <p>這段文字最後會顯示為藍色。</p>
+    <p class="note">原因是後面同樣選中 <code>p</code> 的規則覆蓋了前面的顏色設定。</p>
+    <pre>p {
+  color: red;
+}
+
+p {
+  color: blue;
+}</pre>
+  </div>
+</body>
+</html>

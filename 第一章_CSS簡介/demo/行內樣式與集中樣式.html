@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行內樣式與集中樣式</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid #dbe4ee;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .article-title {
+      color: #b91c1c;
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .article-text {
+      color: #64748b;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h2>行內樣式</h2>
+      <h1 style="color: red; font-size: 40px;">文章標題</h1>
+      <p style="color: gray; font-size: 18px;">這是一段文章內容。</p>
+      <p>樣式直接寫在標籤上，少量示範可以，但不利維護。</p>
+    </section>
+
+    <section class="panel">
+      <h2>集中樣式</h2>
+      <h1 class="article-title">文章標題</h1>
+      <p class="article-text">這是一段文章內容。</p>
+      <p>樣式集中寫在 <code>style</code> 區塊，更容易統一修改。</p>
+    </section>
+  </div>
+</body>
+</html>
