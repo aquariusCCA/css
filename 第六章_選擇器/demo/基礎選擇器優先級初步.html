@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>基礎選擇器優先級初步</title>
+  <style>
+    * { color: #6b7280; }
+    p { color: #ef4444; }
+    .text { color: #2563eb; }
+    #main-text { color: #16a34a; }
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; }
+    pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 12px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>基礎選擇器優先級初步</h1>
+  <p id="main-text" class="text">這段文字同時被 `*`、`p`、`.text`、`#main-text` 選中，最後會是綠色。</p>
+  <pre>#main-text > .text > p > *</pre>
+</body>
+</html>

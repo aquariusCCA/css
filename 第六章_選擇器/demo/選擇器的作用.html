@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>選擇器的作用</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .wrap { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .title { color: #2563eb; }
+    .note { color: #db2777; font-weight: 700; }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>選擇器的作用</h1>
+    <p>這一頁用來示範：選擇器負責先找到元素，樣式宣告再決定外觀。</p>
+    <h2 class="title">我是 class 為 title 的標題</h2>
+    <p>一般段落沒有套用特殊 class。</p>
+    <p class="note">只有 class 為 note 的段落被選中並改成粉色粗體。</p>
+    <p>可以對照 CSS：<code>.title</code> 和 <code>.note</code> 分別選中不同元素。</p>
+  </div>
+</body>
+</html>
