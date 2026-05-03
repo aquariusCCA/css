@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>繼承性 inherit initial unset</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .panel {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    .parent {
+      color: #dc2626;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .inherit {
+      color: inherit;
+    }
+
+    .initial {
+      color: initial;
+    }
+
+    .unset {
+      color: unset;
+      margin: unset;
+      padding: 8px 12px;
+      background: #e2e8f0;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>繼承性：`inherit`、`initial`、`unset`</h1>
+    <div class="parent">
+      父層文字是紅色。
+      <p class="inherit">`inherit` 會明確沿用父元素的 color。</p>
+      <p class="initial">`initial` 會回到屬性的初始值，不使用父層紅色。</p>
+      <p class="unset">`unset` 對 color 會走繼承，對 margin 會回到初始值。</p>
+    </div>
+  </div>
+</body>
+</html>

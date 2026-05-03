@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>優先級 類別與 ID</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eefbf3;
+      color: #052e16;
+    }
+
+    .card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(5 46 22 / 10%);
+    }
+
+    div {
+      color: #ef4444;
+    }
+
+    .text {
+      color: #2563eb;
+    }
+
+    #headline {
+      color: #16a34a;
+    }
+
+    pre {
+      background: #052e16;
+      color: #dcfce7;
+      padding: 16px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>優先級：類別與 ID</h1>
+    <div id="headline" class="text">同一個元素同時命中元素、class、ID 選擇器，最後 ID 生效。</div>
+    <pre>div      -> (0,0,0,1)
+.text    -> (0,0,1,0)
+#headline -> (0,1,0,0)</pre>
+  </div>
+</body>
+</html>

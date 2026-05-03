@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>層疊性 同屬性衝突</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    .demo {
+      color: #ef4444;
+      font-size: 16px;
+    }
+
+    .demo {
+      color: #2563eb;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>層疊性：同屬性衝突</h1>
+    <p class="demo">這段文字最後會是藍色，字級則保留 16px。</p>
+    <p>這個範例對應「只有同一元素、同一屬性衝突時，才會真的互相覆蓋」。</p>
+    <pre>.demo {
+  color: #ef4444;
+  font-size: 16px;
+}
+
+.demo {
+  color: #2563eb;
+}</pre>
+  </div>
+</body>
+</html>

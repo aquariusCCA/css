@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>優先級 important 與行內樣式</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f5f3ff;
+      color: #2e1065;
+    }
+
+    .panel {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(46 16 101 / 10%);
+    }
+
+    .normal-inline {
+      color: #2563eb !important;
+    }
+
+    .inherit-test {
+      color: #dc2626 !important;
+      margin-top: 24px;
+    }
+
+    .inherit-test p {
+      color: #7c3aed;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>優先級：`!important` 與行內樣式</h1>
+    <p class="normal-inline" style="color: #ef4444;">這段文字有一般行內樣式，但 class 使用了 `!important`，所以最後會是藍色。</p>
+
+    <div class="inherit-test">
+      父層是紅色而且用了 `!important`。
+      <p>但子元素有自己的直接規則，所以這段通常仍然是紫色。</p>
+    </div>
+  </div>
+</body>
+</html>

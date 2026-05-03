@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>層疊性 多檔案載入順序</title>
+  <link rel="stylesheet" href="./cascade-base.css">
+  <link rel="stylesheet" href="./cascade-page.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #0f172a;
+    }
+
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgb(37 99 235 / 10%);
+    }
+
+    code {
+      background: #dbeafe;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>層疊性：多檔案載入順序</h1>
+    <p class="demo-text">這段文字的顏色來自後載入的 <code>cascade-page.css</code>。</p>
+    <p>兩個檔案都設定了 <code>.demo-text</code> 的 color，權重相同時，後載入的檔案會覆蓋前面。</p>
+  </div>
+</body>
+</html>
