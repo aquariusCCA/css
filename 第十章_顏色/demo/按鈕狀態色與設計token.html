@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>按鈕狀態色與設計 token</title>
+  <style>
+    :root {
+      --color-primary: hsl(220 90% 56%);
+      --color-primary-hover: hsl(220 90% 48%);
+      --color-primary-disabled: hsl(220 20% 75%);
+      --color-primary-soft-bg: hsl(220 90% 56% / 10%);
+      --color-border-subtle: rgb(0 0 0 / 10%);
+    }
+
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .card { max-width: 860px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .button {
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      border-radius: 10px;
+      color: #fff;
+      background-color: var(--color-primary);
+      font-weight: 700;
+    }
+    .button.hover-state {
+      background-color: var(--color-primary-hover);
+      border-color: var(--color-primary-hover);
+    }
+    .button:disabled,
+    .button.disabled-state {
+      background-color: var(--color-primary-disabled);
+      border-color: var(--color-primary-disabled);
+      cursor: not-allowed;
+    }
+    .alert {
+      margin-top: 20px;
+      padding: 14px 16px;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: 12px;
+      color: var(--color-primary);
+      background-color: var(--color-primary-soft-bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>按鈕狀態色與設計 token</h1>
+    <p>這個範例對應筆記裡的實戰選型：用 HSL 管 hover / disabled 深淺，用 alpha 做淡背景，用 CSS 變數管理 token。</p>
+    <div class="actions">
+      <button class="button">Primary</button>
+      <button class="button hover-state">Hover</button>
+      <button class="button disabled-state">Disabled</button>
+    </div>
+    <div class="alert">這是一個使用主色淡背景的提示區塊。</div>
+  </div>
+</body>
+</html>

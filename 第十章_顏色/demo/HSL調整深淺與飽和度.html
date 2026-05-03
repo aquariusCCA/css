@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HSL 調整深淺與飽和度</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f5f3ff; color: #2e1065; }
+    .panel { max-width: 980px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(46 16 101 / 10%); }
+    .grid { display: grid; gap: 16px; margin-top: 18px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .box { height: 100px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+    .dark { background: hsl(220, 90%, 38%); }
+    .normal { background: hsl(220, 90%, 56%); }
+    .light { background: hsl(220, 90%, 72%); color: #0f172a; }
+    .desat { background: hsl(220, 25%, 56%); }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>HSL 調整深淺與飽和度</h1>
+    <p>固定同一個 <code>hue</code> 後，只調整 <code>lightness</code> 或 <code>saturation</code>，就能很直觀地產生同色系變化。</p>
+    <div class="grid">
+      <div class="box dark">hsl(220, 90%, 38%)</div>
+      <div class="box normal">hsl(220, 90%, 56%)</div>
+      <div class="box light">hsl(220, 90%, 72%)</div>
+      <div class="box desat">hsl(220, 25%, 56%)</div>
+    </div>
+  </div>
+</body>
+</html>

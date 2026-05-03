@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HEX 與 HEX alpha</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #fff7ed; color: #7c2d12; }
+    .card { max-width: 860px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(124 45 18 / 10%); }
+    .row { display: grid; gap: 16px; margin-top: 18px; }
+    @media (min-width: 760px) { .row { grid-template-columns: repeat(3, 1fr); } }
+    .box { height: 100px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+    .hex6 { background: #2563eb; }
+    .hex3 { background: #38f; }
+    .hex8 { background: #2563eb80; color: #0f172a; }
+    code { background: #ffedd5; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>HEX、縮寫與 HEX alpha</h1>
+    <p>這裡對照 <code>#RRGGBB</code>、縮寫 <code>#RGB</code>，以及帶透明度的 <code>#RRGGBBAA</code>。</p>
+    <div class="row">
+      <div class="box hex6">#2563eb</div>
+      <div class="box hex3">#38f</div>
+      <div class="box hex8">#2563eb80</div>
+    </div>
+  </div>
+</body>
+</html>

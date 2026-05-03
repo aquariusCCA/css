@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>opacity 和 alpha 的差別</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #eefbf3; color: #052e16; }
+    .grid { max-width: 980px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .panel { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(5 46 22 / 10%); }
+    .card { padding: 20px; border-radius: 14px; color: #fff; font-weight: 700; }
+    .opacity-card { background: #2563eb; opacity: 0.5; }
+    .alpha-card { background: rgb(37 99 235 / 50%); color: #0f172a; }
+    .badge { margin-top: 12px; display: inline-block; padding: 6px 10px; border-radius: 999px; background: #0f172a; color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>opacity: 0.5</h1>
+      <div class="card opacity-card">
+        整個元素都一起變透明
+        <div class="badge">文字也會一起淡掉</div>
+      </div>
+    </section>
+    <section class="panel">
+      <h1>背景色帶 alpha</h1>
+      <div class="card alpha-card">
+        只有背景透明
+        <div class="badge">內部文字可以維持清楚</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

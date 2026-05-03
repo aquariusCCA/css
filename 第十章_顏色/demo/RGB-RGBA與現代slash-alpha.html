@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RGB RGBA 與現代 slash alpha</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #eff6ff; color: #1e3a8a; }
+    .grid { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .panel { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgb(30 58 138 / 10%); }
+    .chip { margin-top: 14px; padding: 16px; border-radius: 12px; color: #fff; font-weight: 700; text-align: center; }
+    .rgb { background: rgb(37, 99, 235); }
+    .rgba { background: rgba(37, 99, 235, 0.5); color: #0f172a; }
+    .modern { background: rgb(37 99 235 / 50%); color: #0f172a; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>RGB</h1>
+      <div class="chip rgb">rgb(37, 99, 235)</div>
+    </section>
+    <section class="panel">
+      <h1>RGBA</h1>
+      <div class="chip rgba">rgba(37, 99, 235, 0.5)</div>
+    </section>
+    <section class="panel">
+      <h1>現代 slash alpha</h1>
+      <div class="chip modern">rgb(37 99 235 / 50%)</div>
+    </section>
+  </div>
+</body>
+</html>

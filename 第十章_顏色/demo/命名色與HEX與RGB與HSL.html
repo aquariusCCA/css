@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>命名色 與 HEX 與 RGB 與 HSL</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .grid { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    .panel { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .swatch { height: 88px; border-radius: 12px; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-top: 12px; }
+    .named { background: red; }
+    .hex { background: #ff0000; }
+    .rgb { background: rgb(255, 0, 0); }
+    .hsl { background: hsl(0, 100%, 50%); }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>四種常見表示法</h1>
+      <div class="swatch named">red</div>
+      <div class="swatch hex">#ff0000</div>
+      <div class="swatch rgb">rgb(255, 0, 0)</div>
+      <div class="swatch hsl">hsl(0, 100%, 50%)</div>
+    </section>
+    <section class="panel">
+      <h1>重點</h1>
+      <p>這四個色塊表達的是同樣的紅色，只是描述角度不同。</p>
+      <p><code>命名色</code> 適合快速測試，<code>HEX</code> 常接設計稿，<code>RGB</code> 強調通道數值，<code>HSL</code> 更直觀地調整深淺與飽和度。</p>
+    </section>
+  </div>
+</body>
+</html>
