@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>內部樣式表</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .note {
+      color: #db2777;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .card {
+      max-width: 640px;
+      padding: 20px;
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgb(30 58 138 / 10%);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>內部樣式表</h1>
+    <p class="note">這一頁的樣式集中寫在 head 裡的 style 標籤中。</p>
+    <p>同一頁面的多個元素可以共用這些樣式，但不方便跨頁重複使用。</p>
+  </div>
+</body>
+</html>
