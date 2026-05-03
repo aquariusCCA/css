@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Block 可以包含另一個 Block</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .article {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(30 58 138 / 10%);
+    }
+
+    .article__body {
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tag--primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <article class="article">
+    <h1>Block 可以包含另一個 Block</h1>
+    <div class="article__body">
+      <p>下面的 <code>tag</code> 被當成可獨立重用的元件，因此不是硬寫成 <code>article__tag</code>。</p>
+      <span class="tag tag--primary">Vue</span>
+      <span class="tag">CSS</span>
+      <span class="tag">BEM</span>
+    </div>
+  </article>
+</body>
+</html>

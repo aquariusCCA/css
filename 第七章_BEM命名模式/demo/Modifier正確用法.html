@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modifier 正確用法</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f5f3ff;
+      color: #2e1065;
+    }
+
+    .panel {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(46 16 101 / 10%);
+    }
+
+    .button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #e2e8f0;
+      color: #0f172a;
+      margin-right: 10px;
+    }
+
+    .button--primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .button--danger {
+      background: #dc2626;
+      color: #ffffff;
+    }
+
+    .bad {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #f3e8ff;
+    }
+
+    code {
+      background: #ede9fe;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Modifier 正確用法</h1>
+    <p>推薦：Modifier 搭配原本的 Block 使用。</p>
+    <button class="button button--primary">確認</button>
+    <button class="button button--danger">刪除</button>
+
+    <div class="bad">
+      <p>不推薦只寫 <code>button--primary</code>，因為 Modifier 通常只描述差異，不包含完整基礎樣式。</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Block Element Modifier 基本結構</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .card {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid #dbe4ee;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 14px 30px rgb(15 23 42 / 10%);
+    }
+
+    .card__image {
+      width: 100%;
+      height: 180px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      display: block;
+    }
+
+    .card__title {
+      margin: 16px 0 8px;
+      font-size: 28px;
+    }
+
+    .card__content {
+      margin: 0 0 16px;
+      color: #475569;
+    }
+
+    .card__button {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .card__button--primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card__image"></div>
+    <h1 class="card__title">BEM 基本結構</h1>
+    <p class="card__content">這個範例對應 BEM 最核心的四種命名：<code>block</code>、<code>block__element</code>、<code>block--modifier</code>、<code>block__element--modifier</code>。</p>
+    <button class="card__button card__button--primary">主要按鈕</button>
+  </div>
+</body>
+</html>

@@ -7,6 +7,7 @@
 ## 章節內容
 
 - [BEM 命名模式](./BEM命名模式.md)
+- [demo 範例](./demo/README.md)
 
 ## 閱讀順序
 
@@ -15,3 +16,4 @@
 ## 回查入口
 
 - 想確認 BEM 的命名規則，先回看 [BEM 命名模式](./BEM命名模式.md)
+- 想直接對照 Block、Element、Modifier 的實際命名，先看 [demo 範例](./demo/README.md)

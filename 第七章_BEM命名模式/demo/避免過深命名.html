@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>避免過深命名</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eefbf3;
+      color: #052e16;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 24px;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(5 46 22 / 10%);
+    }
+
+    .card {
+      border: 1px solid #bbf7d0;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .card__body,
+    .card__content,
+    .card__title {
+      margin-bottom: 10px;
+    }
+
+    .card__title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    pre {
+      background: #052e16;
+      color: #dcfce7;
+      padding: 16px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>推薦寫法</h1>
+      <div class="card">
+        <div class="card__body">
+          <div class="card__content">
+            <h2 class="card__title">標題</h2>
+          </div>
+        </div>
+      </div>
+      <pre>.card {}
+.card__body {}
+.card__content {}
+.card__title {}</pre>
+    </section>
+
+    <section class="panel">
+      <h1>不推薦概念</h1>
+      <p>不要把 DOM 每一層都串進 class，例如：</p>
+      <pre>.card__body__content__title {}</pre>
+      <p>這樣命名會過長、過脆弱，也讓結構變動時更難維護。</p>
+    </section>
+  </div>
+</body>
+</html>
