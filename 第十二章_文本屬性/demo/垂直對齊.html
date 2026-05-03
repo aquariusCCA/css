@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>垂直對齊</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #fff7ed; color: #7c2d12; }
+    .card { max-width: 820px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(124 45 18 / 10%); }
+    .row { font-size: 28px; margin-top: 18px; }
+    .icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #ea580c;
+      border-radius: 8px;
+      margin-right: 8px;
+    }
+    .baseline .icon { vertical-align: baseline; }
+    .middle .icon { vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>垂直對齊</h1>
+    <div class="row baseline"><span class="icon"></span>baseline 對齊</div>
+    <div class="row middle"><span class="icon"></span>middle 對齊</div>
+  </div>
+</body>
+</html>

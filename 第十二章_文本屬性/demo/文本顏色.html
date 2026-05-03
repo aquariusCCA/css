@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文本顏色</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .card { max-width: 820px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .named { color: red; }
+    .hex { color: #2563eb; }
+    .rgba { color: rgb(37 99 235 / 70%); }
+    .current-color { color: #0f766e; border: 2px solid currentColor; padding: 10px 12px; border-radius: 10px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>文本顏色</h1>
+    <p class="named">命名色：red</p>
+    <p class="hex">HEX：#2563eb</p>
+    <p class="rgba">帶透明度的顏色：rgb(37 99 235 / 70%)</p>
+    <div class="current-color">這個邊框使用 currentColor，會跟隨文字顏色。</div>
+  </div>
+</body>
+</html>

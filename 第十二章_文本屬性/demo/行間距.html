@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行間距</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #eefbf3; color: #052e16; }
+    .grid { max-width: 980px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .panel { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(5 46 22 / 10%); }
+    .tight { line-height: 1.2; }
+    .loose { line-height: 1.9; }
+    .single-line { height: 56px; line-height: 56px; background: #dcfce7; border-radius: 10px; text-align: center; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>較小行距</h1>
+      <p class="tight">這是一段示範較緊密行距的多行文字。這是一段示範較緊密行距的多行文字。這是一段示範較緊密行距的多行文字。</p>
+    </section>
+    <section class="panel">
+      <h1>較大行距</h1>
+      <p class="loose">這是一段示範較寬鬆行距的多行文字。這是一段示範較寬鬆行距的多行文字。這是一段示範較寬鬆行距的多行文字。</p>
+      <div class="single-line">單行文字用 line-height 做垂直居中</div>
+    </section>
+  </div>
+</body>
+</html>

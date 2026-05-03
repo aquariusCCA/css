@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文本換行</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .grid { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .panel { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .sample { width: 240px; border: 1px solid #cbd5e1; padding: 10px; border-radius: 10px; background: #f8fafc; }
+    .nowrap { white-space: nowrap; }
+    .preline { white-space: pre-line; }
+    .prewrap { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>nowrap</h1>
+      <div class="sample nowrap">這是一段很長很長很長很長的文字，不會自動換行。</div>
+    </section>
+    <section class="panel">
+      <h1>pre-line</h1>
+      <div class="sample preline">第一行
+
+第二行     連續空白會被合併</div>
+    </section>
+    <section class="panel">
+      <h1>pre-wrap</h1>
+      <div class="sample prewrap">第一行
+
+第二行     連續空白會被保留</div>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文本溢出</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #eff6ff; color: #1e3a8a; }
+    .card { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(30 58 138 / 10%); }
+    .ellipsis {
+      width: 260px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #dbeafe;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>文本溢出</h1>
+    <p class="ellipsis">這是一段非常非常非常非常長的標題，用來示範單行省略號效果。</p>
+  </div>
+</body>
+</html>
