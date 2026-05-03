@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autoprefixer 輸入與輸出概念</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f5f3ff;
+      color: #2e1065;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(46 16 101 / 10%);
+    }
+
+    .sample {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .sample span {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #8b5cf6;
+      color: #ffffff;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    pre {
+      background: #2e1065;
+      color: #ede9fe;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>開發者通常先寫標準 CSS</h1>
+      <pre>.box {
+  display: flex;
+  user-select: none;
+}</pre>
+      <p>現代專案通常先寫這種可讀性較高的標準語法。</p>
+    </section>
+
+    <section class="panel">
+      <h2>工具可能輸出的結果</h2>
+      <pre>.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}</pre>
+      <div class="sample">
+        <span>Flex Item A</span>
+        <span>Flex Item B</span>
+      </div>
+      <p>這個頁面是在示範「輸入與輸出概念」，不是要你手動背完整工具產物。</p>
+    </section>
+  </div>
+</body>
+</html>

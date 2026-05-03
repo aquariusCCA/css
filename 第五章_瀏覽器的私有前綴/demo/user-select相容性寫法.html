@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>user-select 相容性寫法</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .panel {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(30 58 138 / 10%);
+    }
+
+    .token {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: #2563eb;
+      color: #ffffff;
+      font-weight: 700;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    pre {
+      background: #1e3a8a;
+      color: #dbeafe;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>user-select 相容性寫法</h1>
+    <p>這種寫法常見於舊專案或工具產物。你可以試著拖曳選取下面文字，理解它想達成的是「禁止選取」。</p>
+    <div class="token">這段文字盡量不要被選取</div>
+    <pre>-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;</pre>
+    <p>重點是理解多行相似屬性不一定是冗餘，有時是相容性處理。</p>
+  </div>
+</body>
+</html>

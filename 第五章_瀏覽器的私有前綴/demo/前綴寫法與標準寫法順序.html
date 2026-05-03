@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>前綴寫法與標準寫法順序</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 860px) {
+      .wrap {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      margin: 24px auto 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      -webkit-transform: rotate(8deg);
+      -moz-transform: rotate(8deg);
+      -ms-transform: rotate(8deg);
+      transform: rotate(8deg);
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="panel">
+      <h1>前綴版本先寫</h1>
+      <p>這個範例示範早期常見的寫法：先列出 <code>-webkit-</code>、<code>-moz-</code>、<code>-ms-</code>，最後再放標準的 <code>transform</code>。</p>
+      <div class="box"></div>
+    </section>
+
+    <section class="panel">
+      <h2>程式碼重點</h2>
+      <pre>-webkit-transform: rotate(8deg);
+-moz-transform: rotate(8deg);
+-ms-transform: rotate(8deg);
+transform: rotate(8deg);</pre>
+      <p>核心觀念不是現在還要手動背所有前綴，而是理解為什麼標準寫法通常放最後。</p>
+    </section>
+  </div>
+</body>
+</html>
