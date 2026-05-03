@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>box-sizing border-box</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(30 58 138 / 10%);
+    }
+
+    .demo-box {
+      width: 300px;
+      padding: 20px;
+      border: 8px solid #2563eb;
+      background: #dbeafe;
+      border-radius: 12px;
+    }
+
+    .border-box .demo-box {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>預設 content-box</h1>
+      <div class="demo-box">設定 `width: 300px`，但 padding 和 border 會再往外加。</div>
+    </section>
+    <section class="panel border-box">
+      <h1>border-box</h1>
+      <div class="demo-box">設定 `box-sizing: border-box` 後，300px 會把 padding 和 border 一起算進去。</div>
+    </section>
+  </div>
+</body>
+</html>

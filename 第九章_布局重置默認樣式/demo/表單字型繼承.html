@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>表單字型繼承</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f5f3ff;
+      color: #2e1065;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(46 16 101 / 10%);
+    }
+
+    .inherit input,
+    .inherit button,
+    .inherit textarea,
+    .inherit select {
+      font: inherit;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      margin-top: 10px;
+      padding: 8px 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>未設定 font: inherit</h1>
+      <p>這頁 body 使用 serif 字型，但表單元素不一定完全跟著父層走。</p>
+      <input value="輸入框">
+      <button>按鈕</button>
+    </section>
+    <section class="panel inherit">
+      <h1>設定 font: inherit</h1>
+      <p>表單元素明確繼承父層字型後，整體視覺會更一致。</p>
+      <input value="輸入框">
+      <button>按鈕</button>
+    </section>
+  </div>
+</body>
+</html>

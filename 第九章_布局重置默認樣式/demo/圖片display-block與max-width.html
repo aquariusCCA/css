@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>圖片 display block 與 max-width</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #fff7ed;
+      color: #7c2d12;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(124 45 18 / 10%);
+    }
+
+    .frame {
+      width: 260px;
+      border: 1px solid #fdba74;
+      padding: 8px;
+      background: #ffedd5;
+    }
+
+    .fake-image {
+      width: 320px;
+      height: 120px;
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .fixed .fake-image {
+      display: block;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>未處理</h1>
+      <div class="frame">
+        <div class="fake-image">超出容器</div>
+      </div>
+    </section>
+    <section class="panel fixed">
+      <h1>display: block + max-width: 100%</h1>
+      <div class="frame">
+        <div class="fake-image">貼合容器</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

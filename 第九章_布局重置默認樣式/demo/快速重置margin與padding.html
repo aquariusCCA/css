@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>快速重置 margin 與 padding</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    .reset-scope * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px dashed #cbd5e1;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>未重置</h1>
+      <div class="box">
+        <h2>標題</h2>
+        <p>段落內容，保留瀏覽器預設 margin。</p>
+        <ul>
+          <li>項目 A</li>
+          <li>項目 B</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel reset-scope">
+      <h1>快速重置後</h1>
+      <div class="box">
+        <h2>標題</h2>
+        <p>段落內容，margin / padding 已經被清空。</p>
+        <ul>
+          <li>項目 A</li>
+          <li>項目 B</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
