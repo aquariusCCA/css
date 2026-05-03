@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>overflow 基本效果</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .grid { max-width: 980px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .panel { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .box { width: 100%; height: 140px; border: 1px solid #cbd5e1; padding: 12px; background: #eff6ff; }
+    .visible { overflow: visible; }
+    .hidden { overflow: hidden; }
+    .scroll { overflow: scroll; }
+    .auto { overflow: auto; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>overflow: visible / hidden</h1>
+      <div class="box visible"><strong>visible</strong><br>這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。</div>
+      <div style="height: 24px;"></div>
+      <div class="box hidden"><strong>hidden</strong><br>這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。</div>
+    </section>
+    <section class="panel">
+      <h1>overflow: scroll / auto</h1>
+      <div class="box scroll"><strong>scroll</strong><br>這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。</div>
+      <div style="height: 24px;"></div>
+      <div class="box auto"><strong>auto</strong><br>這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。這是一段很長很長的內容。</div>
+    </section>
+  </div>
+</body>
+</html>

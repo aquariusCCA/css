@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>opacity 搭配 pointer-events</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f5f3ff; color: #2e1065; }
+    .panel { max-width: 760px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(46 16 101 / 10%); position: relative; }
+    .toolbar { display: flex; gap: 12px; margin-top: 20px; }
+    .btn { padding: 10px 14px; border: 0; border-radius: 10px; background: #8b5cf6; color: #fff; font-weight: 700; }
+    .overlay {
+      position: absolute;
+      top: 88px;
+      left: 24px;
+      width: 280px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #312e81;
+      color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>opacity 搭配 pointer-events</h1>
+    <p>這個範例固定顯示「開啟」狀態，用來對照筆記中的建議組合。</p>
+    <div class="toolbar">
+      <button class="btn">主要按鈕</button>
+      <button class="btn">次要按鈕</button>
+    </div>
+    <div class="overlay is-open">
+      這個浮層使用 <code>opacity</code>、<code>visibility</code>、<code>pointer-events</code> 一起控制。
+    </div>
+  </div>
+</body>
+</html>

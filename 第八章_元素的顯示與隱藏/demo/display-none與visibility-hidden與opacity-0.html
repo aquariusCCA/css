@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>display none 與 visibility hidden 與 opacity 0</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #fff7ed; color: #7c2d12; }
+    .grid { max-width: 1080px; margin: 0 auto; display: grid; gap: 20px; }
+    @media (min-width: 980px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .panel { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 12px 30px rgb(124 45 18 / 10%); }
+    .stack { border: 1px dashed #fdba74; padding: 12px; border-radius: 12px; }
+    .item { height: 54px; border-radius: 10px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+    .a { background: #2563eb; }
+    .b-hidden { background: #dc2626; display: none; }
+    .b-visibility { background: #dc2626; visibility: hidden; }
+    .b-opacity { background: #dc2626; opacity: 0; }
+    .c { background: #16a34a; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>display: none</h1>
+      <div class="stack">
+        <div class="item a">A</div>
+        <div class="item b-hidden">B</div>
+        <div class="item c">C</div>
+      </div>
+      <p>B 完全消失，也不保留位置，所以 C 會往上補。</p>
+    </section>
+    <section class="panel">
+      <h1>visibility: hidden</h1>
+      <div class="stack">
+        <div class="item a">A</div>
+        <div class="item b-visibility">B</div>
+        <div class="item c">C</div>
+      </div>
+      <p>B 看不見，但位置還在，所以中間會留下空白。</p>
+    </section>
+    <section class="panel">
+      <h1>opacity: 0</h1>
+      <div class="stack">
+        <div class="item a">A</div>
+        <div class="item b-opacity">B</div>
+        <div class="item c">C</div>
+      </div>
+      <p>B 完全透明，但元素仍存在，也還佔版面位置。</p>
+    </section>
+  </div>
+</body>
+</html>

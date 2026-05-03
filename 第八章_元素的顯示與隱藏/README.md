@@ -25,6 +25,7 @@
 ## 章節內容
 
 - [第08章_元素的顯示與隱藏](./第08章_元素的顯示與隱藏.md)
+- [demo 範例](./demo/README.md)
 
 ## 閱讀順序
 
@@ -44,6 +45,7 @@
 - 想判斷 Vue 裡該用 `v-if` 還是 `v-show`，先看 Vue 實戰比較
 - 想處理 Dropdown / Tooltip 被裁切問題，先看 `overflow: hidden` 的實戰坑
 - 想快速分辨 `display: none`、`visibility: hidden`、`opacity: 0`，先看比較表
+- 想直接打開案例觀察差異，先看 [demo 範例](./demo/README.md)
 
 ## 30 秒複習入口
 

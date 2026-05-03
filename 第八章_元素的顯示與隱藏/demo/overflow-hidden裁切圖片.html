@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>overflow hidden 裁切圖片</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.7; padding: 24px; background: #f8fafc; color: #0f172a; }
+    .panel { max-width: 680px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 12px 30px rgb(15 23 42 / 10%); }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 36px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>overflow: hidden 裁切圖片</h1>
+    <p>這裡沒有放真實圖片，而是用大字和背景模擬頭像。重點是：圓形邊界外的內容會被裁掉。</p>
+    <div class="avatar">AV</div>
+  </div>
+</body>
+</html>
