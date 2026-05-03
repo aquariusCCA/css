@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font 簡寫與屬性重設</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eefbf3;
+      color: #052e16;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(5 46 22 / 10%);
+    }
+
+    .safe {
+      font-style: italic;
+      font-weight: 700;
+      font-size: 24px;
+      font-family: Georgia, serif;
+    }
+
+    .reset-case {
+      font-style: italic;
+      font-weight: 700;
+      font: 24px Arial, sans-serif;
+    }
+
+    code {
+      background: #dcfce7;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>分開寫</h1>
+      <p class="safe">這段保留 italic 與 700。</p>
+    </section>
+    <section class="panel">
+      <h1>font 簡寫覆蓋</h1>
+      <p class="reset-case">這段後面用了 <code>font: 24px Arial, sans-serif;</code>，原本的 italic 和 700 會被重設。</p>
+    </section>
+  </div>
+</body>
+</html>

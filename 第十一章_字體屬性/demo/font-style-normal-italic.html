@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-style normal italic</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f5f3ff;
+      color: #2e1065;
+    }
+
+    .grid {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(46 16 101 / 10%);
+    }
+
+    .normal { font-style: normal; }
+    .italic { font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>font-style: normal</h1>
+      <p class="normal">這是一段正常字形的文字。</p>
+    </section>
+    <section class="panel">
+      <h1>font-style: italic</h1>
+      <p class="italic">這是一段斜體字形的文字。</p>
+    </section>
+  </div>
+</body>
+</html>

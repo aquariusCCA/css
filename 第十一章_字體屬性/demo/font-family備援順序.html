@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-family 備援順序</title>
+  <style>
+    body {
+      font-family: Arial, "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    code {
+      background: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>font-family 備援順序</h1>
+    <p>這個頁面本身使用：<code>Arial, "Microsoft JhengHei", "Noto Sans TC", sans-serif</code>。</p>
+    <p>瀏覽器會由左到右依序嘗試可用字體，最後以通用字體系列 <code>sans-serif</code> 保底。</p>
+    <p>這也是為什麼正式專案通常不只寫一個字體名稱。</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-size px rem em percent</title>
+  <style>
+    html { font-size: 16px; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(30 58 138 / 10%);
+    }
+
+    .px { font-size: 16px; }
+    .rem { font-size: 1.25rem; }
+    .em-wrap { font-size: 20px; }
+    .em-wrap .em { font-size: 1.2em; }
+    .percent-wrap { font-size: 20px; }
+    .percent-wrap .percent { font-size: 80%; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>px / rem</h1>
+      <p class="px">16px：固定像素，直觀好理解。</p>
+      <p class="rem">1.25rem：相對於 html 的字體大小。</p>
+    </section>
+    <section class="panel">
+      <h1>em / %</h1>
+      <div class="em-wrap">
+        <p class="em">1.2em：相對於父層 20px，結果約 24px。</p>
+      </div>
+      <div class="percent-wrap">
+        <p class="percent">80%：相對於父層 20px，結果約 16px。</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

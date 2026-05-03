@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>表單元素 font inherit</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      padding: 20px;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgb(15 23 42 / 10%);
+    }
+
+    .inherit input,
+    .inherit button,
+    .inherit textarea,
+    .inherit select {
+      font: inherit;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>未設定 font: inherit</h1>
+      <input value="輸入框">
+      <button>按鈕</button>
+    </section>
+    <section class="panel inherit">
+      <h1>設定 font: inherit</h1>
+      <input value="輸入框">
+      <button>按鈕</button>
+    </section>
+  </div>
+</body>
+</html>
