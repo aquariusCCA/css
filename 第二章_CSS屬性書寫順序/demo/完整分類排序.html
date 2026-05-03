@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>完整分類排序</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .example {
+      display: flex;
+      position: relative;
+
+      width: 100%;
+      max-width: 640px;
+      padding: 24px;
+      border: 1px solid #dbe4ee;
+      border-radius: 18px;
+
+      color: #334155;
+      font-size: 16px;
+      line-height: 1.7;
+
+      background: linear-gradient(135deg, #ffffff, #eff6ff);
+      box-shadow: 0 14px 28px rgb(15 23 42 / 10%);
+
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .example:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      margin-right: 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      flex: 0 0 auto;
+    }
+
+    .code {
+      max-width: 640px;
+      margin: 20px auto 0;
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>完整分類排序</h1>
+  <p>這個範例把單一規則拆成五個類別：布局與定位、盒模型與尺寸、文字與字體、背景與外觀、互動與動畫。</p>
+
+  <div class="example">
+    <div class="icon"></div>
+    <div>
+      <h2>排序後的卡片</h2>
+      <p>當樣式數量變多時，依類別分組可以更快找到要改的屬性。</p>
+    </div>
+  </div>
+
+  <div class="code">.example {
+  /* 1. 布局與定位 */
+  display: flex;
+  position: relative;
+
+  /* 2. 盒模型與尺寸 */
+  max-width: 640px;
+  padding: 24px;
+  border: 1px solid #dbe4ee;
+  border-radius: 18px;
+
+  /* 3. 文字與字體 */
+  color: #334155;
+  font-size: 16px;
+  line-height: 1.7;
+
+  /* 4. 背景與外觀 */
+  background: linear-gradient(135deg, #fff, #eff6ff);
+  box-shadow: 0 14px 28px rgb(15 23 42 / 10%);
+
+  /* 5. 互動、動畫與其他 */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}</div>
+</body>
+</html>

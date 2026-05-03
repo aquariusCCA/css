@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>同效果不同排序</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid #dbe4ee;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .messy-card {
+      color: #334155;
+      display: flex;
+      padding: 16px;
+      gap: 12px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgb(15 23 42 / 8%);
+    }
+
+    .ordered-card {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      color: #334155;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgb(15 23 42 / 8%);
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      flex: 0 0 auto;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <section class="panel">
+      <h1>未整理順序</h1>
+      <div class="messy-card">
+        <div class="avatar"></div>
+        <div>
+          <strong>功能上可執行</strong>
+          <p>但閱讀時要來回找布局、尺寸、文字與外觀屬性。</p>
+        </div>
+      </div>
+      <pre>.card {
+  color: #334155;
+  display: flex;
+  padding: 16px;
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgb(15 23 42 / 8%);
+}</pre>
+    </section>
+
+    <section class="panel">
+      <h1>整理後順序</h1>
+      <div class="ordered-card">
+        <div class="avatar"></div>
+        <div>
+          <strong>畫面效果相同</strong>
+          <p>但屬性依類別排列後，閱讀與維護都更直接。</p>
+        </div>
+      </div>
+      <pre>.card {
+  display: flex;
+  gap: 12px;
+
+  padding: 16px;
+
+  color: #334155;
+
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgb(15 23 42 / 8%);
+}</pre>
+    </section>
+  </div>
+</body>
+</html>

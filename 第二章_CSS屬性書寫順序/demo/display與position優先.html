@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>display 與 position 優先</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      padding: 24px;
+      background: #eef4ff;
+      color: #0f172a;
+    }
+
+    .wrap {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .card {
+      display: flex;
+      position: relative;
+
+      width: 100%;
+      max-width: 560px;
+      padding: 20px;
+      border-radius: 16px;
+
+      color: #1e293b;
+
+      background: #ffffff;
+      box-shadow: 0 14px 30px rgb(37 99 235 / 10%);
+
+      overflow: hidden;
+    }
+
+    .media {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #60a5fa, #2563eb);
+      flex: 0 0 auto;
+      margin-right: 16px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+
+      padding: 4px 10px;
+      border-radius: 999px;
+
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+
+      background: #0f172a;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 12px;
+      overflow: auto;
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>display 與 position 優先</h1>
+    <p>先看到 <code>display: flex;</code>，就知道內容是橫向排列；先看到 <code>position: relative;</code>，就知道內部可能有絕對定位元素。</p>
+
+    <div class="card">
+      <div class="badge">NEW</div>
+      <div class="media"></div>
+      <div>
+        <h2>卡片標題</h2>
+        <p>這個範例示範布局與定位屬性放在前面時，讀者可以先掌握元素怎麼排、徽章怎麼定位。</p>
+      </div>
+    </div>
+
+    <pre>.card {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}</pre>
+  </div>
+</body>
+</html>
