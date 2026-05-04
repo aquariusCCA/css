@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-repeat demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景平鋪 background-repeat</h1>
+    <p>
+      這個 demo 展示 <code>repeat</code>、<code>no-repeat</code>、<code>repeat-x</code>、
+      <code>repeat-y</code>、<code>space</code>、<code>round</code>、雙值語法與多背景圖對應。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>基礎值：repeat / no-repeat / repeat-x / repeat-y</h2>
+        <p>同一張背景圖，因為重複方向不同，會產生完全不同的視覺結果。</p>
+      </div>
+
+      <div class="demo-grid four-columns">
+        <article class="demo-card repeat-repeat">
+          <h3>repeat</h3>
+          <p>水平與垂直都重複，也是預設值。</p>
+        </article>
+
+        <article class="demo-card repeat-none">
+          <h3>no-repeat</h3>
+          <p>不重複，只顯示一張；通常要搭配 position。</p>
+        </article>
+
+        <article class="demo-card repeat-x">
+          <h3>repeat-x</h3>
+          <p>只沿水平方向重複。</p>
+        </article>
+
+        <article class="demo-card repeat-y">
+          <h3>repeat-y</h3>
+          <p>只沿垂直方向重複。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>進階值：space / round</h2>
+        <p>
+          <code>space</code> 會保留圖片比例並分配間距；
+          <code>round</code> 會調整圖片尺寸，讓圖案剛好填滿。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="demo-card repeat-space">
+          <h3>space</h3>
+          <p>圖片完整顯示，剩餘空間變成圖案之間的間距。</p>
+        </article>
+
+        <article class="demo-card repeat-round">
+          <h3>round</h3>
+          <p>圖案會被縮放，盡量剛好鋪滿，不留邊緣空白。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>雙值語法：水平 | 垂直</h2>
+        <p>
+          <code>background-repeat: repeat no-repeat;</code> 的第一個值控制水平方向，
+          第二個值控制垂直方向。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="demo-card two-value-x">
+          <h3>repeat no-repeat</h3>
+          <p>水平方向重複，垂直方向不重複；等同 repeat-x。</p>
+        </article>
+
+        <article class="demo-card two-value-y">
+          <h3>no-repeat repeat</h3>
+          <p>水平方向不重複，垂直方向重複；等同 repeat-y。</p>
+        </article>
+
+        <article class="demo-card two-value-mixed">
+          <h3>space repeat</h3>
+          <p>水平分配間距，垂直方向重複。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>多背景圖：逐層對應 background-repeat</h2>
+        <p>
+          第一個 <code>background-repeat</code> 對應第一個 <code>background-image</code>；
+          第二個值對應第二張背景圖。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>上層 badge 不重複，下層 tile 重複</h3>
+          <p>
+            這張卡片使用兩層背景圖：
+            <code>badge.svg</code> 使用 <code>no-repeat</code>，
+            <code>tile-dot.svg</code> 使用 <code>repeat</code>。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>repeat 不控制背景顏色</h2>
+        <p>
+          背景色本來就會鋪滿元素；<code>background-repeat</code> 只控制背景圖片如何重複。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="color-only-card">
+          <h3>只有 background-color</h3>
+          <p>沒有背景圖片，所以 repeat 值不會產生可見效果。</p>
+        </article>
+
+        <article class="color-plus-image-card">
+          <h3>background-color + background-image</h3>
+          <p>背景色在下方，重複圖片在上方。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">06</p>
+        <h2>實務組合：水平線與垂直線</h2>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="practical-card underline-card">
+          <h3>repeat-x 做標題底線</h3>
+          <p>小圖案沿 X 軸重複，常用於水平裝飾帶。</p>
+        </article>
+
+        <article class="practical-card timeline-card">
+          <h3>repeat-y 做側邊線</h3>
+          <p>小圖案沿 Y 軸重複，常用於時間軸或側邊裝飾。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

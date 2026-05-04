@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-attachment demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景圖像固定 background-attachment</h1>
+    <p>
+      這個 demo 展示 <code>scroll</code>、<code>fixed</code>、<code>local</code>、
+      可捲動容器內的差異，以及多背景圖逐層設定 attachment。
+    </p>
+  </header>
+
+  <main>
+    <section class="intro-section">
+      <div class="content narrow">
+        <p class="section-kicker">01</p>
+        <h2>先捲動整個頁面，觀察 fixed 背景</h2>
+        <p>
+          下方會有兩個大型區塊。第一個使用 <code>background-attachment: scroll</code>，
+          第二個使用 <code>background-attachment: fixed</code>。
+          你可以上下捲動頁面觀察背景圖片是否跟著元素一起移動。
+        </p>
+      </div>
+    </section>
+
+    <section class="visual-band attachment-scroll">
+      <div class="band-content">
+        <p class="eyebrow">scroll</p>
+        <h2>背景跟著元素所在頁面一起移動</h2>
+        <p>這是預設值。元素離開視窗時，背景也會跟著元素移動。</p>
+      </div>
+    </section>
+
+    <section class="content spacer-content">
+      <h2>中間內容：讓頁面有足夠捲動距離</h2>
+      <p>
+        這段內容用來增加頁面高度。繼續往下捲動，觀察下一個
+        <code>fixed</code> 區塊的背景是否像固定在視窗後方。
+      </p>
+    </section>
+
+    <section class="visual-band attachment-fixed">
+      <div class="band-content">
+        <p class="eyebrow">fixed</p>
+        <h2>背景相對 viewport 固定</h2>
+        <p>元素像是一個窗口，讓你看到固定在視窗後方的背景圖。</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>可捲動容器：scroll / local 差異最明顯</h2>
+        <p>
+          請在下方三個卡片內部捲動內容。<code>scroll</code> 的背景黏在盒子上；
+          <code>local</code> 的背景會跟著卡片內容一起捲動；
+          <code>fixed</code> 則相對 viewport 固定。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="scroll-panel attach-scroll">
+          <h3>scroll</h3>
+          <p class="hint">背景黏在元素盒子上，不跟著內部內容捲動。</p>
+          <div class="long-copy">
+            <p>第 1 段內容：請捲動這個卡片內部。</p>
+            <p>第 2 段內容：觀察背景紋理是否跟著文字一起移動。</p>
+            <p>第 3 段內容：scroll 是預設值。</p>
+            <p>第 4 段內容：背景相對元素本身固定。</p>
+            <p>第 5 段內容：內容捲動時，背景仍停在卡片盒子上。</p>
+            <p>第 6 段內容：這常用於一般背景。</p>
+            <p>第 7 段內容：如果你希望背景跟著內容走，請使用 local。</p>
+            <p>第 8 段內容：繼續往下看。</p>
+            <p>第 9 段內容：背景沒有跟著文字流動。</p>
+            <p>第 10 段內容：這就是 scroll。</p>
+          </div>
+        </article>
+
+        <article class="scroll-panel attach-local">
+          <h3>local</h3>
+          <p class="hint">背景黏在元素內容上，會跟著內部內容一起捲動。</p>
+          <div class="long-copy">
+            <p>第 1 段內容：請捲動這個卡片內部。</p>
+            <p>第 2 段內容：觀察背景條紋會跟著文字一起移動。</p>
+            <p>第 3 段內容：local 適合可捲動容器。</p>
+            <p>第 4 段內容：例如文字框、表格容器、程式碼區塊。</p>
+            <p>第 5 段內容：背景和內容的關係更緊密。</p>
+            <p>第 6 段內容：這和 scroll 不同。</p>
+            <p>第 7 段內容：local 的重點是元素內部捲動。</p>
+            <p>第 8 段內容：繼續往下看。</p>
+            <p>第 9 段內容：背景仍跟著文字流動。</p>
+            <p>第 10 段內容：這就是 local。</p>
+          </div>
+        </article>
+
+        <article class="scroll-panel attach-fixed">
+          <h3>fixed</h3>
+          <p class="hint">背景相對 viewport 固定，不是相對這張卡片固定。</p>
+          <div class="long-copy">
+            <p>第 1 段內容：請捲動這個卡片內部。</p>
+            <p>第 2 段內容：背景更像固定在視窗後方。</p>
+            <p>第 3 段內容：fixed 常用於視差背景。</p>
+            <p>第 4 段內容：但手機版要小心使用。</p>
+            <p>第 5 段內容：不同瀏覽器行為可能有差異。</p>
+            <p>第 6 段內容：若效果不穩定，可回退成 scroll。</p>
+            <p>第 7 段內容：fixed 不是固定在元素本身。</p>
+            <p>第 8 段內容：繼續往下看。</p>
+            <p>第 9 段內容：它和 local 的概念不同。</p>
+            <p>第 10 段內容：這就是 fixed。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>多背景圖：逐層對應 background-attachment</h2>
+        <p>
+          這張卡片使用兩層背景：上層漸層遮罩使用 <code>scroll</code>，
+          下層風景圖使用 <code>fixed</code>。
+        </p>
+      </div>
+
+      <article class="layered-demo">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>scroll, fixed</h3>
+          <p>
+            第一個 attachment 對應第一層背景，第二個 attachment 對應第二層背景。
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

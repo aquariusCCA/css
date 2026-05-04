@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="markerGradient" x1="16" y1="12" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60a5fa"/>
+      <stop offset=".48" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="44" fill="url(#markerGradient)" fill-opacity=".96"/>
+  <circle cx="60" cy="60" r="19" fill="#ffffff" fill-opacity=".58"/>
+  <path d="M60 6l9 24h-18L60 6Z" fill="#2563eb"/>
+  <path d="M60 114l-9-24h18l-9 24Z" fill="#7c3aed"/>
+  <path d="M6 60l24-9v18L6 60Z" fill="#0ea5e9"/>
+  <path d="M114 60l-24 9V51l24 9Z" fill="#ec4899"/>
+</svg>

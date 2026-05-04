@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-image demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景圖片 background-image</h1>
+    <p>
+      這個 demo 展示 <code>url()</code>、漸層、多背景圖、預設平鋪、遮罩、fallback 背景色，
+      以及 <code>background-image</code> 不會撐開盒子的特性。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>基本背景圖：background-image 只設定圖片來源</h2>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="demo-card bg-basic">
+          <h3>有設定尺寸，所以背景圖看得見</h3>
+          <p>
+            這張卡片使用 <code>background-image: url("./assets/hero-pattern.svg")</code>，
+            並搭配 <code>background-size</code> 和 <code>background-position</code> 控制顯示效果。
+          </p>
+        </article>
+
+        <article class="demo-card bg-fallback">
+          <h3>背景色是圖片的保底色</h3>
+          <p>
+            如果圖片透明、載入較慢或失敗，<code>background-color</code> 仍然會提供基本視覺底色。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>背景圖片不會撐開盒子</h2>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="explain-card">
+          <h3>只有背景圖，沒有高度</h3>
+          <p>
+            左邊這個元素有 <code>background-image</code>，但沒有內容高度、沒有 padding、沒有 min-height。
+            它本身幾乎沒有可見面積，所以背景圖不會像 <code>&lt;img&gt;</code> 一樣把盒子撐開。
+          </p>
+        </article>
+
+        <article class="height-comparison">
+          <div class="zero-height-bg" aria-hidden="true"></div>
+          <p class="note">上方元素有背景圖，但沒有高度，所以幾乎看不到。</p>
+
+          <div class="visible-bg" aria-hidden="true"></div>
+          <p class="note">這個元素補上 <code>min-height</code> 後，背景圖才有地方顯示。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>漸層也是背景圖片</h2>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="demo-card gradient-linear">
+          <h3>linear-gradient()</h3>
+          <p>線性漸層可以直接寫在 <code>background-image</code>。</p>
+        </article>
+
+        <article class="demo-card gradient-radial">
+          <h3>radial-gradient()</h3>
+          <p>放射狀漸層也屬於背景圖像。</p>
+        </article>
+
+        <article class="demo-card gradient-layered">
+          <h3>漸層 + 圖案</h3>
+          <p>可以把漸層和圖片疊在一起做出層次。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>預設會平鋪：background-repeat: repeat</h2>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="repeat-card repeat-default">
+          <h3>預設 repeat</h3>
+          <p>小圖案會重複鋪滿整個盒子。</p>
+        </article>
+
+        <article class="repeat-card repeat-no-repeat">
+          <h3>no-repeat</h3>
+          <p>只顯示一次，位置和大小要另外控制。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>多背景圖：第一個值在最上層</h2>
+      </div>
+
+      <article class="hero-demo">
+        <div class="hero-demo-content">
+          <p class="eyebrow">Layered Background</p>
+          <h3>圖片上加一層半透明漸層遮罩</h3>
+          <p>
+            這裡的第一層是 <code>linear-gradient()</code> 遮罩，第二層是 <code>url()</code> 背景圖，
+            最底層是 <code>background-color</code>。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">06</p>
+        <h2>background-image vs &lt;img&gt;</h2>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="compare-card decorative-bg">
+          <h3>裝飾圖：適合 background-image</h3>
+          <p>
+            右下角圖案只是裝飾，拿掉後內容仍然完整，所以適合用 CSS 背景圖。
+          </p>
+        </article>
+
+        <article class="compare-card content-image-card">
+          <img
+            src="./assets/decorative-shape.svg"
+            alt="由圓形與菱形組成的藍紫色裝飾圖案"
+          />
+          <div>
+            <h3>內容圖：使用 &lt;img&gt;</h3>
+            <p>
+              如果圖片本身是內容的一部分，就應該放進 HTML，並提供適當的 <code>alt</code>。
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

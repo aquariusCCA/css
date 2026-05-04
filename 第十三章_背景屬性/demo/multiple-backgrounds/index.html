@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>multiple backgrounds demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>多背景圖</h1>
+    <p>
+      這個 demo 展示多背景圖的圖層順序、逐層對應、
+      Hero 遮罩背景、卡片裝飾圖 + 底紋，以及 shorthand 寫法。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>圖層順序：第一個在最上層</h2>
+        <p>
+          左右兩張卡片只是交換圖層順序。第一個背景會壓在第二個背景上面。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="layer-order-card badge-over-halo">
+          <h3>badge 在上、halo 在下</h3>
+          <p>第一個背景圖是徽章，所以它在最上層。</p>
+        </article>
+
+        <article class="layer-order-card halo-over-badge">
+          <h3>halo 在上、badge 在下</h3>
+          <p>交換順序後，光暈會壓在徽章上方。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>Hero：漸層遮罩 + 背景圖 + 底色</h2>
+        <p>
+          這是多背景圖最常見的實務場景之一：用第一層漸層讓文字更容易閱讀。
+        </p>
+      </div>
+
+      <article class="hero-demo">
+        <div class="hero-content">
+          <p class="eyebrow">linear-gradient + image + color</p>
+          <h3>Hero Overlay</h3>
+          <p>
+            背景層順序為：上層遮罩、下層圖片、最底部背景色。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>逐層對應：position / size / repeat</h2>
+        <p>
+          第一層徽章不重複，第二層格紋重複，並使用不同的位置與尺寸。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Per-layer Mapping</p>
+          <h3>badge + pattern + gradient</h3>
+          <p>
+            你可以把每一層背景當成一個獨立圖層，逐層設定自己的 repeat、position、size。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>每層也能有自己的 origin / clip</h2>
+        <p>
+          這張卡片讓徽章只在 content-box 內定位與裁切，
+          底紋則鋪滿到 border-box。
+        </p>
+      </div>
+
+      <article class="box-model-card">
+        <h3>content-box, border-box</h3>
+        <p>
+          第一層：徽章<br>
+          第二層：底紋
+        </p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>Shorthand 多背景圖</h2>
+        <p>
+          每一層都可以寫成一組 shorthand，然後用逗號分隔。
+        </p>
+      </div>
+
+      <div class="code-demo">
+        <pre><code>.card {
+  background:
+    url("./assets/badge.svg")
+    right 24px bottom 24px / 96px 96px
+    no-repeat,
+
+    url("./assets/pattern-grid.svg")
+    left top / 72px 72px
+    repeat,
+
+    linear-gradient(135deg, #eff6ff, #ffffff);
+}</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

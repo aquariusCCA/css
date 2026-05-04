@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-origin demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>設置背景圖的原點 background-origin</h1>
+    <p>
+      這個 demo 展示 <code>border-box</code>、<code>padding-box</code>、<code>content-box</code>，
+      以及 <code>background-origin</code> 與 <code>background-clip</code> 的差別。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>三種 background-origin</h2>
+        <p>
+          三張卡片的 <code>background-position</code> 都是 <code>left top</code>，
+          但因為 origin 不同，所以背景圖對齊的左上角不同。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="origin-card border-origin">
+          <h3>border-box</h3>
+          <p>背景圖從最外層 border-box 開始定位。</p>
+        </article>
+
+        <article class="origin-card padding-origin">
+          <h3>padding-box</h3>
+          <p>背景圖從 padding-box 開始定位，這也是預設值。</p>
+        </article>
+
+        <article class="origin-card content-origin">
+          <h3>content-box</h3>
+          <p>背景圖從 content-box 開始定位，會更往內縮。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>origin 影響定位，clip 影響裁切</h2>
+        <p>
+          左邊是 <code>origin: border-box; clip: content-box;</code>，
+          右邊是 <code>origin: content-box; clip: border-box;</code>。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="compare-card origin-border-clip-content">
+          <h3>origin: border-box<br>clip: content-box</h3>
+          <p>背景從外框開始定位，但只顯示在 content 區內。</p>
+        </article>
+
+        <article class="compare-card origin-content-clip-border">
+          <h3>origin: content-box<br>clip: border-box</h3>
+          <p>背景從 content 區開始定位，但可畫到 border 區。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>平鋪時也會受到 origin 影響</h2>
+        <p>
+          同樣的格紋背景，起始平鋪位置會因為 origin 改變而不同。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="repeat-card repeat-border">
+          <h3>repeat + border-box</h3>
+          <p>第一張格紋從 border-box 開始鋪。</p>
+        </article>
+
+        <article class="repeat-card repeat-content">
+          <h3>repeat + content-box</h3>
+          <p>第一張格紋從 content-box 開始鋪。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>多背景圖：逐層設定 background-origin</h2>
+        <p>
+          這張卡片有兩層背景：上層角落徽章使用 <code>content-box</code>，
+          下層點狀圖案使用 <code>border-box</code>。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>content-box, border-box</h3>
+          <p>
+            第一個 origin 對應第一張背景圖，第二個 origin 對應第二張背景圖。
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

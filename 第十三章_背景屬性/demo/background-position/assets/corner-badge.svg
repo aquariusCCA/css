@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="badgeGradient" x1="24" y1="18" x2="158" y2="164" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset=".55" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="132" height="132" rx="34" fill="url(#badgeGradient)" fill-opacity=".94"/>
+  <circle cx="62" cy="62" r="20" fill="#ffffff" fill-opacity=".35"/>
+  <path d="M112 48l28 28-28 28-28-28 28-28Z" fill="#ffffff" fill-opacity=".30"/>
+  <path d="M52 118h76v18H52z" fill="#ffffff" fill-opacity=".32"/>
+</svg>

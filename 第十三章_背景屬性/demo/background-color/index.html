@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-color Demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <p class="eyebrow">CSS 第 13 章：背景屬性</p>
+    <h1>背景顏色 background-color Demo</h1>
+    <p class="lead">
+      這個 demo 用視覺方式對照 background-color 的核心概念：透明背景、盒模型範圍、半透明背景、opacity 差異、背景圖片底色與 CSS 變數。
+    </p>
+  </header>
+
+  <main class="page-shell">
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">01</span>
+        <div>
+          <h2>預設透明背景 vs 指定背景色</h2>
+          <p>沒有設定 background-color 時，元素背景預設是 transparent，因此會露出父層或頁面的背景。</p>
+        </div>
+      </div>
+
+      <div class="checker-board demo-grid two-cols">
+        <article class="demo-card transparent-card">
+          <h3>transparent</h3>
+          <p>這張卡片沒有背景色，只是有邊框，所以可以看到棋盤格背景。</p>
+          <code>background-color: transparent;</code>
+        </article>
+
+        <article class="demo-card solid-card">
+          <h3>指定背景色</h3>
+          <p>這張卡片設定了明確背景色，因此會蓋住後方棋盤格。</p>
+          <code>background-color: #ffffff;</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">02</span>
+        <div>
+          <h2>背景色與盒模型範圍</h2>
+          <p>背景色預設會畫到 border-box，也就是內容、padding、border 背後；但不包含 margin。</p>
+        </div>
+      </div>
+
+      <div class="box-model-stage">
+        <div class="margin-label">margin 區域：背景色不會畫到這裡</div>
+        <div class="box-model-demo">
+          <div class="content-label">content + padding + border 背後有背景色</div>
+        </div>
+      </div>
+
+      <pre><code>.box {
+  margin: 32px;
+  padding: 32px;
+  border: 10px dashed rgb(15 23 42 / 45%);
+  background-color: #fde68a;
+}</code></pre>
+    </section>
+
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">03</span>
+        <div>
+          <h2>半透明背景 vs opacity</h2>
+          <p>只想讓背景半透明，使用 rgb(... / alpha) 或 rgba()；使用 opacity 會讓文字與子元素一起變透明。</p>
+        </div>
+      </div>
+
+      <div class="photo-like-bg demo-grid two-cols">
+        <article class="glass-card bg-alpha-card">
+          <h3>背景半透明</h3>
+          <p>文字仍然清楚，只有背景有透明感。</p>
+          <strong>推薦：只想淡化背景時使用</strong>
+          <code>background-color: rgb(255 255 255 / 72%);</code>
+        </article>
+
+        <article class="glass-card opacity-card">
+          <h3>整個元素透明</h3>
+          <p>文字、背景、子元素一起變淡。</p>
+          <strong>適合：整個元素淡出時使用</strong>
+          <code>opacity: .45;</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">04</span>
+        <div>
+          <h2>常見色彩語法</h2>
+          <p>background-color 可以接受 CSS &lt;color&gt;，例如關鍵字、HEX、RGB、HSL、currentColor、CSS 變數。</p>
+        </div>
+      </div>
+
+      <div class="swatch-grid">
+        <div class="swatch keyword"><span>keyword</span><code>pink</code></div>
+        <div class="swatch hex"><span>HEX</span><code>#bfdbfe</code></div>
+        <div class="swatch rgb"><span>rgb()</span><code>rgb(220 252 231)</code></div>
+        <div class="swatch rgba"><span>alpha</span><code>rgb(15 23 42 / 75%)</code></div>
+        <div class="swatch hsl"><span>hsl()</span><code>hsl(45 93% 58%)</code></div>
+        <div class="swatch current"><span>currentColor</span><code>currentColor</code></div>
+        <div class="swatch variable"><span>CSS variable</span><code>var(--brand-bg)</code></div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">05</span>
+        <div>
+          <h2>background-color 是 background-image 的底色</h2>
+          <p>背景圖片或漸層在上層，背景色在下層；當圖片有透明區域或載入失敗時，底色會出現。</p>
+        </div>
+      </div>
+
+      <div class="demo-grid two-cols">
+        <article class="image-layer-card with-layer">
+          <h3>圖片 / 漸層 + 底色</h3>
+          <p>你看到的斜向亮面是 background-image，深藍底是 background-color。</p>
+          <code>background-color + background-image</code>
+        </article>
+
+        <article class="image-layer-card only-color">
+          <h3>只有底色</h3>
+          <p>拿掉 background-image 後，仍然有 background-color 作為基礎色。</p>
+          <code>background-color only</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <div class="section-title">
+        <span class="number">06</span>
+        <div>
+          <h2>background-color vs background 簡寫</h2>
+          <p>只想改顏色時，用 background-color；background 是簡寫，可能重設其他背景設定。</p>
+        </div>
+      </div>
+
+      <div class="demo-grid two-cols">
+        <article class="pattern-card keep-pattern">
+          <h3>保留背景圖案</h3>
+          <p>只改 background-color，原本的 background-image 還在。</p>
+          <code>background-color: #fff7ed;</code>
+        </article>
+
+        <article class="pattern-card reset-pattern">
+          <h3>簡寫重設背景</h3>
+          <p>使用 background: #fff7ed; 會重設背景圖片與其他背景設定。</p>
+          <code>background: #fff7ed;</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section theme-demo">
+      <div class="section-title">
+        <span class="number">07</span>
+        <div>
+          <h2>CSS 變數管理背景色</h2>
+          <p>實務專案通常會用語意化變數管理背景色，方便主題切換與組件維護。</p>
+        </div>
+      </div>
+
+      <div class="theme-controls" aria-label="theme controls">
+        <input type="radio" name="theme" id="theme-light" checked>
+        <label for="theme-light">淺色主題</label>
+        <input type="radio" name="theme" id="theme-dark">
+        <label for="theme-dark">深色主題</label>
+
+        <div class="theme-preview">
+          <article class="semantic-card">
+            <p class="tag">Dashboard Card</p>
+            <h3>語意化背景色</h3>
+            <p>這張卡片不是硬寫白色，而是使用 <code>var(--card-bg)</code>。</p>
+          </article>
+        </div>
+      </div>
+
+      <pre><code>:root {
+  --page-bg: #f8fafc;
+  --card-bg: #ffffff;
+}
+
+.card {
+  background-color: var(--card-bg);
+}</code></pre>
+    </section>
+  </main>
+</body>
+</html>

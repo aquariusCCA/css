@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-size demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景圖片大小 background-size</h1>
+    <p>
+      這個 demo 展示單值 / 雙值、<code>auto</code>、<code>cover</code>、<code>contain</code>、
+      平鋪 tile 大小，以及多背景圖逐層設定。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>單值與雙值</h2>
+        <p>
+          一個值通常代表寬度，高度為 <code>auto</code>；
+          兩個值則是明確指定寬度與高度。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="size-card size-single">
+          <h3>120px</h3>
+          <p>寬度 120px，高度 auto。</p>
+        </article>
+
+        <article class="size-card size-double">
+          <h3>120px 80px</h3>
+          <p>寬度 120px，高度 80px，可能變形。</p>
+        </article>
+
+        <article class="size-card size-auto-height">
+          <h3>auto 120px</h3>
+          <p>高度 120px，寬度依比例自動計算。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>cover vs contain</h2>
+        <p>
+          <code>cover</code> 寧可裁切也要鋪滿；<code>contain</code> 寧可留白也要完整。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="hero-card hero-cover">
+          <div class="hero-content">
+            <h3>cover</h3>
+            <p>保持比例並鋪滿容器，可能裁掉圖片的一部分。</p>
+          </div>
+        </article>
+
+        <article class="hero-card hero-contain">
+          <div class="hero-content">
+            <h3>contain</h3>
+            <p>保持比例並完整顯示圖片，可能在周圍留下空白。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>百分比與平鋪 tile 大小</h2>
+        <p>
+          百分比是相對背景定位區域計算；若背景會平鋪，<code>background-size</code> 也會改變每個 tile 的大小。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="tile-card tile-percent">
+          <h3>50% auto</h3>
+          <p>寬度使用背景定位區域的 50%。</p>
+        </article>
+
+        <article class="tile-card tile-small-repeat">
+          <h3>repeat + 48px</h3>
+          <p>平鋪 tile 較小，圖案密度更高。</p>
+        </article>
+
+        <article class="tile-card tile-large-repeat">
+          <h3>repeat + 96px</h3>
+          <p>平鋪 tile 較大，圖案密度更低。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>多背景圖逐層設定</h2>
+        <p>
+          第一層徽章用固定尺寸，第二層底紋用另一個尺寸，並各自對應自己的背景圖層。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>96px 96px, 72px 72px</h3>
+          <p>
+            第一個 <code>background-size</code> 對應第一張背景圖；
+            第二個則對應第二張背景圖。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>Shorthand 中的 <code>position / size</code></h2>
+        <p>
+          在 <code>background</code> 簡寫中，<code>background-size</code> 必須寫在
+          <code>background-position</code> 後面，並用 <code>/</code> 分隔。
+        </p>
+      </div>
+
+      <div class="code-demo">
+        <pre><code>.hero {
+  background:
+    url("./assets/hero-scene.svg")
+    center / cover
+    no-repeat
+    #0f172a;
+}</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

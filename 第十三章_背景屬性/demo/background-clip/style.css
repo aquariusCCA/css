@@ -1,0 +1,306 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --brand: #2563eb;
+  --radius-lg: 24px;
+  --shadow: 0 18px 45px rgb(15 23 42 / 10%);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family:
+    Inter,
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  line-height: 1.7;
+  background-color: var(--bg);
+}
+
+code {
+  padding: 0.12rem 0.36rem;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background-color: #eff6ff;
+  font-size: 0.92em;
+}
+
+.page-hero {
+  min-height: 360px;
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: 72px clamp(24px, 7vw, 96px);
+  color: white;
+  background:
+    linear-gradient(90deg, rgb(15 23 42 / 92%), rgb(15 23 42 / 52%)),
+    url("./assets/soft-dots.svg") center / cover no-repeat #0f172a;
+}
+
+.page-hero h1 {
+  max-width: 960px;
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+.page-hero p {
+  max-width: 920px;
+  margin: 0;
+  color: rgb(255 255 255 / 86%);
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0;
+  color: #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.layout {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0 96px;
+}
+
+.section {
+  margin-top: 56px;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+
+.section-header {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+}
+
+.section-header p {
+  max-width: 900px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-kicker {
+  color: var(--brand);
+}
+
+.demo-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.clip-card,
+.compare-card,
+.layered-card,
+.border-area-demo {
+  min-height: 300px;
+  padding: 36px;
+  border: 18px dashed rgb(37 99 235 / 35%);
+  border-radius: 28px;
+  background-color: #dbeafe;
+  background-image: url("./assets/pattern-grid.svg");
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 72px 72px;
+  box-shadow: var(--shadow);
+}
+
+.clip-card h3,
+.compare-card h3,
+.layered-card h3,
+.border-area-demo h3 {
+  margin: 0 0 10px;
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.clip-card p,
+.compare-card p,
+.layered-card p,
+.border-area-demo p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.clip-border-box {
+  background-clip: border-box;
+}
+
+.clip-padding-box {
+  background-clip: padding-box;
+}
+
+.clip-content-box {
+  background-clip: content-box;
+}
+
+.compare-card {
+  background-color: #fff7ed;
+  background-image:
+    url("./assets/corner-badge.svg"),
+    url("./assets/pattern-grid.svg");
+  background-repeat:
+    no-repeat,
+    repeat;
+  background-position:
+    left top,
+    left top;
+  background-size:
+    96px 96px,
+    72px 72px;
+}
+
+.origin-content-clip-border {
+  background-origin:
+    content-box,
+    content-box;
+  background-clip:
+    border-box,
+    border-box;
+}
+
+.origin-border-clip-content {
+  background-origin:
+    border-box,
+    border-box;
+  background-clip:
+    content-box,
+    content-box;
+}
+
+.text-demo {
+  padding: 48px;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, #ffffff, #eff6ff)
+    padding-box;
+  box-shadow: var(--shadow);
+}
+
+.text-demo p {
+  max-width: 780px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.gradient-title {
+  margin: 8px 0 14px;
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+  color: #2563eb;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .gradient-title {
+    background:
+      linear-gradient(90deg, #2563eb, #7c3aed, #ec4899),
+      url("./assets/soft-dots.svg");
+    background-size:
+      auto,
+      120px 120px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.layered-card {
+  min-height: 360px;
+  display: grid;
+  align-items: end;
+  color: white;
+  background-color: #1e3a8a;
+  background-image:
+    url("./assets/corner-badge.svg"),
+    linear-gradient(180deg, rgb(30 58 138 / 10%), rgb(30 58 138 / 92%)),
+    url("./assets/soft-dots.svg");
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat;
+  background-position:
+    right top,
+    center,
+    left top;
+  background-size:
+    120px 120px,
+    auto,
+    84px 84px;
+  background-origin:
+    content-box,
+    border-box,
+    border-box;
+  background-clip:
+    content-box,
+    border-box,
+    border-box;
+}
+
+.layered-content {
+  max-width: 760px;
+}
+
+.layered-card p {
+  color: rgb(255 255 255 / 86%);
+}
+
+.border-area-demo {
+  background:
+    linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6)
+    border-box;
+  background-clip: padding-box;
+}
+
+@supports (background-clip: border-area) {
+  .border-area-demo {
+    border-color: transparent;
+    background-clip: border-area;
+  }
+}
+
+@media (max-width: 900px) {
+  .three-columns,
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    min-height: 320px;
+  }
+}

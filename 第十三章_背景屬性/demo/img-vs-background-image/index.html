@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>img vs background-image demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>img 標籤和背景圖片的區別</h1>
+    <p>
+      這個 demo 展示內容圖片與裝飾背景的差異：語意、alt、版面佔位、object-fit、background-size、功能 icon 與圖表情境。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>內容圖片：使用 &lt;img&gt;</h2>
+        <p>商品圖、頭像、文章圖、圖表這類圖片本身就是內容，應該放進 HTML，並提供合適的 <code>alt</code>。</p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="content-card">
+          <img src="./assets/product-camera.svg" alt="復古銀色相機" width="360" height="260" />
+          <div>
+            <h3>商品圖片</h3>
+            <p>這張圖片傳達商品外觀，拿掉後內容不完整，所以用 <code>&lt;img&gt;</code>。</p>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <img src="./assets/avatar.svg" alt="王小明的使用者頭像" width="360" height="260" />
+          <div>
+            <h3>使用者頭像</h3>
+            <p>頭像通常代表人物或帳號資訊，也是內容的一部分。</p>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <figure>
+            <img src="./assets/sales-chart.svg" alt="2026 年第一季銷售呈現逐月上升趨勢" width="360" height="260" />
+            <figcaption>圖表還應搭配文字或資料表補充完整資訊。</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>裝飾圖片：使用 background-image</h2>
+        <p>如果圖片只是讓畫面更漂亮，拿掉後不影響內容理解，就適合用 CSS 背景。</p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="bg-card decorative-card">
+          <h3>卡片底紋</h3>
+          <p>這裡的圖案只是裝飾，不需要被輔助工具讀出。</p>
+        </article>
+
+        <article class="bg-card hero-background-card">
+          <h3>Hero 氛圍背景</h3>
+          <p>背景圖負責視覺氛圍；真正內容是標題與文字。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>版面佔位：img 會佔空間，背景圖不會撐開盒子</h2>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="layout-card">
+          <img src="./assets/avatar.svg" alt="使用者頭像示意" width="160" height="160" />
+          <h3>&lt;img&gt; 會顯示自身尺寸</h3>
+          <p>圖片是內容，會參與文件流。</p>
+        </article>
+
+        <article class="layout-card empty-bg-card">
+          <div class="empty-bg" aria-hidden="true"></div>
+          <h3>背景圖不會撐開元素</h3>
+          <p>上方 div 有背景圖，但沒有高度，因此幾乎看不到。</p>
+        </article>
+
+        <article class="layout-card visible-bg-card">
+          <div class="visible-bg" aria-hidden="true"></div>
+          <h3>給盒子尺寸後才看得到</h3>
+          <p>背景圖片需要元素本身有可見空間。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>裁切與縮放：object-fit vs background-size</h2>
+        <p>如果圖片是內容，不要只為了 cover 效果就改成背景圖；可以用 <code>object-fit</code>。</p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="fit-card">
+          <img class="cover-img" src="./assets/product-camera.svg" alt="復古銀色相機裁切示意" />
+          <h3>&lt;img&gt; + object-fit: cover</h3>
+          <p>保留內容語意，同時達到裁切填滿效果。</p>
+        </article>
+
+        <article class="fit-card cover-bg" aria-label="裝飾性背景圖裁切示意">
+          <h3>background-size: cover</h3>
+          <p>適合裝飾背景，不適合承載重要內容圖片。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>功能 icon：描述功能，不是描述圖案</h2>
+        <p>只有 icon 的按鈕必須有可及性名稱；背景圖沒有 alt，所以語意要由 button 提供。</p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="button-demo-card">
+          <h3>使用 &lt;img&gt; 當 icon</h3>
+          <button class="icon-button" type="button">
+            <img src="./assets/search-icon.svg" alt="搜尋" width="22" height="22" />
+          </button>
+          <p><code>alt="搜尋"</code> 描述功能，而不是寫「放大鏡」。</p>
+        </article>
+
+        <article class="button-demo-card">
+          <h3>使用背景圖當 icon</h3>
+          <button class="icon-button bg-icon-button" type="button" aria-label="搜尋"></button>
+          <p>背景圖沒有 alt，所以 button 使用 <code>aria-label="搜尋"</code>。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">06</p>
+        <h2>快速判斷表</h2>
+      </div>
+
+      <div class="decision-panel">
+        <div class="decision-item use-img">
+          <h3>用 &lt;img&gt;</h3>
+          <ul>
+            <li>商品圖</li>
+            <li>文章圖</li>
+            <li>頭像</li>
+            <li>Logo / 品牌識別</li>
+            <li>圖表、截圖、流程圖</li>
+          </ul>
+        </div>
+        <div class="decision-item use-bg">
+          <h3>用 background-image</h3>
+          <ul>
+            <li>背景紋理</li>
+            <li>裝飾圖案</li>
+            <li>Hero 氛圍圖</li>
+            <li>漸層遮罩</li>
+            <li>卡片右下角裝飾</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

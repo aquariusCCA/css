@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-clip demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景裁減 background-clip</h1>
+    <p>
+      這個 demo 展示 <code>border-box</code>、<code>padding-box</code>、<code>content-box</code>、
+      <code>text</code>，以及 <code>background-clip</code> 和 <code>background-origin</code> 的差異。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>三種盒模型裁切範圍</h2>
+        <p>
+          三張卡片有相同的 padding、dashed border、背景色與背景圖。
+          差別只在 <code>background-clip</code>。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="clip-card clip-border-box">
+          <h3>border-box</h3>
+          <p>背景畫到 border 外緣下方，所以可透過虛線邊框空隙看到背景。</p>
+        </article>
+
+        <article class="clip-card clip-padding-box">
+          <h3>padding-box</h3>
+          <p>背景畫到 padding 外緣，不會畫到 border 下方。</p>
+        </article>
+
+        <article class="clip-card clip-content-box">
+          <h3>content-box</h3>
+          <p>背景只畫在 content 區域，padding 區也不會有背景。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>background-origin vs background-clip</h2>
+        <p>
+          <code>origin</code> 控制背景圖片從哪裡開始定位；
+          <code>clip</code> 控制背景最後畫到哪裡為止。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="compare-card origin-content-clip-border">
+          <h3>origin: content-box<br>clip: border-box</h3>
+          <p>背景圖從 content-box 開始定位，但背景可畫到 border-box。</p>
+        </article>
+
+        <article class="compare-card origin-border-clip-content">
+          <h3>origin: border-box<br>clip: content-box</h3>
+          <p>背景圖從 border-box 開始定位，但最後只顯示在 content-box。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>漸層文字：background-clip: text</h2>
+        <p>
+          背景被裁切到文字形狀內，並搭配透明文字色讓漸層露出來。
+        </p>
+      </div>
+
+      <article class="text-demo">
+        <p class="eyebrow">background-clip: text</p>
+        <h2 class="gradient-title">Gradient Text</h2>
+        <p>
+          這個效果使用 <code>background-clip: text</code>、
+          <code>color: transparent</code> 和 WebKit 前綴。
+        </p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>多背景圖逐層裁切</h2>
+        <p>
+          第一層角落圖案裁切到 content-box，第二層底紋裁切到 border-box。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>content-box, border-box</h3>
+          <p>
+            第一個 <code>background-clip</code> 對應第一張背景圖；
+            第二個對應第二張背景圖。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>進階值：border-area</h2>
+        <p>
+          如果瀏覽器支援 <code>background-clip: border-area</code>，
+          下方卡片會示範背景裁切到 border 繪製區域；否則會使用 fallback。
+        </p>
+      </div>
+
+      <article class="border-area-demo">
+        <h3>border-area support demo</h3>
+        <p>這個值屬於較新的語法，實務使用前建議先確認瀏覽器支援。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

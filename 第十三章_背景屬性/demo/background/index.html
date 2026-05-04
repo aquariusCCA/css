@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background shorthand demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景複合寫法 background</h1>
+    <p>
+      這個 demo 展示 <code>background</code> 簡寫、<code>position / size</code> 的斜線規則、
+      shorthand 重設陷阱、多背景圖，以及 <code>origin / clip</code> 的 box 值。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>Longhand vs Shorthand</h2>
+        <p>兩張卡片視覺相近：左邊拆開寫，右邊使用 <code>background</code> 複合寫法。</p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="demo-card longhand-card">
+          <h3>Longhand</h3>
+          <p>分別寫 <code>background-image</code>、<code>position</code>、<code>size</code>、<code>repeat</code>。</p>
+        </article>
+
+        <article class="demo-card shorthand-card">
+          <h3>Shorthand</h3>
+          <p>使用一行 <code>background: url(...) right bottom / size no-repeat color</code>。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2><code>position / size</code>：斜線不能省略</h2>
+        <p><code>center / cover</code> 中，<code>center</code> 是位置，<code>cover</code> 是尺寸。</p>
+      </div>
+
+      <article class="hero-demo slash-demo">
+        <div class="hero-content">
+          <p class="eyebrow">position / size</p>
+          <h3>background: url(...) center / cover no-repeat</h3>
+          <p>這是 Hero 背景最常見的 shorthand 寫法。</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>Shorthand 重設陷阱</h2>
+        <p>只想換背景圖時，如果誤用 <code>background: url(...)</code>，原本的 position、size、repeat 可能全部被重設。</p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="trap-card base-state">
+          <h3>原本狀態</h3>
+          <p>背景圖在右下角、不重複、有尺寸。</p>
+        </article>
+
+        <article class="trap-card bad-reset">
+          <h3>錯誤：background: url(...)</h3>
+          <p>重設成預設位置、預設尺寸、預設重複方式。</p>
+        </article>
+
+        <article class="trap-card safe-change">
+          <h3>安全：background-image</h3>
+          <p>只換圖片來源，保留原本 position、size、repeat。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>多背景圖：逗號分層</h2>
+        <p>第一個背景在最上層；背景色只能放在最後一層。</p>
+      </div>
+
+      <article class="hero-demo multi-bg-demo">
+        <div class="hero-content">
+          <p class="eyebrow">multiple backgrounds</p>
+          <h3>漸層遮罩 + 風景圖 + 底色</h3>
+          <p>
+            <code>linear-gradient(...), url(...) center / cover no-repeat #0f172a</code>
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>origin / clip 的 box 值</h2>
+        <p>一個 box 值同時設定 origin 和 clip；兩個 box 值時，第一個是 origin，第二個是 clip。</p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="box-card one-box-value">
+          <h3>一個 box 值：padding-box</h3>
+          <p>大致等於 origin 和 clip 都是 padding-box。</p>
+        </article>
+
+        <article class="box-card two-box-values">
+          <h3>兩個 box 值：padding-box content-box</h3>
+          <p>第一個控制 origin，第二個控制 clip。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">06</p>
+        <h2>複雜背景：拆開寫也很好</h2>
+        <p>當 shorthand 太長時，拆回 longhand 反而更適合維護。</p>
+      </div>
+
+      <div class="code-compare">
+        <pre><code>.hero {
+  background:
+    linear-gradient(rgb(15 23 42 / 72%), rgb(15 23 42 / 72%)),
+    url("./assets/hero-scene.svg") center / cover no-repeat fixed #0f172a;
+}</code></pre>
+
+        <pre><code>.hero {
+  background-color: #0f172a;
+  background-image:
+    linear-gradient(rgb(15 23 42 / 72%), rgb(15 23 42 / 72%)),
+    url("./assets/hero-scene.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}</code></pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

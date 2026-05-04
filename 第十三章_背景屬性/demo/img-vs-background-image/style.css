@@ -1,0 +1,346 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --brand: #2563eb;
+  --brand-dark: #1e3a8a;
+  --radius-lg: 24px;
+  --shadow: 0 18px 45px rgb(15 23 42 / 10%);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family:
+    Inter,
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  line-height: 1.7;
+  background-color: var(--bg);
+}
+
+code {
+  padding: 0.12rem 0.36rem;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background-color: #eff6ff;
+  font-size: 0.92em;
+}
+
+.page-hero {
+  min-height: 420px;
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: 72px clamp(24px, 7vw, 96px);
+  color: white;
+  background-color: #0f172a;
+  background-image:
+    linear-gradient(90deg, rgb(15 23 42 / 92%), rgb(15 23 42 / 50%)),
+    url("./assets/hero-scene.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.page-hero h1 {
+  max-width: 1000px;
+  margin: 0;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+.page-hero p {
+  max-width: 920px;
+  margin: 0;
+  color: rgb(255 255 255 / 86%);
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0;
+  color: #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.layout {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0 96px;
+}
+
+.section {
+  margin-top: 56px;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+
+.section-header {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+}
+
+.section-header p {
+  max-width: 920px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-kicker {
+  color: var(--brand);
+}
+
+.demo-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.content-card,
+.bg-card,
+.layout-card,
+.fit-card,
+.button-demo-card,
+.decision-item {
+  min-height: 260px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background-color: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.content-card {
+  display: grid;
+  gap: 18px;
+}
+
+.content-card img,
+.content-card figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background-color: #eff6ff;
+  object-fit: cover;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+h3 {
+  margin: 0 0 10px;
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+}
+
+.content-card p,
+.bg-card p,
+.layout-card p,
+.fit-card p,
+.button-demo-card p,
+.decision-item li {
+  color: var(--muted);
+}
+
+.bg-card {
+  min-height: 320px;
+  display: grid;
+  align-content: end;
+}
+
+.decorative-card {
+  background-color: #eff6ff;
+  background-image:
+    linear-gradient(rgb(239 246 255 / 68%), rgb(239 246 255 / 68%)),
+    url("./assets/decorative-pattern.svg");
+  background-repeat: repeat;
+  background-size: auto, 72px 72px;
+}
+
+.hero-background-card {
+  color: white;
+  background-color: #0f172a;
+  background-image:
+    linear-gradient(180deg, rgb(15 23 42 / 14%), rgb(15 23 42 / 88%)),
+    url("./assets/hero-scene.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-background-card p {
+  color: rgb(255 255 255 / 84%);
+}
+
+.layout-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.layout-card > img {
+  width: 160px;
+  height: 160px;
+  border-radius: 32px;
+  background-color: #eff6ff;
+  object-fit: cover;
+}
+
+.empty-bg,
+.visible-bg {
+  border: 2px dashed #60a5fa;
+  border-radius: 20px;
+  background-color: #eff6ff;
+  background-image: url("./assets/avatar.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120px 120px;
+}
+
+.empty-bg {
+  /* intentional: no height, to show that background-image does not create layout space */
+}
+
+.visible-bg {
+  min-height: 160px;
+}
+
+.fit-card {
+  display: grid;
+  align-content: end;
+  gap: 14px;
+  min-height: 360px;
+}
+
+.cover-img {
+  width: 100%;
+  height: 220px;
+  border-radius: 20px;
+  background-color: #eff6ff;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cover-bg {
+  color: white;
+  background-color: #0f172a;
+  background-image:
+    linear-gradient(180deg, rgb(15 23 42 / 20%), rgb(15 23 42 / 88%)),
+    url("./assets/product-camera.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.cover-bg p {
+  color: rgb(255 255 255 / 84%);
+}
+
+.button-demo-card {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 16px;
+}
+
+.icon-button {
+  width: 58px;
+  height: 58px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 18px;
+  color: white;
+  background-color: var(--brand);
+  box-shadow: 0 12px 24px rgb(37 99 235 / 25%);
+  cursor: pointer;
+}
+
+.icon-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.bg-icon-button {
+  background-image: url("./assets/search-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.decision-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.decision-item ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.use-img {
+  background:
+    linear-gradient(rgb(255 255 255 / 80%), rgb(255 255 255 / 80%)),
+    url("./assets/product-camera.svg") right 24px bottom 24px / 130px auto no-repeat #ffffff;
+}
+
+.use-bg {
+  background:
+    linear-gradient(rgb(255 255 255 / 78%), rgb(255 255 255 / 78%)),
+    url("./assets/decorative-pattern.svg") left top / 72px 72px repeat #ffffff;
+}
+
+@media (max-width: 900px) {
+  .three-columns,
+  .two-columns,
+  .decision-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero {
+    min-height: 360px;
+  }
+}

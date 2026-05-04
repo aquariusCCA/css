@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="520" viewBox="0 0 720 520">
+  <defs>
+    <linearGradient id="body" x1="120" y1="130" x2="570" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e2e8f0"/>
+      <stop offset=".55" stop-color="#94a3b8"/>
+      <stop offset="1" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="270" y1="180" x2="450" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset=".55" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="520" rx="44" fill="#eff6ff"/>
+  <circle cx="590" cy="112" r="70" fill="#bfdbfe"/>
+  <circle cx="126" cy="420" r="90" fill="#ddd6fe"/>
+  <rect x="126" y="160" width="468" height="260" rx="42" fill="url(#body)"/>
+  <rect x="178" y="112" width="140" height="70" rx="22" fill="#475569"/>
+  <rect x="450" y="126" width="86" height="42" rx="16" fill="#64748b"/>
+  <circle cx="360" cy="292" r="112" fill="#0f172a" opacity=".22"/>
+  <circle cx="360" cy="292" r="92" fill="url(#lens)"/>
+  <circle cx="360" cy="292" r="58" fill="#020617"/>
+  <circle cx="334" cy="266" r="20" fill="#ffffff" opacity=".62"/>
+  <rect x="174" y="216" width="82" height="34" rx="17" fill="#f8fafc" opacity=".76"/>
+</svg>

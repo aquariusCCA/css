@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>background-position demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="page-hero">
+    <p class="eyebrow">第 13 章｜背景屬性</p>
+    <h1>背景位置 background-position</h1>
+    <p>
+      這個 demo 展示關鍵字定位、單值省略規則、數值定位、百分比定位、
+      三值/四值語法，以及多背景圖逐層對應。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">01</p>
+        <h2>九宮格關鍵字定位</h2>
+        <p>背景圖不重複時，<code>background-position</code> 的位置最容易觀察。</p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="position-card pos-left-top">
+          <h3>left top</h3>
+          <p>靠左上。</p>
+        </article>
+
+        <article class="position-card pos-center-top">
+          <h3>center top</h3>
+          <p>水平置中，垂直靠上。</p>
+        </article>
+
+        <article class="position-card pos-right-top">
+          <h3>right top</h3>
+          <p>靠右上。</p>
+        </article>
+
+        <article class="position-card pos-left-center">
+          <h3>left center</h3>
+          <p>水平靠左，垂直置中。</p>
+        </article>
+
+        <article class="position-card pos-center">
+          <h3>center</h3>
+          <p>水平與垂直都置中。</p>
+        </article>
+
+        <article class="position-card pos-right-center">
+          <h3>right center</h3>
+          <p>水平靠右，垂直置中。</p>
+        </article>
+
+        <article class="position-card pos-left-bottom">
+          <h3>left bottom</h3>
+          <p>靠左下。</p>
+        </article>
+
+        <article class="position-card pos-center-bottom">
+          <h3>center bottom</h3>
+          <p>水平置中，垂直靠下。</p>
+        </article>
+
+        <article class="position-card pos-right-bottom">
+          <h3>right bottom</h3>
+          <p>靠右下。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">02</p>
+        <h2>單值省略規則</h2>
+        <p>只寫一個值時，另一個方向通常會補 <code>center</code>。</p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="position-card one-right">
+          <h3>right</h3>
+          <p>等同 <code>right center</code>。</p>
+        </article>
+
+        <article class="position-card one-top">
+          <h3>top</h3>
+          <p>等同 <code>center top</code>。</p>
+        </article>
+
+        <article class="position-card one-length">
+          <h3>24px</h3>
+          <p>等同 <code>24px center</code>。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">03</p>
+        <h2>數值與百分比定位</h2>
+        <p>
+          兩個純數值時，第一個是 X 軸，第二個是 Y 軸；
+          百分比則是圖片上的百分比點對齊容器上的百分比點。
+        </p>
+      </div>
+
+      <div class="demo-grid four-columns">
+        <article class="position-card numeric-px">
+          <h3>24px 40px</h3>
+          <p>X 軸 24px，Y 軸 40px。</p>
+        </article>
+
+        <article class="position-card percent-center">
+          <h3>50% 50%</h3>
+          <p>圖片中心對齊容器中心。</p>
+        </article>
+
+        <article class="position-card percent-bottom">
+          <h3>100% 100%</h3>
+          <p>圖片右下角對齊容器右下角。</p>
+        </article>
+
+        <article class="position-card percent-custom">
+          <h3>25% 75%</h3>
+          <p>圖片上的 25% / 75% 點對齊容器同位置點。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">04</p>
+        <h2>三值與四值語法：從指定邊緣偏移</h2>
+        <p>
+          <code>right 24px bottom 16px</code> 這種寫法適合卡片右下角裝飾圖。
+        </p>
+      </div>
+
+      <div class="demo-grid three-columns">
+        <article class="position-card edge-right-bottom">
+          <h3>right 24px bottom 16px</h3>
+          <p>距離右邊 24px，距離底部 16px。</p>
+        </article>
+
+        <article class="position-card edge-left-top">
+          <h3>left 24px top 16px</h3>
+          <p>距離左邊 24px，距離上方 16px。</p>
+        </article>
+
+        <article class="position-card edge-top-right">
+          <h3>top 16px right 24px</h3>
+          <p>距離上方 16px，距離右邊 24px。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">05</p>
+        <h2>多背景圖：逐層對應 background-position</h2>
+        <p>
+          第一個位置對應第一張背景圖，第二個位置對應第二張背景圖。
+        </p>
+      </div>
+
+      <article class="layered-card">
+        <div class="layered-content">
+          <p class="eyebrow">Layer Mapping</p>
+          <h3>上層 badge 在右下角，下層 grid 從左上開始</h3>
+          <p>
+            這張卡片使用兩層背景：
+            <code>corner-badge.svg</code> 定位在 <code>right 28px bottom 28px</code>，
+            <code>dot-grid.svg</code> 定位在 <code>left top</code>。
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <p class="section-kicker">06</p>
+        <h2>位置、尺寸、平鋪要分工</h2>
+        <p>
+          <code>background-position</code> 控制位置，
+          <code>background-size</code> 控制大小，
+          <code>background-repeat</code> 控制是否重複。
+        </p>
+      </div>
+
+      <div class="demo-grid two-columns">
+        <article class="relation-card repeat-on">
+          <h3>預設 repeat 時，位置不明顯</h3>
+          <p>因為圖片被平鋪，單張圖的位置不容易看出來。</p>
+        </article>
+
+        <article class="relation-card repeat-off">
+          <h3>no-repeat 時，位置很清楚</h3>
+          <p>只剩一張背景圖，<code>right bottom</code> 的效果很明顯。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
