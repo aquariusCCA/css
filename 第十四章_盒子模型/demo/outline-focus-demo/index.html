@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>outline focus DEMO｜外輪廓與焦點狀態</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
+</head>
+<body class="focus-mode-visible">
+  <header class="site-header">
+    <p class="eyebrow">CSS Box Model DEMO</p>
+    <h1>outline focus 外輪廓與焦點狀態</h1>
+    <p class="lead">
+      觀察 <code>outline</code> 與 <code>border</code> 的差異，並透過鍵盤 <kbd>Tab</kbd>
+      測試 <code>:focus</code>、<code>:focus-visible</code> 與 <code>outline-offset</code> 的實際效果。
+    </p>
+  </header>
+
+  <main class="app">
+    <section class="panel controls-panel" aria-labelledby="controls-title">
+      <div class="section-heading">
+        <p class="eyebrow">Controls</p>
+        <h2 id="controls-title">調整外輪廓參數</h2>
+      </div>
+
+      <div class="control-grid">
+        <label class="control">
+          <span class="control-title">outline-width</span>
+          <input id="outlineWidth" type="range" min="1" max="16" step="1" value="4" />
+          <output id="outlineWidthValue">4px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">outline-offset</span>
+          <input id="outlineOffset" type="range" min="-8" max="18" step="1" value="4" />
+          <output id="outlineOffsetValue">4px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">border-radius</span>
+          <input id="focusRadius" type="range" min="0" max="32" step="1" value="12" />
+          <output id="focusRadiusValue">12px</output>
+        </label>
+
+        <label class="control select-control">
+          <span class="control-title">outline-style</span>
+          <select id="outlineStyle">
+            <option value="solid" selected>solid</option>
+            <option value="dashed">dashed</option>
+            <option value="dotted">dotted</option>
+            <option value="double">double</option>
+          </select>
+        </label>
+
+        <label class="control color-control">
+          <span class="control-title">outline-color</span>
+          <input id="outlineColor" type="color" value="#2563eb" />
+          <output id="outlineColorValue">#2563eb</output>
+        </label>
+      </div>
+
+      <fieldset class="radio-group">
+        <legend>焦點選擇器</legend>
+        <label>
+          <input type="radio" name="focusMode" value="visible" checked />
+          <span>只在 <code>:focus-visible</code> 顯示</span>
+        </label>
+        <label>
+          <input type="radio" name="focusMode" value="focus" />
+          <span>在 <code>:focus</code> 顯示</span>
+        </label>
+      </fieldset>
+
+      <div class="switch-list" aria-label="焦點效果切換選項">
+        <label class="switch">
+          <input id="useBorderFocus" type="checkbox" />
+          <span>改用 <code>border</code> 做焦點效果，觀察可能產生的版面晃動</span>
+        </label>
+
+        <label class="switch danger-switch">
+          <input id="removeFocus" type="checkbox" />
+          <span>錯誤示範：移除焦點外觀但不提供替代樣式</span>
+        </label>
+      </div>
+
+      <div class="preset-area">
+        <h3>常用情境</h3>
+        <div class="preset-buttons" aria-label="outline focus presets">
+          <button type="button" class="preset-btn" data-preset="accessible">可訪問性推薦</button>
+          <button type="button" class="preset-btn" data-preset="keyboardOnly">鍵盤焦點</button>
+          <button type="button" class="preset-btn" data-preset="inner">內縮 offset</button>
+          <button type="button" class="preset-btn" data-preset="warning">高對比警示</button>
+          <button type="button" class="preset-btn" data-preset="danger">錯誤移除</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-column" aria-labelledby="preview-title">
+      <div class="panel preview-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Comparison</p>
+          <h2 id="preview-title">border 與 outline 尺寸差異</h2>
+        </div>
+
+        <div class="comparison-stage" aria-label="border outline comparison">
+          <article class="comparison-card border-compare">
+            <h3>使用 border</h3>
+            <div class="measure-track">
+              <div id="borderBox" class="measure-box">border</div>
+              <span class="neighbor">旁邊元素</span>
+            </div>
+            <p id="borderSize" class="metric">實際盒子尺寸：208px × 108px</p>
+            <small>border 會參與盒模型尺寸計算；在 <code>content-box</code> 下會增加外部尺寸。</small>
+          </article>
+
+          <article class="comparison-card outline-compare">
+            <h3>使用 outline</h3>
+            <div class="measure-track">
+              <div id="outlineBox" class="measure-box">outline</div>
+              <span class="neighbor">旁邊元素</span>
+            </div>
+            <p id="outlineSize" class="metric">實際盒子尺寸：200px × 100px</p>
+            <small>outline 畫在盒子外層，不佔版面空間，也不改變元素尺寸。</small>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel focus-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Keyboard Test</p>
+          <h2>焦點狀態測試區</h2>
+        </div>
+
+        <p class="hint">
+          使用鍵盤按 <kbd>Tab</kbd> 在下方元素間移動焦點；若選擇 <code>:focus-visible</code>，通常鍵盤操作才會看到外輪廓。
+        </p>
+
+        <div class="focus-playground">
+          <button type="button" class="focus-target demo-button">儲存設定</button>
+
+          <label class="field-label">
+            <span>姓名輸入框</span>
+            <input class="focus-target demo-input" type="text" placeholder="請輸入姓名" />
+          </label>
+
+          <a class="focus-target demo-link" href="#note-title">查看觀察重點</a>
+
+          <button type="button" class="focus-target demo-card-button">
+            <strong>可聚焦卡片按鈕</strong>
+            <span>這類 UI 常用 outline 表示鍵盤焦點。</span>
+          </button>
+        </div>
+
+        <p id="focusStatus" class="focus-status" aria-live="polite">目前焦點：尚未聚焦在測試元素上</p>
+      </div>
+
+      <div class="panel code-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Generated CSS</p>
+          <h2>目前 CSS</h2>
+        </div>
+        <pre><code id="cssOutput"></code></pre>
+      </div>
+
+      <div class="panel note-panel" id="note-title">
+        <h2>觀察重點</h2>
+        <ul>
+          <li><code>border</code> 是盒模型的一部分，可能改變元素實際尺寸與排版。</li>
+          <li><code>outline</code> 不佔用版面空間，所以適合做焦點提示。</li>
+          <li><code>outline-offset</code> 可以控制外輪廓與元素邊界的距離，也可以設定負值往內縮。</li>
+          <li><code>:focus-visible</code> 常用於鍵盤焦點提示，比單純 <code>:focus</code> 更不容易干擾滑鼠操作。</li>
+          <li>不要直接寫 <code>outline: none;</code> 後不提供替代樣式，否則鍵盤使用者會失去目前位置提示。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

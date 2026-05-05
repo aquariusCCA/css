@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>box-shadow DEMO｜盒子陰影可視化</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">CSS Box Model DEMO</p>
+    <h1>box-shadow 盒子陰影可視化</h1>
+    <p class="lead">
+      透過調整 offset、blur、spread、color、inset 等參數，觀察陰影如何影響視覺效果，
+      以及為什麼 <code>box-shadow</code> 不會佔用版面空間。
+    </p>
+  </header>
+
+  <main class="app">
+    <section class="panel controls-panel" aria-labelledby="controls-title">
+      <div class="section-heading">
+        <p class="eyebrow">Controls</p>
+        <h2 id="controls-title">調整陰影參數</h2>
+      </div>
+
+      <div class="control-grid">
+        <label class="control">
+          <span class="control-title">元素寬度</span>
+          <input id="cardWidth" type="range" min="220" max="460" step="10" value="320" />
+          <output id="cardWidthValue">320px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">元素高度</span>
+          <input id="cardHeight" type="range" min="190" max="340" step="10" value="210" />
+          <output id="cardHeightValue">210px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">圓角 border-radius</span>
+          <input id="radius" type="range" min="0" max="80" step="2" value="24" />
+          <output id="radiusValue">24px</output>
+        </label>
+
+        <label class="control color-control">
+          <span class="control-title">卡片背景</span>
+          <input id="cardBg" type="color" value="#ffffff" />
+          <output id="cardBgValue">#ffffff</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">offset-x：水平位移</span>
+          <input id="offsetX" type="range" min="-60" max="60" step="1" value="0" />
+          <output id="offsetXValue">0px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">offset-y：垂直位移</span>
+          <input id="offsetY" type="range" min="-60" max="60" step="1" value="18" />
+          <output id="offsetYValue">18px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">blur-radius：模糊半徑</span>
+          <input id="blur" type="range" min="0" max="90" step="1" value="36" />
+          <output id="blurValue">36px</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">spread-radius：擴張半徑</span>
+          <input id="spread" type="range" min="-40" max="50" step="1" value="-14" />
+          <output id="spreadValue">-14px</output>
+        </label>
+
+        <label class="control color-control">
+          <span class="control-title">陰影顏色</span>
+          <input id="shadowColor" type="color" value="#0f172a" />
+          <output id="shadowColorValue">#0f172a</output>
+        </label>
+
+        <label class="control">
+          <span class="control-title">透明度 opacity</span>
+          <input id="opacity" type="range" min="0" max="1" step="0.01" value="0.24" />
+          <output id="opacityValue">0.24</output>
+        </label>
+      </div>
+
+      <div class="switch-list" aria-label="陰影切換選項">
+        <label class="switch">
+          <input id="inset" type="checkbox" />
+          <span>改成內陰影 <code>inset</code></span>
+        </label>
+
+        <label class="switch">
+          <input id="multiLayer" type="checkbox" checked />
+          <span>啟用多層陰影</span>
+        </label>
+
+        <label class="switch">
+          <input id="hoverShadow" type="checkbox" checked />
+          <span>啟用 hover 陰影變化</span>
+        </label>
+
+        <label class="switch">
+          <input id="clipShadow" type="checkbox" />
+          <span>讓父層套用 <code>overflow: hidden</code>，觀察陰影被裁切</span>
+        </label>
+      </div>
+
+      <div class="preset-area">
+        <h3>常用陰影預設</h3>
+        <div class="preset-buttons" aria-label="box-shadow presets">
+          <button type="button" class="preset-btn" data-preset="soft">柔和卡片</button>
+          <button type="button" class="preset-btn" data-preset="floating">浮起面板</button>
+          <button type="button" class="preset-btn" data-preset="inset">內凹效果</button>
+          <button type="button" class="preset-btn" data-preset="glow">發光效果</button>
+          <button type="button" class="preset-btn" data-preset="hard">硬邊投影</button>
+          <button type="button" class="preset-btn" data-preset="flat">清除陰影</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-column" aria-labelledby="preview-title">
+      <div class="panel preview-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Preview</p>
+          <h2 id="preview-title">陰影預覽</h2>
+        </div>
+
+        <div id="previewFrame" class="preview-frame">
+          <article id="shadowCard" class="shadow-card">
+            <p class="card-label">Demo Card</p>
+            <h3>box-shadow 不改變盒子佔位</h3>
+            <p>
+              陰影只是視覺繪製效果，不會像 <code>padding</code> 或 <code>border</code>
+              一樣增加元素本身的尺寸。
+            </p>
+            <button type="button">Hover me</button>
+          </article>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>元素佔位尺寸</h3>
+            <p id="layoutSize">320px × 210px</p>
+            <small>由元素本身的 width / height 決定，不包含陰影。</small>
+          </article>
+
+          <article class="info-card">
+            <h3>陰影視覺延伸估算</h3>
+            <p id="shadowSpreadInfo">top 0px / right 22px / bottom 58px / left 22px</p>
+            <small>這是便於觀察的估算值，不代表實際 layout 尺寸。</small>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel code-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Generated CSS</p>
+          <h2>目前 CSS</h2>
+        </div>
+        <pre><code id="cssOutput"></code></pre>
+      </div>
+
+      <div class="panel note-panel">
+        <h2>觀察重點</h2>
+        <ul>
+          <li><code>offset-x</code> 正值往右，負值往左。</li>
+          <li><code>offset-y</code> 正值往下，負值往上。</li>
+          <li><code>blur-radius</code> 越大，陰影越模糊、範圍越大。</li>
+          <li><code>spread-radius</code> 正值會擴張陰影，負值會收縮陰影。</li>
+          <li><code>inset</code> 會把外陰影改成內陰影。</li>
+          <li><code>box-shadow</code> 不佔用版面空間，但可能被父層 <code>overflow: hidden</code> 裁切。</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

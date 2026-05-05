@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Border / Border Radius Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="demo-page">
+      <header class="hero">
+        <p class="eyebrow">CSS Box Model Demo</p>
+        <h1>border / border-radius 視覺化練習</h1>
+        <p class="hero__description">
+          調整邊框粗細、樣式、顏色與四個角的圓角，觀察 border 是否影響盒子尺寸，以及 border-radius 如何改變盒子的外觀。
+        </p>
+      </header>
+
+      <section class="demo-layout" aria-label="border 與 border-radius 互動範例">
+        <aside class="control-panel" aria-labelledby="control-title">
+          <h2 id="control-title">控制面板</h2>
+
+          <form class="controls" id="controlForm">
+            <fieldset>
+              <legend>盒子尺寸</legend>
+
+              <label class="control">
+                <span>width：<strong id="widthValue">240px</strong></span>
+                <input id="boxWidth" type="range" min="120" max="420" value="240" />
+              </label>
+
+              <label class="control">
+                <span>height：<strong id="heightValue">160px</strong></span>
+                <input id="boxHeight" type="range" min="80" max="320" value="160" />
+              </label>
+
+              <label class="control control--select">
+                <span>box-sizing</span>
+                <select id="boxSizing">
+                  <option value="border-box" selected>border-box</option>
+                  <option value="content-box">content-box</option>
+                </select>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>border 設定</legend>
+
+              <label class="control">
+                <span>border-width：<strong id="borderWidthValue">8px</strong></span>
+                <input id="borderWidth" type="range" min="0" max="30" value="8" />
+              </label>
+
+              <label class="control control--select">
+                <span>border-style</span>
+                <select id="borderStyle">
+                  <option value="solid" selected>solid</option>
+                  <option value="dashed">dashed</option>
+                  <option value="dotted">dotted</option>
+                  <option value="double">double</option>
+                  <option value="groove">groove</option>
+                  <option value="ridge">ridge</option>
+                  <option value="none">none</option>
+                </select>
+              </label>
+
+              <div class="color-grid">
+                <label class="control control--color">
+                  <span>border-color</span>
+                  <input id="borderColor" type="color" value="#2563eb" />
+                </label>
+
+                <label class="control control--color">
+                  <span>background</span>
+                  <input id="backgroundColor" type="color" value="#dbeafe" />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>border-radius 設定</legend>
+
+              <label class="control control--select">
+                <span>圓角單位</span>
+                <select id="radiusUnit">
+                  <option value="px" selected>px</option>
+                  <option value="%">%</option>
+                </select>
+              </label>
+
+              <label class="check-control">
+                <input id="sameRadius" type="checkbox" checked />
+                <span>四個角使用相同圓角</span>
+              </label>
+
+              <label class="control" id="sameRadiusControl">
+                <span>radius：<strong id="radiusAllValue">24px</strong></span>
+                <input id="radiusAll" type="range" min="0" max="100" value="24" />
+              </label>
+
+              <div class="corner-controls" id="cornerControls" aria-label="四角圓角設定">
+                <label class="control">
+                  <span>左上：<strong id="topLeftValue">24px</strong></span>
+                  <input id="topLeftRadius" type="range" min="0" max="100" value="24" />
+                </label>
+
+                <label class="control">
+                  <span>右上：<strong id="topRightValue">24px</strong></span>
+                  <input id="topRightRadius" type="range" min="0" max="100" value="24" />
+                </label>
+
+                <label class="control">
+                  <span>右下：<strong id="bottomRightValue">24px</strong></span>
+                  <input id="bottomRightRadius" type="range" min="0" max="100" value="24" />
+                </label>
+
+                <label class="control">
+                  <span>左下：<strong id="bottomLeftValue">24px</strong></span>
+                  <input id="bottomLeftRadius" type="range" min="0" max="100" value="24" />
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>常見形狀</legend>
+              <div class="preset-grid">
+                <button type="button" data-preset="card">圓角卡片</button>
+                <button type="button" data-preset="circle">正方形變圓形</button>
+                <button type="button" data-preset="pill">矩形變膠囊</button>
+                <button type="button" data-preset="mixed">四角不同</button>
+                <button type="button" data-preset="dashed">虛線標籤</button>
+                <button type="button" data-preset="square">清除圓角</button>
+              </div>
+            </fieldset>
+          </form>
+        </aside>
+
+        <section class="preview-panel" aria-labelledby="preview-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Live Preview</p>
+              <h2 id="preview-title">即時預覽</h2>
+            </div>
+            <p class="hint">提示：切換 <code>box-sizing</code> 可以觀察 border 對實際尺寸的影響。</p>
+          </div>
+
+          <div class="stage" id="stage">
+            <div class="preview-box" id="previewBox">
+              <span>border</span>
+              <strong>border-radius</strong>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card">
+              <h3>尺寸觀察</h3>
+              <dl class="metrics">
+                <div>
+                  <dt>CSS width / height</dt>
+                  <dd id="cssSizeText">240px × 160px</dd>
+                </div>
+                <div>
+                  <dt>實際外部尺寸</dt>
+                  <dd id="renderedSizeText">240px × 160px</dd>
+                </div>
+                <div>
+                  <dt>content 可用尺寸</dt>
+                  <dd id="contentSizeText">224px × 144px</dd>
+                </div>
+              </dl>
+            </article>
+
+            <article class="info-card">
+              <h3>觀念提醒</h3>
+              <p id="explainText">
+                在 <code>border-box</code> 中，width / height 會包含 border；在 <code>content-box</code> 中，border 會額外增加盒子的實際外部尺寸。
+              </p>
+            </article>
+          </div>
+
+          <article class="code-card">
+            <div class="code-card__header">
+              <h3>目前 CSS</h3>
+              <button type="button" id="copyCodeButton">複製 CSS</button>
+            </div>
+            <pre><code id="codeOutput"></code></pre>
+            <p class="copy-message" id="copyMessage" aria-live="polite"></p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

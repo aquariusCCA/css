@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Card Layout Integration Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">CSS Box Model Demo</p>
+      <h1>綜合卡片排版 DEMO</h1>
+      <p class="subtitle">
+        將 CSS reset、<code>box-sizing</code>、<code>padding</code>、<code>margin / gap</code>、
+        <code>border-radius</code>、<code>box-shadow</code>、<code>outline</code> 串成一個可互動的卡片排版範例。
+      </p>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel controls-panel" aria-label="控制面板">
+        <h2>控制面板</h2>
+
+        <div class="control-group">
+          <h3>全域盒子設定</h3>
+
+          <label class="switch-row">
+            <input id="useReset" type="checkbox" checked />
+            <span>套用簡易 reset</span>
+          </label>
+
+          <label class="switch-row">
+            <input id="useBorderBox" type="checkbox" checked />
+            <span>使用 <code>box-sizing: border-box</code></span>
+          </label>
+
+          <label class="switch-row">
+            <input id="showGuides" type="checkbox" checked />
+            <span>顯示盒子輔助線</span>
+          </label>
+        </div>
+
+        <div class="control-group">
+          <h3>卡片尺寸與間距</h3>
+
+          <label class="range-field" for="cardWidth">
+            <span>卡片寬度</span>
+            <strong id="cardWidthValue">280px</strong>
+            <input id="cardWidth" type="range" min="220" max="420" value="280" />
+          </label>
+
+          <label class="range-field" for="cardPadding">
+            <span>padding</span>
+            <strong id="cardPaddingValue">20px</strong>
+            <input id="cardPadding" type="range" min="0" max="48" value="20" />
+          </label>
+
+          <label class="range-field" for="cardGap">
+            <span>卡片 gap</span>
+            <strong id="cardGapValue">20px</strong>
+            <input id="cardGap" type="range" min="0" max="48" value="20" />
+          </label>
+
+          <label class="range-field" for="cardBorderWidth">
+            <span>border-width</span>
+            <strong id="cardBorderWidthValue">1px</strong>
+            <input id="cardBorderWidth" type="range" min="0" max="12" value="1" />
+          </label>
+        </div>
+
+        <div class="control-group">
+          <h3>視覺效果</h3>
+
+          <label class="range-field" for="cardRadius">
+            <span>border-radius</span>
+            <strong id="cardRadiusValue">18px</strong>
+            <input id="cardRadius" type="range" min="0" max="48" value="18" />
+          </label>
+
+          <label class="range-field" for="shadowLevel">
+            <span>box-shadow 強度</span>
+            <strong id="shadowLevelValue">3</strong>
+            <input id="shadowLevel" type="range" min="0" max="5" value="3" />
+          </label>
+
+          <label class="range-field" for="outlineWidth">
+            <span>focus outline</span>
+            <strong id="outlineWidthValue">3px</strong>
+            <input id="outlineWidth" type="range" min="0" max="8" value="3" />
+          </label>
+        </div>
+
+        <div class="preset-group" aria-label="預設樣式">
+          <button class="preset-btn" type="button" data-preset="compact">緊湊列表</button>
+          <button class="preset-btn" type="button" data-preset="soft">柔和卡片</button>
+          <button class="preset-btn" type="button" data-preset="product">商品卡片</button>
+          <button class="preset-btn" type="button" data-preset="debug">盒模型除錯</button>
+        </div>
+      </aside>
+
+      <section class="preview-column">
+        <section class="panel intro-panel">
+          <h2>觀察重點</h2>
+          <div class="concept-grid">
+            <article>
+              <h3>reset</h3>
+              <p>先消除瀏覽器預設間距，再由元件自己定義 spacing。</p>
+            </article>
+            <article>
+              <h3>box-sizing</h3>
+              <p><code>border-box</code> 讓寬度包含 padding 與 border，較好控制卡片實際寬度。</p>
+            </article>
+            <article>
+              <h3>padding / gap</h3>
+              <p><code>padding</code> 控制卡片內部留白，<code>gap</code> 控制卡片彼此距離。</p>
+            </article>
+            <article>
+              <h3>focus outline</h3>
+              <p><code>outline</code> 不佔盒模型空間，很適合做鍵盤焦點提示。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel demo-panel">
+          <div class="section-heading">
+            <div>
+              <h2>卡片預覽</h2>
+              <p>可以用滑鼠 hover，或使用鍵盤 Tab 聚焦卡片內的按鈕。</p>
+            </div>
+            <span id="modeBadge" class="mode-badge">border-box</span>
+          </div>
+
+          <div id="demoRoot" class="demo-root reset-enabled border-box-enabled show-guides">
+            <div class="cards-grid" id="cardsGrid">
+              <article class="demo-card">
+                <div class="card-media media-blue">CSS</div>
+                <div class="card-body">
+                  <p class="card-kicker">Layout</p>
+                  <h3>盒子模型卡片</h3>
+                  <p class="card-desc">用同一張卡片觀察 content、padding、border、shadow 與 radius 的關係。</p>
+                  <button type="button" class="card-action">查看範例</button>
+                </div>
+              </article>
+
+              <article class="demo-card">
+                <div class="card-media media-green">UI</div>
+                <div class="card-body">
+                  <p class="card-kicker">Spacing</p>
+                  <h3>內距與外距</h3>
+                  <p class="card-desc">padding 讓內容不貼邊，gap 負責卡片之間的距離。</p>
+                  <button type="button" class="card-action">調整間距</button>
+                </div>
+              </article>
+
+              <article class="demo-card">
+                <div class="card-media media-orange">UX</div>
+                <div class="card-body">
+                  <p class="card-kicker">Focus</p>
+                  <h3>鍵盤可用性</h3>
+                  <p class="card-desc">使用 outline 做 focus 樣式，避免 border 造成版面晃動。</p>
+                  <button type="button" class="card-action">Tab 測試</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics-row">
+          <article class="panel metric-card">
+            <h2>尺寸計算</h2>
+            <dl class="metrics-list">
+              <div>
+                <dt>CSS width</dt>
+                <dd id="metricCssWidth">280px</dd>
+              </div>
+              <div>
+                <dt>實際卡片寬度</dt>
+                <dd id="metricOuterWidth">280px</dd>
+              </div>
+              <div>
+                <dt>內容可用寬度</dt>
+                <dd id="metricContentWidth">238px</dd>
+              </div>
+              <div>
+                <dt>寬度公式</dt>
+                <dd id="metricFormula">border-box</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="panel tips-card">
+            <h2>目前結論</h2>
+            <ul id="tipsList" class="tips-list"></ul>
+          </article>
+        </section>
+
+        <section class="panel code-panel">
+          <div class="section-heading compact">
+            <div>
+              <h2>目前 CSS</h2>
+              <p>這段是卡片區域目前使用的核心樣式。</p>
+            </div>
+            <button id="copyCssBtn" class="copy-btn" type="button">複製 CSS</button>
+          </div>
+          <pre><code id="cssOutput"></code></pre>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

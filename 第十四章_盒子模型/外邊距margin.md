@@ -154,8 +154,6 @@ margin: 10px;
 3. 給父元素設定 `overflow: hidden;`。
 4. 把父元素轉成行內塊、浮動元素或其他會建立新格式化環境的布局方式。
 
-原文範例使用 `overflow: hidden;` 解決：
-
 ```css
 .resolve {
   overflow: hidden;
@@ -192,8 +190,6 @@ ul li {
   margin-left: -1px;
 }
 ```
-
-這裡要注意：原文「正數向右邊走，負數向左邊走」指的是 `margin-left` 這個方向屬性在這個浮動並排場景中的效果，不代表所有方向的負 margin 都一樣。
 
 更精確地說：
 

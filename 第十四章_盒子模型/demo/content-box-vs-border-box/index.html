@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>content-box vs border-box DEMO</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">CSS Box Model Demo</p>
+      <h1>content-box vs border-box</h1>
+      <p class="hero__desc">
+        使用相同的 <code>width</code>、<code>height</code>、<code>padding</code>、<code>border</code>，觀察兩種
+        <code>box-sizing</code> 模式下的實際盒子尺寸差異。
+      </p>
+    </header>
+
+    <section class="controls-card" aria-labelledby="controls-title">
+      <div class="section-heading">
+        <h2 id="controls-title">共同 CSS 參數</h2>
+        <button class="reset-button" type="button" id="resetButton">重設</button>
+      </div>
+
+      <div class="controls-grid">
+        <label class="control">
+          <span class="control__top">
+            <span>width</span>
+            <strong><output id="widthOutput">240px</output></strong>
+          </span>
+          <input id="widthInput" type="range" min="160" max="420" value="240" step="10" />
+        </label>
+
+        <label class="control">
+          <span class="control__top">
+            <span>height</span>
+            <strong><output id="heightOutput">180px</output></strong>
+          </span>
+          <input id="heightInput" type="range" min="160" max="300" value="180" step="10" />
+        </label>
+
+        <label class="control">
+          <span class="control__top">
+            <span>padding</span>
+            <strong><output id="paddingOutput">24px</output></strong>
+          </span>
+          <input id="paddingInput" type="range" min="0" max="48" value="24" step="4" />
+        </label>
+
+        <label class="control">
+          <span class="control__top">
+            <span>border-width</span>
+            <strong><output id="borderOutput">8px</output></strong>
+          </span>
+          <input id="borderInput" type="range" min="0" max="16" value="8" step="2" />
+        </label>
+      </div>
+    </section>
+
+    <section class="legend" aria-label="盒子模型圖例">
+      <span><i class="legend__swatch legend__swatch--content"></i>content</span>
+      <span><i class="legend__swatch legend__swatch--padding"></i>padding</span>
+      <span><i class="legend__swatch legend__swatch--border"></i>border</span>
+      <span><i class="legend__swatch legend__swatch--outer"></i>outer size</span>
+    </section>
+
+    <section class="comparison-grid" aria-label="content-box 和 border-box 對照">
+      <article class="box-card">
+        <div class="box-card__header">
+          <div>
+            <p class="box-card__label">預設模式</p>
+            <h2>content-box</h2>
+          </div>
+          <span class="mode-badge">width = content</span>
+        </div>
+
+        <div class="stage" id="contentStage">
+          <div class="dimension-line dimension-line--horizontal" id="contentOuterWidthLine"></div>
+          <div class="dimension-line dimension-line--vertical" id="contentOuterHeightLine"></div>
+          <div class="demo-box demo-box--content" id="contentBox">
+            <div class="content-layer">
+              <strong>content</strong>
+              <span id="contentBoxContentSize">240 × 180</span>
+            </div>
+          </div>
+        </div>
+
+        <dl class="metrics">
+          <div>
+            <dt>CSS width / height</dt>
+            <dd id="contentCssSize">240 × 180</dd>
+          </div>
+          <div>
+            <dt>content size</dt>
+            <dd id="contentContentSize">240 × 180</dd>
+          </div>
+          <div>
+            <dt>outer size</dt>
+            <dd id="contentOuterSize">304 × 244</dd>
+          </div>
+        </dl>
+
+        <pre class="code-block"><code id="contentCode"></code></pre>
+      </article>
+
+      <article class="box-card">
+        <div class="box-card__header">
+          <div>
+            <p class="box-card__label">常用布局模式</p>
+            <h2>border-box</h2>
+          </div>
+          <span class="mode-badge">width = border box</span>
+        </div>
+
+        <div class="stage" id="borderStage">
+          <div class="dimension-line dimension-line--horizontal" id="borderOuterWidthLine"></div>
+          <div class="dimension-line dimension-line--vertical" id="borderOuterHeightLine"></div>
+          <div class="demo-box demo-box--border" id="borderBox">
+            <div class="content-layer">
+              <strong>content</strong>
+              <span id="borderBoxContentSize">176 × 116</span>
+            </div>
+          </div>
+        </div>
+
+        <dl class="metrics">
+          <div>
+            <dt>CSS width / height</dt>
+            <dd id="borderCssSize">240 × 180</dd>
+          </div>
+          <div>
+            <dt>content size</dt>
+            <dd id="borderContentSize">176 × 116</dd>
+          </div>
+          <div>
+            <dt>outer size</dt>
+            <dd id="borderOuterSize">240 × 180</dd>
+          </div>
+        </dl>
+
+        <pre class="code-block"><code id="borderCode"></code></pre>
+      </article>
+    </section>
+
+    <section class="formula-card" aria-labelledby="formula-title">
+      <h2 id="formula-title">尺寸計算規則</h2>
+      <div class="formula-grid">
+        <article>
+          <h3>content-box</h3>
+          <p><code>width</code> 只代表 content 寬度。</p>
+          <p class="formula" id="contentFormula">outer width = width + padding × 2 + border × 2</p>
+        </article>
+        <article>
+          <h3>border-box</h3>
+          <p><code>width</code> 代表 content + padding + border 的總寬度。</p>
+          <p class="formula" id="borderFormula">content width = width - padding × 2 - border × 2</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Reset Comparison Demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">CSS Box Model Demo</p>
+      <h1>CSS Reset 對照示範</h1>
+      <p class="hero-description">
+        觀察瀏覽器預設樣式與套用 CSS reset 之後的差異。重點不是「不要間距」，而是把預設間距歸零後，改由我們自己定義一致的排版規則。
+      </p>
+    </header>
+
+    <main class="layout-grid">
+      <section class="control-panel" aria-labelledby="controlTitle">
+        <div class="section-title-row">
+          <div>
+            <p class="section-kicker">Controls</p>
+            <h2 id="controlTitle">控制面板</h2>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="resetMode">右側預覽套用的 reset</label>
+          <select id="resetMode">
+            <option value="basic">基礎 reset：清除 margin / padding</option>
+            <option value="modern">現代 reset：box-sizing + 常用元素規則</option>
+          </select>
+        </div>
+
+        <label class="checkbox-field">
+          <input id="applySpacing" type="checkbox" checked />
+          <span>
+            套用自訂間距
+            <small>模擬實務上 reset 後重新建立 spacing system</small>
+          </span>
+        </label>
+
+        <div class="form-field">
+          <div class="range-label-row">
+            <label for="spaceSize">自訂垂直間距</label>
+            <output id="spaceOutput" for="spaceSize">16px</output>
+          </div>
+          <input id="spaceSize" type="range" min="0" max="40" value="16" />
+        </div>
+
+        <label class="checkbox-field">
+          <input id="showGuides" type="checkbox" checked />
+          <span>
+            顯示元素輔助線
+            <small>幫助觀察 h1、p、ul、form row 的盒子範圍</small>
+          </span>
+        </label>
+
+        <div class="tip-box">
+          <strong>觀察重點</strong>
+          <p>
+            左側 iframe 幾乎保留瀏覽器預設樣式；右側 iframe 則套用 reset。請特別注意 body 的預設 8px margin、h1 / p 的上下 margin，以及 ul 的預設縮排。
+          </p>
+        </div>
+      </section>
+
+      <section class="preview-section" aria-labelledby="previewTitle">
+        <div class="section-title-row">
+          <div>
+            <p class="section-kicker">Preview</p>
+            <h2 id="previewTitle">左右對照</h2>
+          </div>
+          <button id="reloadFrames" class="ghost-button" type="button">重新渲染</button>
+        </div>
+
+        <div class="frame-grid">
+          <article class="frame-card">
+            <div class="frame-card-header">
+              <div>
+                <h3>瀏覽器預設樣式</h3>
+                <p>沒有套用 reset</p>
+              </div>
+              <span class="badge badge-muted">Default</span>
+            </div>
+            <iframe id="defaultFrame" title="瀏覽器預設樣式預覽"></iframe>
+          </article>
+
+          <article class="frame-card">
+            <div class="frame-card-header">
+              <div>
+                <h3>套用 CSS Reset</h3>
+                <p>右側會根據控制面板更新</p>
+              </div>
+              <span id="resetBadge" class="badge">Basic Reset</span>
+            </div>
+            <iframe id="resetFrame" title="套用 CSS reset 預覽"></iframe>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <section class="info-grid" aria-label="CSS reset 分析資訊">
+      <article class="data-card">
+        <div class="section-title-row compact">
+          <div>
+            <p class="section-kicker">Computed Style</p>
+            <h2>實際計算結果</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>觀察項目</th>
+                <th>預設樣式</th>
+                <th>套用 reset</th>
+              </tr>
+            </thead>
+            <tbody id="metricsBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="code-card">
+        <div class="section-title-row compact">
+          <div>
+            <p class="section-kicker">Generated CSS</p>
+            <h2>右側預覽使用的 CSS</h2>
+          </div>
+          <button id="copyCss" class="ghost-button" type="button">複製 CSS</button>
+        </div>
+        <pre><code id="generatedCss"></code></pre>
+      </article>
+    </section>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

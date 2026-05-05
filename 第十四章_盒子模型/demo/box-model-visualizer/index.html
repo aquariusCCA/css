@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 盒子模型可視化 DEMO</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">CSS Box Model Demo</p>
+        <h1>盒子模型可視化</h1>
+        <p class="hero__desc">
+          調整 content、padding、border、margin，觀察瀏覽器如何計算盒子的實際尺寸。
+        </p>
+      </header>
+
+      <section class="demo-layout" aria-label="盒子模型互動示範">
+        <aside class="panel controls-panel" aria-labelledby="controls-title">
+          <div class="panel__header">
+            <h2 id="controls-title">控制面板</h2>
+            <p>拖曳滑桿後，右側圖形與下方計算結果會即時更新。</p>
+          </div>
+
+          <form class="controls" aria-label="盒子模型控制項">
+            <label class="control-row" for="boxSizing">
+              <span class="control-row__text">
+                <strong>box-sizing</strong>
+                <small>決定 width / height 的計算範圍</small>
+              </span>
+              <select id="boxSizing" class="select-control">
+                <option value="content-box">content-box</option>
+                <option value="border-box">border-box</option>
+              </select>
+            </label>
+
+            <label class="control-row" for="boxWidth">
+              <span class="control-row__text">
+                <strong>width</strong>
+                <small id="widthMeaning">content 寬度</small>
+              </span>
+              <span class="range-group">
+                <input id="boxWidth" type="range" min="180" max="360" step="10" value="240" />
+                <output id="boxWidthValue" for="boxWidth">240px</output>
+              </span>
+            </label>
+
+            <label class="control-row" for="boxHeight">
+              <span class="control-row__text">
+                <strong>height</strong>
+                <small id="heightMeaning">content 高度</small>
+              </span>
+              <span class="range-group">
+                <input id="boxHeight" type="range" min="120" max="260" step="10" value="150" />
+                <output id="boxHeightValue" for="boxHeight">150px</output>
+              </span>
+            </label>
+
+            <label class="control-row" for="boxPadding">
+              <span class="control-row__text">
+                <strong>padding</strong>
+                <small>內容與邊框之間的內距</small>
+              </span>
+              <span class="range-group">
+                <input id="boxPadding" type="range" min="0" max="40" step="4" value="24" />
+                <output id="boxPaddingValue" for="boxPadding">24px</output>
+              </span>
+            </label>
+
+            <label class="control-row" for="boxBorder">
+              <span class="control-row__text">
+                <strong>border</strong>
+                <small>盒子的邊框厚度</small>
+              </span>
+              <span class="range-group">
+                <input id="boxBorder" type="range" min="0" max="16" step="2" value="8" />
+                <output id="boxBorderValue" for="boxBorder">8px</output>
+              </span>
+            </label>
+
+            <label class="control-row" for="boxMargin">
+              <span class="control-row__text">
+                <strong>margin</strong>
+                <small>盒子與外部元素的距離</small>
+              </span>
+              <span class="range-group">
+                <input id="boxMargin" type="range" min="0" max="50" step="5" value="25" />
+                <output id="boxMarginValue" for="boxMargin">25px</output>
+              </span>
+            </label>
+
+            <button class="reset-button" id="resetButton" type="button">重設 DEMO</button>
+          </form>
+
+          <section class="css-preview" aria-labelledby="css-preview-title">
+            <h3 id="css-preview-title">目前 CSS</h3>
+            <pre><code id="cssCode"></code></pre>
+          </section>
+        </aside>
+
+        <section class="panel preview-panel" aria-labelledby="preview-title">
+          <div class="panel__header">
+            <h2 id="preview-title">可視化結果</h2>
+            <p>由外到內依序是 margin、border、padding、content。</p>
+          </div>
+
+          <div class="preview-stage">
+            <div id="boxModel" class="box-model" aria-label="CSS 盒子模型圖示">
+              <div class="layer margin-layer">
+                <span class="layer-tag">margin</span>
+                <div class="layer border-layer">
+                  <span class="layer-tag">border</span>
+                  <div class="layer padding-layer">
+                    <span class="layer-tag">padding</span>
+                    <div class="content-layer">
+                      <strong>content</strong>
+                      <span id="contentSizeLabel">240 × 150</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="legend" aria-label="盒子模型圖例">
+            <li><span class="legend-color legend-color--margin"></span> margin</li>
+            <li><span class="legend-color legend-color--border"></span> border</li>
+            <li><span class="legend-color legend-color--padding"></span> padding</li>
+            <li><span class="legend-color legend-color--content"></span> content</li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="panel calculation-panel" aria-labelledby="calculation-title">
+        <div class="panel__header">
+          <h2 id="calculation-title">尺寸計算</h2>
+          <p>注意：CSS 的 <code>margin</code> 不屬於盒子本體尺寸，但會影響盒子與外部元素的距離。</p>
+        </div>
+
+        <div class="metrics">
+          <article class="metric-card">
+            <h3>Content 尺寸</h3>
+            <p id="contentMetric">240 × 150px</p>
+          </article>
+          <article class="metric-card">
+            <h3>Padding 總量</h3>
+            <p id="paddingMetric">左右 48px，上下 48px</p>
+          </article>
+          <article class="metric-card">
+            <h3>Border 總量</h3>
+            <p id="borderMetric">左右 16px，上下 16px</p>
+          </article>
+          <article class="metric-card">
+            <h3>Border Box 尺寸</h3>
+            <p id="borderBoxMetric">304 × 214px</p>
+          </article>
+          <article class="metric-card metric-card--wide">
+            <h3>含 Margin 的外部占用空間</h3>
+            <p id="outerMetric">354 × 264px</p>
+          </article>
+          <article class="metric-card metric-card--wide">
+            <h3>寬度公式</h3>
+            <p id="formulaMetric">240 + 48 + 16 + 50 = 354px</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

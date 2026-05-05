@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inline Vertical Spacing Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CSS Demo</p>
+        <h1>行內元素垂直間距 DEMO</h1>
+        <p class="subtitle">
+          觀察 <code>inline</code>、<code>inline-block</code>、<code>block</code> 在垂直方向上的
+          <code>padding</code>、<code>margin</code> 與 <code>line-height</code> 行為差異。
+        </p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel controls">
+        <h2>控制面板</h2>
+
+        <div class="field">
+          <label for="displayMode">display</label>
+          <select id="displayMode">
+            <option value="inline">inline</option>
+            <option value="inline-block">inline-block</option>
+            <option value="block">block</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="fontSize">font-size: <span id="fontSizeValue">18px</span></label>
+          <input id="fontSize" type="range" min="12" max="40" value="18" />
+        </div>
+
+        <div class="field">
+          <label for="lineHeight">line-height: <span id="lineHeightValue">1.6</span></label>
+          <input id="lineHeight" type="range" min="1" max="3" step="0.1" value="1.6" />
+        </div>
+
+        <div class="field">
+          <label for="paddingTop">padding-top: <span id="paddingTopValue">16px</span></label>
+          <input id="paddingTop" type="range" min="0" max="60" value="16" />
+        </div>
+
+        <div class="field">
+          <label for="paddingBottom">padding-bottom: <span id="paddingBottomValue">16px</span></label>
+          <input id="paddingBottom" type="range" min="0" max="60" value="16" />
+        </div>
+
+        <div class="field">
+          <label for="paddingHorizontal">左右 padding: <span id="paddingHorizontalValue">18px</span></label>
+          <input id="paddingHorizontal" type="range" min="0" max="60" value="18" />
+        </div>
+
+        <div class="field">
+          <label for="marginTop">margin-top: <span id="marginTopValue">16px</span></label>
+          <input id="marginTop" type="range" min="0" max="60" value="16" />
+        </div>
+
+        <div class="field">
+          <label for="marginBottom">margin-bottom: <span id="marginBottomValue">16px</span></label>
+          <input id="marginBottom" type="range" min="0" max="60" value="16" />
+        </div>
+
+        <div class="field checkbox-row">
+          <label>
+            <input id="showGuides" type="checkbox" checked />
+            顯示輔助線
+          </label>
+        </div>
+
+        <div class="preset-group">
+          <button class="preset-btn" data-preset="inline-problem">inline 問題示範</button>
+          <button class="preset-btn" data-preset="inline-button">inline-block 按鈕</button>
+          <button class="preset-btn" data-preset="block-card">block 區塊</button>
+        </div>
+      </aside>
+
+      <section class="panel preview-panel">
+        <div class="section-head">
+          <h2>預覽區</h2>
+          <p>同一組樣式套用在目標元素上，觀察不同 <code>display</code> 的差異。</p>
+        </div>
+
+        <div class="preview-group">
+          <h3>情境 A：在一段文字中的行內元素</h3>
+          <div id="inlineScene" class="scene inline-scene show-guides">
+            <div class="scene-label">line box 視覺區域</div>
+            <p class="demo-paragraph">
+              這是一段示範文字，
+              <span id="targetInline" class="target">重點標籤</span>
+              會夾在句子中間，請觀察它在垂直方向上的行為。
+            </p>
+          </div>
+        </div>
+
+        <div class="preview-group">
+          <h3>情境 B：與上下區塊的距離</h3>
+          <div id="stackScene" class="scene stack-scene show-guides">
+            <div class="stack-box top-box">上方區塊</div>
+            <span id="targetStack" class="target stack-target">目標元素</span>
+            <div class="stack-box bottom-box">下方區塊</div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card">
+            <h3>重點觀察</h3>
+            <ul id="insightList" class="insight-list"></ul>
+          </article>
+
+          <article class="stat-card">
+            <h3>即時資訊</h3>
+            <dl class="metric-list">
+              <div>
+                <dt>display</dt>
+                <dd id="metricDisplay">inline</dd>
+              </div>
+              <div>
+                <dt>目標元素尺寸</dt>
+                <dd id="metricTargetSize">0 × 0</dd>
+              </div>
+              <div>
+                <dt>文字段落高度</dt>
+                <dd id="metricParagraphHeight">0px</dd>
+              </div>
+              <div>
+                <dt>上下區塊間距</dt>
+                <dd id="metricGap">0px</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <article class="panel code-panel nested">
+          <div class="section-head compact">
+            <h2>目前 CSS</h2>
+            <button id="copyCssBtn" class="copy-btn" type="button">複製 CSS</button>
+          </div>
+          <pre><code id="cssOutput"></code></pre>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

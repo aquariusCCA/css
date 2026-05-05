@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Margin 合併與塌陷 DEMO</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <p class="eyebrow">CSS Box Model Demo</p>
+    <h1>Margin 合併與塌陷 Playground</h1>
+    <p class="intro">
+      這個範例用可調整參數觀察兩種常見現象：兄弟元素垂直 margin 合併，以及父子元素 margin-top 塌陷。
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="siblings-title">
+      <div class="panel-header">
+        <div>
+          <p class="section-tag">Scenario 1</p>
+          <h2 id="siblings-title">相鄰兄弟元素的垂直 margin 合併</h2>
+        </div>
+        <p class="panel-note">兩個 block 兄弟元素上下相鄰時，中間距離通常取較大的 margin，而不是相加。</p>
+      </div>
+
+      <div class="controls-grid">
+        <label class="control">
+          <span>上方盒子的 margin-bottom</span>
+          <input id="marginBottomInput" type="range" min="0" max="120" step="4" value="48" />
+          <strong><output id="marginBottomOutput">48px</output></strong>
+        </label>
+
+        <label class="control">
+          <span>下方盒子的 margin-top</span>
+          <input id="marginTopInput" type="range" min="0" max="120" step="4" value="80" />
+          <strong><output id="marginTopOutput">80px</output></strong>
+        </label>
+      </div>
+
+      <div class="metrics-grid" aria-live="polite">
+        <article class="metric-card">
+          <span class="metric-label">直覺相加</span>
+          <strong id="siblingNaiveGap">128px</strong>
+          <small>margin-bottom + margin-top</small>
+        </article>
+        <article class="metric-card highlight">
+          <span class="metric-label">實際距離</span>
+          <strong id="siblingActualGap">80px</strong>
+          <small>瀏覽器實際排版後量測</small>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">合併規則</span>
+          <strong id="siblingRuleText">max(48px, 80px)</strong>
+          <small>正 margin 相鄰時取較大值</small>
+        </article>
+      </div>
+
+      <div class="visual-card">
+        <div class="visual-title-row">
+          <h3>視覺觀察區</h3>
+          <span class="pill">margin collapse</span>
+        </div>
+        <div class="sibling-canvas" id="siblingCanvas">
+          <div id="siblingBoxA" class="demo-box primary-box">
+            <span>Box A</span>
+            <small>margin-bottom: <output id="boxAMarginLabel">48px</output></small>
+          </div>
+          <div class="gap-ruler" id="siblingGapRuler">
+            <span>實際間距：<output id="gapRulerOutput">80px</output></span>
+          </div>
+          <div id="siblingBoxB" class="demo-box secondary-box">
+            <span>Box B</span>
+            <small>margin-top: <output id="boxBMarginLabel">80px</output></small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="parent-child-title">
+      <div class="panel-header">
+        <div>
+          <p class="section-tag">Scenario 2</p>
+          <h2 id="parent-child-title">父子元素的 margin-top 塌陷</h2>
+        </div>
+        <p class="panel-note">父元素沒有 border、padding、BFC 等阻隔時，第一個子元素的 margin-top 可能會跑到父層外面。</p>
+      </div>
+
+      <div class="controls-grid two-columns">
+        <label class="control">
+          <span>子元素 margin-top</span>
+          <input id="childMarginInput" type="range" min="0" max="120" step="4" value="64" />
+          <strong><output id="childMarginOutput">64px</output></strong>
+        </label>
+
+        <label class="control">
+          <span>右側示範的解法</span>
+          <select id="fixMethodSelect">
+            <option value="flow-root" selected>display: flow-root</option>
+            <option value="overflow-hidden">overflow: hidden</option>
+            <option value="padding-top">padding-top: 1px</option>
+            <option value="border-top">border-top: 1px solid transparent</option>
+            <option value="none">不套用解法</option>
+          </select>
+          <strong id="fixMethodLabel">BFC</strong>
+        </label>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison-card">
+          <div class="comparison-header">
+            <h3>未處理</h3>
+            <span class="status danger">可能塌陷</span>
+          </div>
+          <p class="comparison-copy">父層沒有 padding、border 或 BFC，子元素的 margin-top 會往父層外部合併。</p>
+          <div class="parent-stage" id="collapseStage">
+            <div class="stage-line">父層原本應該開始的位置</div>
+            <div id="collapseParent" class="parent-box no-fix-parent">
+              <div id="collapseChild" class="child-box">Child</div>
+            </div>
+          </div>
+          <dl class="readout-list">
+            <div>
+              <dt>父層被推開</dt>
+              <dd id="collapseParentOffset">64px</dd>
+            </div>
+            <div>
+              <dt>子元素在父層內的上方距離</dt>
+              <dd id="collapseChildOffset">0px</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="comparison-card">
+          <div class="comparison-header">
+            <h3>套用解法</h3>
+            <span class="status success" id="fixStatusBadge">display: flow-root</span>
+          </div>
+          <p class="comparison-copy">右側可以切換不同阻隔方式，觀察 margin-top 回到父層內部後的差異。</p>
+          <div class="parent-stage" id="fixedStage">
+            <div class="stage-line">父層原本應該開始的位置</div>
+            <div id="fixedParent" class="parent-box fix-flow-root">
+              <div id="fixedChild" class="child-box">Child</div>
+            </div>
+          </div>
+          <dl class="readout-list">
+            <div>
+              <dt>父層被推開</dt>
+              <dd id="fixedParentOffset">0px</dd>
+            </div>
+            <div>
+              <dt>子元素在父層內的上方距離</dt>
+              <dd id="fixedChildOffset">64px</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="code-title">
+      <div class="panel-header">
+        <div>
+          <p class="section-tag">Generated CSS</p>
+          <h2 id="code-title">目前範例對應的 CSS</h2>
+        </div>
+        <p class="panel-note">左邊是兄弟元素 margin 合併，右邊是父子 margin 塌陷與解法。</p>
+      </div>
+
+      <div class="code-grid">
+        <article>
+          <h3>兄弟元素 margin 合併</h3>
+          <pre><code id="siblingCodeBlock"></code></pre>
+        </article>
+        <article>
+          <h3>父子元素 margin-top 塌陷</h3>
+          <pre><code id="parentCodeBlock"></code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="summary-panel" aria-labelledby="summary-title">
+      <h2 id="summary-title">觀察重點</h2>
+      <ul>
+        <li>相鄰 block 兄弟元素的垂直 margin 不一定相加，正值通常取較大者。</li>
+        <li>父元素沒有 padding、border、inline content、height/min-height 或 BFC 時，第一個子元素的 margin-top 可能與父層合併。</li>
+        <li><code>display: flow-root</code> 是現代 CSS 中建立 BFC、阻止父子 margin 塌陷的清楚寫法。</li>
+        <li><code>overflow: hidden</code> 也能建立 BFC，但可能裁切陰影、浮動內容或超出範圍的元素。</li>
+        <li><code>padding-top: 1px</code> 與透明 <code>border-top</code> 都能阻隔塌陷，但會額外影響尺寸。</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

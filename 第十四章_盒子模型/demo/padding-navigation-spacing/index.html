@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padding Navigation Spacing Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">CSS Box Model Demo</p>
+        <h1>Padding 導航留白 DEMO</h1>
+        <p class="hero__description">
+          導航列、按鈕與標籤通常不建議用固定寬度硬撐空間，而是讓內容決定基礎寬度，再用
+          <code>padding</code> 增加左右與上下留白，讓視覺空間與點擊範圍自然變大。
+        </p>
+      </header>
+
+      <section class="panel controls-panel" aria-labelledby="controlsTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Controls</p>
+          <h2 id="controlsTitle">調整 padding 觀察導航項目變化</h2>
+        </div>
+
+        <div class="controls-grid">
+          <label class="control" for="paddingX">
+            <span class="control__topline">
+              <span>左右 padding</span>
+              <output id="paddingXValue" for="paddingX">24px</output>
+            </span>
+            <input id="paddingX" type="range" min="0" max="56" value="24" />
+          </label>
+
+          <label class="control" for="paddingY">
+            <span class="control__topline">
+              <span>上下 padding</span>
+              <output id="paddingYValue" for="paddingY">12px</output>
+            </span>
+            <input id="paddingY" type="range" min="0" max="28" value="12" />
+          </label>
+
+          <label class="control" for="navGap">
+            <span class="control__topline">
+              <span>項目間距 gap</span>
+              <output id="navGapValue" for="navGap">8px</output>
+            </span>
+            <input id="navGap" type="range" min="0" max="32" value="8" />
+          </label>
+
+          <label class="control" for="fontSize">
+            <span class="control__topline">
+              <span>文字大小</span>
+              <output id="fontSizeValue" for="fontSize">16px</output>
+            </span>
+            <input id="fontSize" type="range" min="12" max="24" value="16" />
+          </label>
+        </div>
+      </section>
+
+      <section class="demo-grid" aria-label="Navigation padding comparison">
+        <article class="panel demo-card">
+          <div class="section-heading">
+            <p class="eyebrow">Recommended</p>
+            <h2>使用 padding 撐開導航項目</h2>
+            <p>
+              每個項目的寬度會隨文字長度不同而變化，但左右留白一致，適合實務上的導覽列與按鈕群組。
+            </p>
+          </div>
+
+          <nav class="preview-nav nav-padding" aria-label="Padding based navigation">
+            <a href="#" class="nav-link is-active">首頁</a>
+            <a href="#" class="nav-link">產品介紹</a>
+            <a href="#" class="nav-link">文件</a>
+            <a href="#" class="nav-link">技術支援中心</a>
+            <a href="#" class="nav-link">聯絡我們</a>
+          </nav>
+
+          <dl class="metrics-list">
+            <div>
+              <dt>第一個項目實際寬度</dt>
+              <dd id="paddingFirstWidth">--</dd>
+            </div>
+            <div>
+              <dt>第一個項目實際高度</dt>
+              <dd id="paddingFirstHeight">--</dd>
+            </div>
+            <div>
+              <dt>重點</dt>
+              <dd>內容寬度 + 左右 padding = 可點擊寬度</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="panel demo-card">
+          <div class="section-heading">
+            <p class="eyebrow">Contrast</p>
+            <h2>固定寬度導航項目</h2>
+            <p>
+              每個項目都被限制成相同寬度，短文字會顯得空、長文字容易壓縮或換行，彈性較低。
+            </p>
+          </div>
+
+          <nav class="preview-nav nav-fixed" aria-label="Fixed width navigation">
+            <a href="#" class="nav-link is-active">首頁</a>
+            <a href="#" class="nav-link">產品介紹</a>
+            <a href="#" class="nav-link">文件</a>
+            <a href="#" class="nav-link">技術支援中心</a>
+            <a href="#" class="nav-link">聯絡我們</a>
+          </nav>
+
+          <dl class="metrics-list">
+            <div>
+              <dt>固定項目寬度</dt>
+              <dd>120px</dd>
+            </div>
+            <div>
+              <dt>第一個項目實際高度</dt>
+              <dd id="fixedFirstHeight">--</dd>
+            </div>
+            <div>
+              <dt>問題</dt>
+              <dd>不同文字長度仍套同一寬度，容易過寬或不足</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="panel explanation-panel" aria-labelledby="explanationTitle">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2 id="explanationTitle">為什麼導航列常用 padding？</h2>
+        </div>
+
+        <div class="explanation-grid">
+          <div class="note-card">
+            <h3>1. 文字決定基礎寬度</h3>
+            <p>
+              導航項目通常是 <code>a</code> 標籤。文字越長，內容區域本來就越寬。
+            </p>
+          </div>
+          <div class="note-card">
+            <h3>2. padding 增加內部留白</h3>
+            <p>
+              <code>padding-inline</code> 增加左右空間，<code>padding-block</code> 增加上下空間，點擊區域也會一起變大。
+            </p>
+          </div>
+          <div class="note-card">
+            <h3>3. 比固定寬度更彈性</h3>
+            <p>
+              不同語系、不同文字長度、響應式版面，都比固定寬度更容易維護。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel code-panel" aria-labelledby="codeTitle">
+        <div class="section-heading">
+          <p class="eyebrow">Generated CSS</p>
+          <h2 id="codeTitle">目前 padding 導航 CSS</h2>
+        </div>
+        <pre><code id="cssCode"></code></pre>
+      </section>
+    </main>
+  </body>
+</html>
