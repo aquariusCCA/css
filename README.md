@@ -1,6 +1,6 @@
 # CSS Knowledge Pack
 
-本 CSS 知識包用來管理 CSS 學習資料、正式筆記、補充內容、範例程式、練習題、複習材料與 AI 提示詞。
+本 CSS 知識包用來管理 CSS 學習資料、正式筆記、補充內容、範例程式、練習題、複習材料、實際提問紀錄與 AI skills。
 
 ## 目錄結構
 
@@ -14,10 +14,7 @@ css/
   review/
   supplements/
   prompts/
-    ├── system/
-    ├── workflows/
-    ├── formats/
-    └── requests/
+  skills/
 ```
 
 ## 目錄說明
@@ -31,16 +28,47 @@ css/
 | `practice/` | 練習題區 | 根據 `notes/` 生成練習題、實作任務、改錯題、重構題。 |
 | `review/` | 複習材料區 | 根據 `notes/` 生成重點摘要、問答題、填空題、複習卡片。 |
 | `supplements/` | 補充資料區 | 根據 `notes/` 延伸補充底層原理、進階觀念、相關比較與實務案例。 |
-| `prompts/` | AI 提示詞區 | 存放用來生成、整理、轉換、複習筆記的提示詞模板與實際提問範例。 |
+| `prompts/` | 實際提問紀錄區 | 保存曾經向 AI 提出的具體問題、上下文、相關檔案與結果備註。 |
+| `skills/` | AI skill 開發區 | 存放可重複執行的生成流程、格式規則、檢查流程與輔助資源。 |
 
-### `prompts/` 子目錄說明
+### `prompts/` 檔案格式
 
-| 目錄 | 作用 | 用途 |
-|---|---|---|
-| `prompts/system/` | 系統規則提示詞 | 存放穩定的 AI 角色設定與總體規則，例如語言、教學風格、輸出原則。 |
-| `prompts/workflows/` | 工作流程提示詞 | 存放一套完整的生成流程，例如從 `origin/` 生成 `notes/`，或從 `notes/` 生成練習題、複習材料。 |
-| `prompts/formats/` | 輸出格式提示詞 | 存放各種固定輸出格式，例如教書型筆記格式、練習題格式、複習卡格式、API 表格格式。 |
-| `prompts/requests/` | 實際提問範例 | 存放實際向 AI 發問時可直接使用或參考的提問內容，例如針對某章節、某份原始資料、某個任務的具體問題。 |
+`prompts/` 只放實際提問範例，建議使用日期與任務命名，例如：
+
+```text
+prompts/
+  2026-05-25-generate-flexbox-note.md
+  2026-05-25-flexbox-practice.md
+```
+
+每個 prompt 檔案建議使用以下格式：
+
+```md
+# 任務名稱
+
+Date:
+Goal:
+Related files:
+
+## Prompt
+
+## Result Notes
+```
+
+### `skills/` 目錄說明
+
+`skills/` 用來維護可重複執行的 AI 工作能力。當某個 prompt 或 workflow 已經穩定、值得反覆使用時，再整理成 skill。
+
+未來每個 skill 建議使用以下結構：
+
+```text
+skills/
+  skill-name/
+    SKILL.md
+    references/
+    scripts/
+    assets/
+```
 
 ## 資料流
 
@@ -55,6 +83,7 @@ practice/
 review/
 supplements/
 prompts/
+skills/
 ```
 
 ## 核心原則
@@ -62,5 +91,6 @@ prompts/
 * `origin/` 是原始資料來源
 * `notes/` 是主幹知識
 * 其他目錄是根據 `notes/` 生成的不同用途內容
-* `prompts/system/`、`prompts/workflows/`、`prompts/formats/` 偏向可重複使用的提示詞模板
-* `prompts/requests/` 偏向實際使用時的具體提問內容，可作為日後複用、微調與回顧的紀錄
+* `prompts/` 只放實際提問紀錄，可作為日後複用、微調與回顧的依據
+* `skills/` 放穩定、可重複執行的流程、規則、格式與輔助資源
+* 原本適合放在 `system/`、`workflows/`、`formats/` 的穩定內容，之後由 `skills/` 承接
