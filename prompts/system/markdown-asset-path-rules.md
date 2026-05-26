@@ -194,15 +194,16 @@ a-z
 
 `base-slug` 必須使用英文語意 kebab-case。不得直接保留中文、URL encoded 字串或無語意檔名。
 
-來源順位如下：
+若任務明確提供 `base-slug`，必須使用該值作為命名基礎，不得自行改寫、翻譯或用其他來源覆蓋。
 
-1. 任務明確指定的 slug。
-2. 圖片 alt text 或附件 link text。
-3. URL decode 後的原檔名。
-4. Markdown 第一個主標題或檔名。
-5. 資產內容可辨識的主題。
+未明確提供 `base-slug` 的例外情況，若流程允許自行推導，來源順位如下：
 
-若多個來源可用，優先使用最能描述資產內容的語意。
+1. 圖片 alt text 或附件 link text。
+2. URL decode 後的原檔名。
+3. Markdown 第一個主標題或檔名。
+4. 資產內容可辨識的主題。
+
+在例外情況中，若多個來源可用，優先使用最能描述資產內容的語意。
 
 沒有明確語意的原始檔名不得沿用，必須從 Markdown 主題、alt text、link text 或資產內容推導 slug。
 

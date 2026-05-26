@@ -27,10 +27,10 @@
 
 - Markdown 路徑：`{{markdown_paths}}`
 - 章節目錄：`{{chapter_root}}`
+- 任務指定的 base slug：`{{base_slug}}`
 
 建議輸入：
 
-- 任務指定的 base slug：`{{base_slug}}`
 - 是否保留圖片作為下載連結：`{{preserve_image_download_links}}`
 - 需要人工確認時的回報偏好：`{{manual_confirmation_preference}}`
 - 補充限制：`{{extra_constraints}}`
@@ -45,10 +45,10 @@
 
 - Markdown 路徑：`{{markdown_paths}}`
 - 章節目錄：`{{chapter_root}}`
+- 任務指定的 base slug：`{{base_slug}}`
 
 ### 可選設定
 
-- 任務指定的 base slug：`{{base_slug}}`
 - 是否保留圖片作為下載連結：`{{preserve_image_download_links}}`
 - 需要人工確認時的回報偏好：`{{manual_confirmation_preference}}`
 - 補充限制：`{{extra_constraints}}`
