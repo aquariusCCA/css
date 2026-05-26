@@ -33,15 +33,6 @@
 - 目標主題：`{{target_topic}}`
 - 預期輸出路徑：`{{output_path}}`
 
-建議輸入：
-
-- 讀者程度：`{{audience_level}}`
-- 主題邊界：`{{topic_boundary}}`
-- 補充要求：`{{extra_requirements}}`
-- 不希望包含的內容：`{{excluded_content}}`
-- 是否需要保留來源中的原始範例：`{{keep_original_examples}}`
-- 是否需要額外產生練習題或延伸閱讀提示：`{{extra_practice_or_review}}`
-
 ---
 
 ## Prompt Template
@@ -53,15 +44,6 @@
 - 來源路徑：`{{source_path}}`
 - 目標主題：`{{target_topic}}`
 - 預期輸出路徑：`{{output_path}}`
-
-### 可選設定
-
-- 讀者程度：`{{audience_level}}`
-- 主題邊界：`{{topic_boundary}}`
-- 補充要求：`{{extra_requirements}}`
-- 不希望包含的內容：`{{excluded_content}}`
-- 是否需要保留來源中的原始範例：`{{keep_original_examples}}`
-- 是否需要額外產生練習題或延伸閱讀提示：`{{extra_practice_or_review}}`
 
 ### 任務要求
 
