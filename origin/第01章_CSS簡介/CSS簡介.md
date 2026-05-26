@@ -49,7 +49,7 @@
 - 使用 HTML 時，需要遵守一定的規範，CSS 也是如此，要想熟練地使用 CSS 對網頁進行修飾，首先需要了解 CSS 的樣式規則。
 - CSS 規則由兩個主要的部份構成，選擇器以及一條或多條聲明
     
-    ![CSS語法規範.png](%E7%AC%AC01%E7%AB%A0_CSS%E7%B0%A1%E4%BB%8B/CSS%25E8%25AA%259E%25E6%25B3%2595%25E8%25A6%258F%25E7%25AF%2584.png)
+    ![CSS語法規範.png](./assets/images/css-introduction-img-001-3ac98e.png)
     
 
 ```css
