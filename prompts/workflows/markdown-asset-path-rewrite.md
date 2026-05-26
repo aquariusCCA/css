@@ -65,9 +65,9 @@
 
 ### Step 1：確認輸入資料
 
-確認本次處理的輸入範圍。
+確認本次處理的輸入範圍，並區分使用者必須提供的資料與 workflow 必須自行檢查的資料。
 
-必須確認：
+#### 使用者必須提供
 
 1. 章節根目錄位置。
 
@@ -75,9 +75,15 @@
    <章節>/
    ```
 
-2. Markdown 文件是否位於章節根目錄。
+2. Markdown 檔名或檔案範圍。
 
-   可處理的 Markdown 檔案範例：
+   可指定單一檔案：
+
+   ```text
+   README.md
+   ```
+
+   也可指定多個檔案：
 
    ```text
    README.md
@@ -85,14 +91,28 @@
    02-example.md
    ```
 
-   不處理章節子目錄中的 Markdown，例如：
+   也可指定章節根目錄下的檔案模式：
+
+   ```text
+   *.md
+   ```
+
+   指定值只允許章節根目錄下的 Markdown 檔案名稱，或不含路徑分隔符的檔案模式。
+
+   不得指定章節子目錄中的 Markdown，例如：
 
    ```text
    examples/demo.md
    notes/extra.md
    ```
 
-3. assets 目錄是否存在。
+   若未提供 Markdown 檔名或檔案範圍，必須要求補齊輸入，不得自行預設處理全部檔案。
+
+#### workflow 必須檢查
+
+1. Markdown 文件是否位於章節根目錄。
+
+2. assets 目錄是否存在。
 
    ```text
    assets/images/
@@ -100,17 +120,13 @@
    assets/files/
    ```
 
-4. 資產是否已放在對應目錄下。
+3. 資產是否已放在對應目錄下。
 
    * 圖片應放在 `assets/images/`
    * PDF 應放在 `assets/pdfs/`
    * 一般附件應放在 `assets/files/`
 
-5. 是否需要處理全部 Markdown，或只處理指定 Markdown。
-
-   若使用者未指定，預設處理章節根目錄下所有 `*.md`。
-
-6. 建立本次處理的 assets 檔案清單。
+4. 建立本次處理的 assets 檔案清單。
 
    掃描：
 
@@ -129,7 +145,7 @@
    * 是否符合 normalized file name
    * 若可讀取檔案，計算 SHA-256 hash6
 
-若 assets 目錄不存在、Markdown 不在章節根目錄，或資產檔案無法讀取，先記錄在整理報告中，不得產生猜測路徑。
+若 assets 目錄不存在、Markdown 檔案不存在、Markdown 不在章節根目錄，或資產檔案無法讀取，先記錄在整理報告中，不得產生猜測路徑。
 
 ---
 
