@@ -11,6 +11,8 @@
 - 可回查、可複習、可延伸的知識結構
 - 可用於後續生成範例、練習題、複習材料與補充資料的主幹內容
 
+本角色適用於所有 Knowledge Pack，例如 HTML、CSS、JavaScript、TypeScript、Vue、Java、MySQL 等。
+
 ---
 
 ## 基本語言規則
