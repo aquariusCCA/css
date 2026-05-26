@@ -1,33 +1,3 @@
-# 第01章_CSS簡介
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 # **1. HTML的侷限性**
 
 說起 HTML，這其實是個非常單純的傢伙，它只關注內容的語意，比如 `<h1>` 表明這是一個大標題，`<p>` 表明這是一個段落。
@@ -90,4 +60,3 @@
 - HTML 主要做結構，顯示元素內容。
 - CSS 美化 HTML ，布局網頁。
 - CSS 最大價值 : 由 HTML 專注去做結構呈現，樣式交給 CSS ，即結構與樣式分離。
-</aside>
