@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #263140;
+    background: #fffaf0;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 28px;
+}
+
+.site-header {
+    border-bottom: 3px solid #c2410c;
+    padding-bottom: 14px;
+}
+
+.site-title {
+    margin: 0;
+    color: #c2410c;
+    font-size: 28px;
+}
+
+.site-subtitle {
+    margin: 8px 0 0;
+    line-height: 1.6;
+}
+
+.content-box {
+    margin-top: 20px;
+    border: 1px solid #e7c68f;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 18px;
+}
+
+.content-box h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.content-box p {
+    margin: 0;
+    line-height: 1.7;
+}

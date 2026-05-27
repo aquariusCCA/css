@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>外部 CSS 載入檢查</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 04</p>
+            <h1>外部 CSS 沒效果時，先檢查 <code>link</code></h1>
+            <p>左側模擬 CSS 沒有載入時的結果；右側模擬 <code>rel</code> 與 <code>href</code> 正確時的結果。這個 demo 不真的引用不存在的檔案。</p>
+        </header>
+
+        <section class="comparison" aria-label="外部 CSS 載入狀態對照">
+            <article class="panel">
+                <p class="panel-label">載入失敗的結果</p>
+                <div class="sample-box plain-sample">
+                    <h2>外部樣式沒有進來</h2>
+                    <p>畫面只剩一般文字，像是 CSS 規則完全沒有套用。</p>
+                </div>
+                <pre><code>&lt;link rel="stylesheet" href="./wrong-path.css"&gt;</code></pre>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">載入成功的結果</p>
+                <div class="sample-box loaded-sample">
+                    <h2>外部樣式成功載入</h2>
+                    <p>同樣的內容，因為 CSS 有進來，所以出現清楚的視覺樣式。</p>
+                </div>
+                <pre><code>&lt;link rel="stylesheet" href="./style.css"&gt;</code></pre>
+            </article>
+        </section>
+
+        <section class="check-list" aria-label="外部 CSS 檢查順序">
+            <h2>檢查順序</h2>
+            <ol>
+                <li>HTML 裡是否有 <code>&lt;link&gt;</code>。</li>
+                <li><code>rel</code> 是否是 <code>stylesheet</code>。</li>
+                <li><code>href</code> 是否指向真正存在的 CSS 檔案。</li>
+            </ol>
+        </section>
+    </main>
+</body>
+</html>

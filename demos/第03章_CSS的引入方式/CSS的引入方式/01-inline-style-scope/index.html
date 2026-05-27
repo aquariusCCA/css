@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>行內樣式作用範圍</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 01</p>
+            <h1>行內樣式只影響當前標籤</h1>
+            <p>左右兩邊的 HTML 結構相似。右邊只有中間段落寫了 <code>style</code> attribute，因此只有那一個段落變色與放大。</p>
+        </header>
+
+        <section class="comparison" aria-label="行內樣式作用範圍對照">
+            <article class="panel">
+                <p class="panel-label">沒有行內樣式</p>
+                <div class="sample paragraph-stack">
+                    <p>第一段：使用瀏覽器與 demo 的一般樣式。</p>
+                    <p>第二段：仍然是一般段落。</p>
+                    <p>第三段：也沒有特別變化。</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">只有中間段落有 <code>style</code> attribute</p>
+                <div class="sample paragraph-stack">
+                    <p>第一段：沒有寫行內樣式。</p>
+                    <p style="color: #be185d; font-size: 20px; font-weight: 700;">第二段：樣式直接寫在這個標籤上。</p>
+                    <p>第三段：沒有寫行內樣式。</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="rule-box" aria-label="主要 HTML 片段">
+            <h2>主要觀察片段</h2>
+            <pre><code>&lt;p style="color: #be185d; font-size: 20px; font-weight: 700;"&gt;
+    第二段：樣式直接寫在這個標籤上。
+&lt;/p&gt;</code></pre>
+        </section>
+    </main>
+</body>
+</html>

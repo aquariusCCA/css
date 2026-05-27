@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>內部樣式表頁面作用範圍</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .internal-style-demo .target {
+            color: #be185d;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 02</p>
+            <h1>內部樣式表集中控制本頁元素</h1>
+            <p><code>&lt;style&gt;</code> 寫在這份 HTML 的 <code>&lt;head&gt;</code> 裡。只要元素符合 selector，就會套用同一條內部 CSS 規則。</p>
+        </header>
+
+        <section class="comparison" aria-label="內部樣式表對照">
+            <article class="panel">
+                <p class="panel-label">沒有符合內部 selector 的區塊</p>
+                <div class="sample plain-demo">
+                    <div class="target">第一個 div：沒有被本 demo 的內部規則選到。</div>
+                    <div class="target">第二個 div：仍維持一般文字樣式。</div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">同一頁中符合 selector 的元素</p>
+                <div class="sample internal-style-demo">
+                    <div class="target">第一個 div：被內部樣式表選到。</div>
+                    <div class="target">第二個 div：同樣被內部樣式表選到。</div>
+                </div>
+            </article>
+        </section>
+
+        <section class="rule-box" aria-label="主要內部樣式表">
+            <h2>寫在 <code>index.html</code> 的內部樣式表</h2>
+            <pre><code>&lt;style&gt;
+    .internal-style-demo .target {
+        color: #be185d;
+        font-size: 20px;
+        font-weight: 700;
+    }
+&lt;/style&gt;</code></pre>
+        </section>
+    </main>
+</body>
+</html>
