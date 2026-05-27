@@ -40,12 +40,14 @@
 
 1. 逐一讀取指定 Markdown。
 2. 掃描 Markdown 圖片語法與一般連結語法中的 URL。
-3. 排除下列不處理內容：
-   - 外部網址、郵件、電話、資料 URI。
-   - 頁內錨點。
+3. 依照 `prompts/system/markdown-asset-path-rules.md` 的「不應處理」章節，排除下列不屬於自動改寫範圍的內容：
+   - 外部網址：`http://`、`https://`。
+   - 郵件、電話與資料 URI：`mailto:`、`tel:`、`data:`。
+   - 頁內錨點：`#heading`。
    - Markdown 文件互相連結。
    - code fence 與 inline code 內的 Markdown 範例文字。
-4. 若發現 HTML 標籤中的 `src`、`href` 或其他本地資產屬性，列為「需要人工確認」，不要自行改寫。
+   - HTML 標籤中的 `src`、`href` 或其他屬性。
+4. 若 HTML 標籤中含本地資產引用，雖不屬於自動改寫範圍，仍列為「需要人工確認」，不要自行改寫。
 5. 對每個可處理的本地資產引用保留原始語法、link text 或 alt text、原始路徑與出現順序。
 
 ---
@@ -160,6 +162,7 @@ CSS語法規範.png
 - `<markdown-path>`：找到多個可能檔案
 - `<markdown-path>`：無法可靠產生英文 slug
 - `<markdown-path>`：資產位於錯誤類型資料夾
+- `<markdown-path>`：HTML 標籤中含本地資產引用
 
 ## 文字調整
 
