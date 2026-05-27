@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>屬性順序與可讀性</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 01</p>
+            <h1>重新排序不一定改變畫面，但會改變閱讀速度</h1>
+            <p>左右兩張卡片的視覺結果相同。差別在於右側 CSS 依照「布局定位、元素自身、文本、其他」分段排列。</p>
+        </header>
+
+        <section class="comparison" aria-label="屬性書寫順序對照">
+            <article class="panel">
+                <p class="panel-label">順序混亂</p>
+                <div class="sample-card messy-card">
+                    <h2>閱讀成本高</h2>
+                    <p>要找寬度、文字或陰影時，需要在整段 CSS 來回掃描。</p>
+                </div>
+                <pre><code>.messy-card {
+    color: #243044;
+    border-radius: 8px;
+    display: block;
+    padding: 16px;
+    overflow: hidden;
+    width: 320px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+    margin: 0;
+    font-size: 16px;
+}</code></pre>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">依本章順序</p>
+                <div class="sample-card ordered-card">
+                    <h2>閱讀路線穩定</h2>
+                    <p>先看顯示模式，再看盒子，接著看文字，最後看細節效果。</p>
+                </div>
+                <pre><code>.ordered-card {
+    display: block;
+    overflow: hidden;
+
+    width: 320px;
+    margin: 0;
+    padding: 16px;
+    background: #ffffff;
+
+    color: #243044;
+    font-size: 16px;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+}</code></pre>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
