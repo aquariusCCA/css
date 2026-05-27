@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>align-items 控制單行側軸對齊</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>align-items 控制單行側軸對齊</h1>
+    <p class="intro">在預設 `flex-direction: row` 下，側軸是垂直方向；`align-items` 控制單行 items 在側軸上的位置。</p>
+
+    <section class="compare">
+      <article class="panel">
+        <h2>flex-start：靠側軸起點</h2>
+        <div class="layout start">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>center：側軸置中</h2>
+        <div class="layout center">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>stretch：沒有固定高度時才明顯</h2>
+      <div class="layout stretch">
+        <div class="item flexible">1</div>
+        <div class="item flexible">2</div>
+        <div class="item flexible">3</div>
+      </div>
+    </section>
+
+    <p class="note">觀察重點：`align-items` 是單行 items 的側軸對齊；多行整體分配要看 `align-content`。</p>
+  </main>
+</body>
+</html>
+

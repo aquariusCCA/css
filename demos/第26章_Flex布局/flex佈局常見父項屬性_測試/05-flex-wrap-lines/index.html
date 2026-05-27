@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-wrap 決定是否換行</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>flex-wrap 決定是否換行</h1>
+    <p class="intro">Flex 預設不換行。空間不足時，要明確設定 `flex-wrap: wrap` 才會形成多行。</p>
+
+    <section class="compare">
+      <article class="panel">
+        <h2>nowrap：盡量擠在同一行</h2>
+        <div class="layout nowrap">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>wrap：空間不足時換行</h2>
+        <div class="layout wrap">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+        </div>
+      </article>
+    </section>
+
+    <p class="note">觀察重點：`flex-wrap` 只決定是否形成多行，不負責分配多行之間的側軸空間。</p>
+  </main>
+</body>
+</html>
+

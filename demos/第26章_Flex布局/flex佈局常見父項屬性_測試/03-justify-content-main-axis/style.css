@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+  color: #1f2937;
+  background: #f4f8f6;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.intro,
+.note {
+  line-height: 1.7;
+}
+
+.stack {
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.panel {
+  padding: 16px;
+  border: 1px solid #c7d9d2;
+  border-radius: 6px;
+  background: #fff;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 92px;
+  padding: 12px;
+  border: 2px dashed #608579;
+  background: repeating-linear-gradient(
+    90deg,
+    #eef7f3,
+    #eef7f3 32px,
+    #e1eee9 32px,
+    #e1eee9 64px
+  );
+}
+
+.layout.start {
+  justify-content: flex-start;
+}
+
+.layout.center {
+  justify-content: center;
+}
+
+.layout.between {
+  justify-content: space-between;
+}
+
+.item {
+  width: 92px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f9c74f;
+  border: 2px solid #b7791f;
+}
+
+.layout.start .item,
+.layout.center .item {
+  margin-right: 8px;
+}
+

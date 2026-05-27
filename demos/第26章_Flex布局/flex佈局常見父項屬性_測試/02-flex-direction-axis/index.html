@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-direction 改變主軸</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="page">
+    <h1>flex-direction 改變主軸</h1>
+    <p class="intro">主軸不是固定水平或垂直，而是由 `flex-direction` 決定。</p>
+
+    <section class="compare">
+      <article class="panel">
+        <h2>row：主軸水平</h2>
+        <div class="layout row">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <pre><code>flex-direction: row;</code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>column：主軸垂直</h2>
+        <div class="layout column">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <pre><code>flex-direction: column;</code></pre>
+      </article>
+    </section>
+
+    <p class="note">觀察重點：主軸改變後，後續 `justify-content` 與 `align-items` 的方向判斷也會跟著改變。</p>
+  </main>
+</body>
+</html>
+
