@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS 語法標點</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 03</p>
+            <h1>CSS 需要英文冒號與分號</h1>
+            <p>左邊使用全形標點，宣告無法正確套用；右邊使用英文標點，文字顏色與大小才會改變。</p>
+        </header>
+
+        <section class="comparison" aria-label="CSS 標點語法對照">
+            <article class="panel">
+                <p class="panel-label">錯誤：全形冒號與分號</p>
+                <div class="sample">
+                    <h2 class="bad-title">CSS 簡介</h2>
+                </div>
+                <pre><code>.bad-title {
+    color：#c2410c；
+    font-size：40px；
+}</code></pre>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">正確：英文冒號與分號</p>
+                <div class="sample">
+                    <h2 class="good-title">CSS 簡介</h2>
+                </div>
+                <pre><code>.good-title {
+    color: #c2410c;
+    font-size: 40px;
+}</code></pre>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

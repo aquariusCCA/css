@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML 與 CSS 分工</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 01</p>
+            <h1>HTML 保持結構，CSS 負責外觀</h1>
+            <p>左右兩邊使用相同的 HTML 內容。右邊只多了 CSS 規則，畫面外觀就改變了。</p>
+        </header>
+
+        <section class="comparison" aria-label="HTML 與 CSS 分工對照">
+            <article class="panel">
+                <p class="panel-label">只有 HTML 結構</p>
+                <div class="sample plain-example">
+                    <h2>CSS 簡介</h2>
+                    <p>CSS 可以控制文字、圖片外型與網頁版面。</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">HTML 加上 CSS 外觀</p>
+                <div class="sample styled-example">
+                    <h2>CSS 簡介</h2>
+                    <p>CSS 可以控制文字、圖片外型與網頁版面。</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="rule-box" aria-label="主要 CSS 規則">
+            <h2>主要 CSS 宣告</h2>
+            <pre><code>.styled-example h2 {
+    color: #c2410c;
+    font-size: 40px;
+}</code></pre>
+        </section>
+    </main>
+</body>
+</html>
