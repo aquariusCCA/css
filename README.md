@@ -29,7 +29,7 @@ css/
 | `review/` | 複習材料區 | 根據 `notes/` 生成重點摘要、問答題、填空題、複習卡片。 |
 | `supplements/` | 補充資料區 | 根據 `notes/` 延伸補充底層原理、進階觀念、相關比較與實務案例。 |
 | `prompts/` | 提問範本區 | 存放可複用的提問範本、必要上下文、輸入欄位與使用備註。詳細格式見 [`prompts/README.md`](prompts/README.md)。 |
-| `skills/` | AI skill 開發區 | 存放可重複執行的生成流程、格式規則、檢查流程與輔助資源。詳細結構見 [`skills/README.md`](skills/README.md)。 |
+| `skills/` | AI skill 開發區 | 存放可重複執行的生成流程、格式規則、檢查流程與輔助資源。 |
 
 ## 資料流
 
