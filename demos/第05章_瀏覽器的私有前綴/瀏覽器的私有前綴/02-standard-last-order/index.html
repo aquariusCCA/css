@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>標準屬性放在最後</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 02</p>
+            <h1>需要前綴時，標準屬性放在最後</h1>
+            <p>這個範例用不同圓角值放大順序差異。當瀏覽器同時理解前綴版本和標準版本時，後面的宣告會成為最後結果。</p>
+        </header>
+
+        <section class="comparison" aria-label="前綴與標準屬性順序對照">
+            <article class="panel">
+                <p class="panel-label">建議順序</p>
+                <div class="sample-card recommended-order">
+                    <span>標準寫法在最後</span>
+                </div>
+                <pre><code>.recommended-order {
+    -webkit-border-radius: 4px;
+    border-radius: 28px;
+}</code></pre>
+                <p class="result-note">觀察：標準屬性放最後，圓角以 <code>28px</code> 作為主要結果。</p>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">反向順序</p>
+                <div class="sample-card reversed-order">
+                    <span>前綴寫法在最後</span>
+                </div>
+                <pre><code>.reversed-order {
+    border-radius: 28px;
+    -webkit-border-radius: 4px;
+}</code></pre>
+                <p class="result-note">觀察：若瀏覽器理解 <code>-webkit-border-radius</code>，後面的前綴版本可能蓋過標準值。</p>
+            </article>
+        </section>
+
+        <p class="support-note">如果右側在你的瀏覽器中仍然是大圓角，代表該前綴寫法被忽略；本 demo 仍保留順序對照，用來觀察筆記中的維護規則。</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>讀懂常見私有前綴</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 03</p>
+            <h1>先讀前綴，再讀真正的 CSS 功能</h1>
+            <p>每張卡片都把前綴和後面的屬性名稱拆開。前綴只指出瀏覽器家族，後面的 property name 才指出要控制的功能。</p>
+        </header>
+
+        <section class="prefix-grid" aria-label="常見私有前綴對照">
+            <article class="prefix-card moz-card">
+                <p class="browser-name">Firefox</p>
+                <div class="sample-shape">moz</div>
+                <code><span class="prefix">-moz-</span><span class="property">border-radius</span>: 18px;</code>
+            </article>
+
+            <article class="prefix-card ms-card">
+                <p class="browser-name">IE</p>
+                <div class="sample-shape">ms</div>
+                <code><span class="prefix">-ms-</span><span class="property">transform</span>: rotate(-2deg);</code>
+            </article>
+
+            <article class="prefix-card webkit-card">
+                <p class="browser-name">Safari / Chrome</p>
+                <div class="sample-shape">webkit</div>
+                <code><span class="prefix">-webkit-</span><span class="property">transform</span>: rotate(2deg);</code>
+            </article>
+
+            <article class="prefix-card opera-card">
+                <p class="browser-name">Opera</p>
+                <div class="sample-shape">o</div>
+                <code><span class="prefix">-o-</span><span class="property">border-radius</span>: 18px;</code>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

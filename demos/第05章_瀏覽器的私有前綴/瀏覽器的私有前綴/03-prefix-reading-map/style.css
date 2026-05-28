@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #1f2937;
+    background: #f5f7fb;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+.lesson {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.lesson-header {
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #526174;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lesson-header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.lesson-header p:last-child {
+    max-width: 820px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.prefix-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.prefix-card {
+    border: 1px solid #d8e0ea;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 18px;
+}
+
+.browser-name {
+    margin: 0 0 14px;
+    color: #526174;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sample-shape {
+    display: grid;
+    min-height: 120px;
+    margin-bottom: 14px;
+    place-items: center;
+    border: 2px solid #475569;
+    background: #fff7e8;
+    color: #334155;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.moz-card .sample-shape {
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+
+.ms-card .sample-shape {
+    -ms-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+.webkit-card .sample-shape {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.opera-card .sample-shape {
+    -o-border-radius: 18px;
+    border-radius: 18px;
+}
+
+code {
+    display: block;
+    overflow-x: auto;
+    border-radius: 6px;
+    background: #101827;
+    color: #f8fafc;
+    padding: 12px;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.prefix {
+    color: #fde68a;
+}
+
+.property {
+    color: #93c5fd;
+}
+
+@media (max-width: 960px) {
+    .prefix-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .prefix-grid {
+        grid-template-columns: 1fr;
+    }
+}

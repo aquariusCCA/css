@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #1f2937;
+    background: #f5f7fb;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+.lesson {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.lesson-header {
+    margin-bottom: 24px;
+}
+
+.eyebrow,
+.panel-label {
+    margin: 0 0 8px;
+    color: #526174;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lesson-header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.lesson-header p:last-child,
+.support-note,
+.result-note {
+    max-width: 860px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.panel {
+    border: 1px solid #d8e0ea;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.sample-card {
+    display: grid;
+    min-height: 170px;
+    margin-bottom: 16px;
+    place-items: center;
+    border: 2px solid #475569;
+    background: linear-gradient(135deg, #f7e8d7, #fffaf3);
+    color: #2f2418;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.recommended-order {
+    -webkit-border-radius: 4px;
+    border-radius: 28px;
+}
+
+.reversed-order {
+    border-radius: 28px;
+    -webkit-border-radius: 4px;
+}
+
+.result-note {
+    margin-top: 12px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.support-note {
+    margin-top: 18px;
+    border-left: 4px solid #2f6f73;
+    background: #eff8f6;
+    padding: 12px 14px;
+    color: #315b5a;
+}
+
+pre {
+    overflow-x: auto;
+    margin: 0;
+    border-radius: 6px;
+    background: #101827;
+    color: #f8fafc;
+    padding: 16px;
+    line-height: 1.55;
+}
+
+code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 13px;
+}
+
+@media (max-width: 820px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+}
