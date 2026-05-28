@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>無單位 line-height 的繼承</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 03</p>
+            <h1>無單位 <code>line-height</code> 繼承的是比例</h1>
+            <p>父層只設定一次 <code>line-height: 1.5;</code>，不同字級的子元素會用自己的字級計算行高。</p>
+        </header>
+
+        <section class="comparison" aria-label="無單位行高觀察">
+            <article class="panel">
+                <p class="panel-label">畫面結果</p>
+                <div class="type-parent">
+                    <div class="text-sample small-copy">
+                        <strong>14px 文字</strong>
+                        <p>第一行文字用來觀察行距。</p>
+                        <p>第二行仍然使用同一個比例。</p>
+                    </div>
+                    <div class="text-sample large-copy">
+                        <strong>24px 文字</strong>
+                        <p>第一行文字用來觀察行距。</p>
+                        <p>第二行也會依 24px 重新計算。</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">實際 CSS</p>
+                <pre><code>.type-parent {
+    line-height: 1.5;
+}
+
+.small-copy {
+    font-size: 14px;
+}
+
+.large-copy {
+    font-size: 24px;
+}</code></pre>
+                <div class="formula-list">
+                    <span>14px * 1.5 = 21px</span>
+                    <span>24px * 1.5 = 36px</span>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

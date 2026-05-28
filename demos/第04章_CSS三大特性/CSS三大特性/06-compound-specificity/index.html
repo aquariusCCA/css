@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>複合選擇器權重疊加但不進位</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="lesson">
+        <header class="lesson-header">
+            <p class="eyebrow">Demo 06</p>
+            <h1>複合選擇器要分組累加 specificity</h1>
+            <p>三條規則都選到清單項目，但只有 `.nav li` 包含類選擇器，所以它比多個標籤選擇器更有競爭力。</p>
+        </header>
+
+        <section class="comparison" aria-label="複合選擇器權重觀察">
+            <article class="panel">
+                <p class="panel-label">畫面結果</p>
+                <ul class="nav">
+                    <li>選項一</li>
+                    <li>選項二</li>
+                    <li>選項三</li>
+                </ul>
+                <div class="weight-list" aria-label="權重對照">
+                    <div><strong>.nav li</strong><em>(0, 0, 1, 1)</em></div>
+                    <div><strong>ul li</strong><em>(0, 0, 0, 2)</em></div>
+                    <div><strong>li</strong><em>(0, 0, 0, 1)</em></div>
+                </div>
+            </article>
+
+            <article class="panel">
+                <p class="panel-label">實際 CSS</p>
+                <pre><code>.nav li {
+    color: pink;
+}
+
+ul li {
+    color: green;
+}
+
+li {
+    color: red;
+}</code></pre>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

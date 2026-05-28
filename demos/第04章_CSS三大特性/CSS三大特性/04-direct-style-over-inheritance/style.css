@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #1f2937;
+    background: #f6f5f2;
+    font-family: Arial, "Noto Sans TC", sans-serif;
+}
+
+.lesson {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.lesson-header {
+    margin-bottom: 24px;
+}
+
+.eyebrow,
+.panel-label {
+    margin: 0 0 8px;
+    color: #68738a;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lesson-header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.lesson-header p:last-child {
+    max-width: 840px;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.panel {
+    border: 1px solid #d8d3c8;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 20px;
+}
+
+.sample-box {
+    min-height: 150px;
+    margin-bottom: 14px;
+    border: 1px dashed #c7c1b8;
+    border-radius: 8px;
+    background: #fffdf8;
+    padding: 18px;
+}
+
+.sample-box h1 {
+    margin: 12px 0 0;
+}
+
+.inherited-only {
+    color: red;
+    font-size: 12px;
+}
+
+.direct-fix {
+    color: red;
+    font-size: 12px;
+}
+
+.direct-fix a {
+    color: red;
+}
+
+.direct-fix h1 {
+    font-size: 12px;
+}
+
+pre {
+    overflow-x: auto;
+    margin: 0;
+    border-radius: 6px;
+    background: #172033;
+    color: #f8fafc;
+    padding: 16px;
+    line-height: 1.55;
+}
+
+code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 13px;
+}
+
+@media (max-width: 820px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+}
