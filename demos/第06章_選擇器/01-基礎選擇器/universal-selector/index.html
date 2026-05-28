@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通配符選擇器 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-shell">
+    <header>
+      <p class="eyebrow">基礎選擇器</p>
+      <h1>通配符選擇器會選到所有元素</h1>
+      <p class="intro">本頁刻意使用 <code>* { color: red; }</code>，觀察它如何讓標題、段落、清單與程式碼文字都受到影響。</p>
+    </header>
+
+    <section class="panel" aria-label="通配符選擇器影響範圍">
+      <h2>觀察區</h2>
+      <p>這是一段普通段落。</p>
+      <ul>
+        <li>清單項目一</li>
+        <li>清單項目二</li>
+      </ul>
+      <button type="button">範例按鈕</button>
+    </section>
+
+    <section class="rule-card">
+      <h2>主要 CSS 規則</h2>
+      <pre><code>* {
+  color: red;
+}</code></pre>
+      <p>通配符適合用於全頁基礎設定；若只想改某一區或某幾個元素，應使用更精準的 selector。</p>
+    </section>
+  </main>
+</body>
+</html>

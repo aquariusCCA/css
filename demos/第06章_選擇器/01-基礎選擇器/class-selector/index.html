@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>類選擇器 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-shell">
+    <header>
+      <p class="eyebrow">基礎選擇器</p>
+      <h1>類選擇器只改有指定 class 的元素</h1>
+      <p class="intro">同樣是一組 <code>li</code>，標籤選擇器會全選，類選擇器可以只選有 <code>class="important"</code> 的項目。</p>
+    </header>
+
+    <section class="comparison" aria-label="標籤選擇器與類選擇器比較">
+      <article class="panel broad">
+        <h2>選太廣：li</h2>
+        <ul class="song-list">
+          <li class="important"><span>冰雨</span> <small>class="important"</small></li>
+          <li class="important"><span>來生緣</span> <small>class="important"</small></li>
+          <li><span>李香蘭</span></li>
+          <li><span>江南 style</span></li>
+        </ul>
+        <pre><code>li {
+  color: red;
+}</code></pre>
+      </article>
+
+      <article class="panel precise">
+        <h2>選精準：.important</h2>
+        <ul class="song-list">
+          <li class="important"><span>冰雨</span> <small>class="important"</small></li>
+          <li class="important"><span>來生緣</span> <small>class="important"</small></li>
+          <li><span>李香蘭</span></li>
+          <li><span>江南 style</span></li>
+        </ul>
+        <pre><code>.important {
+  color: red;
+}</code></pre>
+      </article>
+    </section>
+
+    <section class="rule-card">
+      <h2>主要 CSS 規則</h2>
+      <p><code>.important</code> 前面的句點表示 CSS 要找的是 class 名稱。沒有這個 class 的清單項目不會被選到。</p>
+    </section>
+  </main>
+</body>
+</html>

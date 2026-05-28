@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>子選擇器 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-shell">
+    <header>
+      <p class="eyebrow">複合選擇器</p>
+      <h1>子選擇器只選直接子層</h1>
+      <p class="intro">觀察 <code>.menu &gt; a</code> 只選到直接放在 <code>.menu</code> 裡的連結，包在 <code>p</code> 裡的連結不會被選到。</p>
+    </header>
+
+    <section class="comparison" aria-label="錯誤與正確比較">
+      <article class="panel too-wide">
+        <h2>後代選擇器：範圍較大</h2>
+        <div class="menu">
+          <a href="#">主選單</a>
+          <p><a href="#">子選單</a></p>
+        </div>
+        <pre><code>.menu a {
+  color: red;
+}</code></pre>
+      </article>
+
+      <article class="panel direct-only">
+        <h2>子選擇器：只選直接子層</h2>
+        <div class="menu">
+          <a href="#">主選單</a>
+          <p><a href="#">子選單</a></p>
+        </div>
+        <pre><code>.menu &gt; a {
+  color: red;
+}</code></pre>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

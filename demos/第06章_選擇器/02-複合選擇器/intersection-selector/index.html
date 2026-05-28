@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交集選擇器 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-shell">
+    <header>
+      <p class="eyebrow">複合選擇器</p>
+      <h1>交集選擇器選同時符合多個條件的元素</h1>
+      <p class="intro">觀察 <code>p.box</code> 只選到同時是 <code>p</code> 且有 <code>box</code> class 的元素。</p>
+    </header>
+
+    <section class="comparison" aria-label="錯誤與正確比較">
+      <article class="panel wrong">
+        <h2>空格改變語意：p .box</h2>
+        <p class="box">這是 p 標籤，而且有 box class。</p>
+        <p>這是普通 p 標籤。</p>
+        <div class="box">這是 div 標籤，也有 box class。</div>
+        <p><span class="box">這是在 p 裡面的 span.box。</span></p>
+        <pre><code>p .box {
+  color: red;
+}</code></pre>
+      </article>
+
+      <article class="panel correct">
+        <h2>條件緊貼：p.box</h2>
+        <p class="box">這是 p 標籤，而且有 box class。</p>
+        <p>這是普通 p 標籤。</p>
+        <div class="box">這是 div 標籤，也有 box class。</div>
+        <p><span class="box">這是在 p 裡面的 span.box。</span></p>
+        <pre><code>p.box {
+  color: red;
+}</code></pre>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
