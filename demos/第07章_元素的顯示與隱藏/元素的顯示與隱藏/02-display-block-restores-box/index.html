@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>display block 重新顯示 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-shell">
+    <header>
+      <p class="eyebrow">元素的顯示與隱藏</p>
+      <h1><code>display: block</code> 讓元素重新以區塊方式顯示</h1>
+      <p class="intro">比較 <code>display: none</code> 和 <code>display: block</code>，觀察被隱藏的盒子重新出現後如何推開下一個區塊。</p>
+    </header>
+
+    <section class="comparison" aria-label="display none 與 display block 比較">
+      <article class="panel hidden-demo">
+        <h2>隱藏狀態：display none</h2>
+        <div class="stage">
+          <div class="demo-panel">提示面板</div>
+          <div class="next">下一個區塊</div>
+        </div>
+        <pre><code>.demo-panel {
+  display: none;
+}</code></pre>
+      </article>
+
+      <article class="panel shown-demo">
+        <h2>顯示狀態：display block</h2>
+        <div class="stage">
+          <div class="demo-panel">提示面板</div>
+          <div class="next">下一個區塊</div>
+        </div>
+        <pre><code>.demo-panel {
+  display: block;
+}</code></pre>
+      </article>
+    </section>
+
+    <section class="rule-card">
+      <h2>主要觀察</h2>
+      <p><code>display: block</code> 不是單純取消隱藏而已，它會讓元素以 block 盒子參與排版。右側粉色面板出現後，藍色區塊被排到它下方。</p>
+    </section>
+  </main>
+</body>
+</html>

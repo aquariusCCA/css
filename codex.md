@@ -5,14 +5,13 @@
 - `prompts/workflows/notes-to-css-appendix.md`
 - `prompts/formats/css-appendix-reference-format.md`
 
-
 請根據以下設定產生 CSS 查表型資料。
 
 ### 必要設定
 
-- 筆記路徑：`notes/第06章_選擇器/02-複合選擇器.md`
-- 章節名稱：`第06章_選擇器`
-- 預期輸出目錄：`appendix/第06章_選擇器/02-複合選擇器/`
+- 筆記路徑：`notes\第07章_元素的顯示與隱藏\元素的顯示與隱藏.md`
+- 章節名稱：`第07章_元素的顯示與隱藏`
+- 預期輸出目錄：`notes\第07章_元素的顯示與隱藏\`
 - 查表類型：`全部類型`
 
 ### 任務要求

@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  background: #f6f8fb;
+  color: #1f2933;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+code,
+pre {
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.demo-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #5d6f28;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.intro {
+  max-width: 780px;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0 16px;
+}
+
+.panel,
+.rule-card {
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: #fff;
+  padding: 20px;
+}
+
+.panel h2,
+.rule-card h2 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.stage {
+  min-height: 230px;
+  border: 1px dashed #9aa8b7;
+  border-radius: 6px;
+  background:
+    linear-gradient(#eef3f8 1px, transparent 1px),
+    #f9fbfd;
+  background-size: 100% 48px;
+  padding: 16px;
+}
+
+.avatar,
+.name {
+  box-sizing: border-box;
+  width: 220px;
+  height: 84px;
+  padding: 14px;
+  border: 2px solid #333;
+  font-weight: 700;
+}
+
+.avatar {
+  margin-bottom: 12px;
+  background: #ffd1dc;
+}
+
+.name {
+  background: #bde7ff;
+}
+
+.after .avatar {
+  visibility: hidden;
+}
+
+pre {
+  overflow-x: auto;
+  border-radius: 6px;
+  background: #1f2933;
+  color: #f8fafc;
+  padding: 14px;
+}
+
+@media (max-width: 760px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+}
