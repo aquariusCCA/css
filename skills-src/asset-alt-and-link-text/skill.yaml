@@ -1,0 +1,3 @@
+name: asset-alt-and-link-text
+description: |
+  當使用者要對 origin/<章節>/*.md 中的本地圖片 alt 與本地附件連結文字進行品質檢查與改寫時使用。掃描 origin/<章節>/*.md（不含行內程式碼；fenced code block 原則上排除，但其中可唯一對應到 assets/ 實體檔案的本地資產引用例外納入）中的 Markdown 圖片 alt、HTML <img> 的 alt 屬性（含缺少 alt 的情況）、Markdown/HTML 本地附件連結文字，依信心等級判斷是否可改寫為具體描述，無法確認時列入「需要人工確認」，不猜測。適用情境：使用者要求對某章節做「alt 優化」「alt 與連結文字整理」「無障礙文字檢查」，或處理 meta/chapter-status.md 中「alt 與連結文字」欄位為「未開始」「進行中」或「待確認」的章節。不適用於：本地資產標準化命名與路徑改寫（屬於 asset-standardization skill，且必須先於本 skill 完成）、教材正文重寫、檔名/路徑/目錄重命名、atomic/notes 等下游層級的內容處理。

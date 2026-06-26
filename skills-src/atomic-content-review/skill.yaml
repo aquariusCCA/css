@@ -1,0 +1,3 @@
+name: atomic-content-review
+description: |
+  當使用者要審查 atomic/<章節>/*.md 的技術正確性、邏輯可靠性、主題歸屬合理性與教學可用性時使用。分兩階段：第一階段掃描 atomic/<章節>/*.md（必要時回查 origin/<章節>/*.md），建立 Atomic Inventory 與問題清單，標註問題類型（技術事實錯誤、範例程式碼錯誤、原始資料錯誤、轉換錯誤、主題歸屬錯誤、邏輯順序問題、表述風險）、嚴重度（S1-S4）與信心，並將切分、來源資訊、asset 路徑或 atomic 邊界問題另列為 origin-to-atomic 轉交項目；第二階段僅在使用者明確確認問題 ID 後，以最小變更修正 atomic/<章節>/*.md。適用情境：使用者要求對某章節做「atomic 內容審查」「atomic review」「審查 atomic notes」，或處理 meta/chapter-status.md 中「atomic 內容審查」欄位為「未開始」「進行中」或「待確認」的章節。不適用於：atomic 切分提案與產生（屬於 atomic-note-splitting skill，須先完成）、資產標準化命名與 alt/連結文字整理（屬於另外兩個 skill）、notes/review/practice/demos/appendix 等下游層級內容生成、教材正文重寫。

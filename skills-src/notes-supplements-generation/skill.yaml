@@ -1,0 +1,3 @@
+name: notes-supplements-generation
+description: |
+  當使用者要將外部素材（AI 回答、技術文章、資深軟體工程師解說等）整理為 supplements/<章節>/*.md 補充筆記時使用。分兩階段：第一階段讀取指定 notes/<章節>/<檔名>.md 與使用者提供的外部素材，判斷補充類型（原理深探、實務延伸、比較對照、答疑）、提議檔名、起草 source_notes/topics/summary front matter 與內容大綱，並確認素材是否超出 notes 既有範圍；第二階段僅在使用者明確確認後，將素材整理為格式完整的補充筆記並寫入 supplements/<章節>/<檔名>.md，同時完成 source_notes/topics/summary YAML front matter。適用情境：使用者閱讀 notes 後收集到 AI 回答、技術文章、工程師解說等外部素材，想將其整理儲存為可索引的補充筆記。不適用於：notes 正文修改（應直接編輯 notes/<章節>/*.md）、origin/atomic 層級內容處理、資產標準化命名或 alt/連結文字整理、demos/practice/review/appendix 等其他下游教材生成。
