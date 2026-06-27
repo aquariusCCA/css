@@ -200,7 +200,7 @@ function renderIndex(entries) {
   const lines = [
     generatedNotice,
     "",
-    "# Supplements 索引",
+    "# CSS Supplements 索引",
     "",
     "> 本檔案由 `scripts/build-supplements-index.mjs` 自動產生，請勿手動編輯。",
     "> 如需更新，請修改對應 supplements 的 front matter（`topics`/`summary`）後重新執行：",
@@ -212,7 +212,18 @@ function renderIndex(entries) {
   ];
 
   if (!entries.length) {
-    lines.push("（目前尚無任何 supplements）", "");
+    lines.push(
+      "## 前提",
+      "",
+      "- CSS 原始筆記會由人工整理後放入 `origin/`。",
+      "- 本索引不預先建立 CSS 補充資料清單。",
+      "- 待 `supplements/` 產生 CSS 補充資料後，再由腳本重新生成索引內容。",
+      "",
+      "## 依補充資料瀏覽",
+      "",
+      "目前尚未建立 CSS supplements 索引。",
+      "",
+    );
     return `${lines.join("\n").replace(/\n+$/, "")}\n`;
   }
 

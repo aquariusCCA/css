@@ -97,6 +97,12 @@ function parseTitle(body) {
 async function findDemoFile(chapter, baseName) {
   const chapterDemoDir = path.join(demosRoot, chapter);
   if (!(await pathExists(chapterDemoDir))) return null;
+
+  const nestedDemoIndex = path.join(chapterDemoDir, baseName, "index.html");
+  if (await pathExists(nestedDemoIndex)) {
+    return path.join(baseName, "index.html");
+  }
+
   const entries = await readdir(chapterDemoDir, { withFileTypes: true });
   const match = entries.find(
     (entry) => entry.isFile() && path.parse(entry.name).name === baseName,
@@ -217,7 +223,7 @@ function renderIndex(entries) {
   const lines = [
     generatedNotice,
     "",
-    "# Notes 索引",
+    "# CSS Notes 索引",
     "",
     "> 本檔案由 `scripts/build-index.mjs` 自動產生，請勿手動編輯。",
     "> 如需更新，請修改對應 notes 的 front matter（`topics`/`summary`）後重新執行：",
@@ -226,10 +232,29 @@ function renderIndex(entries) {
     "> node scripts/build-index.mjs",
     "> ```",
     "",
+  ];
+
+  if (!entries.length) {
+    lines.push(
+      "## 前提",
+      "",
+      "- CSS 原始筆記會由人工整理後放入 `origin/`。",
+      "- 本索引不預先建立 CSS 章節大綱。",
+      "- 待 `notes/` 產生 CSS 筆記後，再由腳本重新生成索引內容。",
+      "",
+      "## 依章節瀏覽",
+      "",
+      "目前尚未建立 CSS notes 索引。",
+      "",
+    );
+    return `${lines.join("\n").replace(/\n+$/, "")}\n`;
+  }
+
+  lines.push(
     ...renderByChapter(entries),
     ...renderByTopic(entries),
     ...renderUntagged(entries),
-  ];
+  );
 
   return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 }

@@ -204,7 +204,7 @@ function renderIndex(entries) {
   const lines = [
     generatedNotice,
     "",
-    "# Projects 索引",
+    "# CSS Projects 索引",
     "",
     "> 本檔案由 `scripts/build-projects-index.mjs` 自動產生，請勿手動編輯。",
     "> 如需更新，請修改對應 `projects/<專案-slug>/project.md` 的 front matter 後重新執行：",
@@ -216,7 +216,22 @@ function renderIndex(entries) {
   ];
 
   if (!entries.length) {
-    lines.push("（目前尚無任何整合專案）", "");
+    lines.push(
+      "## 前提",
+      "",
+      "- CSS 原始筆記會由人工整理後放入 `origin/`。",
+      "- 本索引不預先建立 CSS 專案清單。",
+      "- 待 `projects/` 產生 CSS 整合專案後，再由腳本重新生成索引內容。",
+      "",
+      "## 依專案瀏覽",
+      "",
+      "目前尚未建立 CSS projects 索引。",
+      "",
+      "## 依來源章節反查",
+      "",
+      "目前尚未建立 CSS projects 的來源章節反查資料。",
+      "",
+    );
     return `${lines.join("\n").replace(/\n+$/, "")}\n`;
   }
 
