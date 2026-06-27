@@ -112,7 +112,7 @@ origin/<章節>/*.md
 5. 空連結，例如 `href=""`。
 6. 教材正文、標題、清單、表格內容，除非該文字本身就是圖片 alt 或附件連結文字。
 
-例外：若 fenced code block 內本地圖片 `src` 或本地附件 `href`／連結路徑，依 [`asset-standardization` skill](../asset-standardization/SKILL.md) Step 3、Step 4 的匹配規則可唯一對應到 `origin/<章節>/assets/` 內的實體檔案，則不視為第 1 項所述的教學範例，其圖片 alt 或附件連結文字仍須依本流程的信心等級規則檢查與判斷；無法唯一對應或仍有疑義時，維持第 1 項略過或列入「需要人工確認」。行內程式碼（第 2 項）不適用此例外，一律略過。
+例外：若 fenced code block 內本地圖片 `src` 或本地附件 `href`／連結路徑，依 [`asset-standardization` skill](../asset-standardization/) Step 3、Step 4 的匹配規則可唯一對應到 `origin/<章節>/assets/` 內的實體檔案，則不視為第 1 項所述的教學範例，其圖片 alt 或附件連結文字仍須依本流程的信心等級規則檢查與判斷；無法唯一對應或仍有疑義時，維持第 1 項略過或列入「需要人工確認」。行內程式碼（第 2 項）不適用此例外，一律略過。
 
 ### Step 3：找出需要檢查的目標
 
