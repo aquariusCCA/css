@@ -1,3 +1,3 @@
 name: update-judgment
 description: |
-  當使用者要判斷 HTML 筆記包(origin/atomic/notes/appendix/demos/practice/review/supplements)某次改動是否需要更新、要更新哪一層、會影響哪些上游或下游、應採用什麼更新順序，以及 meta/chapter-status.md 應如何標記時使用。適用情境包含：使用者提供章節/改動檔案或資料夾/改動摘要要求判斷更新範圍、詢問某個改動的上下游影響、或詢問是否需要同步或重生成某層內容。不適用於實際生成 atomic/notes/demos/practice/review 的教學內容本身（那屬於一般筆記生成任務）。
+  當使用者要判斷 HTML 筆記包(origin/atomic/notes/appendix/demos/projects/practice/review/supplements)某次改動是否需要更新、要更新哪一層、會影響哪些上游或下游、應採用什麼更新順序，以及 meta/chapter-status.md、meta/projects-index.md 或 meta/supplements-index.md 應如何標記或檢查時使用。適用情境包含：使用者提供章節/改動檔案或資料夾/改動摘要要求判斷更新範圍、詢問某個改動的上下游影響、詢問 notes 索引元資料、補充筆記索引或跨章節 projects 是否受影響，或詢問是否需要同步或重生成某層內容。不適用於實際生成 atomic/notes/demos/projects/practice/review/appendix/supplements 的教學內容本身（那屬於一般筆記生成任務）。

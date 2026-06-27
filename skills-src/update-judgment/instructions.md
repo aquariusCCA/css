@@ -8,6 +8,7 @@
 - 會影響哪些上游或下游
 - 應該採用什麼更新順序
 - `meta/chapter-status.md` 應如何建議標記
+- `meta/projects-index.md`、`meta/supplements-index.md` 是否需要檢查或重建
 
 本 skill 不是自動改檔流程，也不是 HTML 教學內容產生規格。它只用於更新前的判斷與規劃。
 
@@ -22,6 +23,8 @@
 - 判斷哪些上游或下游需要檢查。
 - 建議候選同步、候選重生成範圍與更新順序。
 - 建議 `meta/chapter-status.md` 的狀態標記。
+- 判斷跨章節 `projects/` 與 `meta/projects-index.md` 是否受影響。
+- 判斷選用補充層 `supplements/` 與 `meta/supplements-index.md` 是否受影響。
 
 使用者只要求「判斷」時，不應建立、修改、刪除或重生成任何檔案。
 
@@ -58,11 +61,14 @@
 - 先判斷最新正確內容在哪一層，再判斷其他層是否需要同步。
 - 不把 `origin/` 直接當作正式教學筆記。
 - 不把 `atomic/` 直接當作最終可閱讀筆記。
-- 不把 `appendix/`、`demos/`、`practice/`、`review/` 當作核心知識的正式來源。
+- 不把 `appendix/`、`demos/`、`projects/`、`practice/`、`review/`、`supplements/` 當作核心知識的正式來源。
 - 不把 `meta/chapter-status.md` 當作流程歷史紀錄；它只保存章節狀態總覽。
-- 下游材料只能延伸已完成內容審查的 `notes/`，不能自行新增核心知識。
+- 單章下游教材只能延伸已完成內容審查的 `notes/`，不能自行新增核心知識。
+- `appendix/` 是選用查表層，必須先判斷章節是否有足夠可表格化、獨立查閱價值高於回翻 notes 的內容；不適合時應建議「appendix 索引」標記為 `不適用`。
+- `supplements/` 可整理外部素材或延伸解說，但必須以 `source_notes` 對應既有 `notes/` 作為追溯與內容邊界；若發現正式知識缺口，應回到 `notes/` 或更上游流程判斷。
+- `projects/` 是跨章節整合層，以專案為鍵，不佔用 `meta/chapter-status.md` 的章節列；其反向追溯需查 `meta/projects-index.md`。
 - 若只是判斷影響範圍，只提出「需要檢查」、「候選同步」、「候選重生成」與「狀態標記建議」，不代表已經執行。
-- 判斷前應優先查閱使用者指定的檔案、同章節上下游檔案、`meta/chapter-status.md` 與必要的章節 log；不要只靠檔名推測。
+- 判斷前應優先查閱使用者指定的檔案、同章節上下游檔案、`meta/chapter-status.md`、必要的章節 log；若 `notes/` 改動可能影響跨章節專案，還要查 `meta/projects-index.md`；若可能影響補充筆記，還要查 `meta/supplements-index.md` 或對應 `supplements/<章節>/` 的 `source_notes`。
 - 若找不到足夠依據，應輸出 `待確認` 或 `暫緩`，不能假設內容已同步。
 
 ## 核心口訣
@@ -70,27 +76,31 @@
 ```text
 改 origin，要想到 atomic。
 改 atomic，要想到 notes。
-改 notes，要想到所有下游。
+改 notes，要想到 notes 索引元資料、appendix 適用性與既有 appendix、固定下游、相關 supplements 與跨章節 projects。
+改 notes 索引元資料，要想到下游 front matter、source_notes 反查與 projects 前置條件。
 改下游，要先確認 notes 是否才是問題來源。
 
-改標題，要想到 appendix 與 anchor。
-改範例，要想到 demos / practice / review。
+改 notes 檔名、標題或章節標題，要想到 appendix 的 source_notes、回連文字與 anchor。
+改範例，要想到 demos / projects / practice / review。
 改資產，要想到所有引用路徑。
-下游新增新知識，要先回補 notes。
+下游發現核心知識缺口，要先回補 notes。
 
 上游變動，不代表全部重跑；
 但下游未檢查，不能假設最新。
+projects 不以章節為鍵；
+notes 變動時要用 projects-index 反查。
 ```
 
 ## HTML 筆記包資料流
 
 ```text
 origin/<章節>/*.md
+origin/<章節>/*.md
 origin/<章節>/assets/
   ↓
-資料整理
-  - 資產命名
-  - alt 與連結文字整理
+資產命名（就地更新 origin/）
+  ↓
+alt 與連結文字整理（就地更新 origin/）
   ↓
 atomic 切分提案與產生
   ↓
@@ -102,10 +112,20 @@ notes/
   ↓
 notes content review
   ↓
-appendix/  demos/  practice/  review/
+notes 索引元資料
+  ↓
+demos/  practice/  review/
+  ↓
+最終驗收
 ```
 
-這是主要判斷順序，不代表每次都要全部重跑。未受影響的層級可以略過。
+這是單章節主要判斷順序，不代表每次都要全部重跑。未受影響的層級可以略過。
+
+`appendix/` 是選用查表層，不放入上方單章節主線；當該章節有足夠可表格化、單獨查閱價值明顯高於回翻 notes 的內容時，才在「notes 完成檢查」完成後以 `notes/` 為唯一來源生成，並對應 `meta/chapter-status.md` 的「appendix 索引」欄位。不適合生成時應建議該欄標記為 `不適用`。
+
+`supplements/` 是選用補充層，不屬於章節標準交付主線；可在 `notes/` 完成後依需求整理外部素材或延伸解說，並以 `source_notes` 對應既有 `notes/` 作為追溯與內容邊界。`supplements/` 不作為單章節最終驗收的必經前置。
+
+`projects/` 是跨章節整合層，不在單章節資料流內；它以多篇 `notes/` 為來源，狀態與反向追溯記錄於 `meta/projects-index.md`。
 
 ## 各層責任
 
@@ -119,13 +139,17 @@ appendix/  demos/  practice/  review/
 | atomic review | 檢查 atomic 正確性、完整性，並標出切分風險；切分風險轉交 atomic 切分提案與產生處理，不在 atomic review 內直接修正 | 否 |
 | `notes/` | 保存可閱讀、可教學、可回查的正式筆記 | 是 |
 | notes content review | 檢查 notes 是否達到正式教學品質 | 否 |
-| `appendix/` | 索引、查表資料 | 否，應回連 notes |
+| notes 索引元資料 | 為 notes front matter 補上 `topics` 與 `summary`，支援下游定位與 projects 前置檢查 | 否 |
+| `appendix/` | 選用查表資料，只重排 notes 已出現且有查表價值的內容 | 否，應透過 `source_notes` 回連 notes，不得補成 notes 未涵蓋的完整參考表 |
 | `demos/` | 可執行教學範例 | 否，應延伸 notes |
+| `projects/` | 跨章節多篇 notes 的整合專案 | 否，應組裝 `source_notes` 所列 notes 的已教內容聯集 |
 | `practice/` | 練習題、實作任務與答案來源 | 否，應延伸 notes |
 | `review/` | 重點摘要、問答題、填空題與複習卡片 | 否，應延伸 notes |
-| `supplements/` | 補充資料 | 否，應延伸 notes；若發現正式知識缺口，應回到正式筆記流程檢查 |
+| `supplements/` | 整理外部素材或延伸解說為補充筆記 | 否，應以 `source_notes` 回連 notes 作為追溯與內容邊界；若發現正式知識缺口，應回到正式筆記流程檢查 |
 | `meta/chapter-status.md` | 章節狀態總覽 | 否 |
 | `meta/chapter-logs/<章節名稱>.md` | 章節詳細流程歷史 | 否 |
+| `meta/projects-index.md` | projects 反向追溯與索引 | 否；由 `scripts/build-projects-index.mjs` 產生，不手動編輯 |
+| `meta/supplements-index.md` | supplements 聚合索引 | 否；由 `scripts/build-supplements-index.mjs` 產生，不手動編輯 |
 
 ## 更新判斷總則
 
@@ -136,12 +160,17 @@ appendix/  demos/  practice/  review/
 | 新增或修正原始資料 | `origin/` | `atomic/`, `notes/`, 下游材料 |
 | 資產新增、改名、搬移或引用修正 | `origin/<章節>/assets/` | 所有引用該資產的位置 |
 | 單一概念新增、拆分或修正 | `atomic/` | `atomic review`, `notes/`, 下游材料 |
-| 教學筆記新增、重組或修正 | `notes/` | `notes content review`, 所有下游材料 |
-| 索引、查表資料更新 | `appendix/` | 確認是否只延伸 `notes/` |
+| 教學筆記新增、重組或修正 | `notes/` | `notes content review`, `notes 索引元資料`, `appendix/` 適用性與既有 appendix, demos/practice/review, 透過 `source_notes` 回連的 `supplements/` 與命中的 `projects/` |
+| notes front matter 索引更新 | `notes/` | `notes 索引元資料`, appendix/supplements/projects 的 `source_notes`、topics、summary 反查與 `projects/` 前置條件 |
+| 索引、查表資料更新 | `appendix/` | 確認是否只重排 notes 已有查表內容、`source_notes` 是否存在、topics/summary 是否合理、是否需要建議「appendix 索引」為 `已完成` 或 `不適用` |
 | 教學範例更新 | `demos/` | 確認是否來自 `notes/`，並檢查資產路徑 |
+| 跨章節整合專案更新 | `projects/` | 確認是否只組裝 `source_notes` 已教範圍，並檢查 `meta/projects-index.md` |
 | 練習題或答案更新 | `practice/` | 確認題目、答案與來源是否對應 `notes/` |
 | 重點摘要、問答題、填空題或複習卡片更新 | `review/` | 確認複習內容是否對應 `notes/` |
+| 補充資料更新 | `supplements/` | 確認是否以 `source_notes` 回連既有 `notes/`，是否只是補充外部素材或延伸解說；若涉及核心知識缺口應回補正式流程，並檢查 `meta/supplements-index.md` |
 | 章節狀態同步 | `meta/chapter-status.md` | 確認只更新狀態，不改變欄位結構 |
+| projects 索引同步 | `meta/projects-index.md` | 確認由 `scripts/build-projects-index.mjs` 產生，不手動編輯 |
+| supplements 索引同步 | `meta/supplements-index.md` | 確認由 `scripts/build-supplements-index.mjs` 產生，不手動編輯 |
 
 ### 2. 先找最新正確來源
 
@@ -150,8 +179,10 @@ appendix/  demos/  practice/  review/
 ```text
 origin 改了 → 檢查 atomic / notes 是否過期
 atomic 改了 → 檢查 notes 是否過期
-notes 改了 → 檢查 appendix / demos / practice / review 是否過期
+notes 改了 → 檢查 notes 索引元資料、appendix 適用性與既有 appendix、demos / practice / review 是否過期；檢查 supplements 是否透過 source_notes 受影響；並用 projects-index 反查 projects
+notes 索引元資料改了 → 檢查下游 front matter、source_notes 反查與 projects 前置條件
 下游改了 → 先判斷問題是否源自 notes 或更上游
+projects 改了 → 先判斷問題是否源自 source_notes 或 projects 本身
 ```
 
 若無法確認最新正確來源，應暫緩更新或標記為待確認。
@@ -164,7 +195,9 @@ notes 改了 → 檢查 appendix / demos / practice / review 是否過期
 
 ### 4. 下游不得自行新增核心知識
 
-`appendix/`、`demos/`、`practice/`、`review/` 只能延伸 `notes/` 已經教過的內容。
+`appendix/`、`demos/`、`projects/`、`practice/`、`review/` 只能延伸、重排或組裝 `notes/` 已經教過的內容。`appendix/` 特別要避免把 notes 沒有寫出的值、屬性、API、參數或支援度補成完整參考資料；任何無法回溯到 notes 的表格內容都應列為待確認或建議回補 notes。
+
+`supplements/` 可以整理外部素材或延伸解說，但必須透過 `source_notes` 對應既有 `notes/`，並維持在該 notes 的概念邊界內；若補充內容揭示正式筆記缺口，應回到 `notes/` 或更上游流程處理。
 
 如果下游需要加入新觀念：
 
@@ -174,6 +207,8 @@ notes 改了 → 檢查 appendix / demos / practice / review 是否過期
 若 notes 沒有，先補 notes
   ↓
 完成 notes content review
+  ↓
+重新檢查 notes 索引元資料（若受影響）
   ↓
 再更新下游
 ```
@@ -197,9 +232,13 @@ notes 改了 → 檢查 appendix / demos / practice / review 是否過期
 - 改動位置與改動類型
 - 最新正確來源
 - 是否影響正式 `notes/`
+- 是否影響 `notes` front matter 的 `topics`、`summary` 或來源追溯
 - 是否影響標題、anchor、關鍵字或引用路徑
 - 是否影響資產、圖片、附件或來源連結
-- 是否影響 `appendix/`、`demos/`、`practice/`、`review/`
+- 是否影響 `appendix/` 的適用性、`source_notes`、topics、summary、表格回溯或既有查表內容
+- 是否影響 `demos/`、`practice/`、`review/`
+- 是否影響 `supplements/`，或需要重建 `meta/supplements-index.md`
+- 是否有 `projects/` 透過 `meta/projects-index.md` 命中這次改動的 `notes/`
 
 ## 各層更新判斷
 
@@ -208,13 +247,18 @@ notes 改了 → 檢查 appendix / demos / practice / review 是否過期
 | `origin/` | 是否影響 `atomic/` 的概念、來源追溯、切分方式或事實正確性 |
 | `origin/<章節>/assets/` | 是否有任何層級仍引用舊路徑、舊檔名、錯誤 alt 或錯誤連結文字 |
 | `atomic/` | 是否影響 `notes/` 的說明、教學順序、標題或範例 |
-| `notes/` | 是否影響 `appendix/`、`demos/`、`practice/`、`review/` |
-| `appendix/` | 是否只是索引或摘要更新；若涉及正式內容，應回到 `notes/` |
+| `notes/` | 是否影響 `notes 索引元資料`、`appendix/` 適用性與既有 appendix、`demos/`、`practice/`、`review/`；是否影響透過 `source_notes` 回連的 `supplements/`；以及 `meta/projects-index.md` 中命中的 `projects/` |
+| notes 索引元資料 | 是否影響下游定位、`projects/` 前置條件或 `source_notes` 反查 |
+| `appendix/` | 是否只重排 notes 已有查表內容；是否具備 `source_notes`、topics、summary；是否輸出於 `appendix/<章節>/` 且未建立跨章彙整表；若涉及正式內容或補全 notes 未涵蓋資料，應回到 `notes/` |
 | `demos/` | 是否超出 notes 已教範圍，或是否需要回補 notes |
+| `projects/` | 是否只組裝 `source_notes` 已教內容聯集；若 `project.md` 來源變動，是否需要重建 `meta/projects-index.md` |
 | `practice/` | 題目、答案、提示與來源是否仍對應 notes |
 | `review/` | 重點摘要、問答題、填空題、複習卡片與解析是否仍對應 notes |
-| `supplements/` | 是否超出 notes 已教範圍；若是，應回到 `origin/`、`atomic/`、`notes/` 的正式流程判斷，不直接由 supplements 回補 |
+| `supplements/` | 是否以 `source_notes` 回連既有 notes；是否只是補充外部素材或延伸解說；若涉及核心知識缺口，應回到 `origin/`、`atomic/`、`notes/` 的正式流程判斷，不直接由 supplements 回補；若來源、topics 或 summary 改動，是否需要重建 `meta/supplements-index.md` |
 | `meta/chapter-status.md` | 是否只更新既有欄位與狀態值，不改變欄位結構 |
+| `meta/projects-index.md` | 是否由 `scripts/build-projects-index.mjs` 重建；不可手動編輯 |
+| `meta/supplements-index.md` | 是否由 `scripts/build-supplements-index.mjs` 重建；不可手動編輯 |
+| 最終驗收 | 若任何已驗收章節的上游、固定下游或已適用的 appendix 重新更新，是否需將「最終驗收」列為待確認或候選重新驗收；`projects/` 與 `supplements/` 不自動作為單章節最終驗收的必經前置 |
 
 ## 資產異動判斷
 
@@ -235,7 +279,8 @@ atomic 引用
 notes 引用
 demos 引用
 appendix 連結
-practice / review 中的圖片、附件或來源連結
+projects 引用或自帶 assets
+practice / review / supplements 中的圖片、附件或來源連結
 ```
 
 ## `meta/chapter-status.md` 標記原則
@@ -263,11 +308,18 @@ practice / review 中的圖片、附件或來源連結
 | atomic review | `atomic 內容審查` |
 | notes generation | `notes 生成` |
 | notes content review | `notes 完成檢查` |
+| notes index metadata | `notes 索引元資料` |
 | demos | `demos 生成` |
 | practice | `practice 生成` |
 | review | `review 生成` |
 | appendix | `appendix 索引` |
 | final check | `最終驗收` |
+
+`appendix 索引` 可依規劃結果建議標記為 `已完成` 或 `不適用`：若應生成的 appendix 都已建立或更新且來源回溯通過，建議 `已完成`；若整章無足夠查表價值且理由充分，建議 `不適用`。
+
+`projects/` 不對應 `meta/chapter-status.md` 的章節欄位；其狀態與反向追溯應透過 `projects/<專案-slug>/project.md` 與自動產生的 `meta/projects-index.md` 判斷。
+
+`supplements/` 不對應 `meta/chapter-status.md` 的標準欄位；其聚合索引應透過 `supplements/<章節>/*.md` 的 front matter 與自動產生的 `meta/supplements-index.md` 判斷。
 
 `完成率`、`整體狀態`、`下一步`、`備註` 為整體摘要欄位，非單一維護概念的狀態值欄位，通常於完成最終驗收後一併更新；其中 `下一步`、`備註` 的填寫方式見下節「摘要與詳細紀錄分工」。
 
@@ -290,22 +342,58 @@ practice / review 中的圖片、附件或來源連結
 3. 完成或重新檢查 `atomic review`。
 4. 判斷 `notes/` 是否需要更新。
 5. 完成或重新檢查 `notes content review`。
-6. 最後檢查 `appendix/`、`demos/`、`practice/`、`review/` 是否受影響。
-7. 若實際完成更新，再同步 `meta/chapter-status.md`。
+6. 完成或重新檢查 `notes 索引元資料`。
+7. 檢查 `appendix/` 適用性與既有 appendix 是否受影響；必要時候選執行 `notes-appendix-generation` 規劃，或建議「appendix 索引」為 `不適用`。
+8. 最後檢查 `demos/`、`practice/`、`review/` 是否受影響。
+9. 檢查 `supplements/` 是否透過 `source_notes` 受影響；若 supplements 來源、topics 或 summary 變動，候選重建 `meta/supplements-index.md`。
+10. 用 `meta/projects-index.md` 反查是否有 `projects/` 命中受改動的 `notes/`。
+11. 若章節已完成最終驗收，且固定下游或已適用的 appendix 受影響，將「最終驗收」列為待確認或候選重新驗收；僅 `projects/` 或 `supplements/` 變動時不自動標記單章節最終驗收。
+12. 若實際完成更新，再同步 `meta/chapter-status.md`。
 
 ### notes 或下游更新
 
 1. 先確認問題是否真的只在下游。
 2. 如果問題源自 notes，先修正 `notes/`。
 3. 完成 notes content review。
-4. 再檢查或同步受影響的下游。
-5. 最後更新章節狀態總覽。
+4. 完成或重新檢查 notes 索引元資料。
+5. 檢查 appendix 是否仍適用、既有 appendix 是否過期、`source_notes`/topics/summary 是否仍正確。
+6. 再檢查或同步受影響的固定下游 `demos/`、`practice/`、`review/`。
+7. 檢查 `supplements/` 是否透過 `source_notes` 受影響；若 supplements 來源、topics 或 summary 變動，候選重建 `meta/supplements-index.md`。
+8. 若 `notes/` 有改動，用 `meta/projects-index.md` 找出受影響的 `projects/`。
+9. 若章節已完成最終驗收，且固定下游或已適用的 appendix 受影響，將「最終驗收」列為待確認或候選重新驗收；僅 `projects/` 或 `supplements/` 變動時不自動標記單章節最終驗收。
+10. 最後更新章節狀態總覽。
+
+### appendix 更新
+
+1. 確認改動是否只在 `appendix/<章節>/`，或源自某些 `source_notes`。
+2. 確認對應章節的「notes 完成檢查」是否已完成；若未完成，暫緩 appendix 生成或更新。
+3. 讀取 appendix front matter 的 `source_notes`、topics、summary，確認每個 `source_notes` 路徑存在。
+4. 判斷 appendix 內容是否只是查表資料，且每一格都能回溯到 notes；若有 notes 未涵蓋的值、屬性、API、參數或支援度，候選回補 notes 或列為待確認，不直接在 appendix 補。
+5. 確認輸出位置只在 `appendix/<章節>/`，沒有跨章節彙整總表。
+6. 若整章已無足夠查表價值，建議「appendix 索引」標記為 `不適用`；若應生成的 appendix 都已建立或更新且來源回溯通過，建議標記為 `已完成`。
+
+### projects 更新
+
+1. 確認改動是否只在 `projects/<專案-slug>/`，或源自某些 `source_notes`。
+2. 讀取 `projects/<專案-slug>/project.md` 的 `source_notes` 與 `prerequisites`。
+3. 確認所有來源章節的「notes 索引元資料」是否已完成。
+4. 若專案來源、topics、summary 或 prerequisites 改動，候選重建 `meta/projects-index.md`。
+5. 若專案內容引入 notes 未教過的新知識，回到對應 `notes/` 或更上游流程判斷，不直接在 projects 補核心知識。
+
+### supplements 更新
+
+1. 確認改動是否只在 `supplements/<章節>/`，或源自某些 `source_notes`。
+2. 讀取 supplement front matter 的 `source_notes`、`topics` 與 `summary`。
+3. 確認 `source_notes` 是否存在且仍能作為補充內容的追溯與內容邊界。
+4. 若 supplement 的來源、topics、summary 或檔案增刪改動，候選重建 `meta/supplements-index.md`。
+5. 若補充內容實際揭示正式筆記缺口，回到對應 `notes/` 或更上游流程判斷，不直接在 supplements 回補核心知識。
+6. `supplements/` 變動不自動使單章節「最終驗收」失效。
 
 ### 資產更新
 
 1. 確認資產最新檔名、位置與用途。
 2. 搜尋舊檔名與舊路徑。
-3. 檢查 origin、atomic、notes、appendix、demos、practice、review 是否仍引用舊路徑。
+3. 檢查 origin、atomic、notes、appendix、demos、projects、practice、review、supplements 是否仍引用舊路徑。
 4. 若實際修正引用，再更新相關狀態欄位。
 
 ## 暫緩更新的情況
@@ -314,9 +402,16 @@ practice / review 中的圖片、附件或來源連結
 
 - 無法判斷最新正確來源。
 - 無法判斷改動屬於哪一層。
-- 無法確認下游內容是否超出 notes 已教範圍。
+- 無法確認固定下游內容是否超出 notes 已教範圍，或 supplements 是否超出 `source_notes` 對應的內容邊界。
+- 無法確認 appendix 是否有足夠查表價值、是否應生成或標記為不適用。
+- 無法確認 appendix 的 `source_notes` 是否存在，或表格內容是否逐格回溯到 notes。
 - 資產是否仍被引用無法確認。
-- 標題或 anchor 改動是否影響 appendix 無法確認。
+- 標題或 anchor 改動是否影響 appendix 的 `source_notes`、回連文字或索引文字無法確認。
+- `notes/` 改動但無法確認是否有 `projects/` 透過 `source_notes` 命中。
+- `projects/` 改動但 `meta/projects-index.md` 不存在、過期或無法反查。
+- `supplements/` 改動但 `meta/supplements-index.md` 不存在、過期或無法確認是否需重建。
+- `supplements/` 改動但無法確認 `source_notes` 是否存在或是否仍能作為內容邊界。
+- notes 索引元資料是否已完成無法確認。
 - 章節狀態與實際檔案內容不一致。
 - 只是想同步狀態，但缺少實際完成依據。
 - 備註欄已累積太多流程歷史，應先移入章節 log。
@@ -329,9 +424,14 @@ practice / review 中的圖片、附件或來源連結
 - 這次改動屬於哪一種更新類型？
 - 最新正確來源在哪裡？
 - 是否影響正式 `notes/`？
+- 是否影響 `notes 索引元資料`？
 - 是否影響標題、anchor、關鍵字或索引？
 - 是否影響圖片、附件、資產路徑、alt 或連結文字？
-- 是否影響 `appendix/`、`demos/`、`practice/`、`review/`？
+- 是否影響 `appendix/` 的適用性、`source_notes`、topics、summary 或表格來源回溯？
+- 是否影響 `demos/`、`practice/`、`review/`？
+- 是否影響 `supplements/`，或需要查 / 重建 `meta/supplements-index.md`？
+- 是否影響 `projects/`，或需要查 `meta/projects-index.md`？
+- 若已完成最終驗收，是否有固定下游或已適用 appendix 需要重新驗收或標為待確認？
 - 是否只是需要檢查，而不是直接重生成？
 - `meta/chapter-status.md` 哪些欄位應建議標記為 `已完成`、`待確認`、`不適用` 或 `進行中`？
 - 是否需要暫緩，等來源、內容或引用確認後再更新？
@@ -350,6 +450,8 @@ practice / review 中的圖片、附件或來源連結
 下游可能影響：
 候選同步 / 候選重生成範圍：
 chapter-status.md 建議標記：
+projects-index.md 建議檢查：
+supplements-index.md 建議檢查：
 建議更新順序：
 不應更新的位置：
 待確認事項：
@@ -362,6 +464,8 @@ chapter-status.md 建議標記：
 - `是否需要更新` 只能填 `是`、`否` 或 `暫緩`。
 - `候選同步 / 候選重生成範圍` 只列出受影響或需要確認的位置，不列出整個 repo。
 - `chapter-status.md 建議標記` 只能提出建議，不代表已經更新狀態表。
+- `projects-index.md 建議檢查` 應說明是否需要讀取、反查或重建 `meta/projects-index.md`；若與本次無關，填 `不適用`。
+- `supplements-index.md 建議檢查` 應說明是否需要讀取、反查或重建 `meta/supplements-index.md`；若與本次無關，填 `不適用`。
 - `不應更新的位置` 應列出本次不應觸碰的上游、下游或其他章節。
 
 這個結論只用來規劃更新，不代表必須自動修改任何檔案。
