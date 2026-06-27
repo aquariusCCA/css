@@ -1,14 +1,14 @@
 
-# 外部素材整理為補充筆記
+# 外部素材整理為 CSS 補充筆記
 
 ## 定位與適用範圍
 
-本 skill 用於將外部素材（AI 回答、技術文章、資深工程師解說等）整理為 `supplements/<章節>/*.md` 補充筆記：
+本 skill 用於將外部素材（AI 回答、CSS 技術文章、規範解說、資深前端工程師解說等）整理為 `supplements/<章節>/*.md` CSS 補充筆記：
 
 ```text
 notes/<章節>/*.md（閱讀過程中發現需要補充）
   ↓
-取得外部素材（AI 回答、技術文章、工程師回答）
+取得外部素材（AI 回答、CSS 技術文章、工程師回答）
   ↓
 notes-supplements-generation（本 skill）
   ↓
@@ -94,7 +94,7 @@ supplements/<章節>/<檔名>.md
 1. 如果使用者沒有提供來源 note 或章節，先反問：
 
    ```text
-   請提供這份素材要補充的 note 路徑（例如：notes/020-HTML簡介/03-HTML文件基本骨架.md），或章節名稱。
+   請提供這份素材要補充的 note 路徑（例如：notes/040-選擇器/02-specificity與cascade.md），或章節名稱。
    ```
 
 2. 如果使用者沒有提供外部素材，先反問：
@@ -129,9 +129,9 @@ supplements/<章節>/<檔名>.md
 
 1. 判斷補充類型（原理深探 / 實務延伸 / 比較對照 / 答疑）。
 2. 提議檔名：使用描述性 slug，以來源 note 的主題為前綴（若有助於識別），例如：
-   - `quirks-mode-底層渲染機制.md`
-   - `img-loading-lazy-實務場景.md`
-   - `form-submit-與-fetch-比較.md`
+   - `specificity-與-cascade-判斷細節.md`
+   - `margin-collapsing-發生條件.md`
+   - `flex-basis-與-width-差異.md`
 3. 提議 `source_notes`（指向來源 note，可多個）。
 4. 起草 `topics`（2-5 個，優先沿用 `meta/topics.md` 若存在；若提出新詞，在提案中另列「新詞清單」）。
 5. 起草 `summary`（一句話，不超過約 50 字，說明這份補充的核心價值）。
@@ -281,16 +281,16 @@ summary: "一句話說明這份補充的核心價值"
 
 ### 範例一：答疑型補充（原理深探）
 
-**情境**：使用者閱讀 `notes/020-HTML簡介/03-HTML文件基本骨架.md`，對「DOCTYPE 宣告缺少時瀏覽器進入 quirks mode」感到好奇，從 MDN 找到詳細解說。
+**情境**：使用者閱讀 `notes/040-選擇器/02-specificity與cascade.md`，對「specificity 相同時 cascade 如何決定最後樣式」感到好奇，從 MDN 或 CSS 規範摘要找到詳細解說。
 
 **階段一提案**：
 
 | 欄位 | 內容 |
 | --- | --- |
-| 建議檔名 | `supplements/020-HTML簡介/quirks-mode-瀏覽器渲染模式切換機制.md` |
-| source_notes | `notes/020-HTML簡介/03-HTML文件基本骨架.md` |
-| topics | `quirks mode, 渲染模式, DOCTYPE, 瀏覽器行為` |
-| summary | `說明瀏覽器如何依 DOCTYPE 宣告切換 quirks mode 與 standards mode，以及兩種模式的主要差異。` |
+| 建議檔名 | `supplements/040-選擇器/specificity-與-cascade-判斷細節.md` |
+| source_notes | `notes/040-選擇器/02-specificity與cascade.md` |
+| topics | `specificity, cascade, 選擇器, 樣式覆蓋` |
+| summary | `說明 specificity 相同或接近時，cascade 如何依來源、重要性與順序決定最後樣式。` |
 | 補充類型 | 原理深探 |
 
 **階段二 front matter**：
@@ -298,32 +298,32 @@ summary: "一句話說明這份補充的核心價值"
 ```yaml
 ---
 source_notes:
-  - notes/020-HTML簡介/03-HTML文件基本骨架.md
-topics: [quirks mode, 渲染模式, DOCTYPE, 瀏覽器行為]
-summary: "說明瀏覽器如何依 DOCTYPE 宣告切換 quirks mode 與 standards mode，以及兩種模式的主要差異。"
+  - notes/040-選擇器/02-specificity與cascade.md
+topics: [specificity, cascade, 選擇器, 樣式覆蓋]
+summary: "說明 specificity 相同或接近時，cascade 如何依來源、重要性與順序決定最後樣式。"
 ---
 ```
 
 ### 範例二：實務延伸型補充
 
-**情境**：使用者閱讀 `notes/180-圖片標籤/01-img標籤與圖片替代文字.md`，在技術文章看到關於 `loading="lazy"` 的使用時機與注意事項。
+**情境**：使用者閱讀 `notes/120-Flexbox/03-flex項目尺寸.md`，在技術文章看到關於 `flex-basis`、`width` 與 flex item 壓縮行為的實務解說。
 
-**建議檔名**：`supplements/180-圖片標籤/img-loading-lazy-實務注意事項.md`
+**建議檔名**：`supplements/120-Flexbox/flex-basis-與-width-差異.md`
 
 ```yaml
 ---
 source_notes:
-  - notes/180-圖片標籤/01-img標籤與圖片替代文字.md
-topics: [img標籤, lazy loading, 效能優化, 瀏覽器行為]
-summary: "整理 loading=lazy 的實務使用場景、above-the-fold 注意事項與瀏覽器支援現況。"
+  - notes/120-Flexbox/03-flex項目尺寸.md
+topics: [flex-basis, flex item, width, 尺寸計算]
+summary: "整理 flex-basis 與 width 在 flex item 尺寸計算中的差異與實務判斷。"
 ---
 ```
 
 ### 範例三：重複度高、建議不存為 supplement 的情況
 
-**情境**：使用者閱讀 `notes/040-HTML基本結構標籤/02-標籤屬性.md`，貼入一段「HTML 屬性是標籤的額外資訊，格式為 name="value"」的解說。
+**情境**：使用者閱讀 `notes/040-選擇器/01-class與id選擇器.md`，貼入一段「class 選擇器用 `.class`，id 選擇器用 `#id`」的解說。
 
-**判斷**：這份素材的核心內容（屬性語法、name/value 結構）與 notes 完全重疊，不構成有效補充。應在階段一提案中標記「是否有效補充：否」，說明重複程度，詢問使用者是否仍要保留。
+**判斷**：這份素材的核心內容（class/id 選擇器語法與基本用途）與 notes 完全重疊，不構成有效補充。應在階段一提案中標記「是否有效補充：否」，說明重複程度，詢問使用者是否仍要保留。
 
 ---
 
