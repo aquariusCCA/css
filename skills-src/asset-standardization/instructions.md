@@ -88,7 +88,7 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 
 ### Step 2：掃描引用
 
-掃描 Markdown 與 HTML 本地資產引用，包含 fenced code block 內的 HTML：
+掃描 Markdown、HTML 與 CSS 本地資產引用，包含 fenced code block 內的 HTML 與 CSS：
 
 ```md
 ![圖片描述](./old/path/image.png)
@@ -104,7 +104,12 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 <iframe src="./old/path/file.pdf"></iframe>
 ```
 
-若 fenced code block 中的本地 `src`/`href` 可唯一對應到目前章節 `assets/` 的實體檔案，視為可處理資產引用，不是排除的教學示例。
+```css
+background-image: url('./old/path/image.png');
+@font-face { src: url('./old/path/font.woff2') format('woff2'); }
+```
+
+若 fenced code block 中的本地 `src`/`href`/`url(...)` 可唯一對應到目前章節 `assets/` 的實體檔案，視為可處理資產引用，不是排除的教學示例。
 
 處理時保留原本的：Markdown 語法、HTML 標籤、屬性順序、引號風格、縮排、alt/title 文字、連結顯示文字。
 
@@ -154,6 +159,7 @@ blob:
 | Word | `.doc`, `.docx`, `.odt`, `.rtf` | `./assets/word/` | `word` |
 | 音訊 | `.mp3`, `.wav`, `.ogg`, `.m4a` | `./assets/files/` | `file` |
 | 影片 | `.mp4`, `.webm`, `.mov`, `.avi` | `./assets/files/` | `file` |
+| 字型 | `.woff`, `.woff2`, `.ttf`, `.otf`, `.eot` | `./assets/fonts/` | `font` |
 | 壓縮檔 | `.zip`, `.rar`, `.7z`, `.tar`, `.gz` | `./assets/files/` | `file` |
 | 其他本地檔案 | 其他可確認存在於 `assets/` 內的檔案 | `./assets/files/` | `file` |
 
@@ -366,7 +372,47 @@ hash6 不一致
 [下載示意圖](./assets/images/img-tag-img-001-a82f91.png)
 ```
 
-### 範例三：不應處理的連結
+### 範例三：CSS url() 改名
+
+改寫前（`origin/030-CSS顏色與背景/01-background-image.md`）：
+
+````md
+```css
+.hero {
+  background-image: url('./images/hero.jpg');
+}
+@font-face {
+  font-family: 'MyFont';
+  src: url('./fonts/myfont.woff2') format('woff2');
+}
+```
+````
+
+改寫後：
+
+````md
+```css
+.hero {
+  background-image: url('./assets/images/background-image-img-001-3a7f12.jpg');
+}
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/fonts/background-image-font-001-c94e28.woff2') format('woff2');
+}
+```
+````
+
+實體檔案同步改名：
+
+```text
+改名前：origin/030-CSS顏色與背景/assets/images/hero.jpg
+改名後：origin/030-CSS顏色與背景/assets/images/background-image-img-001-3a7f12.jpg
+
+改名前：origin/030-CSS顏色與背景/assets/fonts/myfont.woff2
+改名後：origin/030-CSS顏色與背景/assets/fonts/background-image-font-001-c94e28.woff2
+```
+
+### 範例四：不應處理的連結
 
 ```md
 [外部網站](https://example.com)

@@ -68,7 +68,7 @@ atomic/<章節>/*.md
 1. 如果使用者沒有提供章節名稱，請先反問：
 
    ```text
-   請提供要處理的章節名稱，例如：040-HTML基本結構標籤、210-超鏈接標籤。
+   請提供要處理的章節名稱，例如：030-CSS選擇器、080-Flexbox佈局。
    ```
 
 2. 如果無法讀取 `origin/<章節>/` 或無法取得該路徑下的 Markdown 檔案，請不要猜測內容，請要求使用者提供：
@@ -386,16 +386,16 @@ source:
 
 ### 範例一：Atomic 切分命名
 
-例如 `210-超鏈接標籤` 章節可以依照概念切分為：
+例如 `030-CSS選擇器` 章節可以依照概念切分為：
 
 ```text
-01-a-標籤基本語法.md
-02-href-target-屬性.md
-03-外部鏈接與內部鏈接.md
-04-文件鏈接與-download-屬性.md
-05-特殊-href-用法.md
-06-網頁元素鏈接.md
-07-錨點鏈接.md
+01-基本選擇器.md
+02-組合選擇器.md
+03-屬性選擇器.md
+04-偽類選擇器.md
+05-偽元素選擇器.md
+06-選擇器優先級.md
+07-選擇器繼承與重置.md
 ```
 
 實際切分仍需根據原始內容決定，不要硬套範例檔名。
@@ -405,13 +405,13 @@ source:
 原始筆記中的路徑：
 
 ```md
-![超連結標籤 href 與 target 屬性表](./assets/images/link-tags-img-001-910f05.png)
+![CSS 選擇器優先級計算規則示意圖](./assets/images/css-selectors-img-001-910f05.png)
 ```
 
 轉成 atomic note 後應改為：
 
 ```md
-![超連結標籤 href 與 target 屬性表](../../origin/<章節>/assets/images/link-tags-img-001-910f05.png)
+![CSS 選擇器優先級計算規則示意圖](../../origin/<章節>/assets/images/css-selectors-img-001-910f05.png)
 ```
 
 ### 範例三：來源資訊（單一來源）
@@ -419,10 +419,10 @@ source:
 ```md
 ---
 source:
-  - 'origin/210-超鏈接標籤/01-a-tag.md / ## href 屬性'
+  - 'origin/030-CSS選擇器/01-selectors.md / ## 基本選擇器'
 ---
 
-# a 標籤與 href 屬性
+# 基本選擇器
 
 正文內容...
 ```
@@ -432,11 +432,11 @@ source:
 ```md
 ---
 source:
-  - 'origin/210-超鏈接標籤/01-a-tag.md / ## target 屬性'
-  - 'origin/210-超鏈接標籤/02-link-behavior.md / ## 開新分頁'
+  - 'origin/030-CSS選擇器/01-selectors.md / ## 偽類選擇器'
+  - 'origin/030-CSS選擇器/02-pseudo-classes.md / ## 狀態類偽類'
 ---
 
-# HTML 連結的 target 屬性
+# 偽類選擇器
 
 正文內容...
 ```

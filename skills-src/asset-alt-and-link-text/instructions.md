@@ -133,6 +133,7 @@ origin/<章節>/*.md
 | Word 文件 | `.doc`, `.docx`, `.odt`, `.rtf` |
 | 音訊 | `.mp3`, `.wav`, `.ogg`, `.m4a` |
 | 影片 | `.mp4`, `.webm`, `.mov`, `.avi` |
+| 字型 | `.woff`, `.woff2`, `.ttf`, `.otf`, `.eot` |
 | 壓縮檔 | `.zip`, `.rar`, `.7z`, `.tar`, `.gz` |
 | 程式碼檔案 | `.html`, `.css`, `.js`, `.ts`, `.vue`, `.java`, `.sql`, `.json`, `.xml`, `.yml`, `.yaml` |
 | 其他本地輔助檔案 | 其他可確認存在於章節 `assets/` 內的檔案 |
@@ -218,6 +219,7 @@ Excel 表格
 範例程式
 音訊檔
 影片檔
+字型檔
 ```
 
 如果附件主題無法從上下文確認，不要只根據檔名、hash 或章節名稱硬補完整主題，請列入「需要人工確認」。
@@ -342,30 +344,30 @@ Excel 表格
 改寫前：
 
 ```md
-![HTML 標籤巢狀結構示意圖](./assets/images/html-basic-img-001-a82f91.png)
+![CSS 盒模型 content、padding、border、margin 四層結構示意圖](./assets/images/box-model-img-001-a82f91.png)
 ```
 
 改寫後：
 
 ```md
-![HTML 標籤巢狀結構示意圖](./assets/images/html-basic-img-001-a82f91.png)
+![CSS 盒模型 content、padding、border、margin 四層結構示意圖](./assets/images/box-model-img-001-a82f91.png)
 ```
 
 狀態：已保留
-判斷依據：alt 已經具體描述圖片用途，不需要改寫。
+判斷依據：alt 已經具體描述圖片教學用途，不需要改寫。
 
 ### 範例二：改寫無意義圖片 alt
 
 改寫前：
 
 ```md
-![圖片.png](./assets/images/image-tags-img-001-7e5dcd.png)
+![圖片.png](./assets/images/css-selectors-img-001-7e5dcd.png)
 ```
 
-如果可從圖片內容或鄰近上下文確認這是介紹 `img` 標籤屬性的示意圖，改為：
+如果可從鄰近段落確認這是說明 CSS 選擇器優先級計算的示意圖，改為：
 
 ```md
-![img 標籤屬性示意圖](./assets/images/image-tags-img-001-7e5dcd.png)
+![CSS 選擇器優先級計算示意圖](./assets/images/css-selectors-img-001-7e5dcd.png)
 ```
 
 狀態：已改 alt
@@ -376,7 +378,7 @@ Excel 表格
 改寫前：
 
 ```md
-![圖片](./assets/images/example-img-001-a82f91.png)
+![圖片](./assets/images/flexbox-img-001-a82f91.png)
 ```
 
 如果只能從檔名或 hash 推測內容，且上下文沒有說明圖片用途，請不要改寫，列入「需要人工確認」。
