@@ -235,7 +235,7 @@ function renderIndex(entries) {
     "# CSS Supplements 索引",
     "",
     "> 本檔案由 `scripts/build-supplements-index.mjs` 自動產生，請勿手動編輯。",
-    "> 如需更新，請修改對應 supplements 的 front matter（`topics`/`summary`）後重新執行：",
+    "> 如需更新，請修改對應 supplements 的 front matter（`source_notes`/`topics`/`summary`）後重新執行：",
     ">",
     "> ```text",
     "> node scripts/build-supplements-index.mjs",
