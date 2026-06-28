@@ -103,11 +103,7 @@ async function findDemoFile(chapter, baseName) {
     return path.join(baseName, "index.html");
   }
 
-  const entries = await readdir(chapterDemoDir, { withFileTypes: true });
-  const match = entries.find(
-    (entry) => entry.isFile() && path.parse(entry.name).name === baseName,
-  );
-  return match ? match.name : null;
+  return null;
 }
 
 function toPosixPath(value) {
