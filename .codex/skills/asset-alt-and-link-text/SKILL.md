@@ -24,7 +24,7 @@ alt 與連結文字（本 skill）← 必須在 atomic 切分提案 之前完成
 atomic 切分提案 → atomic 產生 → ...
 ```
 
-`CLAUDE.md` 規定 `origin/` 唯讀，不可修改、覆蓋、刪除。本 skill 是該規則的明確例外之一，但範圍嚴格限定於：
+在教材處理流程中，`origin/` 應視為受保護的原始資料來源，原則上不得任意修改、覆蓋或刪除。本 skill 是此保護原則下的明確例外，但範圍嚴格限定於：
 
 * 就地更新 `origin/<章節>/*.md` 中本地圖片的 Markdown alt 與 HTML `alt` 屬性。
 * 就地更新 `origin/<章節>/*.md` 中本地附件的 Markdown / HTML 連結顯示文字。
@@ -120,7 +120,7 @@ origin/<章節>/*.md
 5. 空連結，例如 `href=""`。
 6. 教材正文、標題、清單、表格內容，除非該文字本身就是圖片 alt 或附件連結文字。
 
-例外：若 fenced code block 內本地圖片 `src` 或本地附件 `href`／連結路徑，依 [`asset-standardization` skill](../asset-standardization/) Step 3、Step 4 的匹配規則可唯一對應到 `origin/<章節>/assets/` 內的實體檔案，則不視為第 1 項所述的教學範例，其圖片 alt 或附件連結文字仍須依本流程的信心等級規則檢查與判斷；無法唯一對應或仍有疑義時，維持第 1 項略過或列入「需要人工確認」。行內程式碼（第 2 項）不適用此例外，一律略過。
+例外：若 fenced code block 內本地圖片 `src` 或本地附件 `href`／連結路徑，依 [`asset-standardization` skill](../asset-standardization/SKILL.md) Step 3、Step 4 的匹配規則可唯一對應到 `origin/<章節>/assets/` 內的實體檔案，則不視為第 1 項所述的教學範例，其圖片 alt 或附件連結文字仍須依本流程的信心等級規則檢查與判斷；無法唯一對應或仍有疑義時，維持第 1 項略過或列入「需要人工確認」。行內程式碼（第 2 項）不適用此例外，一律略過。
 
 ### Step 3：找出需要檢查的目標
 
@@ -141,6 +141,7 @@ origin/<章節>/*.md
 | Word 文件 | `.doc`, `.docx`, `.odt`, `.rtf` |
 | 音訊 | `.mp3`, `.wav`, `.ogg`, `.m4a` |
 | 影片 | `.mp4`, `.webm`, `.mov`, `.avi` |
+| 字型 | `.woff`, `.woff2`, `.ttf`, `.otf`, `.eot` |
 | 壓縮檔 | `.zip`, `.rar`, `.7z`, `.tar`, `.gz` |
 | 程式碼檔案 | `.html`, `.css`, `.js`, `.ts`, `.vue`, `.java`, `.sql`, `.json`, `.xml`, `.yml`, `.yaml` |
 | 其他本地輔助檔案 | 其他可確認存在於章節 `assets/` 內的檔案 |
@@ -226,6 +227,7 @@ Excel 表格
 範例程式
 音訊檔
 影片檔
+字型檔
 ```
 
 如果附件主題無法從上下文確認，不要只根據檔名、hash 或章節名稱硬補完整主題，請列入「需要人工確認」。
@@ -350,30 +352,30 @@ Excel 表格
 改寫前：
 
 ```md
-![HTML 標籤巢狀結構示意圖](./assets/images/html-basic-img-001-a82f91.png)
+![CSS 盒模型 content、padding、border、margin 四層結構示意圖](./assets/images/box-model-img-001-a82f91.png)
 ```
 
 改寫後：
 
 ```md
-![HTML 標籤巢狀結構示意圖](./assets/images/html-basic-img-001-a82f91.png)
+![CSS 盒模型 content、padding、border、margin 四層結構示意圖](./assets/images/box-model-img-001-a82f91.png)
 ```
 
 狀態：已保留
-判斷依據：alt 已經具體描述圖片用途，不需要改寫。
+判斷依據：alt 已經具體描述圖片教學用途，不需要改寫。
 
 ### 範例二：改寫無意義圖片 alt
 
 改寫前：
 
 ```md
-![圖片.png](./assets/images/image-tags-img-001-7e5dcd.png)
+![圖片.png](./assets/images/css-selectors-img-001-7e5dcd.png)
 ```
 
-如果可從圖片內容或鄰近上下文確認這是介紹 `img` 標籤屬性的示意圖，改為：
+如果可從鄰近段落確認這是說明 CSS 選擇器優先級計算的示意圖，改為：
 
 ```md
-![img 標籤屬性示意圖](./assets/images/image-tags-img-001-7e5dcd.png)
+![CSS 選擇器優先級計算示意圖](./assets/images/css-selectors-img-001-7e5dcd.png)
 ```
 
 狀態：已改 alt
@@ -384,7 +386,7 @@ Excel 表格
 改寫前：
 
 ```md
-![圖片](./assets/images/example-img-001-a82f91.png)
+![圖片](./assets/images/flexbox-img-001-a82f91.png)
 ```
 
 如果只能從檔名或 hash 推測內容，且上下文沒有說明圖片用途，請不要改寫，列入「需要人工確認」。
