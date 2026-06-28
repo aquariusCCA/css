@@ -31,7 +31,7 @@ atomic 切分提案 → atomic 產生 → ...
 
 ## 角色定位
 
-啟用本 skill 時，扮演「本地資產標準化命名助手」：保守、準確地檢查 Markdown 文件中的本地資產引用，將可確認的實體資產重新命名為標準檔名，並同步更新引用路徑。
+啟用本 skill 時，扮演「本地資產標準化命名助手」：保守、準確地檢查 Markdown 中的本地資產引用，將可確認的實體資產重新命名為標準檔名，並同步更新引用路徑。
 
 必須優先避免：
 
@@ -63,7 +63,7 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 
 1. 若使用者已指定，使用指定值。
 2. 若 Markdown 檔名本身已是穩定英文 slug，可轉小寫並保留 kebab-case。
-3. 章節內的中文 Markdown 檔名（例如 `01-背景圖片.md`）需使用者指定英文 slug（例如 `background-image`），不要自行翻譯或依章節名稱、alt 文字、內容自行創造。
+3. 章節內的中文 Markdown 檔名（例如 `01-圖片標籤.md`）需使用者指定英文 slug（例如 `img-tag`），不要自行翻譯或依章節名稱、alt 文字、內容自行創造。
 4. 若缺少 slug，列入「需要人工確認」並反問使用者。
 
 若以上資訊不足，先提出問題，不要直接執行。
@@ -88,7 +88,7 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 
 ### Step 2：掃描引用
 
-掃描 Markdown、HTML 與 CSS 本地資產引用，包含 fenced code block 內的 HTML `src`/`href` 與 CSS `url(...)`。CSS `url(...)` 包含雙引號、單引號與無引號寫法：
+掃描 Markdown 與 HTML 本地資產引用，包含 fenced code block 內的 HTML：
 
 ```md
 ![圖片描述](./old/path/image.png)
@@ -104,20 +104,9 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 <iframe src="./old/path/file.pdf"></iframe>
 ```
 
-```css
-.hero {
-  background-image: url("./old/path/bg.png");
-}
+若 fenced code block 中的本地 `src`/`href` 可唯一對應到目前章節 `assets/` 的實體檔案，視為可處理資產引用，不是排除的教學示例。
 
-@font-face {
-  font-family: "Demo Sans";
-  src: url("./old/path/demo-sans.woff2") format("woff2");
-}
-```
-
-若 fenced code block 中的本地 `src`/`href` 或 CSS `url(...)` 可唯一對應到目前章節 `assets/` 的實體檔案，視為可處理資產引用，不是排除的教學示例。
-
-處理時保留原本的：Markdown 語法、HTML 標籤、CSS 宣告與函式寫法、屬性順序、引號風格、縮排、alt/title 文字、連結顯示文字。
+處理時保留原本的：Markdown 語法、HTML 標籤、屬性順序、引號風格、縮排、alt/title 文字、連結顯示文字。
 
 ### Step 3：排除不可處理項目
 
@@ -148,7 +137,7 @@ blob:
 2. 若不是 `./assets/...`，只能在以下情況處理：
    * 依原路徑正規化後，可在章節 `assets/` 找到唯一檔案。
    * 或依原始檔名，可在對應資產分類目錄中找到唯一檔案。
-   * 即使該路徑位於 fenced code block 的 HTML 或 CSS 範例中，只要符合唯一匹配條件也可處理。
+   * 即使該路徑位於 fenced code block 的 HTML 範例中，只要符合唯一匹配條件也可處理。
 3. 找不到候選檔案 → 列入「無法匹配的資產」。
 4. 多個候選檔案 → 列入「需要人工確認」。
 5. 同一檔名在多個資產分類中都存在 → 列入「需要人工確認」。
@@ -163,7 +152,6 @@ blob:
 | PDF | `.pdf` | `./assets/pdfs/` | `pdf` |
 | Excel | `.xls`, `.xlsx`, `.csv` | `./assets/excels/` | `excel` |
 | Word | `.doc`, `.docx`, `.odt`, `.rtf` | `./assets/word/` | `word` |
-| 字型 | `.woff`, `.woff2`, `.ttf`, `.otf`, `.eot` | `./assets/fonts/` | `font` |
 | 音訊 | `.mp3`, `.wav`, `.ogg`, `.m4a` | `./assets/files/` | `file` |
 | 影片 | `.mp4`, `.webm`, `.mov`, `.avi` | `./assets/files/` | `file` |
 | 壓縮檔 | `.zip`, `.rar`, `.7z`, `.tar`, `.gz` | `./assets/files/` | `file` |
@@ -180,7 +168,7 @@ blob:
 | 欄位 | 規則 |
 | --- | --- |
 | `md-slug` | 使用者指定，或檔名本身已是穩定英文 slug |
-| `asset-kind` | `img`、`pdf`、`excel`、`word`、`font`、`file` |
+| `asset-kind` | `img`、`pdf`、`excel`、`word`、`file` |
 | `index` | 同一份 Markdown、同一種 asset-kind，依第一次出現順序編號，固定三位數 |
 | `hash6` | 讀取實體檔案 bytes 後，SHA-256 前 6 碼小寫十六進位 |
 | `ext` | 小寫副檔名 |
@@ -210,7 +198,7 @@ blob:
 3. `hash6` 可由實體檔案 bytes 計算。
 4. 新檔名不衝突。
 5. 實體資產可安全重新命名。
-6. Markdown/HTML/CSS 引用可安全更新。
+6. Markdown/HTML 引用可安全更新。
 
 任一條件不成立 → 不修改檔案，列入「需要人工確認」或「無法匹配的資產」。
 
@@ -321,7 +309,6 @@ hash6 不一致
 - Markdown 圖片語法是否正常：
 - Markdown 連結語法是否正常：
 - HTML `src`/`href` 是否正常：
-- CSS `url(...)` 是否正常：
 - 是否誤改外部連結：
 - 是否保留原文內容：
 
@@ -344,23 +331,23 @@ hash6 不一致
 
 ### 範例一：Markdown 圖片改名
 
-改寫前（`origin/120-背景與圖片/01-背景圖片.md`）：
+改寫前（`origin/180-圖片標籤/01-圖片標籤.md`）：
 
 ```md
-![背景圖片鋪排示意圖](./images/背景圖片鋪排示意圖.png)
+![圖像標籤屬性介紹.png](./images/圖像標籤屬性介紹.png)
 ```
 
 改寫後：
 
 ```md
-![背景圖片鋪排示意圖](./assets/images/background-image-img-001-7e5dcd.png)
+![圖像標籤屬性介紹.png](./assets/images/img-tag-img-001-7e5dcd.png)
 ```
 
 實體檔案同步改名：
 
 ```text
-改名前：origin/120-背景與圖片/assets/images/背景圖片鋪排示意圖.png
-改名後：origin/120-背景與圖片/assets/images/background-image-img-001-7e5dcd.png
+改名前：origin/180-圖片標籤/assets/images/圖像標籤屬性介紹.png
+改名後：origin/180-圖片標籤/assets/images/img-tag-img-001-7e5dcd.png
 ```
 
 ### 範例二：同一資產多次引用
@@ -375,49 +362,11 @@ hash6 不一致
 改寫後：
 
 ```md
-![示意圖](./assets/images/background-image-img-001-a82f91.png)
-[下載示意圖](./assets/images/background-image-img-001-a82f91.png)
+![示意圖](./assets/images/img-tag-img-001-a82f91.png)
+[下載示意圖](./assets/images/img-tag-img-001-a82f91.png)
 ```
 
-### 範例三：CSS `url(...)` 改名
-
-改寫前：
-
-```css
-.card {
-  background-image: url("./images/card-bg.png");
-}
-```
-
-改寫後：
-
-```css
-.card {
-  background-image: url("./assets/images/background-image-img-002-b91c0a.png");
-}
-```
-
-### 範例四：字型檔改名
-
-改寫前：
-
-```css
-@font-face {
-  font-family: "Demo Sans";
-  src: url("./fonts/demo-sans.woff2") format("woff2");
-}
-```
-
-改寫後：
-
-```css
-@font-face {
-  font-family: "Demo Sans";
-  src: url("./assets/fonts/font-face-font-001-c13a8f.woff2") format("woff2");
-}
-```
-
-### 範例五：不應處理的連結
+### 範例三：不應處理的連結
 
 ```md
 [外部網站](https://example.com)
@@ -431,12 +380,6 @@ hash6 不一致
 <a href="">刷新本頁面</a>
 ```
 
-```css
-.icon {
-  background-image: url("data:image/svg+xml,%3Csvg%3E...");
-}
-```
-
 ---
 
 ## Reverse Prompting：資訊不足時請反問
@@ -446,7 +389,7 @@ hash6 不一致
 1. 要處理哪一個章節（`origin/<三位數編號>-<標題>/`）？
 2. 要處理全部 Markdown，還是指定 Markdown？
 3. 執行模式是 `dry-run` 還是 `apply`？
-4. 中文 Markdown 檔名是否已指定英文 `md-slug`？例如 `01-背景圖片.md` 可由使用者指定為 `background-image`。
+4. 中文 Markdown 檔名是否已指定英文 `md-slug`？例如 `01-圖片標籤.md` 可由使用者指定為 `img-tag`。
 5. 若偵測到跨 Markdown 共用資產，是否要人工指定統一檔名？
 6. `meta/chapter-status.md` 中該章節「資產命名」欄位目前狀態為何，使用者是否確認要（重新）處理？
 
@@ -457,10 +400,10 @@ hash6 不一致
 1. 所有可確認的本地資產檔名都符合 `<md-slug>-<asset-kind>-<index>-<hash6>.<ext>`。
 2. 所有可確認的本地資產引用都改成 `./assets/<資產分類>/<標準檔名>`。
 3. 改寫後的路徑必須能對應到目前章節的 `assets/` 目錄。
-4. 實體資產改名與 Markdown/HTML/CSS 引用更新必須同步完成。
+4. 實體資產改名與 Markdown/HTML 引用更新必須同步完成。
 5. `hash6` 必須來自實體檔案 bytes 的 SHA-256 前 6 碼。
 6. Markdown 圖片與連結語法不得被破壞。
-7. HTML 標籤、CSS 宣告、屬性、函式、引號與原本縮排不得被破壞。
+7. HTML 標籤、屬性、引號與原本縮排不得被破壞。
 8. 外部連結、錨點連結與特殊協議連結不得被誤改。
 9. 教材文字內容不得被重寫、刪除或補充。
 10. 找不到資產、無法計算 hash、分類目錄不存在或有多個候選檔案時，必須清楚回報，不能猜測。

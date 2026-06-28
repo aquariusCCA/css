@@ -1,5 +1,5 @@
 
-# Notes 轉 CSS 教學 Demo
+# Notes 轉 HTML 教學 Demo
 
 ## 定位與適用範圍
 
@@ -15,7 +15,7 @@ review 生成
 appendix 索引
 ```
 
-開始處理前，應先查閱 `meta/chapter-status.md` 對應章節的「notes 完成檢查」欄位，確認狀態為「已完成」才適合開始本 skill；若尚未完成，應提示使用者先完成 `notes-content-review`，不要預設繼續生成 demo。
+開始處理前，應先查閱 `meta/chapter-status.md` 對應章節的「notes 完成檢查」與「notes 索引元資料」欄位，確認兩者皆為「已完成」才適合開始本 skill；若尚未完成，應提示使用者先完成 `notes-content-review` 或 `notes-index-metadata`，不要預設繼續生成 demo。
 
 本 skill 主要讀取：
 
@@ -33,21 +33,21 @@ origin/<章節>/assets/...
 只輸出或更新：
 
 ```text
-demos/<章節>/<demo-slug>/
+demos/<章節>/<筆記名>/
 ```
 
 每組 demo 至少包含：
 
 ```text
-demos/<章節>/<demo-slug>/index.html
+demos/<章節>/<筆記名>/index.html
 ```
 
 可依需要加入：
 
 ```text
-demos/<章節>/<demo-slug>/style.css
-demos/<章節>/<demo-slug>/script.js
-demos/<章節>/<demo-slug>/assets/...
+demos/<章節>/<筆記名>/style.css
+demos/<章節>/<筆記名>/script.js
+demos/<章節>/<筆記名>/assets/...
 ```
 
 本 skill 不修改：
@@ -68,25 +68,29 @@ appendix/
 
 ## 角色定位
 
-啟用本 skill 時，扮演「前端教學 demo 設計師」與「CSS/HTML/JavaScript 教學實作審查員」，目標是把正式 CSS notes 中適合觀察、操作、比較或實作的內容轉成可直接打開的教學範例。
+啟用本 skill 時，扮演「HTML 教學 demo 設計師」與「HTML 範例實作審查員」，目標是把正式 notes 中適合觀察、操作、比較或實作的 HTML 內容，轉成可直接打開的教學範例。
 
-合格的 demo 不是把 notes 內容搬進靜態頁面，也不是做一個漂亮但無教學焦點的展示頁，而是要讓讀者：
+CSS / JavaScript 只作為展示輔助：CSS 用於讓 HTML 結構、語意、狀態或差異更容易觀察；JavaScript 用於必要的切換、模擬或狀態顯示。除非 notes 已明確支撐，否則不得把 CSS / JavaScript 變成 demo 的主要教學內容。
+
+合格的 demo 不是把 notes 內容搬進 HTML 頁面，也不是做一個漂亮但無教學焦點的展示頁，而是要讓讀者：
 
 ```text
 打開 index.html 就能看到本主題的核心效果
 能透過對照、互動或可觀察結果理解概念
-知道 demo 對應哪一篇或哪些 notes
-能從畫面回推 CSS 選擇器、宣告、層疊、繼承、盒模型、布局或視覺效果差異
+知道 demo 對應哪一篇 notes
+能從畫面回推 HTML 結構、屬性或行為差異
 能看出錯誤寫法與正確寫法的差別（若適用）
 ```
+
+每組 demo 對應單一 notes。若需要把多篇 notes 或多個章節組成一個完整頁面或流程，請改用 `notes-project-generation`。
 
 必須優先避免：
 
 1. 每篇 notes 都機械式生成一組 demo，導致大量沒有展示價值的靜態摘要頁。
-2. 把整篇 notes 轉成長篇展示頁，卻沒有可觀察範例、對照或互動。
+2. 把整篇 notes 轉成長篇 HTML 文章，卻沒有可觀察範例、對照或互動。
 3. 生成只靠視覺裝飾、與教學目標無關的頁面。
 4. 為純概念內容硬做不可靠的互動，反而誤導初學者。
-5. 在 demo 中加入 notes 沒有支撐、會擴大教學範圍的 CSS/JS 技術。
+5. 在 demo 中加入 notes 沒有支撐、會擴大教學範圍的 CSS/JS 技術，或讓 CSS/JS 取代 HTML 成為主要教學內容。
 6. 修改 `notes/`、`origin/`、`atomic/` 或原始資產檔案。
 7. 未驗證就宣稱 demo 可用。
 
@@ -106,7 +110,7 @@ appendix/
 如果使用者沒有提供章節名稱，請先反問：
 
 ```text
-請提供要處理的章節名稱，例如：010-CSS入門、040-選擇器、080-盒模型。
+請提供要處理的章節名稱，例如：040-HTML基本結構標籤、210-超鏈接標籤。
 ```
 
 如果無法讀取 `notes/<章節>/` 或該資料夾沒有 `.md` 檔案，請不要猜測章節名稱或內容，請反問使用者確認章節資料夾名稱是否正確，或請使用者先完成 `notes-generation` 與 `notes-content-review`。
@@ -117,21 +121,19 @@ appendix/
 
 ## Demo 粒度判斷
 
-本 skill 不採固定的一篇 notes 對一組 demo。請依教學價值選擇以下方式：
+本 skill 採固定的一篇 notes 對一組 demo。請依教學價值選擇以下方式：
 
 | 生成方式 | 適用情況 | 輸出 |
 | --- | --- | --- |
 | 一對一 | 單篇 notes 有明確、完整、可展示的主題 | 一篇 notes 產生一組 demo |
-| 一對多 | 單篇 notes 包含多個彼此獨立且都值得操作或比較的核心概念 | 一篇 notes 拆成多組 demo |
-| 多對一 | 多篇 notes 屬於同一操作情境，合併展示更容易理解 | 多篇 notes 產生一組整合 demo |
 | 不生成 | 純概念、歷史、查閱型內容，或用 demo 會失真 | 列入「不生成 Demo 的 Notes」 |
 
 判斷標準：
 
 1. 若 demo 只能重述文字而無法展示效果，通常不生成。
-2. 若一篇 notes 的不同段落展示的是不同 CSS 生效條件、屬性效果或布局行為，且放在一起會讓焦點混亂，可一對多。
-3. 若多篇 notes 的學習價值在於同一個元件、版面或視覺情境中的 CSS 組合效果，可多對一。
-4. 若某篇 notes 是下游 demo 的背景知識，可在對應 demo 中簡短標示來源，但不要為它硬做獨立 demo。
+2. 若一篇 notes 內有多個可展示段落，仍放在同一組 demo 內用分區、頁籤或互動切換呈現；不要拆成多個獨立 demo 目錄。
+3. 若多篇 notes 的學習價值在於同一個完整頁面或表單流程，應改用 `notes-project-generation`，不要在 demos 內做多對一整合。
+4. 若某篇 notes 不適合獨立展示，列入「不生成 Demo 的 Notes」並說明原因，不要把它併入其他 notes 的 demo。
 5. 每組 demo 必須有一個清楚教學目標，不要把整章內容塞進單一頁面。
 
 ---
@@ -142,7 +144,7 @@ appendix/
 
 ### 概念視覺化 Demo
 
-適合：CSS 規則如何套用、樣式來源、層疊、繼承、盒模型、格式化與繪製流程等抽象概念。
+適合：網站與網頁、HTML 是標記語言、瀏覽器解析與渲染、語意化概念等。
 
 要求：
 
@@ -150,20 +152,20 @@ appendix/
 2. 不把抽象概念假裝成真實瀏覽器內部機制；若是簡化模型，畫面文字需明確標示為「簡化示意」。
 3. 避免大量技術細節，重點是讓初學者建立心智模型。
 
-### 選擇器與命中範圍 Demo
+### 標籤展示 Demo
 
-適合：類別選擇器、ID 選擇器、屬性選擇器、組合選擇器、後代/子代/相鄰選擇器、偽類與偽元素等。
+適合：`img`、`a`、`table`、`form`、`input`、`video`、`audio` 等標籤。
 
 要求：
 
-1. 同時呈現必要 HTML 載體、CSS 規則與被命中的元素。
-2. 讓讀者能看出哪些元素被選到、哪些沒有被選到，以及原因。
-3. 若比較多種選擇器，對照項目不宜過多，避免焦點分散。
-4. 不把選擇器 demo 做成只列語法清單。
+1. 展示標籤的基本語法與實際呈現。
+2. 對重要屬性提供可觀察差異。
+3. 若有錯誤寫法，展示錯誤原因與修正結果。
+4. 不把標籤 demo 做成只列屬性清單。
 
 ### 對照比較 Demo
 
-適合：屬性值差異、預設值與指定值、繼承與不繼承、不同 display/position/flex/grid 設定、正確與錯誤寫法等。
+適合：`div` 與語意化標籤、`a` 與 `button`、不同 input type、正確與錯誤巢狀結構等。
 
 要求：
 
@@ -173,37 +175,17 @@ appendix/
 
 ### 互動觀察 Demo
 
-適合：`:hover`、`:focus`、`:checked`、class 切換、CSS 變數、響應式斷點模擬、布局參數切換等。
+適合：表單控制項、`details` 展開收合、`datalist` 建議選項、連結目標、media controls 等。
 
 要求：
 
 1. 至少有一個讀者可操作的控制項。
 2. 操作後要有可觀察變化或狀態回饋。
-3. JavaScript 只用於輔助觀察，不要讓 JS 行為取代 CSS 本身應展示的生效規則。
-
-### 盒模型與布局 Demo
-
-適合：`box-sizing`、`margin`、`padding`、`border`、`display`、`position`、`float`、Flexbox、Grid、overflow、對齊與間距等。
-
-要求：
-
-1. 讓讀者能直接觀察尺寸、間距、對齊、排列或溢出的變化。
-2. 必要時顯示輔助框線、尺寸標籤或切換控制，幫助理解而不喧賓奪主。
-3. 若 demo 涉及布局前提，必須展示前提條件，例如 flex 容器與 flex item 的關係。
-
-### 視覺效果 Demo
-
-適合：文字樣式、字型、顏色、背景、邊框、陰影、透明度、漸層、轉場、變形與動畫等。
-
-要求：
-
-1. 展示 CSS 宣告改變後的視覺差異。
-2. 避免只追求裝飾效果，必須讓畫面服務於 notes 的教學目標。
-3. 動畫或轉場若非主題，不要讓它干擾讀者觀察核心效果。
+3. JavaScript 只用於輔助觀察，不要讓 JS 行為取代 HTML 本身應展示的語意或功能。
 
 ### 錯誤修正 Demo
 
-適合：選擇器未命中、優先權誤判、繼承誤解、無效屬性值、單位使用錯誤、布局前提缺失、overflow 或尺寸計算錯誤等。
+適合：常見錯誤、易混淆屬性、錯誤語意、錯誤連結路徑、缺少 `alt` 等。
 
 要求：
 
@@ -220,17 +202,15 @@ appendix/
 每組 demo 輸出到：
 
 ```text
-demos/<章節>/<demo-slug>/
+demos/<章節>/<筆記名>/
 ```
 
-`<demo-slug>` 規則：
+`<筆記名>` 規則：
 
-1. 一對一 / 一對多：以對應 notes 檔名（移除 `.md`）為基礎，沿用既有中文命名，例如 `01-盒模型基本觀念`。
-2. 一對多在檔名基礎後加具體主題，例如 `01-盒模型基本觀念-padding-margin`。
-3. 多對一：因無單一對應 notes，改用能代表共同主題的英文短 slug，例如 `flex-alignment-comparison` 或 `selector-specificity-lab`。
-4. 同一章節內不得產生重複 demo slug。
-5. 不使用空白、路徑分隔符、冒號、問號等不適合檔名的字元。
-6. slug 僅沿用 notes 既有檔名用字，或 CSS 技術關鍵字（如 `display`、`flex`、`grid`、`hover`、`specificity`），不要為命名額外自創描述語；同一章節同類型（一對一／一對多用中文檔名、多對一用英文短 slug）的命名方式須保持一致。
+1. 以對應 notes 檔名（移除 `.md`）為 demo 目錄名，沿用既有中文命名，例如 `01-img標籤與圖片替代文字`。
+2. 同一章節內不得產生重複 demo 目錄名。
+3. 不使用空白、路徑分隔符、冒號、問號等不適合檔名的字元。
+4. slug 僅沿用 notes 既有檔名用字，或標籤／屬性等技術關鍵字（如 `img`、`alt`），不要為命名額外自創描述語。
 
 ### Demo 檔案
 
@@ -257,13 +237,13 @@ assets/
 
 ### 來源標示
 
-每個 `index.html` 中應以 HTML 註解或頁面中簡短文字標示來源 notes，例如：
+每個 `index.html` 必須以 HTML 註解標示單一來源 notes；此註解是 demos 層等價於 `source_notes` 的追溯欄位。固定格式：
 
 ```html
-<!-- Source notes: notes/080-盒模型/01-盒模型基本觀念.md -->
+<!-- Source notes: notes/180-圖片標籤/01-img標籤與圖片替代文字.md -->
 ```
 
-若一組 demo 對應多篇 notes，列出全部來源。來源標示只做追溯，不把整篇 notes 搬進頁面。
+每組 demo 只允許一筆來源 notes，路徑必須指向實體存在的 `notes/<章節>/*.md`。若頁面中另以可見文字標示來源，也不能取代 HTML 註解。來源標示只做追溯，不把整篇 notes 搬進頁面。
 
 ---
 
@@ -274,8 +254,9 @@ assets/
 1. 是否已取得 `<章節>`。
 2. 是否能讀取 `notes/<章節>/*.md`。
 3. `meta/chapter-status.md` 中該章節「notes 完成檢查」是否為「已完成」；若不是，提示先完成 `notes-content-review`。
-4. `meta/chapter-status.md` 中該章節「demos 生成」目前狀態為何；若已是「已完成」，確認使用者是否要重新處理。
-5. 目前是否處於階段一；若沒有明確確認語句，不得進入階段二。
+4. `meta/chapter-status.md` 中該章節「notes 索引元資料」是否為「已完成」；若不是，提示先完成 `notes-index-metadata`。
+5. `meta/chapter-status.md` 中該章節「demos 生成」目前狀態為何；若已是「已完成」，確認使用者是否要重新處理。
+6. 目前是否處於階段一；若沒有明確確認語句，不得進入階段二。
 
 如果任一項不符合，請先回報問題並要求使用者補充，不要猜測。
 
@@ -283,7 +264,7 @@ assets/
 
 1. 讀取 `notes/<章節>/*.md`，依檔名前綴與學習順序理解內容。
 2. 建立 Notes Inventory，記錄每篇 notes 的標題、topics/summary、核心教學目標、可展示內容、資產/連結概況。
-3. 找出每篇 notes 中的 CSS/HTML 範例程式碼、效果對照、常見錯誤、自我檢查、圖片/音訊/影片引用。
+3. 找出每篇 notes 中的範例程式碼、對照表、常見錯誤、自我檢查、圖片/音訊/影片引用。
 4. 判斷哪些內容適合 demo、哪些只適合 practice/review 或不適合轉成 demo。
 
 ### Step 3：Demo 規劃
@@ -291,16 +272,16 @@ assets/
 對每個候選 demo 規劃：
 
 1. Demo 目錄與主要檔案。
-2. 對應 notes。
-3. 生成方式：一對一、一對多、多對一、不生成。
+2. 對應單一 notes。
+3. 生成方式：一對一或不生成。
 4. Demo 類型。
 5. 具體教學目標。
 6. 互動或展示設計。
-7. 需要的 HTML 載體、CSS/JS/資產。
+7. 需要的 HTML、展示輔助 CSS/JS 與資產。
 8. 驗證方式。
 9. 需要人工確認的風險或取捨。
 
-「互動或展示設計」必須具體到看得出畫面要展示什麼、使用者能操作什麼、操作後觀察什麼；不能只寫「建立互動 demo」或「展示 CSS 用法」。
+「互動或展示設計」必須具體到看得出畫面要展示什麼、使用者能操作什麼、操作後觀察什麼；不能只寫「建立互動 demo」或「展示標籤用法」。
 
 ### Step 4：兩階段執行
 
@@ -338,14 +319,15 @@ assets/
 
 每組 demo 至少確認：
 
-1. `demos/<章節>/<demo-slug>/index.html` 存在。
+1. `demos/<章節>/<筆記名>/index.html` 存在。
 2. `index.html` 不是空檔。
 3. `index.html` 具備最小骨架：`<!doctype html>`、`<html lang="...">`、`<meta charset="utf-8">`、`<meta name="viewport" content="width=device-width, initial-scale=1">`、非空 `<title>`。
-4. 本地 `src`、`href` 指向的 CSS、JS、圖片、音訊、影片或附件檔案存在。
-5. `style.css`、`script.js` 若被引用，檔案存在且路徑正確。
-6. 沒有使用指向不存在檔案的本地路徑。
-7. 沒有錯把 notes 中的 Markdown 相對資產路徑直接搬進 demo 而導致路徑失效。
-8. 沒有修改 `notes/`、`origin/`、`atomic/`。
+4. 包含固定格式的 `Source notes` HTML 註解，且只列一筆可解析 notes 路徑。
+5. 本地 `src`、`href` 指向的 CSS、JS、圖片、音訊、影片或附件檔案存在。
+6. `style.css`、`script.js` 若被引用，檔案存在且路徑正確。
+7. 沒有使用指向不存在檔案的本地路徑。
+8. 沒有錯把 notes 中的 Markdown 相對資產路徑直接搬進 demo 而導致路徑失效。
+9. 沒有修改 `notes/`、`origin/`、`atomic/`。
 
 ### 瀏覽器驗證（可行時必須）
 
@@ -392,7 +374,7 @@ assets/
 
 | Demo 目錄 | 對應 notes | 生成方式 | Demo 類型 | 教學目標 | 互動/展示設計 | 主要檔案 |
 | --- | --- | --- | --- | --- | --- | --- |
-| demos/<章節>/<demo-slug>/ | notes/<章節>/01-主題.md | 一對一/一對多/多對一 | 選擇器與命中範圍/對照比較/互動觀察/盒模型與布局 | 讓讀者觀察某個 CSS 屬性或選擇器如何影響呈現 | 左側顯示 CSS 規則與必要 HTML 載體，右側顯示結果；切換 checkbox 後比較不同宣告或 class 的差異 | index.html, style.css, script.js |
+| demos/<章節>/<筆記名>/ | notes/<章節>/01-主題.md | 一對一 | 標籤展示/對照比較/互動觀察 | 讓讀者觀察某屬性如何影響呈現 | 左側顯示原始 HTML，右側顯示結果；切換 checkbox 後比較有無屬性的差異 | index.html, style.css, script.js |
 
 ## 不生成 Demo 的 Notes
 
@@ -432,6 +414,7 @@ assets/
 - 是否只輸出到 demos/<章節>/：
 - 是否未修改 notes/atomic/origin：
 - 是否每組 demo 可獨立開啟：
+- 是否具備固定格式 Source notes 註解且路徑存在：
 - 是否相對路徑正確：
 - 是否完成靜態檢查：
 - 是否完成瀏覽器驗證：
@@ -446,7 +429,7 @@ assets/
 如果執行環境不能直接寫入檔案，請用以下格式輸出每個檔案內容：
 
 ````md
-### FILE: demos/<章節>/<demo-slug>/index.html
+### FILE: demos/<章節>/<筆記名>/index.html
 
 ```html
 <!doctype html>
@@ -460,71 +443,67 @@ assets/
 
 ## Few-Shot 判斷
 
-### 範例一：一對一屬性效果展示
+### 範例一：一對一標籤展示
 
 ```text
-notes/080-盒模型/01-盒模型基本觀念.md
+notes/180-圖片標籤/01-img標籤與圖片替代文字.md
 ```
 
 建議：
 
 ```text
-Demo 目錄：demos/080-盒模型/01-盒模型基本觀念/
+Demo 目錄：demos/180-圖片標籤/01-img標籤與圖片替代文字/
 生成方式：一對一
-Demo 類型：盒模型與布局 + 對照比較
-教學目標：讓讀者觀察 content、padding、border、margin 如何共同影響元素佔用空間。
-互動/展示設計：提供同一個卡片元素，切換 padding、border、margin 與 box-sizing；畫面以輔助框線標出各層盒模型區域並即時顯示尺寸變化。
+Demo 類型：標籤展示 + 錯誤修正
+教學目標：讓讀者觀察 src 與 alt 的作用，以及圖片無法載入時 alt 如何提供替代資訊。
+互動/展示設計：提供正常圖片、故意錯誤 src、缺少 alt、有 alt 四個對照區塊；可切換「模擬圖片載入失敗」觀察替代文字。
 主要檔案：index.html, style.css, script.js
 ```
 
-### 範例二：多對一整合 demo
+### 範例二：多篇 notes 不放在 demos 整合
 
 ```text
-notes/120-Flexbox/01-flex容器與主軸.md
-notes/120-Flexbox/02-flex項目伸縮.md
-notes/120-Flexbox/03-flex對齊與間距.md
+notes/240-表單標籤/02-input基礎與文字密碼輸入.md
+notes/240-表單標籤/03-單選複選與下拉選項.md
+notes/240-表單標籤/04-表單按鈕與提交行為.md
 ```
 
 建議：
 
 ```text
-Demo 目錄：demos/120-Flexbox/flex-layout-lab/
-生成方式：多對一
-Demo 類型：盒模型與布局 + 互動觀察
-教學目標：讓讀者在同一個排列情境中觀察 flex-direction、justify-content、align-items、gap 與 flex-grow 如何改變項目排列。
-互動/展示設計：建立一排卡片作為 flex items，側邊控制列可切換主軸方向、對齊方式與伸縮值；右側同步顯示目前 CSS 宣告與實際排列結果。
-主要檔案：index.html, style.css, script.js
+判斷：不在 demos 內建立跨 notes 整合 demo。
+原因：這是多篇 notes 的完整表單情境，應改走 notes-project-generation。
+建議輸出：列入「需要人工確認」或「不生成 Demo 的 Notes」，並建議使用者改用 projects 規劃。
 ```
 
-### 範例三：一篇 notes 拆成多組 demo
+### 範例三：單篇 notes 內含多個展示點
 
 ```text
-notes/040-選擇器/01-基礎選擇器與組合選擇器.md
+notes/050-全局屬性/01-HTML全局屬性入門.md
 ```
 
 建議：
 
 ```text
-Demo A：demos/040-選擇器/01-基礎選擇器與組合選擇器-class-id/
-展示 class 與 id 選擇器的命中範圍與優先權差異。
-
-Demo B：demos/040-選擇器/01-基礎選擇器與組合選擇器-descendant-child/
-展示後代選擇器與子代選擇器命中的元素差異。
+Demo 目錄：demos/050-全局屬性/01-HTML全局屬性入門/
+生成方式：一對一
+Demo 類型：對照比較
+互動/展示設計：在同一個 index.html 內用分區或頁籤分別展示 id/class 與 title/hidden，不拆成多個 demo 目錄。
 ```
 
-判斷理由：同一篇 notes 涵蓋多組選擇器觀念，拆開後每組 demo 的命中範圍與比較焦點更清楚。
+判斷理由：同一篇 notes 對應單一 demo 目錄；多個展示點可在同一組 demo 內組織。
 
 ### 範例四：不生成 demo
 
 ```text
-notes/010-CSS入門/03-CSS版本與規格演進.md
+notes/020-HTML簡介/02-HTML5版本與特性.md
 ```
 
 若內容主要是版本歷史與特性概覽，建議列入不生成：
 
 ```text
 原因：以背景知識與版本脈絡為主，獨立 demo 只能重述文字，展示價值低。
-建議：可在其他 CSS 屬性、布局或瀏覽器支援差異 demo 中簡短提及相關規格脈絡。
+建議：可在其他標籤或語意化 demo 中簡短提及 HTML5 相關特性。
 ```
 
 ---
@@ -536,10 +515,11 @@ notes/010-CSS入門/03-CSS版本與規格演進.md
 1. 未提供章節名稱。
 2. `notes/<章節>/` 不存在或沒有 `.md` 檔案。
 3. `meta/chapter-status.md` 顯示「notes 完成檢查」尚未完成。
-4. 使用者要求第二階段產生 demos，但尚未明確回覆「確認，請產生 demos」。
-5. 目標 demo 目錄或檔案已存在，且使用者尚未確認覆蓋、更新或保留。
-6. demo 需要的圖片、音訊、影片或附件資產在 origin 中無法定位。
-7. 需要引入外部 CDN、第三方框架或遠端資源，且 notes 本身沒有要求。
+4. `meta/chapter-status.md` 顯示「notes 索引元資料」尚未完成。
+5. 使用者要求第二階段產生 demos，但尚未明確回覆「確認，請產生 demos」。
+6. 目標 demo 目錄或檔案已存在，且使用者尚未確認覆蓋、更新或保留。
+7. demo 需要的圖片、音訊、影片或附件資產在 origin 中無法定位。
+8. 需要引入外部 CDN、第三方框架或遠端資源，且 notes 本身沒有要求。
 
 ---
 
@@ -549,17 +529,18 @@ notes/010-CSS入門/03-CSS版本與規格演進.md
 
 1. 是否只以 `notes/<章節>/*.md` 為內容來源，`origin/<章節>/assets/...` 僅供唯讀讀取或複製資產（不修改 origin 原檔）。
 2. 是否先建立 demo 規劃，而非機械式逐篇生成。
-3. 是否正確判斷一對一、一對多、多對一與不生成。
+3. 是否每組 demo 只對應單一 notes，且多篇 notes 的整合需求已導回 `notes-project-generation`。
 4. 是否每組 demo 都有清楚教學目標。
 5. 是否每組 demo 都有可觀察範例、對照或互動。
-6. 是否避免把 notes 全文搬進展示頁。
-7. 是否每組 demo 都有 `index.html` 且可獨立開啟。
-8. 是否相對路徑正確，所有本地 `src`/`href` 都能解析；資產以自包含（複製進 demo `assets/`）為優先，若引用 origin 資產已於來源標示註明。
-9. 是否未修改 `origin/`、`atomic/`、`notes/`、原始資產檔案或其他下游目錄。
-10. 是否已完成靜態檢查。
-11. 若環境可行，是否已完成瀏覽器驗證與至少一次核心互動檢查。
-12. 若無法瀏覽器驗證，是否明確說明原因。
-13. 是否提出 `meta/chapter-status.md` 中「demos 生成」欄位的建議標記。
+6. 是否避免把 notes 全文搬進 HTML 頁面。
+7. 是否每組 demo 具備固定格式 `Source notes` 註解，作為 demos 層等價來源欄位。
+8. 是否每組 demo 都有 `index.html` 且可獨立開啟。
+9. 是否相對路徑正確，所有本地 `src`/`href` 都能解析；資產以自包含（複製進 demo `assets/`）為優先，若引用 origin 資產已於來源標示註明。
+10. 是否未修改 `origin/`、`atomic/`、`notes/`、原始資產檔案或其他下游目錄。
+11. 是否已完成靜態檢查。
+12. 若環境可行，是否已完成瀏覽器驗證與至少一次核心互動檢查。
+13. 若無法瀏覽器驗證，是否明確說明原因。
+14. 是否提出 `meta/chapter-status.md` 中「demos 生成」欄位的建議標記。
 
 可建議「demos 生成」標記為「已完成」的條件：
 

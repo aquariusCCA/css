@@ -95,7 +95,6 @@ notes 變動時要用 projects-index 反查。
 
 ```text
 origin/<章節>/*.md
-origin/<章節>/*.md
 origin/<章節>/assets/
   ↓
 資產命名（就地更新 origin/）
