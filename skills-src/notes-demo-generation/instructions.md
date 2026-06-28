@@ -1,5 +1,5 @@
 
-# Notes 轉 HTML 教學 Demo
+# Notes 轉 CSS 教學 Demo
 
 ## 定位與適用範圍
 
@@ -240,7 +240,7 @@ assets/
 每個 `index.html` 必須以 HTML 註解標示單一來源 notes；此註解是 demos 層等價於 `source_notes` 的追溯欄位。固定格式：
 
 ```html
-<!-- Source notes: notes/180-圖片標籤/01-img標籤與圖片替代文字.md -->
+<!-- Source notes: notes/080-Flexbox佈局/01-flex-container基本概念.md -->
 ```
 
 每組 demo 只允許一筆來源 notes，路徑必須指向實體存在的 `notes/<章節>/*.md`。若頁面中另以可見文字標示來源，也不能取代 HTML 註解。來源標示只做追溯，不把整篇 notes 搬進頁面。
@@ -374,7 +374,7 @@ assets/
 
 | Demo 目錄 | 對應 notes | 生成方式 | Demo 類型 | 教學目標 | 互動/展示設計 | 主要檔案 |
 | --- | --- | --- | --- | --- | --- | --- |
-| demos/<章節>/<筆記名>/ | notes/<章節>/01-主題.md | 一對一 | 標籤展示/對照比較/互動觀察 | 讓讀者觀察某屬性如何影響呈現 | 左側顯示原始 HTML，右側顯示結果；切換 checkbox 後比較有無屬性的差異 | index.html, style.css, script.js |
+| demos/<章節>/<筆記名>/ | notes/<章節>/01-主題.md | 一對一 | 屬性效果/對照比較/互動觀察 | 讓讀者觀察某個 CSS 屬性如何影響呈現 | 左側顯示 CSS 規則，右側顯示結果；切換 checkbox 後比較有無該規則的差異 | index.html, style.css, script.js |
 
 ## 不生成 Demo 的 Notes
 

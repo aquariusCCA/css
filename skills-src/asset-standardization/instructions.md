@@ -63,7 +63,7 @@ md-slug：每份中文 Markdown 檔名對應的英文 slug
 
 1. 若使用者已指定，使用指定值。
 2. 若 Markdown 檔名本身已是穩定英文 slug，可轉小寫並保留 kebab-case。
-3. 章節內的中文 Markdown 檔名（例如 `01-圖片標籤.md`）需使用者指定英文 slug（例如 `img-tag`），不要自行翻譯或依章節名稱、alt 文字、內容自行創造。
+3. 章節內的中文 Markdown 檔名（例如 `01-background-image屬性.md`）需使用者指定英文 slug（例如 `background-image`），不要自行翻譯或依章節名稱、alt 文字、內容自行創造。
 4. 若缺少 slug，列入「需要人工確認」並反問使用者。
 
 若以上資訊不足，先提出問題，不要直接執行。
@@ -337,23 +337,23 @@ hash6 不一致
 
 ### 範例一：Markdown 圖片改名
 
-改寫前（`origin/180-圖片標籤/01-圖片標籤.md`）：
+改寫前（`origin/030-CSS顏色與背景/01-background-image屬性.md`）：
 
 ```md
-![圖像標籤屬性介紹.png](./images/圖像標籤屬性介紹.png)
+![背景圖片效果示意.png](./images/背景圖片效果示意.png)
 ```
 
 改寫後：
 
 ```md
-![圖像標籤屬性介紹.png](./assets/images/img-tag-img-001-7e5dcd.png)
+![背景圖片效果示意.png](./assets/images/background-image-img-001-7e5dcd.png)
 ```
 
 實體檔案同步改名：
 
 ```text
-改名前：origin/180-圖片標籤/assets/images/圖像標籤屬性介紹.png
-改名後：origin/180-圖片標籤/assets/images/img-tag-img-001-7e5dcd.png
+改名前：origin/030-CSS顏色與背景/assets/images/背景圖片效果示意.png
+改名後：origin/030-CSS顏色與背景/assets/images/background-image-img-001-7e5dcd.png
 ```
 
 ### 範例二：同一資產多次引用
@@ -368,8 +368,8 @@ hash6 不一致
 改寫後：
 
 ```md
-![示意圖](./assets/images/img-tag-img-001-a82f91.png)
-[下載示意圖](./assets/images/img-tag-img-001-a82f91.png)
+![示意圖](./assets/images/background-image-img-001-a82f91.png)
+[下載示意圖](./assets/images/background-image-img-001-a82f91.png)
 ```
 
 ### 範例三：CSS url() 改名
@@ -435,7 +435,7 @@ hash6 不一致
 1. 要處理哪一個章節（`origin/<三位數編號>-<標題>/`）？
 2. 要處理全部 Markdown，還是指定 Markdown？
 3. 執行模式是 `dry-run` 還是 `apply`？
-4. 中文 Markdown 檔名是否已指定英文 `md-slug`？例如 `01-圖片標籤.md` 可由使用者指定為 `img-tag`。
+4. 中文 Markdown 檔名是否已指定英文 `md-slug`？例如 `01-background-image屬性.md` 可由使用者指定為 `background-image`。
 5. 若偵測到跨 Markdown 共用資產，是否要人工指定統一檔名？
 6. `meta/chapter-status.md` 中該章節「資產命名」欄位目前狀態為何，使用者是否確認要（重新）處理？
 

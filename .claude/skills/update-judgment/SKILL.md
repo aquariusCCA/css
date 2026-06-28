@@ -99,7 +99,7 @@ projects 不以章節為鍵；
 notes 變動時要用 projects-index 反查。
 ```
 
-## HTML 筆記包資料流
+## CSS 筆記包資料流
 
 ```text
 origin/<章節>/*.md
@@ -202,7 +202,7 @@ projects 改了 → 先判斷問題是否源自 source_notes 或 projects 本身
 
 ### 4. 下游不得自行新增核心知識
 
-`appendix/`、`demos/`、`projects/`、`practice/`、`review/` 只能延伸、重排或組裝 `notes/` 已經教過的內容。`appendix/` 特別要避免把 notes 沒有寫出的值、屬性、API、參數或支援度補成完整參考資料；任何無法回溯到 notes 的表格內容都應列為待確認或建議回補 notes。
+`appendix/`、`demos/`、`projects/`、`practice/`、`review/` 只能延伸、重排或組裝 `notes/` 已經教過的內容。`appendix/` 特別要避免把 notes 沒有寫出的值、屬性、函式參數、at-rule 或支援度補成完整參考資料；任何無法回溯到 notes 的表格內容都應列為待確認或建議回補 notes。
 
 `supplements/` 可以整理外部素材或延伸解說，但必須透過 `source_notes` 對應既有 `notes/`，並維持在該 notes 的概念邊界內；若補充內容揭示正式筆記缺口，應回到 `notes/` 或更上游流程處理。
 
@@ -375,7 +375,7 @@ practice / review / supplements 中的圖片、附件或來源連結
 1. 確認改動是否只在 `appendix/<章節>/`，或源自某些 `source_notes`。
 2. 確認對應章節的「notes 完成檢查」是否已完成；若未完成，暫緩 appendix 生成或更新。
 3. 讀取 appendix front matter 的 `source_notes`、topics、summary，確認每個 `source_notes` 路徑存在。
-4. 判斷 appendix 內容是否只是查表資料，且每一格都能回溯到 notes；若有 notes 未涵蓋的值、屬性、API、參數或支援度，候選回補 notes 或列為待確認，不直接在 appendix 補。
+4. 判斷 appendix 內容是否只是查表資料，且每一格都能回溯到 notes；若有 notes 未涵蓋的值、屬性、函式參數、at-rule 或支援度，候選回補 notes 或列為待確認，不直接在 appendix 補。
 5. 確認輸出位置只在 `appendix/<章節>/`，沒有跨章節彙整總表。
 6. 若整章已無足夠查表價值，建議「appendix 索引」標記為 `不適用`；若應生成的 appendix 都已建立或更新且來源回溯通過，建議標記為 `已完成`。
 
