@@ -75,7 +75,7 @@ origin/<章節>/*.md
 3. 把本任務變成正式教材改寫任務。
 4. 把切分不合理、來源資訊缺失、asset 路徑錯誤或需要重切 atomic 邊界的問題當成本 skill 第二階段可直接修正的內容問題。
 5. 修改 `origin/<章節>/*.md` 或 `origin/<章節>/assets/`。
-6. 把 `meta/`、`notes/`、`appendix/`、`demos/`、`practice/`、`review/` 或 `supplements/` 當成審查輸入。
+6. 把 `meta/`、`notes/`、`appendix/`、`demos/`、`projects/`、`practice/`、`review/` 或 `supplements/` 當成審查輸入。
 
 ---
 
@@ -321,7 +321,8 @@ position: static（預設值）的元素設定 z-index 不會生效。
 問題類型：技術事實錯誤
 嚴重度：S1 確定技術錯誤
 建議修正：
-將說法改為「z-index 只對 position 值非 static 的元素有效，用來控制堆疊順序」。
+將說法改為「z-index 用來控制堆疊順序，主要對 position 值非 static 的元素生效；
+此外 flex 容器或 grid 容器的子項（flex item、grid item）即使 position 為 static 也適用」。
 ```
 
 ### 範例二：表述風險
