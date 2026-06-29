@@ -1,0 +1,39 @@
+> 如果需要在 HTML 頁面上對背景圖像進行平鋪，可以使用 background-repeat 屬性。
+> 
+> ![背景平舖.png](%E8%83%8C%E6%99%AF%E5%B9%B3%E8%88%96background-repeat/%25E8%2583%258C%25E6%2599%25AF%25E5%25B9%25B3%25E8%2588%2596.png)
+
+```css
+background-repeat: repeat| no-repeat| repeat-x| repeat-y
+```
+
+```css
+div {
+  width: 900px;
+  height: 900px;
+  background-color: pink;
+  background-image: url(./images/logo.png);
+
+	/* 1.背景图片不平铺 */
+	background-repeat: no-repeat;
+
+	/* 2.默认的情况下,背景图片是平铺的 */
+	/* background-repeat: repeat; */
+	
+	/* 3. 沿着x轴平铺 */
+	/* background-repeat: repeat-x; */
+	
+	/* 4. 沿着Y轴平铺 */
+	/* background-repeat: repeat-y; */
+}
+```
+
+```html
+<div></div>
+```
+
+<aside>
+💡
+
+**頁面元素既可以添加背景顏色也可以添加背景圖片，只不過背景圖片會壓住背景顏色。**
+
+</aside>
