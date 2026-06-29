@@ -182,7 +182,7 @@ blob:
 | 欄位 | 規則 |
 | --- | --- |
 | `md-slug` | 使用者指定，或檔名本身已是穩定英文 slug |
-| `asset-kind` | `img`、`pdf`、`excel`、`word`、`file` |
+| `asset-kind` | `img`、`pdf`、`excel`、`word`、`font`、`file` |
 | `index` | 同一份 Markdown、同一種 asset-kind，依第一次出現順序編號，固定三位數 |
 | `hash6` | 讀取實體檔案 bytes 後，SHA-256 前 6 碼小寫十六進位 |
 | `ext` | 小寫副檔名 |

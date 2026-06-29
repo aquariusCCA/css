@@ -133,6 +133,7 @@ origin/
       pdfs/
       excels/
       word/
+      fonts/
       files/
       ...
     *.md
