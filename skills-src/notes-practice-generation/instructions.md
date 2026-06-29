@@ -6,7 +6,7 @@
 本 skill 對應 `meta/chapter-status.md` 章節狀態表中「practice 生成」欄位，是 notes 完成檢查後的下游教材生成階段。practice 與 demos、review、appendix 都各自平行延伸 notes，彼此沒有先後依賴；本 skill 只負責 practice：
 
 ```text
-notes 生成 → notes 完成檢查（須先完成）
+notes 生成 → notes 完成檢查 → notes 索引元資料（兩者須先完成）
   ↓
 （皆平行延伸 notes，彼此無先後）
 practice 生成（本 skill）
@@ -538,10 +538,10 @@ notes/030-CSS選擇器/01-基本選擇器與組合選擇器.md
 若一篇涵蓋多個獨立選擇器群組，建議：
 
 ```text
-Practice A：practice/030-CSS選擇器/01-基本選擇器練習.md
+Practice A：practice/030-CSS選擇器/01-基本選擇器與組合選擇器-基本選擇器練習.md
 練元素選擇器、class 選擇器、id 選擇器的套用與優先級辨別。
 
-Practice B：practice/030-CSS選擇器/02-組合選擇器練習.md
+Practice B：practice/030-CSS選擇器/01-基本選擇器與組合選擇器-組合選擇器練習.md
 練後代、子代、相鄰兄弟選擇器在特定 DOM 結構中的精準選取。
 
 判斷理由：拆開後每份練習焦點清楚，避免一份混太多選擇器類型。
