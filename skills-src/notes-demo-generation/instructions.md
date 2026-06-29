@@ -3,10 +3,10 @@
 
 ## 定位與適用範圍
 
-本 skill 對應 `meta/chapter-status.md` 章節狀態表中「demos 生成」欄位，是 notes 完成檢查後的下游教材生成階段。demos 與 practice、review、appendix 都各自平行延伸 notes，彼此沒有先後依賴；本 skill 只負責 demos：
+本 skill 對應 `meta/chapter-status.md` 章節狀態表中「demos 生成」欄位，是 notes 完成檢查與 notes 索引元資料後的下游教材生成階段。demos 與 practice、review、appendix 都各自平行延伸 notes，彼此沒有先後依賴；本 skill 只負責 demos：
 
 ```text
-notes 生成 → notes 完成檢查（須先完成）
+notes 生成 → notes 完成檢查（須先完成）→ notes 索引元資料（須先完成）
   ↓
 （皆平行延伸 notes，彼此無先後）
 demos 生成（本 skill）
