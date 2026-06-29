@@ -97,9 +97,9 @@ notes 變動時要用 projects-index 反查。
 origin/<章節>/*.md
 origin/<章節>/assets/
   ↓
-資產命名（就地更新 origin/）
+資產命名（視需要就地更新 origin/）
   ↓
-alt 與連結文字整理（就地更新 origin/）
+alt 與連結文字整理（視需要就地更新 origin/）
   ↓
 atomic 切分提案與產生
   ↓
