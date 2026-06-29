@@ -14,7 +14,7 @@ description: |
 本 skill 對應 `meta/chapter-status.md` 章節狀態表中「appendix 索引」欄位，是 notes 完成檢查後的下游教材生成階段。appendix 與 demos、practice、review 都各自平行延伸 notes，彼此沒有先後依賴；本 skill 只負責 appendix：
 
 ```text
-notes 生成 → notes 完成檢查（須先完成）
+notes 生成 → notes 完成檢查（須先完成）→ notes 索引元資料（須先完成）
   ↓
 （皆平行延伸 notes，彼此無先後）
 appendix 索引（本 skill）
@@ -529,7 +529,7 @@ notes/030-CSS選擇器/01-基本選擇器.md
 
 1. 未提供章節名稱。
 2. `notes/<章節>/` 不存在或沒有 `.md` 檔案。
-3. `meta/chapter-status.md` 顯示「notes 完成檢查」尚未完成。
+3. `meta/chapter-status.md` 顯示「notes 完成檢查」或「notes 索引元資料」尚未完成。
 4. 使用者要求第二階段產生 appendix，但尚未明確回覆「確認，請產生 appendix」。
 5. 目標 appendix 檔案已存在，且使用者尚未確認覆蓋、更新或保留。
 6. 想列的表格內容在 notes 中找不到出處，無法判斷是否該納入。
