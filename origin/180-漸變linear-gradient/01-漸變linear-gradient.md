@@ -89,7 +89,7 @@
 
 <body>
   <a class="box" href="#">
-    <img class="cover" src="ldh.jpg" alt="">
+    <img class="cover" src="./assets/images/linear-gradient-img-001-354aea.jpg" alt="">
 
     <div class="title">
       <p>百日依山尽</p>

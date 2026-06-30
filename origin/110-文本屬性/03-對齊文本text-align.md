@@ -1,6 +1,6 @@
 > text-align 屬性用於設置元素內文本內容的水平對齊方式。
 > 
-> ![對齊文本.png](%E5%B0%8D%E9%BD%8A%E6%96%87%E6%9C%ACtext-align/%25E5%25B0%258D%25E9%25BD%258A%25E6%2596%2587%25E6%259C%25AC.png)
+> ![對齊文本.png](./assets/images/text-align-img-001-e6b11e.png)
 
 <aside>
 ⚠️

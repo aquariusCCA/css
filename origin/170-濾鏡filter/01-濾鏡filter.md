@@ -8,7 +8,7 @@ filter: blur(5px);
 
 - 模糊處理：`blur`數值越大越模糊。
     
-    ![截圖 2024-09-09 下午1.43.31.png](%25E6%2588%25AA%25E5%259C%2596_2024-09-09_%25E4%25B8%258B%25E5%258D%25881.43.31.png)
+    ![截圖 2024-09-09 下午1.43.31.png](./assets/images/css-filter-img-001-50019e.png)
     
 
 ```css
@@ -20,6 +20,6 @@ img {
 
 ```html
 <body>
-  <img src="./images/ldh.jpg" alt="">
+  <img src="./assets/images/css-filter-img-002-354aea.jpg" alt="">
 </body>
 ```

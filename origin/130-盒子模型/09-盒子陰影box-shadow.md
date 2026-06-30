@@ -1,6 +1,6 @@
 > CSS3 中新增了盒子陰影，我們可以使用 box-shadow 屬性為盒子添加陰影。
 >  
-> ![盒子陰影box-shadow.png](%E7%9B%92%E5%AD%90%E9%99%B0%E5%BD%B1box-shadow/%25E7%259B%2592%25E5%25AD%2590%25E9%2599%25B0%25E5%25BD%25B1box-shadow.png)
+> ![盒子陰影box-shadow.png](./assets/images/box-shadow-img-001-533a43.png)
 
 ```css
 box-shadow: h-shadow v-shadow blur spread color inset;

@@ -11,22 +11,22 @@
 
 - normal: 文本超出邊界自動換行，文本中的換行被瀏覽器識別為一個空格 (默認值)。
     
-    ![93b0e11e44fd3a9e56f4d64673f3b564.png](%E6%96%87%E6%9C%AC%E6%8F%9B%E8%A1%8Cwhite-space/93b0e11e44fd3a9e56f4d64673f3b564.png)
+    ![93b0e11e44fd3a9e56f4d64673f3b564.png](./assets/images/white-space-img-001-cf5002.png)
     
 - pre: 原樣輸出，與 pre 標籤的效果相同。
     
-    ![ca51b5af89092c4705a9bd195fc4dae8.png](%E6%96%87%E6%9C%AC%E6%8F%9B%E8%A1%8Cwhite-space/ca51b5af89092c4705a9bd195fc4dae8.png)
+    ![ca51b5af89092c4705a9bd195fc4dae8.png](./assets/images/white-space-img-002-1a8619.png)
     
 - pre-wrap: 在 pre 效果的基礎上，超出元素邊界自動換行。
     
-    ![86e2eb80dc0599c3f02e067ceb0b1e37.png](%E6%96%87%E6%9C%AC%E6%8F%9B%E8%A1%8Cwhite-space/86e2eb80dc0599c3f02e067ceb0b1e37.png)
+    ![86e2eb80dc0599c3f02e067ceb0b1e37.png](./assets/images/white-space-img-003-fc130b.png)
     
 - pre-line: 在 pre 效果的基礎上，超出元素邊界自動換行，且識別文字中的換行，空格會忽略。
     
-    ![f93570269e5ea910077c24adbd31fd63.png](%E6%96%87%E6%9C%AC%E6%8F%9B%E8%A1%8Cwhite-space/f93570269e5ea910077c24adbd31fd63.png)
+    ![f93570269e5ea910077c24adbd31fd63.png](./assets/images/white-space-img-004-00bee8.png)
     
 - nowrap: 強制不換行。
     
-    ![f171b33f091141c667e03cb289d71973.png](%E6%96%87%E6%9C%AC%E6%8F%9B%E8%A1%8Cwhite-space/f171b33f091141c667e03cb289d71973.png)
+    ![f171b33f091141c667e03cb289d71973.png](./assets/images/white-space-img-005-291824.png)
     
 </aside>

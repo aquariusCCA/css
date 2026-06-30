@@ -78,7 +78,7 @@ div {
 
 # **4. 總結**
 
-![CSS的引入方式總結.png](%E7%AC%AC03%E7%AB%A0_CSS%E7%9A%84%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F/CSS%25E7%259A%2584%25E5%25BC%2595%25E5%2585%25A5%25E6%2596%25B9%25E5%25BC%258F%25E7%25B8%25BD%25E7%25B5%2590.png)
+![CSS的引入方式總結.png](./assets/images/ways-to-include-css-img-001-e7905f.png)
 
 - 外部樣式
     - 作用範圍 : 多個頁面
