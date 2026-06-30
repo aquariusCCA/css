@@ -1,7 +1,7 @@
 > 設置或檢索在對像上移動的鼠標指針採用何種系統預定義的光標形狀。
 > 
 > 
-> ![鼠標樣式.png](./assets/images/cursor-img-001-345435.png)
+> ![鼠標樣式.png](./assets/images/cursor-style-img-001-345435.png)
 > 
 
 ```html
@@ -14,7 +14,7 @@
     <li style="cursor: not-allowed;">我是鼠标禁止样式</li>
     <li style="cursor: help;">我是鼠标幫助样式</li>
     <li style="cursor: wait;">我是鼠标加載样式</li>
-    <li style="cursor: url(./img/success.png) , default;">自定義鼠標樣式</li>
+    <li style="cursor: url(./assets/images/cursor-style-img-002-81baa8.png) , default;">自定義鼠標樣式</li>
   </ul>
 </body>
 ```
