@@ -45,7 +45,7 @@ transform: scale(缩放倍数);
   left: 50%;
   top: 50%;
 
-  background-image: url(./images/apple100.jpg);
+  background-image: url(./assets/images/scale-img-001-e2d385.jpg);
   background-size: contain;
   width: 40px;
   height: 40px;

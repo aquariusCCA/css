@@ -4,7 +4,7 @@
 - 伸縮佈局 = 彈性佈局 = 伸縮盒佈局 = 彈性盒佈局 = flex佈局。
 - 採用 Flex 佈局的元素，稱為 Flex 容器（flex container），簡稱"容器"。它的所有子元素自動成為容器成員，稱為 Flex 項目（flex item），簡稱"項目"。
     
-    ![flex布局.png](flex%25E5%25B8%2583%25E5%25B1%2580.png)
+    ![flex布局.png](./assets/images/flex-layout-basics-img-001-20d356.png)
     
 - 容器 → 開啟了 flex 的元素就是容器。
     - 給元素設置 `display: flex;` 或 `display: inline-flex;` 該元素就變成了容器。

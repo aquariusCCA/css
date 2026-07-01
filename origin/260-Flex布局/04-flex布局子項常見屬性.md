@@ -14,7 +14,7 @@
 
 ### **容器內項目的寬度是根據內容自適應的，這個也就是flex-basis默認值為auto的含義了**
 
-![flex-basis.png](flex-basis.png)
+![flex-basis.png](./assets/images/flex-item-properties-img-001-783fba.png)
 
 ```css
 /* 设置容器的宽高、边框，方便看到样子 */
@@ -55,7 +55,7 @@
 > 可以看到3個項目的寬度都為 120px了，這個就是 flex-basis 的含義了。
 > 
 > 
-> ![截圖 2024-09-09 下午4.14.01.png](%25E6%2588%25AA%25E5%259C%2596_2024-09-09_%25E4%25B8%258B%25E5%258D%25884.14.01.png)
+> ![截圖 2024-09-09 下午4.14.01.png](./assets/images/flex-item-properties-img-002-1cff69.png)
 > 
 
 ```css
@@ -99,7 +99,7 @@
 
 ### **設置項目的寬度為200px**
 
-![flex-basis3.png](flex-basis3.png)
+![flex-basis3.png](./assets/images/flex-item-properties-img-003-c9d5b4.png)
 
 - 項目被壓縮顯示了，運行效果圖裡可以看到縮小的區間。
 - 縮小後項目的寬度是 `150px`，3個剛好為 `450px`，等於容器的寬度。
@@ -216,7 +216,7 @@
 > 
 - 參考示例如下:
     
-    ![flex-grow.png](flex-grow.png)
+    ![flex-grow.png](./assets/images/flex-item-properties-img-004-ad14e7.png)
     
     - 每個項目的寬度為 `50px`，3個為 `150px`。
     - 剩餘空間為 `450px - 150px = 300px`。
@@ -296,7 +296,7 @@
 
 - 我們觀察到 3 個項目的寬度都變成了 150px，可以看到項目被進行了擴大。
     
-    ![flex-grow2.png](flex-grow2.png)
+    ![flex-grow2.png](./assets/images/flex-item-properties-img-005-00835f.png)
     
 - 現在套公式看下情況：
     - 計算總共要分配多少剩餘空間
@@ -490,7 +490,7 @@
 
 - flow-grow 屬性在項目中運用很多，比如頁面佈局、導航條、分頁等。
     
-    ![flow-grow應用.png](flow-grow%25E6%2587%2589%25E7%2594%25A8.png)
+    ![flow-grow應用.png](./assets/images/flex-item-properties-img-006-5b9d3d.png)
     
 - 這個其實就是騰訊首頁的導航條了，我們模擬實現一下，步驟分為 4 步:
 - Step1: 首先先寫 html 標籤，標籤很簡單一個 nav 包含若干 a 標籤。
@@ -555,7 +555,7 @@
 > 
 - 超出空間計算方式: `所有項目的總大小 減去 容器大小`
     
-    ![flex-shrink.png](flex-shrink.png)
+    ![flex-shrink.png](./assets/images/flex-item-properties-img-007-106f88.png)
     
 - 語法格式:
     
@@ -825,7 +825,7 @@
 
 ### **左右固定，中間是剩餘空間的範例程式碼**
 
-![flex属性.png](flex%25E5%25B1%259E%25E6%2580%25A7.png)
+![flex属性.png](./assets/images/flex-item-properties-img-008-bdb8dc.png)
 
 ```html
 <body>
@@ -866,7 +866,7 @@ section div:nth-child(3) {
 
 ### **每個 span 各占一份的範例程式碼**
 
-![flex属性2.png](flex%25E5%25B1%259E%25E6%2580%25A72.png)
+![flex属性2.png](./assets/images/flex-item-properties-img-009-728b60.png)
 
 ```html
 <body>
@@ -937,7 +937,7 @@ p span {
 > 數值越小，排列越靠前，默認為 0，注意和 z-index 不一樣。
 > 
 > 
-> ![order屬性定義項目的排列順序.png](order%25E5%25B1%25AC%25E6%2580%25A7%25E5%25AE%259A%25E7%25BE%25A9%25E9%25A0%2585%25E7%259B%25AE%25E7%259A%2584%25E6%258E%2592%25E5%2588%2597%25E9%25A0%2586%25E5%25BA%258F.png)
+> ![order屬性定義項目的排列順序.png](./assets/images/flex-item-properties-img-010-6aefcc.png)
 > 
 
 ```html
@@ -981,7 +981,7 @@ div span:nth-child(3) {
 
 # **align-self 控制子項自己在側軸上的排列方式**
 
-![align-self控制子項自己在側軸上的排列方式.png](align-self%25E6%258E%25A7%25E5%2588%25B6%25E5%25AD%2590%25E9%25A0%2585%25E8%2587%25AA%25E5%25B7%25B1%25E5%259C%25A8%25E5%2581%25B4%25E8%25BB%25B8%25E4%25B8%258A%25E7%259A%2584%25E6%258E%2592%25E5%2588%2597%25E6%2596%25B9%25E5%25BC%258F.png)
+![align-self控制子項自己在側軸上的排列方式.png](./assets/images/flex-item-properties-img-011-d2a276.png)
 
 - `align-self` 屬性允許單個項目有與其他項目不一樣的對齊方式，可覆蓋 `align-items` 屬性。
 - 默認值為 `auto`，表示繼承父元素的 `align-items` 屬性，如果沒有父元素，則等同於 `stretch`。

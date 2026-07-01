@@ -1,4 +1,4 @@
-![flex簡介.png](flex%25E7%25B0%25A1%25E4%25BB%258B.png)
+![flex簡介.png](./assets/images/flex-introduction-img-001-3c443d.png)
 
 - 建議
     - 如果是`PC端`頁面佈局，我們還是傳統佈局。
