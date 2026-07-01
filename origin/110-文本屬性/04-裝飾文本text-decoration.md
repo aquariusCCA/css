@@ -1,6 +1,6 @@
 > text-decoration 屬性規定添加到文本的裝飾，可以給文本添加下滑線、刪除線、上滑線等。
 > 
-> ![裝飾文本.png](./assets/images/text-decoration-img-001-cc211e.png)
+> ![text-decoration 屬性值與文字裝飾效果表](./assets/images/text-decoration-img-001-cc211e.png)
 
 ```css
 div {

@@ -8,7 +8,7 @@ filter: blur(5px);
 
 - 模糊處理：`blur`數值越大越模糊。
     
-    ![截圖 2024-09-09 下午1.43.31.png](./assets/images/css-filter-img-001-50019e.png)
+    ![Firefox 標誌套用模糊濾鏡前後對比](./assets/images/css-filter-img-001-50019e.png)
     
 
 ```css
@@ -20,6 +20,6 @@ img {
 
 ```html
 <body>
-  <img src="./assets/images/css-filter-img-002-354aea.jpg" alt="">
+  <img src="./assets/images/css-filter-img-002-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
 </body>
 ```

@@ -11,7 +11,7 @@ transition: 要過渡的屬性 花費時間 運動曲線 何時開始
 - `花費時間`：單位是秒 (必須寫單位)；比如 0.5s。
 - `運動曲線`：默認是 `ease`(可以省略)。
     
-    ![1090617-20191122220922069-1658979593.jpg](./assets/images/transition-transition-img-001-7a856b.jpg)
+    ![transition 常見運動曲線示意圖](./assets/images/transition-transition-img-001-7a856b.jpg)
     
 - `何時開始`：單位是秒 (必須寫單位)，可以設置延遲觸發事件，默認是 `0s` (可以省略)。
 

@@ -2,7 +2,7 @@
 
 > border 可以設置元素的邊框，邊框有三部分組成，邊框寬度、邊框樣式、邊框顏色。
 > 
-> ![邊框.png](./assets/images/box-border-img-001-9d9559.png)
+> ![border-width border-style border-color 屬性作用表](./assets/images/box-border-img-001-9d9559.png)
 
 ```css
 div {
@@ -71,7 +71,7 @@ div {
 
 # **邊框會影響盒子實際大小**
 
-![邊框會影響盒子實際大小.png](./assets/images/box-border-img-002-4b487b.png)
+![border 會增加盒子實際寬高的示意圖](./assets/images/box-border-img-002-4b487b.png)
 
 - 邊框會額外增加盒子的實際大小，因此我們有兩種方案解決:
     - 測量盒子大小的時候，不量邊框。
@@ -99,7 +99,7 @@ div {
 - 參數值可以是數值或百分比的形式。
 - 原理: 圓與邊框的交集形成圓角效果。
     
-    ![圓與邊框的交集形成圓角效果.png](./assets/images/box-border-img-003-1355f0.png)
+    ![圓與邊框交集形成 border-radius 圓角的原理圖](./assets/images/box-border-img-003-1355f0.png)
     
 
 ```css

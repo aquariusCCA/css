@@ -1,6 +1,6 @@
 > 利用 background-position 屬性可以改變圖片在背景中的位置。
 >  
-> ![背景位置.png](./assets/images/05-background-position-img-001-98ca84.png)
+> ![background-position 參數類型與背景位置說明表](./assets/images/05-background-position-img-001-98ca84.png)
 > 
 > - 參數代表的意思是 : `x 座標和 y 座標`，可以使用方位名詞或者精確單位。
 

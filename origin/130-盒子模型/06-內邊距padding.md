@@ -2,11 +2,11 @@
 
 - padding 屬性用於設置內邊距，即盒子邊框與內容之間的距離。
     
-    ![內邊距介紹1.png](./assets/images/box-padding-img-001-c208a5.png)
+    ![padding-left padding-right padding-top padding-bottom 屬性作用表](./assets/images/box-padding-img-001-c208a5.png)
     
 - padding 屬性(簡寫屬性)可以有一到四個值。
     
-    ![內邊距介紹2.png](./assets/images/box-padding-img-002-1510d3.png)
+    ![padding 簡寫中一到四個值的對應方向表](./assets/images/box-padding-img-002-1510d3.png)
     
 
 ```css
@@ -31,11 +31,11 @@ padding-right: 10px;
 
 - 也就是說，如果盒子已經有了寬度和高度，此時再指定內邊框，會撐大盒子。
     
-    ![內邊距會影響實際盒子大小.png](./assets/images/box-padding-img-003-3dcae2.png)
+    ![padding 會增加盒子實際寬高的示意圖](./assets/images/box-padding-img-003-3dcae2.png)
     
 - 但是，有時候 padding 影響盒子是有好處的，比如我們要做導航，因為每個導航欄裡面的字數不一樣多，我們可以不用給每個盒子寬度了，直接給 padding 最合適。
     
-    ![內邊距會影響實際盒子大小2.png](./assets/images/box-padding-img-004-835d5f.png)
+    ![導航列透過 padding 撐開連結間距的示例](./assets/images/box-padding-img-004-835d5f.png)
     
 
 ```css

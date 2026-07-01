@@ -22,6 +22,14 @@
 - `hash6` 皆由實體檔案 bytes 的 SHA-256 前 6 碼計算。
 - 已同步 `meta/chapter-status.md`：`資產命名` 標記為 `已完成`，完成率更新為 `14%`，下一步更新為 `alt/連結文字檢查`。
 
+### 2026-07-01
+
+- 已執行本地資產 alt 與連結文字整理（apply）。
+- 已將 `origin/190-鼠標樣式cursor/01-鼠標樣式cursor.md` 的 Markdown 圖片 alt 從檔名式文字 `鼠標樣式.png` 改為 `cursor 屬性常見游標樣式對照表`。
+- `cursor-style-img-002-81baa8.png` 僅作為 fenced code block 內 CSS `url(...)` 的自訂游標圖片，沒有可整理的 alt 或附件連結文字，已保留原引用。
+- 全章未發現需要整理的本地附件連結文字。
+- 已同步 `meta/chapter-status.md`：`alt 與連結文字` 標記為 `已完成`，下一步改為 `atomic 切分提案`。
+
 ## 下一步
 
-- 執行 alt 與連結文字檢查。
+- 進入 atomic 切分提案。

@@ -2,11 +2,11 @@
     - 將不同的終端設備劃分成不同的類型，稱為媒體類型。
 - **如下是最常見的三種媒體類型 :**
     
-    ![最常見的三種媒體類型.png](./assets/images/media-types-img-001-6b3796.png)
+    ![all、print、screen 三種常見媒體類型](./assets/images/media-types-img-001-6b3796.png)
     
 - **所有媒體類型，詳情請看 MDN :**
     
-    ![所有媒體類型.png](./assets/images/media-types-img-002-3c8c60.png)
+    ![CSS 媒體類型與用途對照表](./assets/images/media-types-img-002-3c8c60.png)
     
 
 ```html

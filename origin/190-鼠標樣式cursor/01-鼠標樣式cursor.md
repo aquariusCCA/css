@@ -1,7 +1,7 @@
 > 設置或檢索在對像上移動的鼠標指針採用何種系統預定義的光標形狀。
 > 
 > 
-> ![鼠標樣式.png](./assets/images/cursor-style-img-001-345435.png)
+> ![cursor 屬性常見游標樣式對照表](./assets/images/cursor-style-img-001-345435.png)
 > 
 
 ```html

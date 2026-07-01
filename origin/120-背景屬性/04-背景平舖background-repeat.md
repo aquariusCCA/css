@@ -1,6 +1,6 @@
 > 如果需要在 HTML 頁面上對背景圖像進行平鋪，可以使用 background-repeat 屬性。
 > 
-> ![背景平舖.png](./assets/images/04-background-repeat-img-001-dd0c8e.png)
+> ![background-repeat 參數值與背景平鋪方式表](./assets/images/04-background-repeat-img-001-dd0c8e.png)
 
 ```css
 background-repeat: repeat| no-repeat| repeat-x| repeat-y

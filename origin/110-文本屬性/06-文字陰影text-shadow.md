@@ -1,7 +1,7 @@
 
 > 在 CSS3 中，我們可以使用 text-shadow 屬性將陰影應用於文本。
 > 
-> ![文字陰影.png](./assets/images/text-shadow-img-001-2a97ca.png)
+> ![text-shadow 屬性參數說明表](./assets/images/text-shadow-img-001-2a97ca.png)
 
 ```css
 div {

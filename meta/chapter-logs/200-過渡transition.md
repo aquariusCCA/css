@@ -20,7 +20,13 @@
 - 已同步更新 `origin/200-過渡transition/01-過渡transition.md` 圖片引用為 `./assets/images/transition-transition-img-001-7a856b.jpg`。
 - 已同步 `meta/chapter-status.md`：`資產命名` 標記為 `已完成`，下一步改為 `alt/連結文字檢查`。
 
+### 2026-07-01
+
+- 已執行本地資產 alt 與連結文字整理（apply）。
+- 已將 `origin/200-過渡transition/01-過渡transition.md` 的 Markdown 圖片 alt 從檔名式文字 `1090617-20191122220922069-1658979593.jpg` 改為 `transition 常見運動曲線示意圖`。
+- 全章未發現 HTML 圖片或需要整理的本地附件連結文字。
+- 已同步 `meta/chapter-status.md`：`alt 與連結文字` 標記為 `已完成`，下一步改為 `atomic 切分提案`。
+
 ## 下一步
 
-- 執行 alt 與連結文字檢查。
-- 完成 alt 與連結文字檢查後，進入 atomic 切分提案。
+- 進入 atomic 切分提案。

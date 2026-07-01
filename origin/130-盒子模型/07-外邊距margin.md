@@ -2,7 +2,7 @@
 
 > margin（外邊距）屬性用於設置外邊距，即控制盒子和盒子之間的距離。
 > 
-> ![外邊距margin介紹.png](./assets/images/box-margin-img-001-406f8e.png)
+> ![margin-left margin-right margin-top margin-bottom 屬性作用表](./assets/images/box-margin-img-001-406f8e.png)
 
 ```css
 /* 可取 4 个值、3 个值、2 个值、1 个值 */
@@ -40,7 +40,7 @@ margin-right: 10px;
 
 > 當上下相鄰的兩個塊元素（兄弟關係）相遇時，如果上面的元素有下外邊距 margin-bottom，下面的元素有上外邊距 margin-top ，則他們之間的垂直間距不是 margin-bottom 與 margin-top 之和。而是取兩個值中的較大者這種現像被稱為相鄰塊元素垂直外邊距的合併。
 > 
-> ![相鄰塊元素垂直外邊距的合併.png](./assets/images/box-margin-img-002-ce44ee.png)
+> ![相鄰塊元素垂直外邊距合併前後對比圖](./assets/images/box-margin-img-002-ce44ee.png)
 
 ```css
 .damao, .ermao {
@@ -120,7 +120,7 @@ margin-right: 10px;
 
 # **margin負值的運用**
 
-![margin負值的運用.png](./assets/images/box-margin-img-003-e9cdd1.png)
+![使用負 margin 讓相鄰盒子邊框重疊的示意圖](./assets/images/box-margin-img-003-e9cdd1.png)
 
 - 兩個盒子加邊框 `1px`，浮動貼緊時會出現 `1 + 1 = 2px`。
 - 給右邊盒子添加`margin-left: -1px`。

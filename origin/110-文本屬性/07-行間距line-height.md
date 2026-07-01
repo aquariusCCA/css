@@ -3,7 +3,7 @@
 
 > line-height 屬性用於設置行間的距離，可以控制文字行與行之間的距離，行間距包括上間距、文本高度、下間距。
 > 
-> ![行間距.png](./assets/images/line-height-img-001-ec9b78.png)
+> ![行高由文字高度與上下間距組成的示意圖](./assets/images/line-height-img-001-ec9b78.png)
 
 ```css
 p {
@@ -22,7 +22,7 @@ p {
 
 **簡單理解**
 
-![單行文字垂直居中.png](./assets/images/line-height-img-002-d09232.png)
+![盒子高度與行高相同時單行文字垂直居中的示意圖](./assets/images/line-height-img-002-d09232.png)
 
 - 行高的上空隙和下空隙把文字擠到中間了。
 - 如果是行高小於盒子高度，文字會偏上，如果行高大於盒子高度，則文字偏下。

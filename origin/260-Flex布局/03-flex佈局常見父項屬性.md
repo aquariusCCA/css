@@ -15,17 +15,17 @@
 
 - 主軸和側軸：在 `flex` 佈局中，是分為主軸和側軸兩個方向，同樣的叫法有：行和列、`x軸` 和 `y軸`。
     
-    ![](./assets/images/flex-container-properties-img-001-d5d8b2.png)
+    ![Flex 主軸水平向右與側軸垂直向下示意圖](./assets/images/flex-container-properties-img-001-d5d8b2.png)
     
     - 默認主軸方向就是 x 軸方向，水平向右。
     - 默認側軸方向就是 y 軸方向，水平向下。
 - flex-direction 屬性決定主軸的方向（即項目的排列方向）
     
-    ![](./assets/images/flex-container-properties-img-002-777956.png)
+    ![flex-direction 屬性值 row、row-reverse、column、column-reverse 說明表](./assets/images/flex-container-properties-img-002-777956.png)
     
 - 注意主軸和側軸是會變化的，就看 flex-direction 設置誰為主軸，剩下的就是側軸。而我們的子元素是跟著主軸來排列的
     
-    ![](./assets/images/flex-container-properties-img-003-7dbe68.png)
+    ![flex-direction 四種方向的項目排列示意圖](./assets/images/flex-container-properties-img-003-7dbe68.png)
     
 
 ```css
@@ -70,27 +70,27 @@
 - 常用值如下:
     - flex-start: 左對齊（默認值）
         
-        ![](./assets/images/flex-container-properties-img-004-4a89f1.png)
+        ![justify-content: flex-start 讓項目靠主軸起點排列](./assets/images/flex-container-properties-img-004-4a89f1.png)
         
     - flex-end: 右對齊
         
-        ![](./assets/images/flex-container-properties-img-005-58229d.png)
+        ![justify-content: flex-end 讓項目靠主軸終點排列](./assets/images/flex-container-properties-img-005-58229d.png)
         
     - center: 居中
         
-        ![](./assets/images/flex-container-properties-img-006-076533.png)
+        ![justify-content: center 讓項目置中排列](./assets/images/flex-container-properties-img-006-076533.png)
         
     - space-around: 均勻排列每個元素，每個元素周圍分配相同的空間。( 兩端距離是中間距離的一半。 )
         
-        ![](./assets/images/flex-container-properties-img-007-b34569.png)
+        ![justify-content: space-around 讓項目周圍保留間距](./assets/images/flex-container-properties-img-007-b34569.png)
         
     - space-between: 均勻排列每個元素，首個元素放置於起點，末尾元素放置於終點。( 兩端對齊 )
         
-        ![](./assets/images/flex-container-properties-img-008-555829.png)
+        ![justify-content: space-between 讓項目貼齊兩端並平均分配中間間距](./assets/images/flex-container-properties-img-008-555829.png)
         
     - space-evenly: 均勻排列每個元素，每個元素之間的間隔相等。( 兩端距離與中間距離一致。 )
         
-        ![](./assets/images/flex-container-properties-img-009-2e6236.png)
+        ![justify-content: space-evenly 讓項目與容器邊界間距相等](./assets/images/flex-container-properties-img-009-2e6236.png)
         
 
 ```css
@@ -184,23 +184,23 @@ h3 {
 - 常用值如下:
     - flex-start : 側軸的起點對齊。
         
-        ![](./assets/images/flex-container-properties-img-010-eaca12.png)
+        ![align-items: flex-start 讓項目靠側軸起點排列](./assets/images/flex-container-properties-img-010-eaca12.png)
         
     - flex-end : 側軸的終點對齊。
         
-        ![](./assets/images/flex-container-properties-img-011-e47925.png)
+        ![align-items: flex-end 讓項目靠側軸終點排列](./assets/images/flex-container-properties-img-011-e47925.png)
         
     - center : 側軸的中點對齊。
         
-        ![](./assets/images/flex-container-properties-img-012-bc16e3.png)
+        ![align-items: center 讓項目沿側軸置中排列](./assets/images/flex-container-properties-img-012-bc16e3.png)
         
     - baseline : 項目的第一行文字的基線對齊。
         
-        ![](./assets/images/flex-container-properties-img-013-226315.png)
+        ![align-items: baseline 讓項目依文字基線對齊](./assets/images/flex-container-properties-img-013-226315.png)
         
     - stretch : （默認值）如果項目未設置高度，項目將佔滿整個容器的高度。
         
-        ![](./assets/images/flex-container-properties-img-014-44729a.png)
+        ![align-items: stretch 讓項目沿側軸方向撐滿容器](./assets/images/flex-container-properties-img-014-44729a.png)
         
 
 ```css
@@ -310,31 +310,31 @@ h3 {
 - 常用值如下: (取值和 justify-content 基本相同 )
     - flex-start : 與側軸的起點對齊。
         
-        ![](./assets/images/flex-container-properties-img-015-3fef32.png)
+        ![align-content: flex-start 讓多行項目靠側軸起點排列](./assets/images/flex-container-properties-img-015-3fef32.png)
         
     - flex-end : 與側軸的終點對齊。
         
-        ![](./assets/images/flex-container-properties-img-016-a7f569.png)
+        ![align-content: flex-end 讓多行項目靠側軸終點排列](./assets/images/flex-container-properties-img-016-a7f569.png)
         
     - center : 與側軸的中點對齊。
         
-        ![](./assets/images/flex-container-properties-img-017-a63cc8.png)
+        ![align-content: center 讓多行項目沿側軸置中排列](./assets/images/flex-container-properties-img-017-a63cc8.png)
         
     - space-between : 與側軸兩端對齊，中間平均分布。
         
-        ![](./assets/images/flex-container-properties-img-018-017929.png)
+        ![align-content: space-between 讓多行項目貼齊兩端並分配行距](./assets/images/flex-container-properties-img-018-017929.png)
         
     - space-around : 項目間的距離相等，比軸線與邊框的間隔大一倍。
         
-        ![](./assets/images/flex-container-properties-img-019-db41be.png)
+        ![align-content: space-around 讓多行項目周圍保留行距](./assets/images/flex-container-properties-img-019-db41be.png)
         
     - space-evenly : 在側軸上完全平分。
         
-        ![](./assets/images/flex-container-properties-img-020-07f5ea.png)
+        ![align-content: space-evenly 讓多行項目與容器邊界行距相等](./assets/images/flex-container-properties-img-020-07f5ea.png)
         
     - stretch : 占滿整個側軸 ( 默認值 )。
         
-        ![](./assets/images/flex-container-properties-img-021-a04495.png)
+        ![align-content: stretch 讓多行項目沿側軸方向撐滿容器](./assets/images/flex-container-properties-img-021-a04495.png)
         
 
 ```html
@@ -392,15 +392,15 @@ div span {
     
 - nowrap 項目不換行（這個是默認值）。
     
-    ![](./assets/images/flex-container-properties-img-022-f90a0e.png)
+    ![flex-wrap: nowrap 讓 flex 項目維持單行排列](./assets/images/flex-container-properties-img-022-f90a0e.png)
     
 - wrap 項目在超出容器時進行換行。
     
-    ![](./assets/images/flex-container-properties-img-023-1d9f2c.png)
+    ![flex-wrap: wrap 讓 flex 項目超出容器時換行排列](./assets/images/flex-container-properties-img-023-1d9f2c.png)
     
 - wrap-reverse 同 wrap 值，只是換成反序方向。
     
-    ![](./assets/images/flex-container-properties-img-024-621644.png)
+    ![flex-wrap: wrap-reverse 讓 flex 項目反向換行排列](./assets/images/flex-container-properties-img-024-621644.png)
     
 
 ```html
@@ -477,7 +477,7 @@ div span {
 
 # **align-content 和 align-items 區別**
 
-![](./assets/images/flex-container-properties-img-025-fa53a7.png)
+![align-items 與 align-content 在單行和多行 flex 版面中的差異比較](./assets/images/flex-container-properties-img-025-fa53a7.png)
 
 - `align-items` 適用於單行情況下， 只有上對齊、下對齊、居中和拉伸。
 - `align-content` 適應於換行（多行）的情況下（單行情況下無效）， 可以設置上對齊、 下對齊、居中、拉伸以及平均分配剩餘空間等屬性值。

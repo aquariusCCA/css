@@ -1,6 +1,6 @@
 > color 屬性用於定義文本的顏色，開發中最常用的是十六進制。
 > 
-> ![文本顏色.png](./assets/images/color-img-001-a2124f.png)
+> ![CSS color 屬性值格式表](./assets/images/color-img-001-a2124f.png)
 
 ```css
 div {

@@ -32,7 +32,7 @@ transform: rotateY(角度);
 
 - 左手準則 1
     
-    ![截圖 2024-09-09 下午3.10.01.png](./assets/images/3d-rotate-rotate3d-img-001-36e5a3.png)
+    ![左手準則判斷 X 軸旋轉方向](./assets/images/3d-rotate-rotate3d-img-001-36e5a3.png)
     
     - 對於元素旋轉的方向判斷，我們需要先學習一個左手準則。
     - 左手的手拇指指向 x 軸的正方向。
@@ -57,7 +57,7 @@ img:hover {
 
 ```html
 <body>
-    <img src="./assets/images/3d-rotate-rotate3d-img-002-36e5a3.png" alt="">
+    <img src="./assets/images/3d-rotate-rotate3d-img-002-36e5a3.png" alt="左手準則判斷 X 軸旋轉方向">
 </body>
 ```
 
@@ -65,7 +65,7 @@ img:hover {
 
 - 左手準則 2
     
-    ![左手準則2.png](./assets/images/3d-rotate-rotate3d-img-003-367a85.png)
+    ![左手準則判斷 Y 軸旋轉方向](./assets/images/3d-rotate-rotate3d-img-003-367a85.png)
     
     - 左手的手拇指指向 y 軸的正方向。
     - 其餘手指的彎曲方向就是該元素沿著 y 軸旋轉的方向（正值）。
@@ -89,7 +89,7 @@ img:hover {
 
 ```html
 <body>
-    <img src="./assets/images/3d-rotate-rotate3d-img-003-367a85.png" alt="">
+    <img src="./assets/images/3d-rotate-rotate3d-img-003-367a85.png" alt="左手準則判斷 Y 軸旋轉方向">
 </body>
 ```
 
@@ -114,7 +114,7 @@ img:hover {
 
 ```html
 <body>
-    <img src="./assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="">
+    <img src="./assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
 </body>
 ```
 
@@ -149,6 +149,6 @@ img:hover {
 
 ```html
 <body>
-    <img src="./assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="">
+    <img src="./assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
 </body>
 ```

@@ -1,6 +1,6 @@
 > outline 是邊框的外圍線條的設置，可以設置線條的寬度，顏色以及樣式。
 > 
-> ![邊框外輪廓.png](./assets/images/box-outline-img-001-d80535.png)
+> ![outline 位於 border 外側且不占盒子尺寸的示意圖](./assets/images/box-outline-img-001-d80535.png)
 
 - 簡寫格式:
     

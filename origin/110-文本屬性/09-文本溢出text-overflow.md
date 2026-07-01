@@ -59,7 +59,7 @@
 
 # **單行文本溢出省略號顯示**
 
-![單行文本溢出省略號顯示.png](./assets/images/text-overflow-img-001-141123.png)
+![新聞列表中的單行文字溢出省略號效果](./assets/images/text-overflow-img-001-141123.png)
 
 - 必須滿足三個條件，如下:
     
@@ -107,7 +107,7 @@ div {
 
 > 多行文本溢出顯示省略號，有較大的兼容性問題，適合於 webKit 瀏覽器或移動端 ( 移動端大部分是webKit內核 )。
 > 
-> ![多行文本溢出顯示省略號顯示.png](./assets/images/text-overflow-img-002-52efc0.png)
+> ![圖文卡片中的多行文字溢出省略號效果](./assets/images/text-overflow-img-002-52efc0.png)
 
 - 必須滿足五個條件，如下:
     

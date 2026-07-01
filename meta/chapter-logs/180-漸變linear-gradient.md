@@ -19,7 +19,13 @@
 - 已同步更新 `origin/180-漸變linear-gradient/01-漸變linear-gradient.md` fenced code block 內 HTML `img src` 引用為 `./assets/images/linear-gradient-img-001-354aea.jpg`。
 - 已同步 `meta/chapter-status.md`：`資產命名` 標記為 `已完成`，下一步改為 `alt/連結文字檢查`。
 
+### 2026-07-01
+
+- 已執行本地資產 alt 與連結文字整理（apply）。
+- 已依 fenced code block 例外規則，替可唯一對應到 `assets/` 的 HTML `img` 補上 `alt="穿黑色西裝揮手的男士照片"`。
+- 全章未發現 Markdown 圖片或需要整理的本地附件連結文字。
+- 已同步 `meta/chapter-status.md`：`alt 與連結文字` 標記為 `已完成`，下一步改為 `atomic 切分提案`。
+
 ## 下一步
 
-- 執行 alt 與連結文字檢查。
-- 完成 alt 與連結文字檢查後，進入 atomic 切分提案。
+- 進入 atomic 切分提案。

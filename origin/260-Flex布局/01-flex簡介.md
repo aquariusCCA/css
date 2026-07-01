@@ -1,4 +1,4 @@
-![flex簡介.png](./assets/images/flex-introduction-img-001-3c443d.png)
+![傳統布局與 flex 彈性布局差異比較表](./assets/images/flex-introduction-img-001-3c443d.png)
 
 - 建議
     - 如果是`PC端`頁面佈局，我們還是傳統佈局。

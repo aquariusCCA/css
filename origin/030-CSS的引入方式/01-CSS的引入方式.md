@@ -78,7 +78,7 @@ div {
 
 # **4. 總結**
 
-![CSS的引入方式總結.png](./assets/images/ways-to-include-css-img-001-e7905f.png)
+![CSS 三種引入方式比較表，列出書寫位置、作用範圍與使用場景](./assets/images/ways-to-include-css-img-001-e7905f.png)
 
 - 外部樣式
     - 作用範圍 : 多個頁面
