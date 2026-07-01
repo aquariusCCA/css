@@ -1,0 +1,96 @@
+---
+source:
+  - 'origin/250-動畫/05-動畫的簡寫屬性.md / 全文'
+---
+
+# animation 簡寫屬性
+
+```css
+animation: 動畫名稱 持續時間 運動曲線 何時開始 播放次數 是否反方向 動畫起始或者結束的狀態;
+
+animation: myfirst 5s linear 2s infinite alternate;
+```
+
+## 注意點
+
+- 動畫名稱和動畫時長必須賦值。
+- 如果有 2 個時間值，第一個時間表示動畫時長，第二個時間表示延遲時間。
+- 簡寫屬性裡面不包含 `animation-play-state`。
+- 暫停動畫 `animation-play-state: paused;` 經常和鼠標經過等其他配合使用。
+- 想要動畫走回來，而不是直接跳回來：`animation-direction: alternate`。
+- 盒子動畫結束後，停在結束位置：`animation-fill-mode: forwards`。
+
+```css
+.box {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: skyblue;
+}
+
+/* 基本动画 */
+.box-basic {
+  animation: change-width 2s;
+}
+
+/* 匀速动画 */
+.box-linear {
+  animation: change-width 2s linear;
+}
+
+/* 分步动画 */
+.box-steps {
+  animation: change-width 2s steps(3);
+}
+
+/* 延迟动画 */
+.box-delay {
+  animation: change-width 2s 2s;
+}
+
+/* 重复3次 */
+.box-repeat {
+  animation: change-width 2s 3;
+}
+
+/* 无限循环 */
+.box-infinite {
+  animation: change-width 2s infinite;
+}
+
+/* 反向动画 */
+.box-alternate {
+  animation: change-width 2s infinite alternate;
+}
+
+/* 动画停留在最初状态 backwards */
+/* 动画停留在最后状态 forwards */
+.box-forwards {
+  animation: change-width 2s forwards;
+}
+
+/* 定义动画 */
+@keyframes change-width {
+  from {
+    width: 50px;
+  }
+
+  to {
+    width: 200px;
+  }
+}
+```
+
+```html
+<body>
+  <div class="box box-basic">basic</div>
+  <div class="box box-linear">linear</div>
+  <div class="box box-steps">steps</div>
+  <div class="box box-delay">delay</div>
+  <div class="box box-repeat">repeat</div>
+  <div class="box box-infinite">infinite</div>
+  <div class="box box-alternate">alternate</div>
+  <div class="box box-forwards">forwards</div>
+</body>
+```
