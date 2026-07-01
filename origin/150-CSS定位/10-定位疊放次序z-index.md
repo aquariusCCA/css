@@ -1,34 +1,4 @@
-# 定位疊放次序z-index
-
 ✏️ 補充內容: 层叠上下文 (https://app.notion.com/p/147659be15dd8175af0ff1e914251478?pvs=21)
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
 
 > 在使用定位佈局時候，可能會出現盒子重疊的情況，此時，可以用 z-index 來控制盒子的前後次序(z軸)。
 > 
@@ -77,5 +47,3 @@
     <div class="box qiangge">光头强</div>
 </body>
 ```
-
-</aside>

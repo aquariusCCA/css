@@ -1,33 +1,3 @@
-# 黏性定位sticky
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 > 粘性定位可以被認為是相對定位和固定定位的混合。
 > 
 
@@ -70,5 +40,3 @@ body {
     <div class="nav">我是导航栏</div>
 </body>
 ```
-
-</aside>

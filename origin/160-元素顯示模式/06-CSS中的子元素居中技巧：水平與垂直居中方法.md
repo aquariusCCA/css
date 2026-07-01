@@ -1,33 +1,3 @@
-# CSS中的子元素居中技巧：水平與垂直居中方法
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 <aside>
 💡
 
@@ -121,4 +91,3 @@
     </div>
     ```
     
-</aside>

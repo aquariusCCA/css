@@ -1,33 +1,3 @@
-# 相對定位relative
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 > 相對定位是元素在移動位置的時候，是相對於它原來的位置來說的。
 > 
 
@@ -92,5 +62,3 @@
     </div>
 </body>
 ```
-
-</aside>

@@ -1,33 +1,3 @@
-# 固定定位fixed
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 > **固定定位是元素固定於瀏覽器的可視區的位置。**
 > 
 > - 👉 主要使用場景： 可以在瀏覽器頁面滾動時元素的位置不會改變。
@@ -171,5 +141,3 @@
     <div class="w">版心盒子 800像素</div>
 </body>
 ```
-
-</aside>

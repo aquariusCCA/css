@@ -1,33 +1,3 @@
-# 絕對定位absolute
-
-<aside>
-💡 **Questions:**
-
-*Write it during the class*
-
-</aside>
-
-<aside>
-💡 **Key Points:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-📌 **Summary:**
-
-*Write it after the class*
-
-</aside>
-
-<aside>
-✏️
-
-**Notes:**
-
-*Write it during the class*
-
 > 絕對定位是元素在移動位置的時候，是相對於它的祖先元素來說的。
 > 
 
@@ -186,7 +156,5 @@
 💡
 
 **總結：因為父級需要佔有位置，因此是相對定位，子盒子不要佔有位置，則是絕對定位。**
-
-</aside>
 
 </aside>
