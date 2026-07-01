@@ -150,6 +150,8 @@ origin/<章節>/*.md
 
 若問題主要是純切分、來源資訊、asset 路徑、需要移動段落或需要重新調整 atomic 主題邊界，不要列為「轉換錯誤」或第二階段可修正問題，列入「origin-to-atomic 轉交項目」。
 
+判斷 asset 路徑問題時，atomic note 中凡是可唯一對應到 `origin/<章節>/assets/` 實體資產的本地引用，都應回指 `../../origin/<章節>/assets/...`；檢查範圍包含 Markdown 圖片、Markdown/HTML 本地連結、HTML `src` / `href`、CSS `url(...)`，也包含 fenced code block 內的本地資產引用。只有純佔位示例路徑、外部網址、特殊連結或空連結不列為 asset 路徑錯誤。
+
 若「主題歸屬錯誤」只需要修正標題、補一句限制條件或調整少量表述即可解決，可列為內容審查問題；若需要拆分、合併、移動內容或重切 atomic 邊界，列入「origin-to-atomic 轉交項目」。
 
 若現有資料不足以安全判斷，或問題涉及教學取捨，列入「需要人工確認」，不要假裝確定。
