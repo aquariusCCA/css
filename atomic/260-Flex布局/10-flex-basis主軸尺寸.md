@@ -51,7 +51,7 @@ source:
 
 ## flex-basis 與 width
 
-如果設置 `width: 100px`，因為 `flex-basis` 屬性的優先級比 `width` 高，所以項目的寬度還是 `120px`。
+如果同時設置 `flex-basis: 120px` 和 `width: 100px`，且 `flex-basis` 不是 `auto`，瀏覽器會優先用 `flex-basis` 作為 flex 項目的初始主軸尺寸，所以此例項目的初始主軸尺寸仍是 `120px`。
 
 `flex-basis` 這邊並沒有說是定義項目的寬度，而是說：佔據主軸空間的大小。因為設置容器屬性 `flex-direction` 為 `column` 或者 `column-reverse` 的時候主軸會變成縱向的（可以想像成數學坐標軸的 Y 軸）。
 
@@ -60,9 +60,9 @@ source:
 <aside>
 💡
 
-**備註：因為 `flex-basis` 的優先級比 `width`、`height` 高，所以才會導致它們失效。**
+**備註：當 `flex-basis` 不是 `auto` 時，它會優先作為 flex 項目的初始主軸尺寸；不是讓 `width`、`height` 在所有情況下都失效。**
 
-- 主軸是橫向 → 寬度失效。
-- 主軸是縱向 → 高度失效。
+- 主軸是橫向 → `flex-basis` 會優先於 `width` 作為初始主軸尺寸。
+- 主軸是縱向 → `flex-basis` 會優先於 `height` 作為初始主軸尺寸。
 
 </aside>

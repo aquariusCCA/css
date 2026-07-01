@@ -18,7 +18,7 @@ transform: scale(缩放倍数);
 ## 重點
 
 - 注意其中的 x 和 y 用逗號分割。
-- `transform: scale(1, 1)`：寬和高都放大一倍，相當於沒有放大。
+- `transform: scale(1, 1)`：寬和高維持原尺寸，相當於沒有縮放。
 - `transform: scale(2, 2)`：寬和高都放大了 2 倍。
 - `transform: scale(2)`：只寫一個參數，第二個參數則和第一個參數一樣，相當於 `scale(2, 2)`。
 - `transform: scale(0.5, 0.5)`：縮小。
@@ -48,7 +48,7 @@ transform: scale(缩放倍数);
   left: 50%;
   top: 50%;
 
-  background-image: url(./assets/images/scale-img-001-e2d385.jpg);
+  background-image: url(../../origin/230-平面轉換/assets/images/scale-img-001-e2d385.jpg);
   background-size: contain;
   width: 40px;
   height: 40px;
@@ -63,6 +63,7 @@ transform: scale(缩放倍数);
   /* transform: translate(-50%, -50%) scale(5); */
 
   /* 透明 */
+  transform: translate(-50%, -50%) scale(0);
   opacity: 0;
 }
 

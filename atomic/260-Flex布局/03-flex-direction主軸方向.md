@@ -10,7 +10,7 @@ source:
 ![Flex 主軸水平向右與側軸垂直向下示意圖](../../origin/260-Flex布局/assets/images/flex-container-properties-img-001-d5d8b2.png)
 
 - 默認主軸方向就是 x 軸方向，水平向右。
-- 默認側軸方向就是 y 軸方向，水平向下。
+- 默認側軸方向就是 y 軸方向，垂直向下。
 
 `flex-direction` 屬性決定主軸的方向（即項目的排列方向）。
 

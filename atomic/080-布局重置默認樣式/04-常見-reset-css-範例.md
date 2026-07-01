@@ -119,7 +119,7 @@ button,
 input,
 select,
 textarea {
-  font: 12px/1.5tahoma, arial, \5b8b\4f53;
+  font: 12px/1.5 tahoma, arial, \5b8b\4f53;
 }
 
 h1,

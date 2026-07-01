@@ -5,14 +5,14 @@ source:
 
 # after 偽元素清除浮動
 
-`:after` 方式是額外標籤法的升級版。它也是添加給父元素，代表網站有百度、淘寶、網易等。
+`::after` 方式是額外標籤法的升級版。它把清除浮動用的空盒子改成由父元素的偽元素產生，不需要在 HTML 中添加額外標籤。
 
 優點：沒有增加標籤，結構更簡單。
 
-缺點：需要照顧低版本瀏覽器。
+缺點：寫法比額外標籤法更抽象；如果需要兼容很舊的瀏覽器，可能會看到舊式 `:after` 或 `*zoom: 1` 寫法。
 
 ```css
-.clearfix:after {
+.clearfix::after {
   content: "";
   display: block;
   height: 0;
@@ -61,5 +61,3 @@ source:
   <div class="footer"></div>
 </body>
 ```
-
-> 待後續內容審查確認：原始筆記使用 `:after`，現代 CSS 通常寫作 `::after`。

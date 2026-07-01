@@ -49,6 +49,6 @@ img:hover {
 
 ```html
 <body>
-    <img src="./assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+    <img src="../../origin/240-空間轉換/assets/images/3d-rotate-rotate3d-img-004-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
 </body>
 ```

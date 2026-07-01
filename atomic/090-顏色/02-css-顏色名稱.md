@@ -5,7 +5,7 @@ source:
 
 # CSS 顏色名稱
 
-CSS 支持 140 種被預定義過色值的標準顏色名稱，例如 `red`、`blue`、`green` 等。
+CSS 支持一組標準化的具名顏色，例如 `red`、`blue`、`green`、`rebeccapurple` 等。
 
 這些顏色名稱不區分大小寫。
 

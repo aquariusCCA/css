@@ -5,7 +5,7 @@ source:
 
 # flex-shrink 超出空間壓縮
 
-`flex-grow` 用於放大，`flex-shrink` 就是縮小。縮小規則和 `flex-grow` 類似，放大是因為有剩餘空間，縮小就是因為項目的寬度超過容器了，有一個超出空間，所以就要進行縮小。
+`flex-grow` 用於放大，`flex-shrink` 就是縮小。放大是因為有剩餘空間，縮小則是因為項目的主軸尺寸總和超過容器，有一個超出空間，所以要進行縮小。
 
 超出空間計算方式：
 
@@ -35,15 +35,15 @@ source:
 超出空间 * ( 所有项目的 flex-shrink 之和 >= 1 ? 1 : 所有项目的 flex-shrink 之和 )
 ```
 
-如果沒有超出空間，那麼就不用壓縮了；如果超出空間為 `150px`，所有項目的 `flex-shrink` 之和為 `0.6`，那麼 `90px` 用來壓縮。
+如果沒有超出空間，那麼就不用壓縮了。當所有項目的 `flex-shrink` 之和小於 `1` 時，瀏覽器可能只壓縮部分超出空間；例如超出空間為 `150px`、所有項目的 `flex-shrink` 之和為 `0.6`，則用來壓縮的空間為 `90px`。
 
 計算每個項目縮小多少空間：
 
 ```text
-要压缩的空间 * ( 单个项目 flex-shrink / 所有项目的 flex-shrink 之和 )
+要压缩的空间 * ( 单个项目的 flex-shrink * flex base size / 所有项目的 flex-shrink * flex base size 之和 )
 ```
 
-簡單的說，就是按照 `flex-shrink` 佔比進行縮小。
+簡單的說，壓縮比例要看 `flex-shrink` 乘上項目的 flex base size；只有在各項目的 flex base size 相同時，才可以簡化成按照 `flex-shrink` 佔比進行縮小。
 
 ## 示例 1：flex-shrink 為 0
 

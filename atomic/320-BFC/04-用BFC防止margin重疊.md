@@ -31,7 +31,7 @@ source:
 ```html
 <style>
     .wrap {
-        overflow: hidden;// 新的BFC
+        overflow: hidden; /* 新的 BFC */
     }
     p {
         color: #f55;

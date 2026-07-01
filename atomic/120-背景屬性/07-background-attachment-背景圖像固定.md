@@ -29,7 +29,7 @@ body {
   font-size: 20px;
 
   /* 把背景图片固定住 */
-  background-attachment: scroll;
+  background-attachment: fixed;
 }
 ```
 

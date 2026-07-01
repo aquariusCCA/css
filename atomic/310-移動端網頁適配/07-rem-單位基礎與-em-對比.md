@@ -14,7 +14,7 @@ source:
 
 ## rem 基礎
 
-- `rem` 是一個相對單位，類似於 `em`，`em` 是父元素字體大小。
+- `rem` 是一個相對單位，類似於 `em`；`em` 在多數長度屬性中以目前元素的 `font-size` 為基準，如果用在 `font-size` 屬性上，則會相對於父元素或繼承字級計算。
 - 不同的是 `rem` 的基準是相對於 `html` 元素的字體大小。
 
     ![rem 根字級控制元素尺寸示意圖](../../origin/310-移動端網頁適配/assets/images/rem-adaptive-layout-img-001-0528d3.png)
@@ -43,7 +43,7 @@ source:
     }
 
     p {
-      /* 1. em相对于父元素 的字体大小来说的 */
+      /* 1. em 在 width/height 等屬性中相對於目前元素的 font-size */
       /* width: 10em;
       height: 10em; */
 

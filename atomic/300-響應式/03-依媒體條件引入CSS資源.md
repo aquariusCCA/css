@@ -28,7 +28,7 @@ source:
 ```html
 <!-- 引入資源就是: 針對不同的屏幕尺寸，調用不同的 css 文件 -->
 <!-- 當我們屏幕尺寸大於等於 640px 以上時，我們讓 div 一行顯示 2 個 -->
-<!-- 當我們屏幕尺寸小於 640px 時，我們讓 div 一行顯示一個 -->
+<!-- 當我們屏幕尺寸大於等於 320px 且小於 640px 時，我們讓 div 一行顯示一個 -->
 <link rel="stylesheet" href="style320.css" media="screen and (min-width: 320px)">
 <link rel="stylesheet" href="style640.css" media="screen and (min-width: 640px)">
 ```

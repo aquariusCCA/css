@@ -5,15 +5,15 @@ source:
 
 # overflow 清除浮動
 
-可以給父級添加 `overflow` 屬性，將屬性值設定為 `hidden`、`auto` 或 `scroll`，用來清除浮動。
+可以給父級添加 `overflow` 屬性，將屬性值設定為 `hidden`、`auto` 或 `scroll`。這些非 `visible` 的值會讓父級建立 BFC，因而包住內部浮動。
 
 優點：代碼簡潔。
 
-缺點：無法顯示溢出的部分。
+缺點：`hidden` 可能裁切溢出的部分；`auto` 或 `scroll` 可能產生捲動條。現代 CSS 也可以用 `display: flow-root` 明確建立 BFC。
 
 ```css
 .box {
-  /* 清除浮動 */
+  /* 建立 BFC，包住內部浮動 */
   overflow: hidden;
   width: 800px;
   border: 1px solid blue;

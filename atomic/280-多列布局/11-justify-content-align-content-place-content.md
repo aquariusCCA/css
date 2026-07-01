@@ -28,19 +28,19 @@ source:
 
   ![justify-content: center 讓整個網格水平置中](../../origin/280-多列布局/assets/images/multi-column-layout-container-properties-img-018-7fe672.png)
 
-- `stretch`：項目大小沒有指定時，拉伸佔據整個網格容器。
+- `stretch`：當網格軌道是 `auto` 尺寸且容器有剩餘空間時，拉伸軌道以填滿網格容器。
 
   ![justify-content: stretch 拉伸網格填滿容器](../../origin/280-多列布局/assets/images/multi-column-layout-container-properties-img-019-9a92b7.png)
 
-- `space-around`：每個項目兩側的間隔相等。所以，項目之間的間隔比項目與容器邊框的間隔大一倍。
+- `space-around`：在網格軌道之間與容器邊緣分配剩餘空間。每個軌道兩側的間隔相等，所以軌道之間的間隔比軌道與容器邊框的間隔大一倍。
 
   ![justify-content: space-around 分配兩側間距](../../origin/280-多列布局/assets/images/multi-column-layout-container-properties-img-020-fa85e0.png)
 
-- `space-between`：項目與項目的間隔相等，項目與容器邊框之間沒有間隔。
+- `space-between`：網格軌道之間的間隔相等，最外側軌道與容器邊框之間沒有間隔。
 
   ![justify-content: space-between 兩端貼齊分配間距](../../origin/280-多列布局/assets/images/multi-column-layout-container-properties-img-021-ecc927.png)
 
-- `space-evenly`：項目與項目的間隔相等，項目與容器邊框之間也是同樣長度的間隔。
+- `space-evenly`：網格軌道之間的間隔相等，軌道與容器邊框之間也是同樣長度的間隔。
 
   ![justify-content: space-evenly 等距分配容器空間](../../origin/280-多列布局/assets/images/multi-column-layout-container-properties-img-022-6abe11.png)
 

@@ -25,7 +25,7 @@ source:
 
   ![align-items: baseline 讓項目依文字基線對齊](../../origin/260-Flex布局/assets/images/flex-container-properties-img-013-226315.png)
 
-- `stretch`：（默認值）如果項目未設置高度，項目將佔滿整個容器的高度。
+- `stretch`：（默認值）如果項目的側軸尺寸為 `auto`，項目會沿側軸方向拉伸；在預設 `row`、單行情境下，通常表現為佔滿該行的高度。
 
   ![align-items: stretch 讓項目沿側軸方向撐滿容器](../../origin/260-Flex布局/assets/images/flex-container-properties-img-014-44729a.png)
 

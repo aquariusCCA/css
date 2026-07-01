@@ -13,9 +13,9 @@ animation: myfirst 5s linear 2s infinite alternate;
 
 ## 注意點
 
-- 動畫名稱和動畫時長必須賦值。
+- 若要產生可見動畫，通常至少要指定 `animation-name` 與非 `0s` 的 `animation-duration`；省略時會套用初始值，例如名稱為 `none`、時長為 `0s`。
 - 如果有 2 個時間值，第一個時間表示動畫時長，第二個時間表示延遲時間。
-- 簡寫屬性裡面不包含 `animation-play-state`。
+- `animation` 簡寫屬性可以包含 `animation-play-state`（如 `paused` / `running`），但實務上暫停動畫常為互動狀態，通常會另外用 `animation-play-state: paused;` 搭配 `:hover` 等選擇器控制。
 - 暫停動畫 `animation-play-state: paused;` 經常和鼠標經過等其他配合使用。
 - 想要動畫走回來，而不是直接跳回來：`animation-direction: alternate`。
 - 盒子動畫結束後，停在結束位置：`animation-fill-mode: forwards`。

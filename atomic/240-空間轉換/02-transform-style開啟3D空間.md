@@ -5,9 +5,9 @@ source:
 
 # transform-style 開啟 3D 空間
 
-> 💡 重要原則：元素進行 3D 變換的首要操作 → 父元素必須開啟 3D 空間 !!!
+> 💡 重要原則：若要讓子元素在父元素內保留立體層次，父元素需要開啟 3D 空間。
 
-`transform-style` 用來控制子元素是否開啟三維立體環境。
+`transform-style` 用來控制子元素是否保留在三維空間中；單一元素本身仍可直接使用 3D transform。
 
 <aside>
 💡

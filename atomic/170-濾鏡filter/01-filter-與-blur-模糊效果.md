@@ -8,18 +8,18 @@ source:
 `filter` 是 CSS 屬性，可將模糊、顏色偏移等圖形效果套用在元素上，常見用途之一是讓圖片產生模糊效果。
 
 ```css
-filter: 函數();
+/* filter: <filter-function>(); */
 
 filter: blur(5px);
 ```
 
-`blur()` 是 `filter` 的函數值之一，用來設定模糊程度。括號中的數值越大，元素就越模糊；設定時需要帶上長度單位，例如 `px`。
+`blur()` 是 `filter` 的函數值之一，用來設定模糊程度。括號中的數值越大，元素就越模糊；非 `0` 的模糊半徑需要帶上 CSS 長度單位，例如 `px` 或 `rem`。
 
 ![Firefox 標誌套用模糊濾鏡前後對比](../../origin/170-濾鏡filter/assets/images/css-filter-img-001-50019e.png)
 
 ```css
 img {
-  /* blur 是一個函數，括號內的數值越大，圖片越模糊，注意數值要加 px 單位 */
+  /* blur 是一個函數，括號內的數值越大，圖片越模糊，非 0 數值要加長度單位，例如 px */
   filter: blur(5px);
 }
 ```

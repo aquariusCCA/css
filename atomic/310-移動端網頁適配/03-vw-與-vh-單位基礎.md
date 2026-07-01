@@ -28,7 +28,7 @@ vw单位的尺寸 = px单位数值 / ( 1 / 100 * 视口宽度)
 
 範例：
 
-```css
+```less
 /* index.less */
 /* 375的设计稿：68 * 29 */
 .box {
@@ -36,6 +36,8 @@ vw单位的尺寸 = px单位数值 / ( 1 / 100 * 视口宽度)
   height: (29 / 3.75vw);
 }
 ```
+
+如果直接撰寫 CSS，需要先換算成具體的 `vw` 值，例如 `width: 18.13vw; height: 7.73vw;`。
 
 <aside>
 ⚠️
@@ -96,8 +98,8 @@ vw单位的尺寸 = px单位数值 / ( 1 / 100 * 视口宽度)
     }
 
     .box {
-      width: 50vw;
-      height: 30vw;
+      width: 50vh;
+      height: 30vh;
       background-color: pink;
     }
   </style>

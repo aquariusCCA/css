@@ -22,7 +22,7 @@ source:
 - `start`：對齊單元格的起始邊緣。
 - `end`：對齊單元格的結束邊緣。
 - `center`：單元格內部居中。
-- `stretch`：拉伸，佔滿單元格的整個寬度（默認值）。
+- `stretch`：沿對應軸向拉伸項目，讓項目填滿所在的 grid area；`justify-items` 作用於 inline 軸，`align-items` 作用於 block 軸。Grid 中預設的 `normal` 通常會表現為 `stretch`。
 
 </aside>
 

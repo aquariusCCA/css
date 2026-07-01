@@ -9,11 +9,11 @@ source:
 
 常用值如下：
 
-- `flex-start`：左對齊（默認值）。
+- `flex-start`：與主軸起點對齊（默認值；預設 `row` 時通常表現為靠左）。
 
   ![justify-content: flex-start 讓項目靠主軸起點排列](../../origin/260-Flex布局/assets/images/flex-container-properties-img-004-4a89f1.png)
 
-- `flex-end`：右對齊。
+- `flex-end`：與主軸終點對齊（預設 `row` 時通常表現為靠右）。
 
   ![justify-content: flex-end 讓項目靠主軸終點排列](../../origin/260-Flex布局/assets/images/flex-container-properties-img-005-58229d.png)
 

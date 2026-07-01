@@ -9,7 +9,7 @@ source:
 
 - [white-space属性](https://blog.csdn.net/weixin_45545395/article/details/119085796)
 
-在 CSS3 中，可以使用 `white-space` 屬性設置文本換行方式。
+可以使用 `white-space` 屬性設置文本中的空白處理與換行方式。
 
 常用值如下：
 

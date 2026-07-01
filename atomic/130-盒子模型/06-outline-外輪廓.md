@@ -23,8 +23,8 @@ outline: outline-color outline-style outline-width
 
 `outline` 與 `border` 的區別：
 
-- `border` 可應用於幾乎所有有形的 HTML 元素，而 `outline` 是針對連結、表單控件和 ImageMap 等元素設計。
-- `outline` 的效果會隨元素 focus 自動出現，也會隨 blur 自動消失，這是瀏覽器預設行為，不需要 JavaScript 搭配 CSS 控制。
+- `border` 會成為盒子尺寸的一部分，而 `outline` 繪製在元素外圍，不佔用版面空間。
+- `outline` 可套用於元素；瀏覽器常會在可聚焦元素 focus 時顯示預設外輪廓，並在 blur 後取消。
 - `outline` 不佔空間，不會像 `border` 那樣影響元素尺寸或位置，也不會增加額外的 `width` 或 `height`。
 
 ```css
@@ -41,7 +41,7 @@ outline: outline-color outline-style outline-width
 <div class="outlined-element">This is an outlined element</div>
 ```
 
-給表單添加 `outline: 0;` 或 `outline: none;` 樣式後，可以去掉預設的藍色輪廓。
+給表單添加 `outline: 0;` 或 `outline: none;` 樣式後，可以去掉預設的 focus 輪廓；若移除預設輪廓，應提供其他清楚的 focus 樣式。
 
 ```css
 input {
@@ -56,5 +56,3 @@ input {
   <input type="text">
 </body>
 ```
-
-> 待後續內容審查確認：移除表單 focus 輪廓會影響鍵盤操作時的可視提示，正式 notes 可補充無障礙提醒。
