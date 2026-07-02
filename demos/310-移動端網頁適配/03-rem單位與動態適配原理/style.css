@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  color: #17242c;
+  background: #edf4f1;
+}
+
+.demo-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.demo-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.demo-header p,
+.formula p {
+  max-width: 760px;
+  line-height: 1.7;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.controls label {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #aab9b1;
+  border-radius: 8px;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.unit-card {
+  min-height: 360px;
+  padding: 18px;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: auto;
+}
+
+.unit-card h2 {
+  margin: 0 0 16px;
+}
+
+.measure {
+  display: grid;
+  place-items: center;
+  min-width: 80px;
+  min-height: 80px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  transition: width 160ms ease;
+}
+
+.rem-box {
+  width: 10rem;
+  background: #2d7f7b;
+}
+
+.em-box {
+  width: 10em;
+  background: #c66a46;
+}
+
+.unit-card p {
+  margin: 16px 0 0;
+  line-height: 1.7;
+}
+
+.formula {
+  margin-top: 22px;
+  padding: 16px;
+  border-left: 6px solid #2d7f7b;
+  background: #ffffff;
+}
+
+output {
+  color: #8f4a35;
+}
+
+@media (max-width: 760px) {
+  .controls,
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+}

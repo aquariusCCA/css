@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex 簡寫與常見布局應用 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/08-flex簡寫與常見布局應用.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">flex shorthand</p>
+      <h1>flex 簡寫同時控制放大、縮小與初始主軸尺寸</h1>
+    </header>
+
+    <section class="tabs" aria-label="常見布局場景">
+      <button class="active" type="button" data-panel="nav">導覽列平均分配</button>
+      <button type="button" data-panel="fluid">左右固定中間自適應</button>
+      <button type="button" data-panel="ratio">剩餘空間比例分配</button>
+    </section>
+
+    <section class="panel active" id="nav">
+      <pre><code>.item { flex: 1; text-align: center; }</code></pre>
+      <nav class="nav-demo" aria-label="平均分配導覽列">
+        <a href="#">新聞</a>
+        <a href="#">影片</a>
+        <a href="#">圖片</a>
+        <a href="#">科技</a>
+      </nav>
+    </section>
+
+    <section class="panel" id="fluid">
+      <pre><code>.left, .right { width: 110px; }
+.center { flex: 1; }</code></pre>
+      <div class="layout-demo">
+        <aside>固定</aside>
+        <main>中間自適應</main>
+        <aside>固定</aside>
+      </div>
+    </section>
+
+    <section class="panel" id="ratio">
+      <pre><code>.a { width: 100px; }
+.b { flex: 3; }
+.c { flex: 1; }</code></pre>
+      <div class="ratio-demo">
+        <span class="a">100px</span>
+        <span class="b">flex: 3</span>
+        <span class="c">flex: 1</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

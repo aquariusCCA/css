@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-wrap 與 align-content 多行對齊 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/05-flex-wrap與align-content多行對齊.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">flex-wrap + align-content</p>
+      <h1>先產生多條 flex line，align-content 才有空間可分配</h1>
+    </header>
+
+    <section class="control-grid">
+      <div>
+        <h2>換行狀態</h2>
+        <button class="active" type="button" data-wrap="wrap">wrap</button>
+        <button type="button" data-wrap="nowrap">nowrap</button>
+      </div>
+      <div>
+        <h2>多行側軸分布</h2>
+        <button class="active" type="button" data-content="flex-start">flex-start</button>
+        <button type="button" data-content="center">center</button>
+        <button type="button" data-content="space-between">space-between</button>
+        <button type="button" data-content="space-evenly">space-evenly</button>
+        <button type="button" data-content="stretch">stretch</button>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="stage" id="stage">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+      </div>
+      <aside class="readout">
+        <p><code id="wrapRule">flex-wrap: wrap;</code></p>
+        <p><code id="contentRule">align-content: flex-start;</code></p>
+        <p class="hint" id="hint">多行貼著側軸起點排列；行與行之間沒有額外分散。</p>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

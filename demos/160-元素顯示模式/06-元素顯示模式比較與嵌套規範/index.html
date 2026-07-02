@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>顯示模式與嵌套規範 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/06-元素顯示模式比較與嵌套規範.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">display vs HTML rules</p>
+      <h1>顯示模式不會改變 HTML 規範</h1>
+    </header>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>display: block 擴大連結範圍</h2>
+        <label class="toggle">
+          <input id="block-link" type="checkbox" checked>
+          <span>讓 a 使用 display: block</span>
+        </label>
+        <div class="link-stage">
+          <a class="card-link" href="#">
+            <span class="card-title">整張卡片可點擊</span>
+            <span class="card-copy">CSS 只改變連結在畫面上的盒子大小。</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>仍然不適合的嵌套</h2>
+        <div class="rule-list">
+          <p><strong>不要：</strong>在連結裡再放另一個連結。</p>
+          <p><strong>不要：</strong>在連結卡片裡放按鈕或表單控制項。</p>
+          <p><strong>要：</strong>需要改變結構合法性時，先調整 HTML，再寫 CSS。</p>
+        </div>
+        <pre><code>&lt;a class="card-link" href="#"&gt;
+  &lt;span&gt;卡片內容&lt;/span&gt;
+  &lt;!-- 不要再放另一個 &lt;a&gt; 或 button --&gt;
+&lt;/a&gt;</code></pre>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

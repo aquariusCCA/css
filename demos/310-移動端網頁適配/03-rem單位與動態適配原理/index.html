@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rem 單位與動態適配原理 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/310-移動端網頁適配/03-rem單位與動態適配原理.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <h1>rem 與 em 的基準差異</h1>
+      <p>`rem` 只看 `html font-size`；`em` 在長度屬性中會看目前元素或父層字級。調整下方控制看看差異。</p>
+    </header>
+
+    <section class="controls" aria-label="字級控制">
+      <label>html font-size <input id="rootSize" type="range" min="12" max="40" value="20"> <output id="rootOut"></output></label>
+      <label>父層 font-size <input id="parentSize" type="range" min="12" max="40" value="16"> <output id="parentOut"></output></label>
+    </section>
+
+    <section class="comparison" aria-label="rem 與 em 對照">
+      <article class="unit-card">
+        <h2>10rem</h2>
+        <div class="measure rem-box">rem</div>
+        <p id="remReadout"></p>
+      </article>
+      <article class="unit-card em-context">
+        <h2>10em</h2>
+        <div class="measure em-box">em</div>
+        <p id="emReadout"></p>
+      </article>
+    </section>
+
+    <section class="formula">
+      <p><strong>核心觀察：</strong>改變根字級時，所有 rem 尺寸一起變；改變父層字級時，em 尺寸跟著改，但 rem 不受影響。</p>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

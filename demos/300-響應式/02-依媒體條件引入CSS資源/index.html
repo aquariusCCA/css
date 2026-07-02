@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>依媒體條件引入 CSS 資源 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/300-響應式/02-依媒體條件引入CSS資源.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">Link media</p>
+      <h1>依媒體條件引入 CSS 資源</h1>
+      <p>同一份 HTML，在符合不同 `media` 條件時套用不同 CSS 檔案。</p>
+    </header>
+
+    <section class="control-panel" aria-labelledby="viewport-control">
+      <div>
+        <h2 id="viewport-control">模擬螢幕寬度</h2>
+        <p><span id="widthValue">700</span>px · <span id="layoutLabel">style320.css + style640.css</span></p>
+      </div>
+      <input id="viewportRange" type="range" min="280" max="900" value="700" step="10" aria-label="模擬螢幕寬度">
+    </section>
+
+    <section class="link-stack" aria-label="CSS 資源啟用狀態">
+      <article class="link-card active" id="style320">
+        <h2>style320.css</h2>
+        <code>media="screen and (min-width: 320px)"</code>
+        <p>一行一個：`width: 100%`</p>
+      </article>
+      <article class="link-card active" id="style640">
+        <h2>style640.css</h2>
+        <code>media="screen and (min-width: 640px)"</code>
+        <p>後引入覆蓋：`float: left; width: 50%`</p>
+      </article>
+    </section>
+
+    <section class="viewport-frame" aria-label="媒體條件版面展示">
+      <div class="viewport" id="viewport">
+        <div class="status-line">
+          <span>HTML：兩個 div</span>
+          <strong id="resultLabel">兩欄排列</strong>
+        </div>
+        <div class="demo-layout" id="demoLayout">
+          <div class="box purple">div 1</div>
+          <div class="box pink">div 2</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

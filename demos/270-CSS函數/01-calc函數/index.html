@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>calc() 函數：CSS 計算式 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/270-CSS函數/01-calc函數.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Demo</p>
+      <h1>calc() 函數：用 CSS 算出尺寸</h1>
+      <p class="intro">調整父盒寬度與扣除值，觀察 <code>width: calc(100% - 固定長度)</code> 如何讓子盒跟著父盒變化。</p>
+    </header>
+
+    <section class="panel live-lab" aria-labelledby="live-lab-title">
+      <div class="section-heading">
+        <p class="eyebrow">混合單位</p>
+        <h2 id="live-lab-title">100% 先看父層，再扣掉固定長度</h2>
+      </div>
+
+      <div class="lab-layout">
+        <form class="controls" aria-label="calc 尺寸控制">
+          <label class="range-control" for="parent-width">
+            <span>父盒寬度</span>
+            <strong><output id="parent-width-output" for="parent-width">360px</output></strong>
+            <input id="parent-width" type="range" min="260" max="620" step="20" value="360">
+          </label>
+
+          <label class="range-control" for="deduct-width">
+            <span>扣除長度</span>
+            <strong><output id="deduct-width-output" for="deduct-width">40px</output></strong>
+            <input id="deduct-width" type="range" min="20" max="140" step="10" value="40">
+          </label>
+        </form>
+
+        <div class="preview-card" id="live-demo" style="--parent-width: 360px; --deduct: 40px;">
+          <div class="formula-bar" aria-live="polite">
+            <code>width: calc(100% - <span id="formula-deduct">40px</span>);</code>
+            <span id="formula-result">360px - 40px = 320px</span>
+          </div>
+
+          <div class="father-box">
+            <span class="box-label parent-label">父盒 <span id="parent-label">360px</span></span>
+            <div class="son-box">
+              <span class="box-label child-label">子盒 <span id="child-label">320px</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel comparison" aria-labelledby="spacing-title">
+      <div class="section-heading">
+        <p class="eyebrow">語法空白</p>
+        <h2 id="spacing-title">加減號前後少空白，宣告可能失效</h2>
+      </div>
+
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>正確寫法</h3>
+          <pre><code>.son {
+  width: calc(100% - 30px);
+}</code></pre>
+          <div class="mini-parent">
+            <div class="mini-son correct-son">270px</div>
+          </div>
+          <p>父盒是 300px，子盒寬度會被算成 270px，左右各留出 15px。</p>
+        </article>
+
+        <article class="compare-card warning-card">
+          <h3>錯誤寫法</h3>
+          <pre><code>.son {
+  width: calc(100%-30px);
+}</code></pre>
+          <div class="mini-parent">
+            <div class="mini-son broken-son">無效後回到 auto</div>
+          </div>
+          <p>少了空白時，這個寬度宣告無法正確解析，block 子盒會退回自動寬度。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel type-check" aria-labelledby="type-title">
+      <div class="section-heading">
+        <p class="eyebrow">值型別</p>
+        <h2 id="type-title">calc() 只負責算值，不改變屬性規則</h2>
+      </div>
+
+      <div class="type-grid">
+        <article class="type-card">
+          <h3>有效：屬性接受長度或百分比</h3>
+          <pre><code>width: calc(100% - 30px);</code></pre>
+          <div class="type-stage">
+            <div class="valid-width">有效寬度</div>
+          </div>
+        </article>
+
+        <article class="type-card">
+          <h3>無效：屬性不接受這種結果</h3>
+          <pre><code>background-color: calc(100% - 30px);</code></pre>
+          <div class="type-stage">
+            <div class="invalid-color">宣告被忽略</div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

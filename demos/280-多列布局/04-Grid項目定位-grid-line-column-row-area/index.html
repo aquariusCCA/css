@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid 項目定位 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/280-多列布局/04-Grid項目定位-grid-line-column-row-area.md -->
+  <main class="page">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Grid Demo</p>
+      <h1>Grid 項目定位：grid line、grid-column、grid-row 與 grid-area</h1>
+      <p>切換定位寫法，觀察 item 的四個邊界貼在哪些 Grid line 上。</p>
+    </header>
+
+    <section class="controls" aria-label="position controls">
+      <button class="control is-active" type="button" data-position="column">grid-column: 1 / 3</button>
+      <button class="control" type="button" data-position="rowcol">row + column</button>
+      <button class="control" type="button" data-position="span">span 2</button>
+      <button class="control" type="button" data-position="area-name">grid-area: main</button>
+      <button class="control" type="button" data-position="area-four">grid-area 四值</button>
+    </section>
+
+    <section class="workspace">
+      <article class="grid-panel">
+        <div id="position-grid" class="position-grid mode-column">
+          <span class="line-label column-label c1">1</span>
+          <span class="line-label column-label c2">2</span>
+          <span class="line-label column-label c3">3</span>
+          <span class="line-label column-label c4">4</span>
+          <span class="line-label column-label c5">5</span>
+          <span class="line-label row-label r1">1</span>
+          <span class="line-label row-label r2">2</span>
+          <span class="line-label row-label r3">3</span>
+          <span class="line-label row-label r4">4</span>
+          <span class="line-label row-label r5">5</span>
+          <div id="target" class="target">目標 item</div>
+          <div class="ghost">2</div>
+          <div class="ghost">3</div>
+          <div class="ghost">4</div>
+          <div class="ghost">5</div>
+          <div class="ghost">6</div>
+          <div class="ghost">7</div>
+        </div>
+      </article>
+
+      <aside class="explain-panel">
+        <h2 id="case-title">grid-column: 1 / 3</h2>
+        <pre><code id="case-code"></code></pre>
+        <p id="case-note"></p>
+        <div class="mistake-box">
+          <h3>常見誤解</h3>
+          <p id="mistake-text"></p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

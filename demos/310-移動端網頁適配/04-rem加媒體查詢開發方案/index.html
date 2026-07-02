@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rem 加媒體查詢開發方案 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/310-移動端網頁適配/04-rem加媒體查詢開發方案.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <h1>rem + 媒體查詢斷點</h1>
+      <p>模擬 `320px` 與 `750px` 斷點，觀察根字級如何影響 `2rem` 元素尺寸。</p>
+    </header>
+
+    <section class="controls" aria-label="模擬控制">
+      <label>模擬視口寬度 <input id="screenWidth" type="range" min="300" max="820" value="320"> <output id="screenOut"></output></label>
+      <div class="switcher" role="group" aria-label="方案模式">
+        <button class="mode is-active" type="button" data-mode="breakpoint">兩個斷點</button>
+        <button class="mode" type="button" data-mode="continuous">連續 calc</button>
+      </div>
+    </section>
+
+    <section class="demo-grid">
+      <article class="device">
+        <div class="screen" id="screen">
+          <div class="rem-square">2rem</div>
+        </div>
+      </article>
+      <article class="readout">
+        <h2 id="modeTitle"></h2>
+        <p id="rootText"></p>
+        <p id="squareText"></p>
+        <pre><code id="codeText"></code></pre>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

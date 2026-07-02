@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D 旋轉與 rotate3d Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/240-空間轉換/03-3D旋轉與rotate3d.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">rotateX / rotateY / rotateZ / rotate3d</p>
+      <h1>3D 旋轉軸比較</h1>
+      <p>調整角度並切換自訂軸，觀察單軸旋轉與 `rotate3d()` 向量參數的差異。</p>
+    </header>
+
+    <section class="toolbar" aria-label="旋轉控制">
+      <label>
+        <span>旋轉角度</span>
+        <input id="angleRange" type="range" min="-75" max="75" step="5" value="45">
+        <output id="angleValue">45deg</output>
+      </label>
+      <fieldset>
+        <legend>rotate3d 軸向量</legend>
+        <label><input type="radio" name="axis" value="1, 0, 0" checked> (1, 0, 0)</label>
+        <label><input type="radio" name="axis" value="0, 1, 0"> (0, 1, 0)</label>
+        <label><input type="radio" name="axis" value="1, 1, 0"> (1, 1, 0)</label>
+      </fieldset>
+    </section>
+
+    <section class="rotation-grid" aria-label="旋轉比較">
+      <article class="rotation-card">
+        <h2>rotateX()</h2>
+        <div class="stage">
+          <div class="axis-line axis-line-x"></div>
+          <div class="demo-card rotate-x">X</div>
+        </div>
+        <code id="codeX">transform: rotateX(45deg);</code>
+      </article>
+      <article class="rotation-card">
+        <h2>rotateY()</h2>
+        <div class="stage">
+          <div class="axis-line axis-line-y"></div>
+          <div class="demo-card rotate-y">Y</div>
+        </div>
+        <code id="codeY">transform: rotateY(45deg);</code>
+      </article>
+      <article class="rotation-card">
+        <h2>rotateZ()</h2>
+        <div class="stage">
+          <div class="axis-line axis-line-z"></div>
+          <div class="demo-card rotate-z">Z</div>
+        </div>
+        <code id="codeZ">transform: rotateZ(45deg);</code>
+      </article>
+      <article class="rotation-card">
+        <h2>rotate3d()</h2>
+        <div class="stage">
+          <div class="axis-line axis-line-custom"></div>
+          <div class="demo-card rotate-custom">3D</div>
+        </div>
+        <code id="codeCustom">transform: rotate3d(1, 0, 0, 45deg);</code>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

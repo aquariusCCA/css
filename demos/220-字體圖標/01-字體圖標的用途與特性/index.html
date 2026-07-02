@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>字體圖標的用途與特性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/220-字體圖標/01-字體圖標的用途與特性.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">CSS Demo</p>
+      <h1>字體圖標的用途與特性</h1>
+      <p>用簡化 glyph 觀察字體圖標如何被 CSS 當成文字控制，以及哪些情境適合或不適合使用。</p>
+    </header>
+
+    <section class="control-demo" aria-labelledby="control-title">
+      <input type="radio" name="icon-style" id="style-base" checked>
+      <input type="radio" name="icon-style" id="style-large">
+      <input type="radio" name="icon-style" id="style-color">
+      <input type="radio" name="icon-style" id="style-motion">
+
+      <div class="section-copy">
+        <p class="eyebrow">Observation 01</p>
+        <h2 id="control-title">同一個圖標，不同 CSS 狀態</h2>
+      </div>
+
+      <div class="toggle-row" aria-label="切換圖標樣式">
+        <label for="style-base">基本</label>
+        <label for="style-large">放大</label>
+        <label for="style-color">變色</label>
+        <label for="style-motion">陰影與旋轉</label>
+      </div>
+
+      <div class="icon-lab" aria-live="polite">
+        <button class="icon-button" type="button" aria-label="搜尋">
+          <span class="font-icon icon-search" aria-hidden="true"></span>
+          <span>搜尋</span>
+        </button>
+        <button class="icon-button" type="button" aria-label="關閉">
+          <span class="font-icon icon-close" aria-hidden="true"></span>
+          <span>關閉</span>
+        </button>
+        <button class="icon-button" type="button" aria-label="下一步">
+          <span class="font-icon icon-next" aria-hidden="true"></span>
+          <span>下一步</span>
+        </button>
+      </div>
+
+      <pre class="code-note"><code>.font-icon {
+  color: currentColor;
+  font-size: 24px;
+  opacity: 0.88;
+  text-shadow: none;
+  transform: rotate(0deg);
+}</code></pre>
+    </section>
+
+    <section class="fit-grid" aria-labelledby="fit-title">
+      <div class="section-copy">
+        <p class="eyebrow">Observation 02</p>
+        <h2 id="fit-title">適合與不適合的圖像需求</h2>
+      </div>
+
+      <div class="comparison-grid">
+        <article class="comparison good-fit">
+          <h3>適合字體圖標</h3>
+          <div class="symbol-row" aria-hidden="true">
+            <span class="font-icon icon-search"></span>
+            <span class="font-icon icon-close"></span>
+            <span class="font-icon icon-next"></span>
+            <span class="font-icon icon-download"></span>
+          </div>
+          <p>簡單、單色、尺寸小、重複使用，且常需要跟著介面狀態調整顏色或大小。</p>
+        </article>
+
+        <article class="comparison poor-fit">
+          <h3>不適合字體圖標</h3>
+          <div class="photo-sample" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p>照片、複雜插圖、多色細節與材質紋理，通常應改用圖片、SVG 或更合適的格式。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="mistake-demo" aria-labelledby="mistake-title">
+      <div class="section-copy">
+        <p class="eyebrow">Observation 03</p>
+        <h2 id="mistake-title">沒有 glyph 對應時，空元素不會自己變成圖標</h2>
+      </div>
+
+      <div class="mistake-grid">
+        <article class="result-box">
+          <h3>錯誤寫法</h3>
+          <button class="checkout-button broken" type="button">
+            <span class="empty-icon" aria-hidden="true"></span>
+            <span>購物車</span>
+          </button>
+          <pre><code>&lt;span class="icon-cart"&gt;&lt;/span&gt;</code></pre>
+        </article>
+
+        <article class="result-box">
+          <h3>修正寫法</h3>
+          <button class="checkout-button fixed" type="button" aria-label="開啟購物車">
+            <span class="font-icon icon-cart" aria-hidden="true"></span>
+            <span>購物車</span>
+          </button>
+          <pre><code>.icon-cart::before {
+  content: "□";
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

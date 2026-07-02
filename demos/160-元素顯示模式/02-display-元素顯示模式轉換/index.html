@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>display 顯示模式轉換 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/02-display-元素顯示模式轉換.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">display</p>
+      <h1>切換同一組元素的顯示模式</h1>
+    </header>
+
+    <section class="switcher" aria-label="display 值切換">
+      <button class="mode-button is-active" type="button" data-display="block">block</button>
+      <button class="mode-button" type="button" data-display="inline">inline</button>
+      <button class="mode-button" type="button" data-display="inline-block">inline-block</button>
+    </section>
+
+    <section class="layout">
+      <article class="preview">
+        <h2>畫面結果</h2>
+        <div class="stage">
+          <a class="demo-item" href="#">導覽項目 A</a>
+          <a class="demo-item" href="#">導覽項目 B</a>
+          <a class="demo-item" href="#">導覽項目 C</a>
+        </div>
+      </article>
+
+      <article class="facts" aria-live="polite">
+        <h2>觀察重點</h2>
+        <dl>
+          <div>
+            <dt>目前 display</dt>
+            <dd id="current-display">block</dd>
+          </div>
+          <div>
+            <dt>是否獨占一行</dt>
+            <dd id="line-behavior">是</dd>
+          </div>
+          <div>
+            <dt>寬高是否明顯生效</dt>
+            <dd id="size-behavior">是</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

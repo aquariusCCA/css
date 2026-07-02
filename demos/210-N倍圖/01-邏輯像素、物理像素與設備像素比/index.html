@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>邏輯像素、物理像素與設備像素比 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/210-N倍圖/01-邏輯像素、物理像素與設備像素比.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">210-N倍圖</p>
+      <h1>邏輯像素、物理像素與 DPR</h1>
+      <p class="lede">同一個 CSS 顯示尺寸，在不同 DPR 螢幕上需要不同數量的圖片實際像素。</p>
+    </header>
+
+    <section class="control-band" aria-label="DPR 與 CSS 尺寸控制">
+      <div class="control-group">
+        <span class="control-label">設備像素比</span>
+        <div class="segmented" role="group" aria-label="選擇設備像素比">
+          <button class="dpr-button is-active" type="button" data-dpr="1">DPR 1</button>
+          <button class="dpr-button" type="button" data-dpr="2">DPR 2</button>
+          <button class="dpr-button" type="button" data-dpr="3">DPR 3</button>
+        </div>
+      </div>
+
+      <label class="control-group slider-group">
+        <span class="control-label">CSS 顯示尺寸 <strong id="sizeLabel">80px</strong></span>
+        <input id="sizeControl" type="range" min="40" max="140" step="10" value="80">
+      </label>
+    </section>
+
+    <section class="comparison-grid" aria-label="CSS 像素與物理像素對照">
+      <article class="panel">
+        <h2>CSS 顯示區</h2>
+        <div class="display-stage">
+          <div class="css-box" aria-hidden="true">
+            <span>CSS</span>
+          </div>
+        </div>
+        <p class="metric"><span id="cssMetric">80 x 80</span> CSS px</p>
+      </article>
+
+      <article class="panel">
+        <h2>1 個 CSS px 的放大示意</h2>
+        <div class="pixel-sample" id="pixelSample" aria-hidden="true"></div>
+        <p class="metric" id="pixelMetric">1 CSS px = 1 x 1 物理像素</p>
+      </article>
+
+      <article class="panel result-panel">
+        <h2>建議圖片實際像素</h2>
+        <p class="formula">CSS 顯示尺寸 x DPR</p>
+        <p class="answer" id="answerMetric">80 x 80 px</p>
+        <p class="hint" id="answerHint">DPR 1 時，圖片實際像素與 CSS 尺寸相同。</p>
+      </article>
+    </section>
+
+    <section class="visual-reference" aria-label="Retina 像素密度參考">
+      <div>
+        <h2>標準螢幕與 Retina 的密度差異</h2>
+        <p>下圖是來源 notes 的參考圖；上方互動區則把同一個概念拆成可操作的 DPR 換算。</p>
+      </div>
+      <img src="./assets/retina-density.png" alt="標準螢幕與 Retina 像素密度對比">
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

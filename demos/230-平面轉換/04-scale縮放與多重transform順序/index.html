@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>scale 與多重 transform 順序 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/230-平面轉換/04-scale縮放與多重transform順序.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">scale + transform order</p>
+      <h1>縮放不改佔位，多重 transform 要寫在同一行</h1>
+    </header>
+
+    <section class="scale-row" aria-labelledby="scale-title">
+      <h2 id="scale-title">scale 倍率與原始佔位</h2>
+      <div class="scale-grid">
+        <div class="scale-case">
+          <span>scale(0.5)</span>
+          <div class="slot"><div class="scale-box small">0.5</div></div>
+        </div>
+        <div class="scale-case">
+          <span>scale(1)</span>
+          <div class="slot"><div class="scale-box normal">1</div></div>
+        </div>
+        <div class="scale-case">
+          <span>scale(2)</span>
+          <div class="slot"><div class="scale-box large">2</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="zoom-panel" aria-labelledby="zoom-title">
+      <div>
+        <h2 id="zoom-title">中心淡入放大</h2>
+        <p>偽元素保持在中心，hover 或按鈕切換時從 `scale(0)` 變成 `scale(1)`。</p>
+        <button type="button" class="control-button" data-zoom-toggle aria-pressed="false">顯示中心圖示</button>
+      </div>
+      <div class="zoom-card" data-zoom-card>
+        <div class="cover"></div>
+        <p>translate(-50%, -50%) scale(...)</p>
+      </div>
+    </section>
+
+    <section class="order-grid" aria-label="多重 transform 常見錯誤">
+      <article class="order-card">
+        <h2>正確：合併在同一個 transform</h2>
+        <div class="order-stage">
+          <div class="center-mark"></div>
+          <div class="dot correct">置中</div>
+        </div>
+        <code>transform: translate(-50%, -50%) scale(1);</code>
+      </article>
+      <article class="order-card">
+        <h2>錯誤：重複宣告會覆蓋</h2>
+        <div class="order-stage">
+          <div class="center-mark"></div>
+          <div class="dot overwritten">偏移</div>
+        </div>
+        <code>transform: translate(-50%, -50%); transform: scale(1);</code>
+      </article>
+      <article class="order-card wide">
+        <h2>順序不同，結果不同</h2>
+        <div class="path-stage">
+          <div class="path-box translate-rotate">translate() rotate()</div>
+          <div class="path-box rotate-translate">rotate() translate()</div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

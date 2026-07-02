@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>align-items 單行側軸對齊 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/04-align-items單行側軸對齊.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">align-items</p>
+      <h1>單行項目沿側軸怎麼對齊，由 align-items 決定</h1>
+    </header>
+
+    <section class="controls" aria-label="align-items 控制">
+      <button type="button" data-value="flex-start">flex-start</button>
+      <button type="button" data-value="center" class="active">center</button>
+      <button type="button" data-value="flex-end">flex-end</button>
+      <button type="button" data-value="baseline">baseline</button>
+      <button type="button" data-value="stretch">stretch</button>
+    </section>
+
+    <section class="workspace">
+      <article>
+        <h2>未固定高度：stretch 可拉伸</h2>
+        <div class="stage auto-size" id="autoStage">
+          <span>A</span>
+          <span class="large">B</span>
+          <span>C</span>
+        </div>
+      </article>
+      <article>
+        <h2>固定高度：stretch 看不出拉伸</h2>
+        <div class="stage fixed-size" id="fixedStage">
+          <span>A</span>
+          <span class="large">B</span>
+          <span>C</span>
+        </div>
+      </article>
+    </section>
+
+    <p class="rule"><code id="rule">align-items: center;</code></p>
+  </main>
+</body>
+</html>

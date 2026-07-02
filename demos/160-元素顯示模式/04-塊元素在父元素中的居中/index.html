@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>塊元素居中 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/04-塊元素在父元素中的居中.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">block centering</p>
+      <h1>塊元素居中的條件與限制</h1>
+    </header>
+
+    <section class="control-grid" aria-label="塊元素居中控制">
+      <label><input id="has-width" type="checkbox" checked> 子元素有明確 width</label>
+      <label><input id="auto-margin" type="checkbox" checked> 左右 margin 為 auto</label>
+      <label><input id="vertical-margin" type="checkbox" checked> margin-top 使用計算值</label>
+      <label><input id="hide-collapse" type="checkbox" checked> 父元素 overflow: hidden</label>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>父容器與子盒子</h2>
+        <div class="outer">
+          <div class="inner">inner</div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>觀察</h2>
+        <ul class="status-list" id="status-list"></ul>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

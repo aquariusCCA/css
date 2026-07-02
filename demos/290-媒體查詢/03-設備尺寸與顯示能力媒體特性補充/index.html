@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/03-設備尺寸與顯示能力媒體特性補充.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>設備尺寸與顯示能力媒體特性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Display capability features</p>
+      <h1>低頻媒體特性：適合查閱，不適合作為主線斷點</h1>
+      <p>這個 demo 用可觀察的 `aspect-ratio` 當主展示，並用狀態徽章顯示解析度、顏色與特殊顯示能力條件。</p>
+    </header>
+
+    <section class="ratio-stage" aria-label="寬高比展示">
+      <article class="preview">
+        <div class="media-block media-block--main">主視覺</div>
+        <div class="media-block">輔助 A</div>
+        <div class="media-block">輔助 B</div>
+      </article>
+      <aside class="ratio-note">
+        <h2>`aspect-ratio`</h2>
+        <p id="ratioText">目前比例讀取中。</p>
+        <p>寬螢幕時改成橫向組合；偏窄比例時改成直向堆疊。這比 `device-aspect-ratio` 更貼近目前可用空間。</p>
+      </aside>
+    </section>
+
+    <section class="capability-grid" aria-label="媒體特性匹配狀態">
+      <article data-feature="wideRatio">
+        <span>未匹配</span>
+        <strong>`@media (min-aspect-ratio: 16/10)`</strong>
+        <p>寬比例布局。</p>
+      </article>
+      <article data-feature="narrowRatio">
+        <span>未匹配</span>
+        <strong>`@media (max-aspect-ratio: 1/1)`</strong>
+        <p>窄比例或直向布局。</p>
+      </article>
+      <article data-feature="retina">
+        <span>未匹配</span>
+        <strong>`@media (min-resolution: 2dppx)`</strong>
+        <p>常用於高解析度資源。</p>
+      </article>
+      <article data-feature="color">
+        <span>未匹配</span>
+        <strong>`@media (color)`</strong>
+        <p>設備支援顏色顯示。</p>
+      </article>
+      <article data-feature="monochrome">
+        <span>未匹配</span>
+        <strong>`@media (monochrome)`</strong>
+        <p>單色或灰階顯示設備。</p>
+      </article>
+      <article data-feature="grid">
+        <span>未匹配</span>
+        <strong>`@media (grid)`</strong>
+        <p>這不是 CSS Grid Layout。</p>
+      </article>
+    </section>
+
+    <section class="legacy-warning" aria-label="舊式設備特性提醒">
+      <h2>`device-*` 特性</h2>
+      <p>`device-width`、`device-height`、`device-aspect-ratio` 主要用於理解舊程式碼；新專案版面斷點優先使用視口相關特性。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

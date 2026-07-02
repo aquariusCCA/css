@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/01-媒體查詢基礎與媒體類型.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>媒體查詢基礎與媒體類型 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Media query basics</p>
+      <h1>媒體查詢：條件成立才套用樣式</h1>
+      <p>縮放視窗，觀察 `max-width`、`min-width` 與後寫規則如何共同決定畫面。</p>
+    </header>
+
+    <section class="viewport-meter" aria-label="目前視口寬度">
+      <span>目前視口寬度</span>
+      <strong id="viewportWidth">-- px</strong>
+    </section>
+
+    <section class="stage" aria-label="斷點視覺展示">
+      <div class="result-panel">
+        <p class="result-label">目前背景狀態</p>
+        <h2 id="activeName">等待讀取</h2>
+        <p id="activeDescription">請調整瀏覽器寬度觀察變化。</p>
+      </div>
+
+      <div class="query-list">
+        <article class="query-card" data-query="small">
+          <span class="query-status">未匹配</span>
+          <h3>`@media (max-width: 539px)`</h3>
+          <p>小於等於 539px 時套用手機窄版樣式。</p>
+        </article>
+        <article class="query-card" data-query="middle">
+          <span class="query-status">未匹配</span>
+          <h3>`@media (min-width: 540px)`</h3>
+          <p>大於等於 540px 時開始套用較寬的基本樣式。</p>
+        </article>
+        <article class="query-card" data-query="large">
+          <span class="query-status">未匹配</span>
+          <h3>`@media (min-width: 970px)`</h3>
+          <p>大於等於 970px 時，這條也會匹配，且因為較晚出現而覆蓋背景。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="media-types" aria-label="媒體類型比較">
+      <h2>媒體類型：screen 與 print</h2>
+      <div class="type-samples">
+        <div class="sample sample--screen">
+          <strong>`@media screen`</strong>
+          <span>螢幕上是綠色狀態</span>
+        </div>
+        <div class="sample sample--print">
+          <strong>`@media print`</strong>
+          <span>列印預覽會改成橘色、隱藏互動提示</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

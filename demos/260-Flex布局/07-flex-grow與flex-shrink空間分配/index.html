@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-grow 與 flex-shrink 空間分配 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/07-flex-grow與flex-shrink空間分配.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">grow / shrink</p>
+      <h1>剩餘空間看 grow，超出空間看 shrink 與基準尺寸</h1>
+    </header>
+
+    <section class="controls" aria-label="容器寬度控制">
+      <label for="widthRange">容器寬度</label>
+      <input id="widthRange" type="range" min="360" max="760" value="620">
+      <output id="widthOutput" for="widthRange">620px</output>
+    </section>
+
+    <section class="workspace">
+      <article>
+        <h2>grow：有剩餘空間時按比例放大</h2>
+        <div class="stage grow-stage" id="growStage">
+          <span class="g1">grow 1</span>
+          <span class="g2">grow 2</span>
+          <span class="g3">grow 3</span>
+        </div>
+      </article>
+      <article>
+        <h2>shrink：超出時參考 shrink × base size</h2>
+        <div class="stage shrink-stage" id="shrinkStage">
+          <span class="s1">120px</span>
+          <span class="s2">220px</span>
+          <span class="s3">300px</span>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>空間轉換基礎與 3D 場景 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/240-空間轉換/01-空間轉換基礎與3D場景.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">CSS 3D scene</p>
+      <h1>空間轉換基礎與 3D 場景</h1>
+      <p>比較 3D 空間保留、透視距離與透視點，觀察卡片在父層場景中的立體感。</p>
+    </header>
+
+    <section class="control-panel" aria-label="3D 場景控制">
+      <label>
+        <span>透視距離</span>
+        <input id="perspectiveRange" type="range" min="260" max="1200" step="20" value="560">
+        <output id="perspectiveValue">560px</output>
+      </label>
+      <label>
+        <span>透視點</span>
+        <select id="originSelect">
+          <option value="center center">center center</option>
+          <option value="left center">left center</option>
+          <option value="right center">right center</option>
+          <option value="center top">center top</option>
+          <option value="center bottom">center bottom</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="scene-grid" aria-label="3D 場景比較">
+      <article class="scene-card">
+        <h2>flat</h2>
+        <p>子元素被壓回父元素的 2D 平面。</p>
+        <div class="stage stage-flat">
+          <div class="depth-group">
+            <span class="panel panel-back">-80px</span>
+            <span class="panel panel-mid">0</span>
+            <span class="panel panel-front">+80px</span>
+          </div>
+        </div>
+        <code>transform-style: flat;</code>
+      </article>
+
+      <article class="scene-card">
+        <h2>preserve-3d</h2>
+        <p>子元素保留前後層次。</p>
+        <div class="stage stage-3d">
+          <div class="depth-group">
+            <span class="panel panel-back">-80px</span>
+            <span class="panel panel-mid">0</span>
+            <span class="panel panel-front">+80px</span>
+          </div>
+        </div>
+        <code>transform-style: preserve-3d;</code>
+      </article>
+
+      <article class="scene-card">
+        <h2>perspective</h2>
+        <p>視距越小，近大遠小越明顯。</p>
+        <div class="stage stage-perspective">
+          <div class="tilt-card">
+            <span>rotateX(52deg)</span>
+            <strong>3D card</strong>
+          </div>
+        </div>
+        <code id="perspectiveCode">perspective: 560px;</code>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

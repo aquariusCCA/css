@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>響應式原理與布局容器 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/300-響應式/01-響應式原理與布局容器.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">Responsive container</p>
+      <h1>響應式原理與布局容器</h1>
+      <p>拖曳寬度後，觀察同一個 `.container` 如何在不同斷點下切換寬度。</p>
+    </header>
+
+    <section class="control-panel" aria-labelledby="viewport-control">
+      <div>
+        <h2 id="viewport-control">模擬螢幕寬度</h2>
+        <p><span id="widthValue">960</span>px · <span id="breakpointLabel">桌面顯示器</span></p>
+      </div>
+      <input id="viewportRange" type="range" min="320" max="1440" value="960" step="10" aria-label="模擬螢幕寬度">
+    </section>
+
+    <section class="viewport-frame" aria-label="響應式容器展示">
+      <div class="viewport" id="viewport">
+        <div class="ruler">
+          <span>Viewport</span>
+          <strong id="viewportLabel">960px</strong>
+        </div>
+        <div class="container good-container">
+          <span>.container</span>
+          <strong id="containerValue">970px</strong>
+        </div>
+        <div class="content-grid" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-grid" aria-label="容器正確與錯誤寫法對照">
+      <article class="comparison-card">
+        <h2>正確：小螢幕滿版</h2>
+        <div class="phone">
+          <div class="phone-container good">width: 100%</div>
+        </div>
+      </article>
+      <article class="comparison-card">
+        <h2>錯誤：手機仍固定寬</h2>
+        <div class="phone">
+          <div class="phone-container bad">width: 750px</div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>translate 雙開門效果 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/230-平面轉換/02-translate雙開門效果.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">translateX + pseudo-elements</p>
+      <h1>左右門片用自身寬度向外移出</h1>
+    </header>
+
+    <section class="door-lab" aria-labelledby="door-title">
+      <div class="panel-copy">
+        <h2 id="door-title">標準雙開門</h2>
+        <p>`::before` 是左門片，hover 或按下按鈕時使用 `translateX(-100%)`；`::after` 是右門片，使用 `translateX(100%)`。</p>
+        <button class="control-button" type="button" data-open-door aria-pressed="false">打開門片</button>
+      </div>
+      <div class="door-demo" data-door-demo tabindex="0" aria-label="雙開門展示，滑鼠移入或按按鈕可打開">
+        <div class="door-content">
+          <strong>內容露出</strong>
+          <span>overflow: hidden 會裁切移出的門片</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare-grid" aria-label="常見錯誤對照">
+      <article class="compare-card">
+        <h2>忘記 overflow: hidden</h2>
+        <p>門片已移出，但仍在容器外可見，開門效果不乾淨。</p>
+        <div class="mini-door no-clip is-open">
+          <div class="door-content">no clip</div>
+        </div>
+      </article>
+      <article class="compare-card">
+        <h2>方向寫反</h2>
+        <p>左門往右、右門往左，門片會往中間擠。</p>
+        <div class="mini-door wrong-way is-open">
+          <div class="door-content">wrong way</div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

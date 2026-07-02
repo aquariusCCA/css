@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>無縫動畫</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/250-動畫/04-無縫動畫.md -->
+  <header class="page-header">
+    <p class="eyebrow">CSS animation demo</p>
+    <h1>無縫動畫</h1>
+    <p>跑馬燈需要外層裁切、內層位移、尾端複製內容，以及等於原始內容寬度的移動距離。</p>
+  </header>
+
+  <main class="demo-shell">
+    <section class="toolbar" aria-label="無縫動畫控制">
+      <label><input type="checkbox" id="hideCopies"> 隱藏尾端複製項目</label>
+      <label><input type="checkbox" id="wrongDistance"> 使用錯誤位移距離</label>
+    </section>
+
+    <section class="marquee-panel" id="marqueePanel">
+      <div class="measurement">
+        <span>外層視窗：360px</span>
+        <span>原始內容：8 × 120px = 960px</span>
+        <span>正確位移：-960px</span>
+      </div>
+
+      <div class="viewport" aria-label="水平無縫跑馬燈">
+        <ul class="track">
+          <li>01</li>
+          <li>02</li>
+          <li>03</li>
+          <li>04</li>
+          <li>05</li>
+          <li>06</li>
+          <li>07</li>
+          <li>08</li>
+          <li class="copy">01</li>
+          <li class="copy">02</li>
+          <li class="copy">03</li>
+        </ul>
+      </div>
+      <p class="hint">將滑鼠移到跑馬燈上可暫停。隱藏複製項目或改成錯誤距離後，循環銜接會變得明顯。</p>
+    </section>
+
+    <section class="comparison" aria-label="無縫動畫條件對照">
+      <article>
+        <h2>正確：linear + 複製項目</h2>
+        <p>動畫結束時畫面接近起點，因此跳回不突兀。</p>
+      </article>
+      <article>
+        <h2>錯誤：距離不等於原始內容寬度</h2>
+        <p>提前或延後跳回起點，會看到斷點。</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

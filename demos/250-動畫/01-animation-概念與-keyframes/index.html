@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>animation 概念與 keyframes 基礎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/250-動畫/01-animation-概念與-keyframes.md -->
+  <header class="page-header">
+    <p class="eyebrow">CSS animation demo</p>
+    <h1>animation 概念與 keyframes 基礎</h1>
+    <p>觀察 transition 的觸發式變化，和 animation 依照 keyframes 自動播放多個節點的差異。</p>
+  </header>
+
+  <main class="demo-shell">
+    <section class="comparison" aria-label="transition 與 animation 對照">
+      <article class="panel">
+        <h2>transition：狀態改變後才過渡</h2>
+        <div class="hover-zone" tabindex="0">
+          <span class="transition-box">hover / focus</span>
+        </div>
+        <p class="note">移入或聚焦時，方塊只在起點與終點之間變化。</p>
+      </article>
+
+      <article class="panel">
+        <h2>animation：keyframes 決定播放序列</h2>
+        <div class="route-demo is-running" id="routeDemo">
+          <span class="marker marker-a">0%</span>
+          <span class="marker marker-b">25%</span>
+          <span class="marker marker-c">50%</span>
+          <span class="marker marker-d">75%</span>
+          <span class="marker marker-e">100%</span>
+          <span class="traveler" aria-hidden="true"></span>
+        </div>
+        <button class="control" type="button" id="replayRoute">重新播放</button>
+      </article>
+    </section>
+
+    <section class="mistakes" aria-label="常見錯誤對照">
+      <h2>定義 keyframes 後，還要呼叫動畫</h2>
+      <div class="mistake-grid">
+        <article class="mistake-card">
+          <h3>只有 @keyframes</h3>
+          <span class="sample no-animation"></span>
+          <code>@keyframes move { ... }</code>
+          <p>沒有套用到元素，所以畫面不會播放。</p>
+        </article>
+        <article class="mistake-card">
+          <h3>缺少 duration</h3>
+          <span class="sample zero-duration"></span>
+          <code>animation-name: move;</code>
+          <p>duration 預設是 0s，看不到播放過程。</p>
+        </article>
+        <article class="mistake-card">
+          <h3>正確呼叫</h3>
+          <span class="sample good-animation"></span>
+          <code>animation: move 2s;</code>
+          <p>名稱與非 0s 時長都存在，動畫才可見。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

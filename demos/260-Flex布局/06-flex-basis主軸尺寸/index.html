@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-basis 主軸尺寸 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/06-flex-basis主軸尺寸.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">flex-basis</p>
+      <h1>flex-basis 設定的是主軸初始尺寸，不是永遠設定寬度</h1>
+    </header>
+
+    <section class="controls" aria-label="flex-basis 控制">
+      <button class="active" type="button" data-direction="row">row：像寬度</button>
+      <button type="button" data-direction="column">column：像高度</button>
+    </section>
+
+    <section class="workspace">
+      <div class="stage" id="stage">
+        <span>basis 130px</span>
+        <span>basis 130px</span>
+        <span>basis 130px</span>
+      </div>
+      <aside class="readout">
+        <p><code id="directionRule">flex-direction: row;</code></p>
+        <p><code>flex-basis: 130px;</code></p>
+        <p class="hint" id="hint">主軸是水平時，flex-basis 看起來像在設定初始寬度。</p>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

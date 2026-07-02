@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/02-視口尺寸與方向媒體特性.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>視口尺寸與方向媒體特性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Viewport media features</p>
+      <h1>媒體查詢看的是視口，不是設備名稱</h1>
+      <p>縮放視窗或改變比例，觀察寬度、高度與方向條件如何影響版面。</p>
+    </header>
+
+    <section class="readout" aria-label="目前視口狀態">
+      <div>
+        <span>寬度</span>
+        <strong id="viewportWidth">-- px</strong>
+      </div>
+      <div>
+        <span>高度</span>
+        <strong id="viewportHeight">-- px</strong>
+      </div>
+      <div>
+        <span>方向</span>
+        <strong id="orientation">--</strong>
+      </div>
+    </section>
+
+    <nav class="toolbar" aria-label="示範工具列">
+      <strong>工具列</strong>
+      <span>橫向且寬度不超過 900px 時固定在上方</span>
+    </nav>
+
+    <section class="layout-demo" aria-label="響應式版面">
+      <article class="hero-card">
+        <h2>主要內容</h2>
+        <p>在窄視口中維持單欄；空間足夠時改為雙欄。這是用 `min-width` 判斷可用寬度，而不是猜測設備。</p>
+      </article>
+      <article class="side-card">
+        <h2>輔助內容</h2>
+        <p>高度不足時，區塊會縮小垂直間距，讓內容仍然能快速掃描。</p>
+      </article>
+    </section>
+
+    <section class="conditions" aria-label="媒體條件">
+      <article data-condition="wide">
+        <span>未匹配</span>
+        <strong>`@media (min-width: 900px)`</strong>
+      </article>
+      <article data-condition="short">
+        <span>未匹配</span>
+        <strong>`@media (max-height: 560px)`</strong>
+      </article>
+      <article data-condition="landscape">
+        <span>未匹配</span>
+        <strong>`@media (orientation: landscape)`</strong>
+      </article>
+      <article data-condition="compactLandscape">
+        <span>未匹配</span>
+        <strong>`@media (orientation: landscape) and (max-width: 900px)`</strong>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

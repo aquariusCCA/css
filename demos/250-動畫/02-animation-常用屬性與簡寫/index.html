@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>animation 常用屬性與簡寫</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/250-動畫/02-animation-常用屬性與簡寫.md -->
+  <header class="page-header">
+    <p class="eyebrow">CSS animation demo</p>
+    <h1>animation 常用屬性與簡寫</h1>
+    <p>同一段 keyframes，因為 duration、delay、iteration、direction、fill-mode 與 play-state 不同，播放行為會完全不同。</p>
+  </header>
+
+  <main class="demo-shell">
+    <section class="toolbar" aria-label="動畫控制">
+      <label class="switch">
+        <input type="checkbox" id="pauseAll">
+        <span>暫停全部動畫</span>
+      </label>
+      <button type="button" id="replayAll">重新播放一次性動畫</button>
+    </section>
+
+    <section class="animation-lab" id="animationLab" aria-label="animation 屬性比較">
+      <article class="track-card">
+        <h2>基本播放</h2>
+        <p><code>animation: move 2s ease;</code></p>
+        <div class="track-line"><span class="dot basic"></span></div>
+      </article>
+
+      <article class="track-card">
+        <h2>延遲播放</h2>
+        <p><code>animation: move 2s 1s;</code></p>
+        <div class="track-line delayed-line"><span class="dot delay"></span></div>
+        <p class="hint">第一個時間是 duration，第二個時間是 delay。</p>
+      </article>
+
+      <article class="track-card">
+        <h2>無限播放</h2>
+        <p><code>animation-iteration-count: infinite;</code></p>
+        <div class="track-line"><span class="dot infinite"></span></div>
+      </article>
+
+      <article class="track-card">
+        <h2>來回播放</h2>
+        <p><code>animation-direction: alternate;</code></p>
+        <div class="track-line"><span class="dot alternate"></span></div>
+      </article>
+
+      <article class="track-card">
+        <h2>停在終點</h2>
+        <p><code>animation-fill-mode: forwards;</code></p>
+        <div class="track-line"><span class="dot forwards"></span></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

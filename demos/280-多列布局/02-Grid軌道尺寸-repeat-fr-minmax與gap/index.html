@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid 軌道尺寸 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/280-多列布局/02-Grid軌道尺寸-repeat-fr-minmax與gap.md -->
+  <main class="page">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Grid Demo</p>
+      <h1>Grid 軌道尺寸：repeat、fr、minmax 與 gap</h1>
+      <p>切換欄位設定，觀察軌道寬度、剩餘空間與間距如何影響 Grid。</p>
+    </header>
+
+    <section class="controls" aria-label="Grid controls">
+      <div class="control-block">
+        <span class="label">欄位設定</span>
+        <div class="button-row" role="group" aria-label="template choices">
+          <button class="choice is-active" type="button" data-template="fixed">固定 100px</button>
+          <button class="choice" type="button" data-template="repeat">repeat()</button>
+          <button class="choice" type="button" data-template="fr">150px 1fr 2fr</button>
+          <button class="choice" type="button" data-template="minmax">minmax()</button>
+          <button class="choice" type="button" data-template="autofill">auto-fill</button>
+        </div>
+      </div>
+      <label class="range-control">
+        <span>gap: <strong id="gap-value">16px</strong></span>
+        <input id="gap-slider" type="range" min="0" max="36" step="4" value="16">
+      </label>
+      <label class="switch">
+        <input id="auto-row-toggle" type="checkbox">
+        <span>設定 grid-auto-rows: 52px</span>
+      </label>
+    </section>
+
+    <section class="workspace">
+      <article class="preview-panel">
+        <div id="grid-preview" class="grid-preview template-fixed">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+          <div class="item span-item">跨出顯式列</div>
+          <div class="item">7</div>
+          <div class="item">8</div>
+        </div>
+      </article>
+
+      <aside class="code-panel">
+        <h2>目前 CSS</h2>
+        <pre><code id="css-output"></code></pre>
+        <p id="explain" class="explain"></p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>translate3d：3D 位移 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/240-空間轉換/02-translate3d-3D位移.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">translate3d</p>
+      <h1>3D 位移觀察台</h1>
+      <p>拖曳三個軸向的位移值，觀察 `translate3d(x, y, z)` 如何同時改變左右、上下與深度。</p>
+    </header>
+
+    <section class="layout">
+      <form class="controls" aria-label="translate3d 控制">
+        <label>
+          <span>x 軸位移</span>
+          <input id="xRange" type="range" min="-120" max="120" step="10" value="80">
+          <output id="xValue">80px</output>
+        </label>
+        <label>
+          <span>y 軸位移</span>
+          <input id="yRange" type="range" min="-120" max="120" step="10" value="50">
+          <output id="yValue">50px</output>
+        </label>
+        <label>
+          <span>z 軸位移</span>
+          <input id="zRange" type="range" min="-220" max="260" step="20" value="180">
+          <output id="zValue">180px</output>
+        </label>
+        <label class="toggle">
+          <input id="perspectiveToggle" type="checkbox" checked>
+          <span>開啟父層 perspective</span>
+        </label>
+        <pre><code id="codeReadout">transform: translate3d(80px, 50px, 180px);</code></pre>
+      </form>
+
+      <section class="stage-wrap" aria-label="位移展示">
+        <div class="axis-label axis-x">x+</div>
+        <div class="axis-label axis-y">y+</div>
+        <div class="axis-label axis-z">z+</div>
+        <div class="stage" id="stage">
+          <div class="origin-card">原位置</div>
+          <div class="moving-card">
+            <span>moving box</span>
+            <strong>translate3d</strong>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

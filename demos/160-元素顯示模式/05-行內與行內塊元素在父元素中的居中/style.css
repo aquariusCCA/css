@@ -1,0 +1,153 @@
+:root {
+  --ink: #26313f;
+  --muted: #667085;
+  --line: #d6dde7;
+  --outer: #687385;
+  --badge: #c95875;
+  --field: #1c7f72;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  color: var(--ink);
+  background: #edf2f7;
+}
+
+.demo-shell {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #1c7f72;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+}
+
+h2 {
+  font-size: 1.08rem;
+}
+
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.control-grid label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #fff;
+}
+
+.control-grid input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 18px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: #fff;
+}
+
+.outer {
+  width: min(100%, 520px);
+  height: 320px;
+  border: 10px solid #9aa6b2;
+  background: var(--outer);
+}
+
+body.use-text-align .outer {
+  text-align: center;
+}
+
+body.use-line-height .outer {
+  line-height: 300px;
+}
+
+body.use-font-zero .outer {
+  font-size: 0;
+}
+
+.badge {
+  display: inline-block;
+  min-width: 108px;
+  height: 46px;
+  padding: 0 14px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 46px;
+  background: var(--badge);
+}
+
+.field {
+  width: 120px;
+  height: 40px;
+  border: 0;
+  padding: 0 10px;
+  color: #fff;
+  font: 700 16px system-ui, sans-serif;
+  background: var(--field);
+}
+
+body.use-vertical-align .badge,
+body.use-vertical-align .field {
+  vertical-align: middle;
+}
+
+pre {
+  overflow: auto;
+  min-height: 320px;
+  margin: 0;
+  border-radius: 8px;
+  padding: 16px;
+  color: #f8fafc;
+  background: #26313f;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .control-grid,
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

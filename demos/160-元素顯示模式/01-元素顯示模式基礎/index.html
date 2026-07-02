@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>元素顯示模式基礎 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/01-元素顯示模式基礎.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">Display mode basics</p>
+      <h1>塊元素與行內元素的空間行為</h1>
+    </header>
+
+    <section class="control-bar" aria-label="展示控制">
+      <button class="control is-active" type="button" data-mode="normal">預設顯示</button>
+      <button class="control" type="button" data-mode="sized">套用 width / height</button>
+    </section>
+
+    <section class="comparison" aria-label="塊元素與行內元素比較">
+      <article class="panel">
+        <h2>block：每個盒子獨占一行</h2>
+        <div class="stage block-stage">
+          <div class="sample block-sample">div one</div>
+          <div class="sample block-sample">div two</div>
+          <span class="plain-text">後面的文字被推到下一行觀察。</span>
+        </div>
+        <p class="note">塊元素在正常流中預設撐滿父容器可用寬度，可以直接控制寬高。</p>
+      </article>
+
+      <article class="panel">
+        <h2>inline：像文字片段一樣接續排列</h2>
+        <div class="stage inline-stage">
+          <span class="sample inline-sample">span one</span>
+          <strong class="sample inline-sample">strong</strong>
+          <span class="sample inline-sample">span two</span>
+          <span class="plain-text">這段文字接在同一行。</span>
+        </div>
+        <p class="note">一般非置換行內元素即使設定寬高，也主要由內容決定可見尺寸。</p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

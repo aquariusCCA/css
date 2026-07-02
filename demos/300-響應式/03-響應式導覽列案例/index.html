@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>響應式導覽列案例 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/300-響應式/03-響應式導覽列案例.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">Responsive nav</p>
+      <h1>響應式導覽列案例</h1>
+      <p>同一份 8 個項目的導覽列，在桌面與手機寬度下切換容器與項目寬度。</p>
+    </header>
+
+    <section class="control-panel" aria-labelledby="viewport-control">
+      <div>
+        <h2 id="viewport-control">模擬螢幕寬度</h2>
+        <p><span id="widthValue">760</span>px · <span id="modeLabel">桌面版</span></p>
+      </div>
+      <input id="viewportRange" type="range" min="320" max="980" value="760" step="10" aria-label="模擬螢幕寬度">
+      <div class="segmented" aria-label="手機版欄數">
+        <button type="button" data-width="50">2 欄</button>
+        <button type="button" data-width="33.33" class="active">3 欄</button>
+        <button type="button" data-width="25">4 欄</button>
+      </div>
+    </section>
+
+    <section class="viewport-frame" aria-label="響應式導覽列展示">
+      <div class="viewport" id="viewport">
+        <div class="status-line">
+          <span id="containerLabel">.container width: 750px</span>
+          <strong id="itemLabel">li width: 93.75px</strong>
+        </div>
+        <nav class="container" id="container" aria-label="Demo navigation">
+          <ul>
+            <li>導航欄 1</li>
+            <li>導航欄 2</li>
+            <li>導航欄 3</li>
+            <li>導航欄 4</li>
+            <li>導航欄 5</li>
+            <li>導航欄 6</li>
+            <li>導航欄 7</li>
+            <li>導航欄 8</li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

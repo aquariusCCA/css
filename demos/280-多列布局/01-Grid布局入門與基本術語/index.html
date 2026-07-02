@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid 布局入門與基本術語 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/280-多列布局/01-Grid布局入門與基本術語.md -->
+  <main class="page">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Grid Demo</p>
+      <h1>Grid 布局入門與基本術語</h1>
+      <p>切換同一組項目的排列方式，觀察一維 Flex 和二維 Grid 的差異。</p>
+    </header>
+
+    <section class="controls" aria-label="Demo controls">
+      <div class="control-group" role="group" aria-label="layout mode">
+        <button class="control-button is-active" type="button" data-mode="grid">Grid</button>
+        <button class="control-button" type="button" data-mode="flex">Flex</button>
+        <button class="control-button" type="button" data-mode="inline-grid">Inline grid</button>
+      </div>
+      <label class="switch">
+        <input id="show-guides" type="checkbox" checked>
+        <span>顯示 Grid 術語標示</span>
+      </label>
+    </section>
+
+    <section class="comparison">
+      <article class="stage-panel">
+        <div class="stage-toolbar">
+          <h2 id="mode-title">display: grid</h2>
+          <code id="mode-code">display: grid; grid-template-columns: repeat(3, 1fr);</code>
+        </div>
+        <div class="layout-wrap">
+          <span class="inline-text before">段落文字前</span>
+          <div id="layout-demo" class="layout-demo mode-grid show-guides" aria-label="layout preview">
+            <div class="guide line-v line-v-1"><span>line 1</span></div>
+            <div class="guide line-v line-v-2"><span>line 2</span></div>
+            <div class="guide line-v line-v-3"><span>line 3</span></div>
+            <div class="guide line-v line-v-4"><span>line 4</span></div>
+            <div class="guide line-h line-h-1"><span>row line 1</span></div>
+            <div class="guide line-h line-h-2"><span>row line 2</span></div>
+            <div class="guide line-h line-h-3"><span>row line 3</span></div>
+            <div class="guide line-h line-h-4"><span>row line 4</span></div>
+            <div class="cell-label cell-label-a">column</div>
+            <div class="cell-label cell-label-b">cell</div>
+            <div class="cell-label cell-label-c">row</div>
+            <div class="tile">A</div>
+            <div class="tile">B</div>
+            <div class="tile">C</div>
+            <div class="tile">D</div>
+            <div class="tile">E</div>
+            <div class="tile">F</div>
+            <div class="tile">G</div>
+            <div class="tile">H</div>
+            <div class="tile">I</div>
+          </div>
+          <span class="inline-text after">段落文字後</span>
+        </div>
+      </article>
+
+      <article class="stage-panel">
+        <h2>Container 與直接 item</h2>
+        <p class="note">Grid 只作用在容器的直接子元素；更深層的元素只是 item 裡面的內容。</p>
+        <div class="direct-demo">
+          <div class="direct-item">直接 item 1</div>
+          <div class="direct-item nested">
+            直接 item 2
+            <p>這個 p 是孫元素，不是 Grid item</p>
+          </div>
+          <div class="direct-item">直接 item 3</div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

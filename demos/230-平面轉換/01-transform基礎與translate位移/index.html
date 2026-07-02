@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>transform 基礎與 translate 位移 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/230-平面轉換/01-transform基礎與translate位移.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">CSS 2D transform</p>
+      <h1>translate 是視覺位移，不重新排版</h1>
+    </header>
+
+    <section class="panel layout-panel" aria-labelledby="flow-title">
+      <div class="panel-copy">
+        <h2 id="flow-title">位移後，原本的位置還在</h2>
+        <p>切換位移後，第一個盒子看起來往右下移動；下方盒子仍停在原本文件流位置。</p>
+        <button class="control-button" type="button" data-toggle-translate aria-pressed="false">套用 translate(30px, 30px)</button>
+      </div>
+      <div class="flow-stage" aria-label="translate 不影響排版展示">
+        <div class="slot">
+          <span class="slot-label">原始佔位</span>
+          <div class="move-box" data-moving-box>translate box</div>
+        </div>
+        <div class="static-box">next box</div>
+      </div>
+    </section>
+
+    <section class="panel percent-panel" aria-labelledby="percent-title">
+      <div class="panel-copy">
+        <h2 id="percent-title">百分比相對元素自身尺寸</h2>
+        <p>同樣是 `translate(50%, 50%)`，盒子越大，實際位移距離也越大。</p>
+        <label class="range-row">
+          <span>盒子尺寸</span>
+          <input type="range" min="80" max="180" value="120" data-size-range>
+        </label>
+        <output class="metric" data-size-output>120px x 90px，位移 60px / 45px</output>
+      </div>
+      <div class="percent-stage">
+        <div class="origin-marker"></div>
+        <div class="percent-box" data-percent-box>50%</div>
+      </div>
+    </section>
+
+    <section class="panel center-panel" aria-labelledby="center-title">
+      <h2 id="center-title">絕對定位置中需要拉回自身一半</h2>
+      <div class="center-grid">
+        <div class="center-case">
+          <h3>只有 left/top: 50%</h3>
+          <div class="center-stage">
+            <div class="crosshair"></div>
+            <div class="center-box no-translate">左上角對齊中心</div>
+          </div>
+        </div>
+        <div class="center-case">
+          <h3>再加 translate(-50%, -50%)</h3>
+          <div class="center-stage">
+            <div class="crosshair"></div>
+            <div class="center-box with-translate">中心點對齊中心</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="axis-card">
+      <img src="assets/2d-transforms-intro-img-001-a41858.png" alt="2D 轉換座標軸方向示意圖">
+      <figcaption>X 軸正方向往右，Y 軸正方向往下。</figcaption>
+    </figure>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

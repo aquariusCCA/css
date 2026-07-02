@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flex 布局基礎與容器項目 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/01-Flex布局基礎與容器項目.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">Flex 基礎</p>
+      <h1>父容器開啟 Flex，直接子元素才會成為 flex item</h1>
+    </header>
+
+    <section class="compare" aria-label="傳統排列與 Flex 排列比較">
+      <article class="demo-block">
+        <h2>未開啟 Flex</h2>
+        <pre><code>.container {
+  display: block;
+}</code></pre>
+        <div class="stage normal-flow">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+      </article>
+
+      <article class="demo-block">
+        <h2>開啟 Flex 並平均分配</h2>
+        <pre><code>.container {
+  display: flex;
+}
+.item {
+  flex: 1;
+}</code></pre>
+        <div class="stage flex-flow">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="direct-child" aria-label="直接子元素示意">
+      <div class="note">
+        <h2>只有直接子元素是 flex item</h2>
+        <p>外層容器控制第一層項目；孫元素要被 Flex 控制，必須在它自己的父元素上再次設定 <code>display: flex</code>。</p>
+      </div>
+      <div class="outer-flex">
+        <div class="outer-item">直接子元素 A</div>
+        <div class="outer-item nested">
+          <span>直接子元素 B</span>
+          <div class="grandchildren">
+            <b>孫元素 1</b>
+            <b>孫元素 2</b>
+          </div>
+        </div>
+        <div class="outer-item">直接子元素 C</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

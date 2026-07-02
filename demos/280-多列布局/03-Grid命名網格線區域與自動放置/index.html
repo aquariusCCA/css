@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid 命名區域與自動放置 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/280-多列布局/03-Grid命名網格線區域與自動放置.md -->
+  <main class="page">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Grid Demo</p>
+      <h1>Grid 命名網格線、區域與自動放置</h1>
+      <p>用文字地圖描述版面，再比較未定位項目如何被 Grid 自動放入空格。</p>
+    </header>
+
+    <section class="layout-grid">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>grid-template-areas</h2>
+          <div class="button-row" role="group" aria-label="area map">
+            <button class="area-button is-active" type="button" data-map="page">頁面骨架</button>
+            <button class="area-button" type="button" data-map="empty">含空白格</button>
+          </div>
+        </div>
+        <pre class="area-code"><code id="area-code"></code></pre>
+        <div id="area-preview" class="area-preview map-page">
+          <header class="area-block header">header</header>
+          <main class="area-block main">main</main>
+          <aside class="area-block sidebar">sidebar</aside>
+          <footer class="area-block footer">footer</footer>
+          <div class="area-block promo">promo</div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>grid-auto-flow</h2>
+          <div class="button-row" role="group" aria-label="auto flow">
+            <button class="flow-button is-active" type="button" data-flow="row">row</button>
+            <button class="flow-button" type="button" data-flow="column">column</button>
+            <button class="flow-button" type="button" data-flow="dense">row dense</button>
+          </div>
+        </div>
+        <div id="flow-preview" class="flow-preview flow-row">
+          <div class="flow-item wide">1 span 2</div>
+          <div class="flow-item">2</div>
+          <div class="flow-item tall">3 span 2 rows</div>
+          <div class="flow-item">4</div>
+          <div class="flow-item">5</div>
+          <div class="flow-item">6</div>
+          <div class="flow-item">7</div>
+        </div>
+        <p id="flow-note" class="note"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

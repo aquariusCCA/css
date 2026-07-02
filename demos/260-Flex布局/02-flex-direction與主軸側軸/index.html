@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flex-direction 與主軸側軸 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/02-flex-direction與主軸側軸.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">flex-direction</p>
+      <h1>主軸改變後，justify-content 與 align-items 的方向也跟著改變</h1>
+    </header>
+
+    <section class="controls" aria-label="flex-direction 控制">
+      <button class="active" type="button" data-direction="row">row</button>
+      <button type="button" data-direction="row-reverse">row-reverse</button>
+      <button type="button" data-direction="column">column</button>
+      <button type="button" data-direction="column-reverse">column-reverse</button>
+    </section>
+
+    <section class="workspace">
+      <div class="stage" id="stage">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+      </div>
+      <aside class="readout">
+        <h2>目前設定</h2>
+        <p><code id="rule">flex-direction: row;</code></p>
+        <dl>
+          <div>
+            <dt>主軸</dt>
+            <dd id="mainAxis">水平，由左到右</dd>
+          </div>
+          <div>
+            <dt>側軸</dt>
+            <dd id="crossAxis">垂直，由上到下</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

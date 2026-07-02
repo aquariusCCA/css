@@ -1,0 +1,155 @@
+:root {
+  --ink: #17202a;
+  --line: #d5dde5;
+  --paper: #faf9f5;
+  --teal: #159895;
+  --coral: #e76f51;
+  --amber: #f7c948;
+  --navy: #243447;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--coral);
+  font-weight: 800;
+}
+
+h1 {
+  max-width: 880px;
+  margin: 0 0 22px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+button {
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.active {
+  color: white;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.panel {
+  display: none;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.panel.active {
+  display: block;
+}
+
+pre {
+  margin: 0 0 18px;
+  padding: 14px;
+  overflow: auto;
+  border-radius: 6px;
+  color: #eef6ff;
+  background: var(--navy);
+}
+
+.nav-demo,
+.layout-demo,
+.ratio-demo {
+  display: flex;
+  min-height: 150px;
+  border: 2px dashed #bccbd8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nav-demo {
+  align-items: center;
+  min-height: 64px;
+  background: #1479d7;
+}
+
+.nav-demo a {
+  flex: 1;
+  padding: 18px 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.nav-demo a + a {
+  border-left: 1px solid rgba(255, 255, 255, .32);
+}
+
+.layout-demo aside,
+.layout-demo main,
+.ratio-demo span {
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+}
+
+.layout-demo aside {
+  width: 110px;
+  background: var(--coral);
+}
+
+.layout-demo main {
+  flex: 1;
+  background: var(--teal);
+}
+
+.ratio-demo .a {
+  width: 100px;
+  background: var(--coral);
+}
+
+.ratio-demo .b {
+  flex: 3;
+  background: var(--teal);
+}
+
+.ratio-demo .c {
+  flex: 1;
+  background: #7c5cff;
+}
+
+@media (max-width: 640px) {
+  .layout-demo aside {
+    width: 84px;
+  }
+}

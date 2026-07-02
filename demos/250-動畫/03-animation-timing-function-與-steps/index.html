@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>animation-timing-function 與 steps</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/250-動畫/03-animation-timing-function-與-steps.md -->
+  <header class="page-header">
+    <p class="eyebrow">CSS animation demo</p>
+    <h1>animation-timing-function 與 steps</h1>
+    <p>比較平滑速度曲線和 steps() 分步動畫，觀察打字機效果為什麼需要 overflow 裁切。</p>
+  </header>
+
+  <main class="demo-shell">
+    <section class="toolbar" aria-label="steps 控制">
+      <label for="stepCount">steps 數量</label>
+      <select id="stepCount">
+        <option value="4">4</option>
+        <option value="8" selected>8</option>
+        <option value="12">12</option>
+      </select>
+      <button type="button" id="replay">重新播放</button>
+    </section>
+
+    <section class="curve-grid" id="curveGrid" aria-label="速度曲線比較">
+      <article class="curve-card">
+        <h2>ease</h2>
+        <div class="track"><span class="ball ease"></span></div>
+      </article>
+      <article class="curve-card">
+        <h2>linear</h2>
+        <div class="track"><span class="ball linear"></span></div>
+      </article>
+      <article class="curve-card">
+        <h2>steps(<span id="stepLabel">8</span>)</h2>
+        <div class="track"><span class="ball stepped"></span></div>
+      </article>
+    </section>
+
+    <section class="typing-grid" aria-label="打字機效果對照">
+      <article class="typing-card clipped">
+        <h2>有 overflow: hidden</h2>
+        <p class="typing-text">大家來一起學習前端吧</p>
+      </article>
+      <article class="typing-card exposed">
+        <h2>缺少 overflow: hidden</h2>
+        <p class="typing-text">大家來一起學習前端吧</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

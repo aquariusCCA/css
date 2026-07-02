@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light;
+  --ink: #24313f;
+  --muted: #667085;
+  --line: #d8dee8;
+  --paper: #f6f8fb;
+  --block: #d94848;
+  --inline: #246bce;
+  --accent: #0f8b62;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  color: var(--ink);
+  background: #eef2f7;
+}
+
+.demo-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.demo-header {
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.control {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  padding: 0 14px;
+  color: var(--ink);
+  background: #fff;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.control.is-active {
+  border-color: var(--ink);
+  color: #fff;
+  background: var(--ink);
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: #fff;
+}
+
+.stage {
+  min-height: 210px;
+  border: 1px dashed #9aa6b2;
+  padding: 18px;
+  background: var(--paper);
+}
+
+.sample {
+  color: #fff;
+  font-weight: 700;
+}
+
+.block-sample {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background: var(--block);
+}
+
+.inline-sample {
+  display: inline;
+  padding: 6px 8px;
+  background: var(--inline);
+}
+
+.plain-text {
+  color: #46525f;
+}
+
+.note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+body.is-sized .block-sample {
+  width: 180px;
+  height: 56px;
+}
+
+body.is-sized .inline-sample {
+  width: 180px;
+  height: 56px;
+}
+
+body.is-sized .stage {
+  background-image: linear-gradient(#dfe5ee 1px, transparent 1px), linear-gradient(90deg, #dfe5ee 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@media (max-width: 760px) {
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+}

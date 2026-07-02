@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cursor：游標樣式與自訂游標 Demo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/190-鼠標樣式cursor/01-cursor-游標樣式與自訂游標.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">CSS cursor</p>
+      <h1>游標樣式與互動語意</h1>
+      <p>把滑鼠移到不同區塊上，觀察游標形狀如何傳達可點擊、可拖曳、可輸入或不可操作等狀態。</p>
+    </header>
+
+    <section class="section-panel" aria-labelledby="system-cursors">
+      <div class="section-heading">
+        <h2 id="system-cursors">系統預設游標</h2>
+        <p>每張卡片都套用不同的 <code>cursor</code> 值。</p>
+      </div>
+
+      <div class="cursor-grid" aria-label="常見 cursor 值">
+        <article class="cursor-card cursor-default" tabindex="0" data-cursor="default">
+          <span class="cursor-value">default</span>
+          <strong>一般指向</strong>
+          <p>預設箭頭游標，適合普通內容。</p>
+        </article>
+        <article class="cursor-card cursor-pointer" tabindex="0" data-cursor="pointer">
+          <span class="cursor-value">pointer</span>
+          <strong>可點擊</strong>
+          <p>常見於連結、按鈕等可操作項目。</p>
+        </article>
+        <article class="cursor-card cursor-move" tabindex="0" data-cursor="move">
+          <span class="cursor-value">move</span>
+          <strong>可移動</strong>
+          <p>暗示元素可以拖曳或重新排列。</p>
+        </article>
+        <article class="cursor-card cursor-text" tabindex="0" data-cursor="text">
+          <span class="cursor-value">text</span>
+          <strong>文字操作</strong>
+          <p>用於可選取或輸入文字的區域。</p>
+        </article>
+        <article class="cursor-card cursor-not-allowed" tabindex="0" data-cursor="not-allowed">
+          <span class="cursor-value">not-allowed</span>
+          <strong>不可操作</strong>
+          <p>提示目前狀態不允許執行動作。</p>
+        </article>
+        <article class="cursor-card cursor-help" tabindex="0" data-cursor="help">
+          <span class="cursor-value">help</span>
+          <strong>取得說明</strong>
+          <p>適合帶有補充說明或提示的項目。</p>
+        </article>
+        <article class="cursor-card cursor-wait" tabindex="0" data-cursor="wait">
+          <span class="cursor-value">wait</span>
+          <strong>等待中</strong>
+          <p>表示系統正在載入或處理。</p>
+        </article>
+      </div>
+
+      <p class="status-line" aria-live="polite">目前觀察：<strong id="cursor-status">將滑鼠移到卡片上</strong></p>
+    </section>
+
+    <section class="section-panel" aria-labelledby="custom-cursor">
+      <div class="section-heading">
+        <h2 id="custom-cursor">自訂游標與 fallback</h2>
+        <p>自訂圖片後面仍要接一個系統預設游標，讓圖片無法使用時有備援行為。</p>
+      </div>
+
+      <div class="comparison">
+        <div class="custom-zone" tabindex="0">
+          <span class="cursor-value">url(...), default</span>
+          <strong>自訂游標區</strong>
+          <p>移入這個區塊時，瀏覽器會嘗試使用 demo 內的游標圖片；若圖片不可用，改用 <code>default</code>。</p>
+        </div>
+        <pre class="code-sample"><code>.custom-zone {
+  cursor: url("./assets/images/cursor-style-img-002-81baa8.png"), default;
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="section-panel" aria-labelledby="semantic-cursor">
+      <div class="section-heading">
+        <h2 id="semantic-cursor">游標不會創造功能</h2>
+        <p><code>cursor: pointer</code> 只是視覺提示，元素是否真的能操作仍取決於實際功能。</p>
+      </div>
+
+      <div class="semantic-grid">
+        <div class="fake-action cursor-pointer" tabindex="0" data-label="只有 pointer，沒有功能">
+          <span class="cursor-value">cursor: pointer</span>
+          <strong>假裝可點擊的文字</strong>
+          <p>游標變成手形，但點擊後沒有實際行為，語意容易誤導。</p>
+        </div>
+        <button class="real-action" type="button" id="toggle-action" aria-pressed="false">
+          切換成不可操作狀態
+        </button>
+        <div class="disabled-sample" id="disabled-sample" tabindex="0" data-state="available">
+          <span class="cursor-value">cursor: pointer</span>
+          <strong>狀態會同步改變</strong>
+          <p id="disabled-copy">目前可操作，所以使用 pointer。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>scale3d 與多重 3D 轉換順序 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/240-空間轉換/04-scale3d與多重3D轉換順序.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">scale3d and transform order</p>
+      <h1>3D 縮放與轉換順序</h1>
+      <p>同樣的數值，只要 transform 函式順序不同，最後位置與角度就可能不同。</p>
+    </header>
+
+    <section class="controls" aria-label="縮放與順序控制">
+      <label>
+        <span>x 軸縮放</span>
+        <input id="scaleXRange" type="range" min="0.6" max="1.8" step="0.1" value="1.2">
+        <output id="scaleXValue">1.2</output>
+      </label>
+      <label>
+        <span>y 軸縮放</span>
+        <input id="scaleYRange" type="range" min="0.6" max="1.8" step="0.1" value="1.0">
+        <output id="scaleYValue">1.0</output>
+      </label>
+      <label>
+        <span>z 軸縮放</span>
+        <input id="scaleZRange" type="range" min="1" max="4" step="0.25" value="3">
+        <output id="scaleZValue">3</output>
+      </label>
+      <label>
+        <span>rotateY 角度</span>
+        <input id="rotateRange" type="range" min="-65" max="65" step="5" value="35">
+        <output id="rotateValue">35deg</output>
+      </label>
+    </section>
+
+    <section class="scale-demo">
+      <article class="wide-card">
+        <h2>scale3d(x, y, z)</h2>
+        <div class="stage">
+          <div class="reference-box"></div>
+          <div class="scale-box">
+            <span>scale3d</span>
+            <strong>XYZ</strong>
+          </div>
+        </div>
+        <code id="scaleCode">transform: scale3d(1.2, 1.0, 3) rotateY(35deg);</code>
+      </article>
+    </section>
+
+    <section class="order-grid" aria-label="transform 順序比較">
+      <article class="order-card">
+        <h2>順序 A</h2>
+        <div class="stage">
+          <div class="reference-box"></div>
+          <div class="order-box order-a">A</div>
+        </div>
+        <code id="orderCodeA">transform: translateZ(100px) scaleZ(3) rotateY(35deg);</code>
+      </article>
+      <article class="order-card">
+        <h2>順序 B</h2>
+        <div class="stage">
+          <div class="reference-box"></div>
+          <div class="order-box order-b">B</div>
+        </div>
+        <code id="orderCodeB">transform: rotateY(35deg) scaleZ(3) translateZ(100px);</code>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

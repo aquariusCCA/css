@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>inline-block 空白問題 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/03-行內與行內塊元素的空白問題.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">inline spacing</p>
+      <h1>原始碼空白也會成為畫面空隙</h1>
+    </header>
+
+    <section class="control-bar" aria-label="空白修正控制">
+      <label class="toggle">
+        <input id="remove-space" type="checkbox">
+        <span>父元素套用 font-size: 0</span>
+      </label>
+      <label class="toggle">
+        <input id="restore-text" type="checkbox" checked>
+        <span>子元素恢復 font-size</span>
+      </label>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>多行撰寫的 inline-block</h2>
+        <div class="stage spacing-demo">
+          <span class="chip red">xxx</span>
+          <span class="chip green">aaa</span>
+          <span class="chip blue">zzz</span>
+        </div>
+        <p class="hint">這裡沒有設定 `margin`，空隙來自元素之間的換行與空白字元。</p>
+      </article>
+
+      <article class="panel">
+        <h2>CSS 狀態</h2>
+        <pre><code id="css-state">.stage {
+  font-size: 16px;
+}
+
+.chip {
+  font-size: 16px;
+}</code></pre>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

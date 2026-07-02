@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>justify-content 主軸對齊 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/03-justify-content主軸對齊.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">justify-content</p>
+      <h1>主軸剩餘空間放在哪裡，決定項目排列的視覺結果</h1>
+    </header>
+
+    <section class="controls" aria-label="justify-content 控制">
+      <button class="active" type="button" data-value="flex-start">flex-start</button>
+      <button type="button" data-value="center">center</button>
+      <button type="button" data-value="space-between">space-between</button>
+      <button type="button" data-value="space-around">space-around</button>
+      <button type="button" data-value="space-evenly">space-evenly</button>
+    </section>
+
+    <section class="workspace">
+      <div class="stage" id="stage">
+        <span>100px</span>
+        <span>100px</span>
+        <span>100px</span>
+      </div>
+      <aside class="readout">
+        <h2>目前設定</h2>
+        <p><code id="rule">justify-content: flex-start;</code></p>
+        <p class="hint" id="hint">項目靠主軸起點，剩餘空間留在後方。</p>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

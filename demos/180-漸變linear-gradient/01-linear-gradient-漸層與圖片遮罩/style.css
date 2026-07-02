@@ -1,0 +1,345 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --ink: #20201e;
+  --muted: #64625d;
+  --line: #d9d4c9;
+  --accent: #0f766e;
+  --accent-strong: #0b4f49;
+  --warm: #e9a23b;
+  --alert: #bf4a3f;
+  --shadow: 0 18px 45px rgba(32, 32, 30, .14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+code {
+  display: block;
+  margin-top: 12px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  color: #173f3b;
+  background: #ecf7f5;
+  border: 1px solid #cde3df;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+.demo-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 56px;
+}
+
+.demo-header {
+  max-width: 780px;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent-strong);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.08;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+h3 {
+  margin-bottom: 4px;
+  font-size: 1.05rem;
+}
+
+.intro,
+.hint,
+.gradient-example p,
+.diagnostic-note {
+  color: var(--muted);
+}
+
+.panel {
+  margin-top: 22px;
+  padding: clamp(18px, 3vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(32, 32, 30, .06);
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.gradient-grid,
+.card-row,
+.lab-layout,
+.fix-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.gradient-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gradient-example {
+  min-width: 0;
+}
+
+.swatch {
+  min-height: 180px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.swatch-basic {
+  background-image:
+    linear-gradient(transparent, rgba(0, 0, 0, .62)),
+    repeating-linear-gradient(45deg, #f7d06c 0 18px, #7db6ad 18px 36px);
+}
+
+.swatch-angled {
+  background-image: linear-gradient(135deg, #fff7ad, #4f8f8b);
+}
+
+.card-row {
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  align-items: start;
+}
+
+.image-card {
+  position: relative;
+  display: block;
+  min-height: 260px;
+  overflow: hidden;
+  color: white;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.mask {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(transparent 30%, rgba(0, 0, 0, .68));
+  pointer-events: none;
+}
+
+.title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 22px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .45);
+}
+
+.title span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.title strong {
+  display: block;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+.image-card-plain .title {
+  background: rgba(0, 0, 0, .08);
+}
+
+.lab-layout,
+.fix-layout {
+  grid-template-columns: minmax(220px, .75fr) minmax(300px, 1.25fr);
+  align-items: start;
+}
+
+.controls,
+.mode-picker {
+  padding: 16px;
+  background: #fbfaf7;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.toggle,
+.mode-picker label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.toggle input,
+.mode-picker input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.hint {
+  margin-bottom: 0;
+  font-size: .95rem;
+}
+
+.interactive-card .mask {
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.interactive-card.is-mask-on:hover .mask,
+.interactive-card.is-mask-on.force-mask .mask {
+  opacity: 1;
+}
+
+.interactive-card.is-zoom-on:hover .cover {
+  transform: scale(1.18);
+}
+
+.mode-picker {
+  margin: 0;
+}
+
+.mode-picker legend {
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.stage-boundary {
+  position: relative;
+  min-height: 330px;
+  padding: 34px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(15, 118, 110, .12), transparent),
+    #f8f3e8;
+  border: 1px dashed #b9a889;
+  border-radius: 8px;
+}
+
+.diagnostic-card {
+  width: min(100%, 440px);
+  min-height: 250px;
+  margin: 0 auto;
+}
+
+.diagnostic-card .cover {
+  min-height: 250px;
+}
+
+.fix-preview[data-mode="correct"] .diagnostic-card:hover .cover,
+.fix-preview[data-mode="no-overflow"] .diagnostic-card:hover .cover,
+.fix-preview[data-mode="low-z"] .diagnostic-card:hover .cover {
+  transform: scale(1.22);
+}
+
+.fix-preview[data-mode="no-relative"] .diagnostic-card {
+  position: static;
+}
+
+.fix-preview[data-mode="no-relative"] .diagnostic-card .mask,
+.fix-preview[data-mode="no-relative"] .diagnostic-card .title {
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+}
+
+.fix-preview[data-mode="no-overflow"] .diagnostic-card {
+  overflow: visible;
+}
+
+.fix-preview[data-mode="no-overflow"] .stage-boundary {
+  overflow: visible;
+}
+
+.fix-preview[data-mode="low-z"] .diagnostic-card .mask {
+  z-index: 3;
+  background-image: linear-gradient(transparent 10%, rgba(0, 0, 0, .82));
+}
+
+.fix-preview[data-mode="low-z"] .diagnostic-card .title {
+  z-index: 1;
+}
+
+.diagnostic-note {
+  min-height: 3.2em;
+  margin: 14px 0 0;
+}
+
+@media (max-width: 760px) {
+  .demo-shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 24px;
+  }
+
+  .gradient-grid,
+  .card-row,
+  .lab-layout,
+  .fix-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .stage-boundary {
+    min-height: 280px;
+    padding: 18px;
+  }
+
+  .image-card,
+  .cover {
+    min-height: 230px;
+  }
+}

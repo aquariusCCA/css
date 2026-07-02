@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>linear-gradient 漸層與圖片遮罩 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/180-漸變linear-gradient/01-linear-gradient-漸層與圖片遮罩.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Demo</p>
+      <h1>linear-gradient 漸層與圖片遮罩</h1>
+      <p class="intro">觀察 `linear-gradient()` 如何成為背景圖像，並用在圖片下方遮罩來提升白色文字的可讀性。</p>
+    </header>
+
+    <section class="panel gradient-basics" aria-labelledby="gradient-basics-title">
+      <div class="section-heading">
+        <p class="eyebrow">background-image</p>
+        <h2 id="gradient-basics-title">漸層本身就是一張 CSS 圖像</h2>
+      </div>
+      <div class="gradient-grid">
+        <article class="gradient-example">
+          <div class="swatch swatch-basic" aria-hidden="true"></div>
+          <h3>預設方向</h3>
+          <code>linear-gradient(transparent, rgba(0, 0, 0, .6))</code>
+          <p>沒有指定方向時，漸層由上往下變化，適合讓圖片下方逐漸變暗。</p>
+        </article>
+        <article class="gradient-example">
+          <div class="swatch swatch-angled" aria-hidden="true"></div>
+          <h3>指定角度</h3>
+          <code>linear-gradient(135deg, #fff7ad, #4f8f8b)</code>
+          <p>第一個參數可以指定角度，後面的色標決定顏色如何平滑過渡。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel comparison" aria-labelledby="comparison-title">
+      <div class="section-heading">
+        <p class="eyebrow">圖片遮罩</p>
+        <h2 id="comparison-title">同一張圖片，有沒有遮罩差很多</h2>
+      </div>
+      <div class="card-row">
+        <article class="image-card image-card-plain">
+          <img class="cover" src="assets/images/linear-gradient-img-001-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+          <div class="title">
+            <span>無遮罩</span>
+            <strong>百日依山盡</strong>
+          </div>
+        </article>
+        <article class="image-card image-card-mask">
+          <img class="cover" src="assets/images/linear-gradient-img-001-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+          <div class="mask" aria-hidden="true"></div>
+          <div class="title">
+            <span>漸層遮罩</span>
+            <strong>百日依山盡</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel lab" aria-labelledby="lab-title">
+      <div class="section-heading">
+        <p class="eyebrow">hover 動態</p>
+        <h2 id="lab-title">切換遮罩與圖片放大效果</h2>
+      </div>
+      <div class="lab-layout">
+        <div class="controls" aria-label="遮罩效果控制">
+          <label class="toggle">
+            <input type="checkbox" id="toggle-mask" checked>
+            <span>顯示漸層遮罩</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="toggle-zoom" checked>
+            <span>圖片 hover 放大</span>
+          </label>
+          <p class="hint">把滑鼠移到圖片上，或切換上方選項，觀察 `opacity`、`transform` 與 `transition` 的配合。</p>
+        </div>
+        <article class="image-card interactive-card is-mask-on is-zoom-on" id="interactive-card">
+          <img class="cover" src="assets/images/linear-gradient-img-001-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+          <div class="mask" aria-hidden="true"></div>
+          <div class="title">
+            <span>互動觀察</span>
+            <strong>更清楚的圖片文字</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel fix-lab" aria-labelledby="fix-lab-title">
+      <div class="section-heading">
+        <p class="eyebrow">常見錯誤</p>
+        <h2 id="fix-lab-title">定位、裁切與疊放順序會影響遮罩</h2>
+      </div>
+      <div class="fix-layout">
+        <fieldset class="mode-picker">
+          <legend>切換狀態</legend>
+          <label>
+            <input type="radio" name="mode" value="correct" checked>
+            <span>正確設定</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="no-relative">
+            <span>缺少 position: relative</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="no-overflow">
+            <span>缺少 overflow: hidden</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="low-z">
+            <span>文字 z-index 太低</span>
+          </label>
+        </fieldset>
+
+        <div class="fix-preview" id="fix-preview" data-mode="correct">
+          <div class="stage-boundary">
+            <article class="image-card diagnostic-card">
+              <img class="cover" src="assets/images/linear-gradient-img-001-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+              <div class="mask" aria-hidden="true"></div>
+              <div class="title">
+                <span id="mode-label">正確設定</span>
+                <strong>遮罩、文字與圖片都在預期位置</strong>
+              </div>
+            </article>
+          </div>
+          <p class="diagnostic-note" id="diagnostic-note">`.box` 有 `position: relative`，遮罩和文字能以卡片為基準定位；圖片放大時也會被裁切在卡片內。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

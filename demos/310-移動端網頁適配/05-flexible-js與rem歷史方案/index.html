@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>flexible.js 與 rem 歷史方案 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/310-移動端網頁適配/05-flexible-js與rem歷史方案.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">歷史方案模擬</p>
+      <h1>flexible.js 如何設定根字級</h1>
+      <p>這個 demo 不引入外部套件，只模擬核心概念：`docEl.clientWidth / 10` 會改變 `html font-size`，再讓 rem 元素跟著縮放。</p>
+    </header>
+
+    <section class="controls" aria-label="flexible 模擬控制">
+      <label>docEl.clientWidth <input id="clientWidth" type="range" min="320" max="750" value="375"> <output id="widthOut"></output></label>
+      <button id="resizeButton" type="button">模擬 resize 後重新計算</button>
+    </section>
+
+    <section class="demo-grid">
+      <article class="phone">
+        <div class="phone-screen" id="phoneScreen">
+          <div class="top-bar">1rem header</div>
+          <div class="product-card">
+            <div class="product-media"></div>
+            <div class="product-lines">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="readout" aria-live="polite">
+        <h2>計算結果</h2>
+        <p id="remText"></p>
+        <p id="cardText"></p>
+        <pre><code>function setRemUnit() {
+  var rem = docEl.clientWidth / 10
+  docEl.style.fontSize = rem + 'px'
+}</code></pre>
+        <p class="note">新專案應先評估 viewport、媒體查詢、vw/vh、rem 與現代 CSS；flexible.js 更適合讀舊專案或維護舊方案。</p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

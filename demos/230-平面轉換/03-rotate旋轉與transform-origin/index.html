@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rotate 與 transform-origin Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/230-平面轉換/03-rotate旋轉與transform-origin.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">rotate + transform-origin</p>
+      <h1>角度決定轉多少，原點決定繞哪裡轉</h1>
+    </header>
+
+    <section class="controls" aria-label="旋轉設定">
+      <div>
+        <h2>旋轉角度</h2>
+        <div class="button-row" data-angle-buttons>
+          <button type="button" data-angle="45deg" class="is-active">45deg</button>
+          <button type="button" data-angle="-45deg">-45deg</button>
+          <button type="button" data-angle="360deg">360deg</button>
+        </div>
+      </div>
+      <div>
+        <h2>轉換原點</h2>
+        <div class="button-row" data-origin-buttons>
+          <button type="button" data-origin="center" class="is-active">center</button>
+          <button type="button" data-origin="left top">left top</button>
+          <button type="button" data-origin="right bottom">right bottom</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="rotate-grid" aria-label="旋轉與轉換原點對照">
+      <article class="rotate-card">
+        <h2>預設中心旋轉</h2>
+        <p>沒有額外設定時，等同 `transform-origin: 50% 50%`。</p>
+        <div class="stage">
+          <div class="origin-lines center-origin"></div>
+          <div class="rotate-box fixed-origin" data-fixed-box>center</div>
+        </div>
+      </article>
+      <article class="rotate-card">
+        <h2>可切換支點</h2>
+        <p>同樣的 `rotate()`，支點改變後，元素旋轉路徑也會不同。</p>
+        <div class="stage">
+          <div class="origin-lines" data-origin-marker></div>
+          <div class="rotate-box live-origin" data-live-box>origin</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="syntax-note">
+      <h2>語法提醒</h2>
+      <p>`rotate()` 的角度要帶 `deg`；`transform-origin` 的兩個值用空格分隔，例如 `right bottom`。</p>
+      <output data-status>目前設定：rotate(45deg)，transform-origin: center</output>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

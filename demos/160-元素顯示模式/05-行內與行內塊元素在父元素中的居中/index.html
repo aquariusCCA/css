@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行內與行內塊元素居中 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/160-元素顯示模式/05-行內與行內塊元素在父元素中的居中.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">inline centering</p>
+      <h1>行內內容由父元素當作文字對齊</h1>
+    </header>
+
+    <section class="control-grid" aria-label="行內居中控制">
+      <label><input id="text-align" type="checkbox" checked> 父元素 text-align: center</label>
+      <label><input id="line-height" type="checkbox" checked> 父元素 line-height 等於高度</label>
+      <label><input id="vertical-align" type="checkbox" checked> 子元素 vertical-align: middle</label>
+      <label><input id="font-zero" type="checkbox"> 父元素 font-size: 0</label>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>固定高度單行場景</h2>
+        <div class="outer">
+          <span class="badge">出來玩啊</span>
+          <input class="field" type="text" value="input">
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>目前 CSS</h2>
+        <pre><code id="css-state"></code></pre>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

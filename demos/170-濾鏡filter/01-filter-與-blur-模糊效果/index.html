@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>filter 與 blur 模糊效果 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/170-濾鏡filter/01-filter-與-blur-模糊效果.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">CSS filter</p>
+      <h1>filter 與 blur 模糊效果</h1>
+      <p class="intro">調整模糊半徑，觀察同一張圖片在不同 <code>filter: blur(...)</code> 數值下的清晰度變化。</p>
+    </header>
+
+    <section class="panel live-lab" aria-labelledby="live-lab-title">
+      <div class="section-heading">
+        <p class="eyebrow">互動觀察</p>
+        <h2 id="live-lab-title">非 0 的 blur 數值需要長度單位</h2>
+      </div>
+
+      <div class="lab-layout">
+        <form class="controls" aria-label="blur 模糊半徑控制">
+          <label class="range-control" for="blur-radius">
+            <span>模糊半徑</span>
+            <strong><output id="blur-output" for="blur-radius">5px</output></strong>
+            <input id="blur-radius" type="range" min="0" max="16" step="1" value="5">
+          </label>
+        </form>
+
+        <div class="live-preview" id="live-preview" style="--blur-radius: 5px;">
+          <div class="formula-bar" aria-live="polite">
+            <code>filter: blur(<span id="formula-value">5px</span>);</code>
+            <span id="formula-hint">半徑越大，圖片越模糊。</span>
+          </div>
+
+          <figure class="photo-stage">
+            <img src="./assets/css-filter-img-002-354aea.jpg" alt="穿黑色西裝揮手的男士照片">
+            <figcaption>目前套用：<strong id="caption-value">blur(5px)</strong></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="compare-title">
+      <div class="section-heading">
+        <p class="eyebrow">並排比較</p>
+        <h2 id="compare-title">同一張圖片，不同 blur 半徑</h2>
+      </div>
+
+      <div class="compare-grid">
+        <article class="filter-card">
+          <h3>沒有模糊</h3>
+          <div class="image-frame">
+            <img class="blur-0" src="./assets/css-filter-img-002-354aea.jpg" alt="未套用模糊濾鏡的男士照片">
+          </div>
+          <pre><code>filter: blur(0);</code></pre>
+        </article>
+
+        <article class="filter-card">
+          <h3>中等模糊</h3>
+          <div class="image-frame">
+            <img class="blur-5" src="./assets/css-filter-img-002-354aea.jpg" alt="套用 5px 模糊濾鏡的男士照片">
+          </div>
+          <pre><code>filter: blur(5px);</code></pre>
+        </article>
+
+        <article class="filter-card">
+          <h3>明顯模糊</h3>
+          <div class="image-frame">
+            <img class="blur-12" src="./assets/css-filter-img-002-354aea.jpg" alt="套用 12px 模糊濾鏡的男士照片">
+          </div>
+          <pre><code>filter: blur(12px);</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="mistake-title">
+      <div class="section-heading">
+        <p class="eyebrow">常見錯誤</p>
+        <h2 id="mistake-title">錯誤寫法會被忽略</h2>
+      </div>
+
+      <div class="mistake-grid">
+        <article class="mistake-card correct">
+          <h3>正確</h3>
+          <div class="image-frame">
+            <img class="correct-blur" src="./assets/css-filter-img-002-354aea.jpg" alt="正確套用 filter blur 的男士照片">
+          </div>
+          <pre><code>img {
+  filter: blur(5px);
+}</code></pre>
+        </article>
+
+        <article class="mistake-card warning">
+          <h3>漏掉單位</h3>
+          <div class="image-frame">
+            <img class="missing-unit" src="./assets/css-filter-img-002-354aea.jpg" alt="因 blur 數值漏單位而沒有模糊的男士照片">
+          </div>
+          <pre><code>img {
+  filter: blur(5);
+}</code></pre>
+        </article>
+
+        <article class="mistake-card warning">
+          <h3>把 blur 當屬性</h3>
+          <div class="image-frame">
+            <img class="wrong-property" src="./assets/css-filter-img-002-354aea.jpg" alt="因誤用 blur 屬性而沒有模糊的男士照片">
+          </div>
+          <pre><code>img {
+  blur: 5px;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

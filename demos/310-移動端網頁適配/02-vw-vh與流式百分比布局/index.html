@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vw、vh 與流式百分比布局 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/310-移動端網頁適配/02-vw-vh與流式百分比布局.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <h1>vw、vh 與百分比基準比較</h1>
+      <p>拖曳滑桿，觀察 `vw` 依視口寬度、`vh` 依視口高度、`%` 依父容器寬度計算。</p>
+    </header>
+
+    <section class="controls" aria-label="尺寸控制">
+      <label>視口寬度 <input id="viewportWidth" type="range" min="320" max="900" value="375"> <output id="viewportWidthOut"></output></label>
+      <label>視口高度 <input id="viewportHeight" type="range" min="480" max="900" value="667"> <output id="viewportHeightOut"></output></label>
+      <label>父容器寬度 <input id="parentWidth" type="range" min="180" max="720" value="300"> <output id="parentWidthOut"></output></label>
+    </section>
+
+    <section class="stage" aria-label="單位展示">
+      <div class="viewport-box" id="viewportBox">
+        <div class="parent-box" id="parentBox">
+          <div class="bar vw-bar"><span>50vw</span></div>
+          <div class="bar vh-bar"><span>30vh</span></div>
+          <div class="bar percent-bar"><span>50%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="readout" aria-live="polite">
+      <article>
+        <h2>50vw</h2>
+        <p id="vwText"></p>
+      </article>
+      <article>
+        <h2>30vh</h2>
+        <p id="vhText"></p>
+      </article>
+      <article>
+        <h2>50%</h2>
+        <p id="percentText"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

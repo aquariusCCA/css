@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/05-媒體查詢關鍵字與條件組合.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>媒體查詢關鍵字與條件組合 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Combining media conditions</p>
+      <h1>`and`、逗號與 `not` 的作用範圍</h1>
+      <p>縮放視窗，觀察「同時成立」、「任一成立」與「否定條件」的匹配差異。</p>
+    </header>
+
+    <section class="width-meter" aria-label="目前視口寬度">
+      <span>目前視口寬度</span>
+      <strong id="viewportWidth">-- px</strong>
+    </section>
+
+    <section class="comparison" aria-label="條件組合比較">
+      <article class="rule-card rule-card--and" data-rule="and">
+        <span class="status">未匹配</span>
+        <h2>AND：三個條件都要成立</h2>
+        <code>@media screen and (min-width: 700px) and (max-width: 800px)</code>
+        <p>只有 700px 到 800px 之間才會高亮。</p>
+      </article>
+
+      <article class="rule-card rule-card--or" data-rule="or">
+        <span class="status">未匹配</span>
+        <h2>OR：逗號分隔任一成立</h2>
+        <code>@media (max-width: 700px), (min-width: 800px)</code>
+        <p>小於等於 700px，或大於等於 800px，都會高亮。</p>
+      </article>
+
+      <article class="rule-card rule-card--not" data-rule="notHover">
+        <span class="status">未匹配</span>
+        <h2>NOT：否定括號內條件</h2>
+        <code>@media not (hover)</code>
+        <p>主要輸入方式不支援 hover 時，提供常駐提示或更明確的操作狀態。</p>
+      </article>
+    </section>
+
+    <section class="scope-note" aria-label="作用範圍提醒">
+      <h2>閱讀順序</h2>
+      <p>`and` 讀作「而且」；逗號讀作「或者」；`not` 要先看它否定的是整個查詢，還是括號內的條件。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

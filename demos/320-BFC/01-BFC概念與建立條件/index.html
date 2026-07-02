@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BFC 概念與建立條件 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/320-BFC/01-BFC概念與建立條件.md -->
+  <main class="page">
+    <header class="hero">
+      <p class="kicker">Block Formatting Context</p>
+      <h1>BFC 概念與建立條件</h1>
+      <p>BFC 是一個獨立的區塊格式化環境。這個 demo 用同一組元素觀察「同一個環境」與「建立新環境」後的佈局差異。</p>
+    </header>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="kicker">觀察一</p>
+        <h2>同一個 BFC 裡，block 會垂直排列，垂直 margin 可能重疊</h2>
+      </div>
+      <div class="stack-demo" aria-label="同一個 BFC 中的區塊排列示意">
+        <div class="containing-block">
+          <div class="block-box">Block A<br><span>margin-bottom: 36px</span></div>
+          <div class="gap-label">相鄰垂直 margin 會取較大值，不是簡單相加</div>
+          <div class="block-box alt">Block B<br><span>margin-top: 36px</span></div>
+        </div>
+        <pre class="code"><code>.block-a { margin-bottom: 36px; }
+.block-b { margin-top: 36px; }
+/* 同一個 BFC 中，相鄰垂直 margin 可能 collapse */</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="kicker">觀察二</p>
+        <h2>切換建立 BFC 的條件</h2>
+      </div>
+      <div class="mode-controls" role="group" aria-label="切換建立 BFC 的條件">
+        <button class="mode-button is-active" type="button" data-mode="none">無新 BFC</button>
+        <button class="mode-button" type="button" data-mode="flow-root">display: flow-root</button>
+        <button class="mode-button" type="button" data-mode="overflow">overflow: hidden</button>
+        <button class="mode-button" type="button" data-mode="inline-block">display: inline-block</button>
+      </div>
+
+      <div class="bfc-lab" data-current-mode="none">
+        <div class="demo-stage">
+          <div class="float-container mode-none" id="floatContainer">
+            <div class="float-child">float child</div>
+          </div>
+          <p class="after-flow">下一個普通區塊</p>
+        </div>
+        <aside class="reading-panel" aria-live="polite">
+          <p class="status-label">目前狀態</p>
+          <h3 id="modeTitle">父容器沒有建立新的 BFC</h3>
+          <p id="modeNote">float 子元素不會撐開父容器高度，邊框看起來像貼在頂部。</p>
+          <pre class="code"><code id="modeCode">.container {
+  border: 4px solid #263238;
+}</code></pre>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="kicker">觀察三</p>
+        <h2>flow-root 與 overflow: hidden 都能建立 BFC，但副作用不同</h2>
+      </div>
+      <div class="compare-grid">
+        <article class="clip-panel flow-root-panel">
+          <h3>display: flow-root</h3>
+          <div class="clip-box flow-root-box">
+            <span class="floating-badge">溢出標籤</span>
+            <p>建立 BFC，但不裁切超出邊界的內容。</p>
+          </div>
+          <pre class="code"><code>.box {
+  display: flow-root;
+}</code></pre>
+        </article>
+        <article class="clip-panel overflow-panel">
+          <h3>overflow: hidden</h3>
+          <div class="clip-box overflow-box">
+            <span class="floating-badge">溢出標籤</span>
+            <p>也會建立 BFC，但超出邊界的內容會被裁切。</p>
+          </div>
+          <pre class="code"><code>.box {
+  overflow: hidden;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

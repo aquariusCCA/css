@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BFC 常見用途與案例 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/320-BFC/02-BFC常見用途與案例.md -->
+  <main class="page">
+    <header class="hero">
+      <p class="kicker">BFC Cases</p>
+      <h1>BFC 常見用途與案例</h1>
+      <p>三個常見問題的關鍵不是背一段 CSS，而是判斷哪個元素需要建立新的格式化環境。</p>
+    </header>
+
+    <nav class="tabs" aria-label="BFC 案例切換">
+      <button class="tab-button is-active" type="button" data-case="float-collapse">float 高度塌陷</button>
+      <button class="tab-button" type="button" data-case="margin-collapse">margin 重疊</button>
+      <button class="tab-button" type="button" data-case="float-avoid">避開 float</button>
+    </nav>
+
+    <section class="case is-active" data-case-panel="float-collapse">
+      <div class="case-heading">
+        <p class="kicker">案例一</p>
+        <h2>父容器只有 float 子元素時，高度可能塌陷</h2>
+      </div>
+      <div class="before-after">
+        <article class="panel">
+          <h3>Before：父容器沒有建立 BFC</h3>
+          <div class="stage grid-stage">
+            <div class="float-shell no-bfc">
+              <div class="float-card">float</div>
+            </div>
+            <p class="next-box">後方內容靠近塌陷容器</p>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>After：讓父容器建立 BFC</h3>
+          <div class="stage grid-stage">
+            <div class="float-shell fix-bfc">
+              <div class="target-label">建立 BFC 的對象：父容器</div>
+              <div class="float-card">float</div>
+            </div>
+            <p class="next-box">後方內容被正常推開</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="case" data-case-panel="margin-collapse">
+      <div class="case-heading">
+        <p class="kicker">案例二</p>
+        <h2>相鄰 block 的垂直 margin 在同一個 BFC 中可能重疊</h2>
+      </div>
+      <div class="before-after">
+        <article class="panel">
+          <h3>Before：兩個段落在同一個 BFC</h3>
+          <div class="stage margin-stage">
+            <p class="paragraph top">Paragraph A</p>
+            <div class="measure collapse">實際間距接近 40px</div>
+            <p class="paragraph bottom">Paragraph B</p>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>After：第二個段落進入新的 BFC</h3>
+          <div class="stage margin-stage">
+            <p class="paragraph top">Paragraph A</p>
+            <div class="bfc-wrap">
+              <div class="target-label">建立 BFC 的對象：wrapper</div>
+              <p class="paragraph bottom">Paragraph B</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="case" data-case-panel="float-avoid">
+      <div class="case-heading">
+        <p class="kicker">案例三</p>
+        <h2>普通 block 可透過建立 BFC 避開前方 float</h2>
+      </div>
+      <div class="before-after">
+        <article class="panel">
+          <h3>Before：普通 block 受到 float 干擾</h3>
+          <div class="stage overlap-stage">
+            <div class="side-float">float</div>
+            <div class="normal-box no-avoid">普通 block</div>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>After：讓普通 block 建立 BFC</h3>
+          <div class="stage overlap-stage">
+            <div class="side-float">float</div>
+            <div class="normal-box avoid">
+              <div class="target-label">建立 BFC 的對象：普通 block</div>
+              普通 block
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="code-panel" aria-live="polite">
+      <div>
+        <p class="kicker">核心 CSS</p>
+        <h2 id="caseTitle">讓父容器建立 BFC</h2>
+      </div>
+      <pre class="code"><code id="caseCode">.container {
+  display: flow-root;
+}</code></pre>
+    </aside>
+  </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>order 與 align-self 單一項目調整 Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Source notes: notes/260-Flex布局/09-order與align-self單一項目調整.md -->
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">item properties</p>
+      <h1>只調整單一項目時，用 order 與 align-self 比改整個容器精準</h1>
+    </header>
+
+    <section class="controls" aria-label="單一項目調整">
+      <label><input id="orderToggle" type="checkbox"> 第二項使用 <code>order: -1</code></label>
+      <label><input id="selfToggle" type="checkbox"> 第三項使用 <code>align-self: flex-end</code></label>
+    </section>
+
+    <section class="workspace">
+      <div class="stage" id="stage">
+        <span class="item one">HTML 1</span>
+        <span class="item two" id="itemTwo">HTML 2</span>
+        <span class="item three" id="itemThree">HTML 3</span>
+      </div>
+      <aside class="readout">
+        <p><code id="orderRule">/* 第二項維持 order: 0 */</code></p>
+        <p><code id="selfRule">/* 第三項沿用 align-items */</code></p>
+        <p class="hint">order 改變的是視覺排列順序，不是 z-index；align-self 只覆蓋單一 flex item 的側軸對齊。</p>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

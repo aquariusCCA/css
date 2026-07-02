@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>transition 過渡效果基礎 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/200-過渡transition/01-transition-過渡效果基礎.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">transition</p>
+      <h1>讓狀態切換變成一段平滑變化</h1>
+      <p>`transition` 不決定終點樣式；它決定元素從舊狀態走到新狀態時，要花多久、用什麼節奏完成。</p>
+    </header>
+
+    <section class="demo-section" aria-labelledby="basic-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">狀態變化</p>
+          <h2 id="basic-title">沒有過渡會跳變，有過渡會平滑變化</h2>
+        </div>
+        <button class="action-button" id="toggleBasic" type="button" aria-pressed="false">切換狀態</button>
+      </div>
+
+      <div class="state-lab" id="basicLab">
+        <article class="comparison-panel">
+          <p class="panel-label">沒有 transition</p>
+          <div class="stage">
+            <div class="sample-card no-transition">立即改變</div>
+          </div>
+          <pre><code>.box:hover {
+  width: 220px;
+  background-color: tomato;
+}</code></pre>
+        </article>
+
+        <article class="comparison-panel">
+          <p class="panel-label">有 transition</p>
+          <div class="stage">
+            <div class="sample-card with-transition">0.5s 過渡</div>
+          </div>
+          <pre><code>.box {
+  transition: width 0.5s, background-color 0.5s;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section" aria-labelledby="syntax-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">語法欄位</p>
+          <h2 id="syntax-title">調整時間、運動曲線與延遲</h2>
+        </div>
+        <button class="action-button" id="toggleMotion" type="button" aria-pressed="false">播放過渡</button>
+      </div>
+
+      <div class="motion-grid">
+        <div class="motion-stage" id="motionLab">
+          <div class="motion-lane" aria-hidden="true">
+            <div class="runner"></div>
+          </div>
+          <pre><code id="motionCode">.box {
+  transition: left 500ms ease 0s,
+              background-color 500ms ease 0s;
+}</code></pre>
+        </div>
+
+        <aside class="controls-panel" aria-label="transition 欄位控制">
+          <div class="control-group" data-control="duration">
+            <p class="panel-label">花費時間</p>
+            <button class="option-button" type="button" data-value="150ms">150ms</button>
+            <button class="option-button is-active" type="button" data-value="500ms">500ms</button>
+            <button class="option-button" type="button" data-value="1s">1s</button>
+          </div>
+
+          <div class="control-group" data-control="easing">
+            <p class="panel-label">運動曲線</p>
+            <button class="option-button is-active" type="button" data-value="ease">ease</button>
+            <button class="option-button" type="button" data-value="linear">linear</button>
+            <button class="option-button" type="button" data-value="ease-in">ease-in</button>
+            <button class="option-button" type="button" data-value="ease-out">ease-out</button>
+          </div>
+
+          <div class="control-group" data-control="delay">
+            <p class="panel-label">開始延遲</p>
+            <button class="option-button is-active" type="button" data-value="0s">0s</button>
+            <button class="option-button" type="button" data-value="0.25s">0.25s</button>
+            <button class="option-button" type="button" data-value="0.5s">0.5s</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="demo-section" aria-labelledby="mistake-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">常見錯誤</p>
+          <h2 id="mistake-title">`transition` 通常寫在一般狀態</h2>
+        </div>
+        <button class="action-button" id="toggleMistake" type="button" aria-pressed="false">切換狀態</button>
+      </div>
+
+      <div class="mistake-lab" id="mistakeLab">
+        <article class="comparison-panel">
+          <p class="panel-label">只寫在變化後狀態</p>
+          <div class="stage">
+            <div class="mistake-box bad-box">離開時跳回</div>
+          </div>
+          <pre><code>.box.active {
+  width: 220px;
+  transition: width 0.5s;
+}</code></pre>
+        </article>
+
+        <article class="comparison-panel">
+          <p class="panel-label">寫在一般狀態</p>
+          <div class="stage">
+            <div class="mistake-box good-box">來回都平滑</div>
+          </div>
+          <pre><code>.box {
+  transition: width 0.5s;
+}
+.box.active {
+  width: 220px;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="demo-section" aria-labelledby="scope-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">指定屬性</p>
+          <h2 id="scope-title">`all` 方便，但明確列出屬性更可控</h2>
+        </div>
+        <button class="action-button" id="toggleScope" type="button" aria-pressed="false">切換狀態</button>
+      </div>
+
+      <div class="scope-lab" id="scopeLab">
+        <article class="comparison-panel">
+          <p class="panel-label">transition: all</p>
+          <div class="stage">
+            <div class="scope-box all-box">額外變化也被過渡</div>
+          </div>
+          <pre><code>transition: all 0.5s;</code></pre>
+        </article>
+
+        <article class="comparison-panel">
+          <p class="panel-label">指定 width 與 background-color</p>
+          <div class="stage">
+            <div class="scope-box specific-box">只過渡指定屬性</div>
+          </div>
+          <pre><code>transition: width 0.5s,
+            background-color 0.5s;</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

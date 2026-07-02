@@ -1,0 +1,143 @@
+:root {
+  --ink: #17202a;
+  --muted: #5d6d7e;
+  --line: #d5dde5;
+  --paper: #f8fafc;
+  --teal: #159895;
+  --coral: #e76f51;
+  --amber: #f7c948;
+  --navy: #243447;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.page {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--teal);
+  font-weight: 800;
+}
+
+h1 {
+  max-width: 880px;
+  margin: 0 0 22px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+label,
+.stage,
+.readout {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  gap: 8px;
+  padding: 0 14px;
+  font-weight: 700;
+}
+
+input {
+  width: 18px;
+  height: 18px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 18px;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 380px;
+  padding: 24px;
+  background:
+    linear-gradient(transparent 72%, rgba(247, 201, 72, .28) 72% 76%, transparent 76%),
+    white;
+}
+
+.item {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 110px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 900;
+  transition: transform .2s ease, height .2s ease;
+}
+
+.one {
+  background: var(--teal);
+}
+
+.two {
+  background: var(--coral);
+}
+
+.three {
+  background: #7c5cff;
+}
+
+.two.is-first {
+  order: -1;
+}
+
+.three.is-end {
+  align-self: flex-end;
+}
+
+.readout {
+  padding: 18px;
+}
+
+.readout p:not(.hint) {
+  margin: 0 0 10px;
+  padding: 12px;
+  border-radius: 6px;
+  color: #eef6ff;
+  background: var(--navy);
+}
+
+.hint {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 820px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+}

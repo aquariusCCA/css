@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/04-使用者偏好與輸入能力媒體特性.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使用者偏好與輸入能力媒體特性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Preference and input features</p>
+      <h1>媒體查詢也可以尊重使用者與輸入設備</h1>
+      <p>此頁會依系統深淺色、減少動畫偏好、hover 能力與 pointer 精確度調整呈現。</p>
+    </header>
+
+    <section class="preference-stage" aria-label="使用者偏好展示">
+      <article class="theme-card">
+        <h2>主題偏好</h2>
+        <p>`prefers-color-scheme` 讓顏色跟著系統偏好切換。</p>
+      </article>
+      <article class="motion-card">
+        <div class="motion-dot" aria-hidden="true"></div>
+        <h2>減少動畫</h2>
+        <p>`prefers-reduced-motion: reduce` 時，動畫會停用或大幅簡化。</p>
+      </article>
+    </section>
+
+    <section class="input-demo" aria-label="輸入能力展示">
+      <button class="action-button" type="button">互動按鈕</button>
+      <p>在 `pointer: coarse` 的環境中，按鈕點擊區域會變大；支援 hover 時才提供 hover 視覺回饋。</p>
+    </section>
+
+    <section class="status-grid" aria-label="matchMedia 狀態">
+      <article data-feature="dark">
+        <span>未匹配</span>
+        <strong>`prefers-color-scheme: dark`</strong>
+      </article>
+      <article data-feature="reducedMotion">
+        <span>未匹配</span>
+        <strong>`prefers-reduced-motion: reduce`</strong>
+      </article>
+      <article data-feature="hover">
+        <span>未匹配</span>
+        <strong>`hover: hover`</strong>
+      </article>
+      <article data-feature="anyHover">
+        <span>未匹配</span>
+        <strong>`any-hover: hover`</strong>
+      </article>
+      <article data-feature="finePointer">
+        <span>未匹配</span>
+        <strong>`pointer: fine`</strong>
+      </article>
+      <article data-feature="coarsePointer">
+        <span>未匹配</span>
+        <strong>`pointer: coarse`</strong>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

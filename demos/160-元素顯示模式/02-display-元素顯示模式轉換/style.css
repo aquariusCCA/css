@@ -1,0 +1,146 @@
+:root {
+  --ink: #26323f;
+  --muted: #657080;
+  --line: #d4dce7;
+  --accent: #9b3d2e;
+  --blue: #2c66c3;
+  --paper: #f7f9fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  color: var(--ink);
+  background: #eef3f8;
+}
+
+.demo-shell {
+  width: min(1060px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+}
+
+h2 {
+  font-size: 1.08rem;
+}
+
+.switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.mode-button {
+  min-width: 112px;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.mode-button.is-active {
+  border-color: var(--blue);
+  color: #fff;
+  background: var(--blue);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+  gap: 18px;
+}
+
+.preview,
+.facts {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  background: #fff;
+}
+
+.stage {
+  min-height: 300px;
+  border: 1px dashed #98a5b3;
+  padding: 18px;
+  background: var(--paper);
+}
+
+.demo-item {
+  width: 180px;
+  height: 58px;
+  margin: 8px;
+  padding: 14px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  background: var(--accent);
+}
+
+body[data-display="block"] .demo-item {
+  display: block;
+}
+
+body[data-display="inline"] .demo-item {
+  display: inline;
+}
+
+body[data-display="inline-block"] .demo-item {
+  display: inline-block;
+}
+
+dl {
+  margin: 0;
+}
+
+dl div {
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+
+dl div:first-child {
+  border-top: 0;
+}
+
+dt {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+dd {
+  margin: 4px 0 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+@media (max-width: 780px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

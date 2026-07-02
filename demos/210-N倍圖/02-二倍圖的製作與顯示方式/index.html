@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>二倍圖的製作與顯示方式 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/210-N倍圖/02-二倍圖的製作與顯示方式.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">210-N倍圖</p>
+      <h1>二倍圖：檔案變大，版面不變</h1>
+      <p class="lede">二倍圖提供更多實際像素細節，但仍要用 CSS 把畫面尺寸設回設計稿需要的大小。</p>
+    </header>
+
+    <section class="toggle-band" aria-label="CSS 顯示尺寸切換">
+      <label class="switch">
+        <input id="sizeToggle" type="checkbox" checked>
+        <span>套用二倍圖的 CSS 尺寸：width: 50px; height: 50px;</span>
+      </label>
+      <p id="statusText">目前二倍圖被縮回 50px x 50px，版面尺寸符合設計稿。</p>
+    </section>
+
+    <section class="compare-layout" aria-label="原圖與二倍圖對照">
+      <article class="image-panel">
+        <h2>原圖</h2>
+        <div class="slot">
+          <img class="design-size" src="./assets/apple-original.jpg" alt="綠底白色 Apple 標誌原圖">
+        </div>
+        <p class="metric">圖片檔：50 x 50</p>
+        <p class="note">顯示區也是 50px x 50px，普通螢幕足夠，高 DPR 螢幕可能細節不足。</p>
+      </article>
+
+      <article class="image-panel image-panel-strong">
+        <h2>正確使用二倍圖</h2>
+        <div class="slot">
+          <img id="twoXImage" class="two-x-image design-size" src="./assets/apple-2x.jpg" alt="綠底白色 Apple 標誌二倍圖">
+        </div>
+        <p class="metric">圖片檔：100 x 100；顯示：<span id="displaySize">50 x 50</span></p>
+        <p class="note">圖片有 2 倍實際像素，CSS 顯示尺寸仍維持設計稿大小。</p>
+      </article>
+
+      <article class="image-panel">
+        <h2>常見錯誤</h2>
+        <div class="slot slot-error">
+          <img src="./assets/apple-2x.jpg" alt="未設定 CSS 尺寸時原尺寸顯示的二倍圖">
+        </div>
+        <p class="metric">未設定 CSS 寬高：100 x 100</p>
+        <p class="note">只換大圖卻沒有設定顯示尺寸，圖片會按原始尺寸撐大版面。</p>
+      </article>
+    </section>
+
+    <section class="inspection-band" aria-label="放大觀察">
+      <div>
+        <h2>放大觀察同一個圖案</h2>
+        <p>左邊是 50 x 50 原圖放大，右邊是 100 x 100 二倍圖放大；二倍圖有更多來源像素可供瀏覽器縮放與取樣。</p>
+      </div>
+      <div class="zoom-pair">
+        <figure>
+          <img src="./assets/apple-original.jpg" alt="放大觀察的 Apple 標誌原圖">
+          <figcaption>原圖來源 50 x 50</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/apple-2x.jpg" alt="放大觀察的 Apple 標誌二倍圖">
+          <figcaption>二倍圖來源 100 x 100</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

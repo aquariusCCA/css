@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>移動端環境與視口設定 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/310-移動端網頁適配/01-移動端環境與視口設定.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="eyebrow">簡化示意</p>
+      <h1>移動端環境與視口設定</h1>
+      <p>比較沒有 viewport 設定與使用理想視口後，手機版面排版基準的差異。</p>
+    </header>
+
+    <section class="control-panel" aria-label="視口模式切換">
+      <button class="mode-button is-active" type="button" data-mode="wide">缺少 meta viewport</button>
+      <button class="mode-button" type="button" data-mode="ideal">理想視口</button>
+    </section>
+
+    <section class="phones" aria-label="視口對照">
+      <article class="phone-demo" data-phone="wide">
+        <div class="phone-frame">
+          <div class="viewport-label">layout viewport: <span>980px</span></div>
+          <div class="scaled-page">
+            <nav>Brand <span>Products</span> <span>Docs</span> <span>Support</span></nav>
+            <div class="hero-line"></div>
+            <div class="content-grid">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <h2>預設寬佈局視口</h2>
+        <p>頁面以寬版尺寸排版後縮進手機，文字和區塊都變小，容易需要手動放大。</p>
+      </article>
+
+      <article class="phone-demo" data-phone="ideal">
+        <div class="phone-frame">
+          <div class="viewport-label">layout viewport: <span>device-width</span></div>
+          <div class="mobile-page">
+            <nav>Brand <button type="button">Menu</button></nav>
+            <div class="mobile-card">清楚可讀的手機版內容</div>
+            <div class="mobile-stack">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <h2>理想視口</h2>
+        <p>`width=device-width` 讓佈局基準接近設備寬度，手機上不必先縮小整張 PC 版面。</p>
+      </article>
+    </section>
+
+    <section class="code-note" aria-label="meta viewport 寫法">
+      <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+      <p>正式頁面不建議用 `user-scalable=no` 禁止縮放。</p>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

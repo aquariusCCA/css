@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid 對齊 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/280-多列布局/05-Grid對齊-items-content與self.md -->
+  <main class="page">
+    <header class="demo-header">
+      <p class="eyebrow">CSS Grid Demo</p>
+      <h1>Grid 對齊：items、content 與 self</h1>
+      <p>用三個相同尺寸的容器比較：所有 item、整個 grid、單一 item 分別如何對齊。</p>
+    </header>
+
+    <section class="control-bar" aria-label="alignment controls">
+      <label>
+        <span>對齊值</span>
+        <select id="align-value">
+          <option value="start">start</option>
+          <option value="center" selected>center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+        </select>
+      </label>
+      <p id="value-note">目前值會套用到三個面板，但作用對象不同。</p>
+    </section>
+
+    <section class="panels">
+      <article class="panel">
+        <h2>items：所有項目在格子內</h2>
+        <div id="items-grid" class="demo-grid items-grid">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+        </div>
+        <pre><code id="items-code"></code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>content：整個 Grid 在容器內</h2>
+        <div id="content-grid" class="demo-grid content-grid">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+        </div>
+        <pre><code id="content-code"></code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>self：單一項目覆寫</h2>
+        <div id="self-grid" class="demo-grid self-grid">
+          <div class="self-target">A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+        </div>
+        <pre><code id="self-code"></code></pre>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

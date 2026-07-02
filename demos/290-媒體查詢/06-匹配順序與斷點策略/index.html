@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <!-- Source notes: notes/290-媒體查詢/06-匹配順序與斷點策略.md -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>匹配順序與斷點策略 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo">
+    <header class="demo__header">
+      <p class="eyebrow">Cascade and breakpoints</p>
+      <h1>多條媒體查詢會一起匹配，最後仍由層疊決定</h1>
+      <p>縮放視窗到 1024px 以上，觀察同樣三條條件在不同書寫順序下會產生不同結果。</p>
+    </header>
+
+    <section class="meter" aria-label="目前視口寬度">
+      <span>目前視口寬度</span>
+      <strong id="viewportWidth">-- px</strong>
+    </section>
+
+    <section class="order-comparison" aria-label="斷點順序比較">
+      <article class="strategy strategy--good">
+        <h2>移動優先：`min-width` 小到大</h2>
+        <div class="result result--good">
+          <span>最後背景</span>
+          <strong id="goodWinner">--</strong>
+        </div>
+        <ol class="rule-list">
+          <li data-good-rule="320">`min-width: 320px` → red</li>
+          <li data-good-rule="800">`min-width: 800px` → green</li>
+          <li data-good-rule="1024">`min-width: 1024px` → blue</li>
+        </ol>
+      </article>
+
+      <article class="strategy strategy--bad">
+        <h2>錯誤示範：`min-width` 大到小</h2>
+        <div class="result result--bad">
+          <span>最後背景</span>
+          <strong id="badWinner">--</strong>
+        </div>
+        <ol class="rule-list">
+          <li data-bad-rule="1024">`min-width: 1024px` → blue</li>
+          <li data-bad-rule="800">`min-width: 800px` → green</li>
+          <li data-bad-rule="320">`min-width: 320px` → red</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="desktop-first" aria-label="桌面優先策略">
+      <h2>桌面優先：`max-width` 通常大到小</h2>
+      <div class="desktop-rules">
+        <span data-desktop-rule="1024">`max-width: 1024px`</span>
+        <span data-desktop-rule="768">`max-width: 768px`</span>
+        <span data-desktop-rule="420">`max-width: 420px`</span>
+      </div>
+      <p>`max-width` 是從寬螢幕往窄螢幕覆蓋，越窄的規則通常放得越後面。</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
