@@ -38,6 +38,13 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `atomic/` 或 `origin/` 內容。
 - 已同步 `meta/chapter-status.md`：`atomic 內容審查` 標記為 `已完成`，完成率更新為 `43%`，下一步更新為 `notes 生成`。
 
+### 2026-07-02（Notes 生成）
+
+- 已依 `atomic/170-濾鏡filter/01-filter-與-blur-模糊效果.md` 產生正式教學筆記。
+- 已新增 `notes/170-濾鏡filter/01-filter-與-blur-模糊效果.md`，共 1 篇 notes。
+- 筆記保留 `source_atomic` 來源追溯，並沿用 `../../origin/170-濾鏡filter/assets/images/` 下的本地圖片引用。
+- 已同步 `meta/chapter-status.md`：`notes 生成` 標記為 `已完成`，完成率更新為 `50%`，下一步更新為 `notes 完成檢查`。
+
 ## 下一步
 
-- 進入 notes 生成。
+- 進入 notes 完成檢查。
