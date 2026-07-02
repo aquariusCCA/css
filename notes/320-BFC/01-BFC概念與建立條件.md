@@ -75,10 +75,11 @@ BFC 是其中一種，完整名稱是 Block Formatting Context，也就是區塊
 - `display: inline-block` 的元素。
 - `display: flow-root` 的元素。
 - table 相關顯示值，例如 `table-cell`、`table-caption` 等。
-- flex item 或 grid item 在特定條件下也可能建立 BFC。
+- flex item 或 grid item：也就是 flex/grid 容器的直接子元素，且該 item 本身不是 flex、grid 或 table container。
 - `contain: layout`、`contain: content`、`contain: paint` 的元素。
 - `container-type` 不為 `normal` 的元素。
 - 多欄布局相關條件，例如 `column-count` 或 `column-width` 不為 `auto`。
+- `column-span: all` 的元素。
 
 對初學者來說，最常遇到、也最容易拿來解決問題的是：
 

@@ -177,7 +177,7 @@ opacity: 1;
 如果同時需要位移、縮放、旋轉，應寫在同一個 `transform` 中：
 
 ```css
-transform: translate() scale() rotate();
+transform: translate(20px, 0) scale(1.2) rotate(15deg);
 ```
 
 例如：

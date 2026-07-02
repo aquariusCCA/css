@@ -45,6 +45,12 @@
 - 筆記保留 `source_atomic` 來源追溯，並沿用 `../../origin/170-濾鏡filter/assets/images/` 下的本地圖片引用。
 - 已同步 `meta/chapter-status.md`：`notes 生成` 標記為 `已完成`，完成率更新為 `50%`，下一步更新為 `notes 完成檢查`。
 
+### 2026-07-02（Notes 完成檢查）
+
+- 使用者已完成 `notes/170-濾鏡filter/` 正式教學筆記內容審查，審查範圍共 1 篇 notes。
+- 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
+- 已同步 `meta/chapter-status.md`：`notes 完成檢查` 標記為 `已完成`，完成率更新為 `57%`，下一步更新為 `notes 索引元資料`。
+
 ## 下一步
 
-- 進入 notes 完成檢查。
+- 進入 notes 索引元資料標記。

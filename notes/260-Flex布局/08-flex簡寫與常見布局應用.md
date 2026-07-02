@@ -113,6 +113,14 @@ section div:nth-child(2) {
 ## 不同比例分配
 
 ```css
+.box-wrap {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  height: 200px;
+  border: 1px solid #666;
+}
+
 .box-1 {
   width: 100px;
 }
@@ -126,9 +134,15 @@ section div:nth-child(2) {
 }
 ```
 
-這表示 `.box-2` 和 `.box-3` 分配剩餘空間時，比例是 `3 : 1`。
+```html
+<div class="box-wrap">
+  <div class="box box-1"></div>
+  <div class="box box-2"></div>
+  <div class="box box-3"></div>
+</div>
+```
 
-![三個 span 設定 flex: 1 後平均分配寬度](../../origin/260-Flex布局/assets/images/flex-item-properties-img-009-728b60.png)
+這表示 `.box-2` 和 `.box-3` 分配剩餘空間時，比例是 `3 : 1`。
 
 ## 常見錯誤
 

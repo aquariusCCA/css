@@ -22,11 +22,6 @@ source_atomic:
 
 另一個常見情境是按鈕、標籤、導覽列項目等固定高度盒子中，只有一行文字需要垂直置中。這時也常用 `line-height` 解決。
 
-補充參考：
-
-- [CSS] 關於 line-height 的行距觀念 (https://app.notion.com/p/CSS-line-height-20e659be15dd806190e0ec4d34a61a4c?pvs=21)
-- 深入 CSS 之 line-height 應用 (https://app.notion.com/p/CSS-line-height-20e659be15dd8070b418e3a8bf96e8e9?pvs=21)
-
 ## line-height 是什麼
 
 `line-height` 屬性用於設定行間的距離，也就是每一行文字所佔的高度。
