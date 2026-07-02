@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/260-Flex布局/04-justify-content主軸對齊.md
+topics:
+  - justify-content
+  - 主軸對齊
+  - 剩餘空間分配
+  - space-between
+  - space-evenly
+summary: "說明 justify-content 如何在主軸上分配剩餘空間，並比較常見間距值。"
 ---
 
 # justify-content 主軸對齊

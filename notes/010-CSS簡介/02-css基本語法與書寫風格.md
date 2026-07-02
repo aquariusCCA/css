@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/010-CSS簡介/03-css語法規範.md
   - atomic/010-CSS簡介/04-css代碼風格.md
+topics:
+  - CSS 基本語法
+  - 選擇器
+  - 宣告區塊
+  - 屬性與屬性值
+  - CSS 書寫風格
+summary: "拆解 CSS 規則的組成，說明選擇器、聲明與展開式書寫的入門規範。"
 ---
 
 # CSS 基本語法與書寫風格

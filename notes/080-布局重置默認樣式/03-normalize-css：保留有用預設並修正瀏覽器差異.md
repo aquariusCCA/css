@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/080-布局重置默認樣式/05-normalize-css-概念與目的.md
   - atomic/080-布局重置默認樣式/06-normalize-css-源碼與使用方式.md
+topics: [Normalize.css, reset.css, 跨瀏覽器差異, 基礎樣式, 可用性]
+summary: "說明 Normalize.css 的策略、用途與和 reset.css 的差異。"
 ---
 
 # Normalize.css：保留有用預設並修正瀏覽器差異

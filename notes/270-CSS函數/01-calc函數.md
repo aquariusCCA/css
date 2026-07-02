@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/270-CSS函數/01-calc函數.md
+topics: [calc, CSS函數, CSS計算式, 混合單位, 值型別]
+summary: "說明如何用 calc() 在 CSS 屬性值中混合單位計算尺寸，並注意運算符空白與值型別限制。"
 ---
 
 # calc() 函數：在 CSS 屬性值中進行計算

@@ -3,6 +3,13 @@ source_atomic:
   - atomic/110-文本屬性/10-text-overflow-屬性與生效條件.md
   - atomic/110-文本屬性/11-單行文本溢出省略號.md
   - atomic/110-文本屬性/12-多行文本溢出省略號.md
+topics:
+  - text-overflow
+  - 文本溢出
+  - 單行省略號
+  - 多行省略號
+  - line-clamp
+summary: "說明文字溢出省略號的生效條件，並比較單行與多行截斷方案。"
 ---
 
 # text-overflow 文本溢出與省略號

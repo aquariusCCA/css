@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/230-平面轉換/03-translate雙開門效果.md
+topics: [translateX, 偽元素, 雙開門效果, overflow hidden, transition]
+summary: "說明用偽元素與 translateX 製作 hover 雙開門動畫。"
 ---
 
 # translate 雙開門效果

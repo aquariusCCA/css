@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/150-CSS定位/04-relative-相對定位.md
+topics: [relative, 相對定位, 邊偏移, 佔位, 子絕父相]
+summary: "說明 relative 會相對自身原位偏移、保留佔位，並常作為 absolute 的參照父級。"
 ---
 
 # relative：相對定位

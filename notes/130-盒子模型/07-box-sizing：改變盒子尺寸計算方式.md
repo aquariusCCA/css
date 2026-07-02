@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/130-盒子模型/14-box-sizing-盒模型計算方式.md
+topics: [box-sizing, content-box, border-box, 盒子尺寸, 全局設定]
+summary: "說明 box-sizing 如何改變寬高計算與實務常用設定。"
 ---
 
 # box-sizing：改變盒子尺寸計算方式

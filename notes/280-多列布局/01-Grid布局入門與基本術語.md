@@ -3,6 +3,8 @@ source_atomic:
   - atomic/280-多列布局/01-Grid布局簡介與Flex差異.md
   - atomic/280-多列布局/02-Grid容器項目與基本術語.md
   - atomic/280-多列布局/03-display啟用Grid容器.md
+topics: [CSS Grid, 二維布局, Grid 容器, Grid item, 網格線]
+summary: "說明 Grid 的二維布局概念、基本術語與啟用方式。"
 ---
 
 # Grid 布局入門與基本術語

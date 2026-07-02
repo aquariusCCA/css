@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/230-平面轉換/05-rotate旋轉語法.md
   - atomic/230-平面轉換/06-transform-origin轉換原點.md
+topics: [rotate, transform-origin, 旋轉原點, deg, hover 動畫]
+summary: "說明 rotate 旋轉語法與 transform-origin 轉換原點設定。"
 ---
 
 # rotate 旋轉與 transform-origin 轉換原點

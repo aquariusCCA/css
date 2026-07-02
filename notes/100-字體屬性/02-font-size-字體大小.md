@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/100-字體屬性/03-font-size-字體大小.md
+topics: [font-size, 字體大小, CSS 單位, 瀏覽器預設樣式]
+summary: "說明如何設定文字大小、避免漏寫單位，並處理 body 基準與標題預設樣式差異。"
 ---
 
 # font-size：設定文字大小

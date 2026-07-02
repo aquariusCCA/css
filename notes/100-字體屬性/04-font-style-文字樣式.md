@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/100-字體屬性/05-font-style-文字樣式.md
+topics: [font-style, 斜體, 語意與視覺, HTML 語意標籤]
+summary: "說明如何用 font-style 控制斜體，並區分 em/i 的語意與 CSS 視覺呈現。"
 ---
 
 # font-style：設定文字是否傾斜

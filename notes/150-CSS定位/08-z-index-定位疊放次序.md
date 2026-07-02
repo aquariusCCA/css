@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/150-CSS定位/13-z-index-定位疊放次序.md
+topics: [z-index, 疊放次序, 定位元素, 層疊上下文, 書寫順序]
+summary: "說明 z-index 如何控制重疊元素前後次序，以及定位元素、數值與層疊上下文的限制。"
 ---
 
 # z-index：定位疊放次序

@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/180-漸變linear-gradient/01-linear-gradient-基本語法.md
   - atomic/180-漸變linear-gradient/02-linear-gradient-圖片遮罩實戰.md
+topics: [linear-gradient, background-image, 圖片遮罩, 疊放順序, hover 動態]
+summary: "說明 linear-gradient 的語法與圖片遮罩疊層實作。"
 ---
 
 # linear-gradient：建立線性漸層與圖片遮罩

@@ -3,6 +3,8 @@ source_atomic:
   - atomic/280-多列布局/10-justify-items-align-items-place-items.md
   - atomic/280-多列布局/11-justify-content-align-content-place-content.md
   - atomic/280-多列布局/16-justify-self-align-self-place-self.md
+topics: [Grid 對齊, justify-items, align-items, justify-content, place-self]
+summary: "說明 Grid 中 items、content 與 self 三類對齊屬性的差異。"
 ---
 
 # Grid 對齊：items、content 與 self

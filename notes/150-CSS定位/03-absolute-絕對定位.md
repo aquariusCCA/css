@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/150-CSS定位/05-absolute-絕對定位參照點與特性.md
+topics: [absolute, 絕對定位, 脫離文檔流, 定位祖先, 包含塊]
+summary: "說明 absolute 如何脫標並依最近定位祖先建立參照，避免誤認為永遠相對視口。"
 ---
 
 # absolute：絕對定位

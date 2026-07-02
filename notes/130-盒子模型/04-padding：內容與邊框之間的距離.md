@@ -3,6 +3,8 @@ source_atomic:
   - atomic/130-盒子模型/07-padding-基本語法.md
   - atomic/130-盒子模型/08-padding-影響盒子實際大小.md
   - atomic/130-盒子模型/09-padding-不影響盒子大小的情況.md
+topics: [padding, 內邊距, 盒子尺寸, 簡寫語法, 點擊區域]
+summary: "說明 padding 的方向語法、尺寸影響與實務使用情境。"
 ---
 
 # padding：內容與邊框之間的距離

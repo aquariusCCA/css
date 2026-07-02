@@ -3,6 +3,8 @@ source_atomic:
   - atomic/280-多列布局/13-grid-line項目定位.md
   - atomic/280-多列布局/14-grid-column與grid-row簡寫.md
   - atomic/280-多列布局/15-grid-area項目區域定位.md
+topics: [Grid item 定位, grid-column, grid-row, grid-area, span]
+summary: "說明 Grid item 如何用網格線、簡寫與區域名稱定位。"
 ---
 
 # Grid 項目定位：grid line、grid-column、grid-row 與 grid-area

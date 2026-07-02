@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/190-鼠標樣式cursor/01-cursor-系統預設游標樣式.md
   - atomic/190-鼠標樣式cursor/02-cursor-url-自訂游標.md
+topics:
+  - cursor
+  - 游標樣式
+  - 自訂游標
+  - fallback
+  - 互動提示
+summary: "說明 cursor 如何設定系統預設與自訂游標，並強調 fallback 與互動語意一致性。"
 ---
 
 # cursor：游標樣式與自訂游標

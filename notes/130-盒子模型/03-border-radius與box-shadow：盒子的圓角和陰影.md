@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/130-盒子模型/05-border-radius-圓角邊框.md
   - atomic/130-盒子模型/15-box-shadow-盒子陰影.md
+topics: [border-radius, box-shadow, 圓角, 陰影, 視覺效果]
+summary: "說明盒子圓角與陰影的語法、效果和版面影響。"
 ---
 
 # border-radius 與 box-shadow：盒子的圓角和陰影

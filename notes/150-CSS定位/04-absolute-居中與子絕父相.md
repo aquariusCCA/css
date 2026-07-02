@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/150-CSS定位/06-absolute-絕對定位盒子居中.md
   - atomic/150-CSS定位/07-子絕父相.md
+topics: [absolute 居中, 子絕父相, transform, 負 margin, 定位參照]
+summary: "說明絕對定位居中的常見寫法，以及子元素 absolute、父元素 relative 的參照模式。"
 ---
 
 # absolute 居中與子絕父相

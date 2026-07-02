@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/070-元素的顯示與隱藏/02-display-顯示和隱藏.md
   - atomic/070-元素的顯示與隱藏/03-visibility-顯示和隱藏.md
+topics: [display none, visibility hidden, 元素隱藏, 版面佔位]
+summary: "比較 display: none 與 visibility: hidden 在隱藏元素時是否保留原本版面位置。"
 ---
 
 # display: none 與 visibility: hidden：隱藏元素時是否保留位置

@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/320-BFC/01-BFC概念與佈局規則.md
   - atomic/320-BFC/02-建立BFC的條件.md
+topics: [BFC, Formatting Context, 建立 BFC, block-level box, 外邊距合併]
+summary: "說明 BFC 作為獨立區塊格式化環境的排列規則、建立條件與使用判斷。"
 ---
 
 # BFC 概念與建立條件

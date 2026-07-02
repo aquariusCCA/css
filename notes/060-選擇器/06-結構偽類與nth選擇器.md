@@ -3,6 +3,13 @@ source_atomic:
   - atomic/060-選擇器/15-結構偽類選擇器.md
   - atomic/060-選擇器/16-nth-child選擇器.md
   - atomic/060-選擇器/17-nth-child與nth-of-type差異.md
+topics:
+  - 結構偽類
+  - nth-child
+  - nth-of-type
+  - 位置選取
+  - nth 公式
+summary: "說明如何依元素位置與 nth 公式選取項目，並比較 nth-child 與 nth-of-type。"
 ---
 
 # 結構偽類與 nth 選擇器

@@ -3,6 +3,8 @@ source_atomic:
   - atomic/230-平面轉換/01-平面轉換與二維座標.md
   - atomic/230-平面轉換/02-translate位移語法與特性.md
   - atomic/230-平面轉換/04-translate不影響佈局與置中應用.md
+topics: [transform, translate, 2D 轉換, 視覺位移, 絕對定位置中]
+summary: "說明 transform 與 translate 的位移語法、特性和置中應用。"
 ---
 
 # transform 基礎與 translate 位移

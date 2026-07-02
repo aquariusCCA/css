@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/260-Flex布局/15-order排列順序.md
   - atomic/260-Flex布局/16-align-self單一項目側軸對齊.md
+topics:
+  - order
+  - align-self
+  - 單一項目調整
+  - 視覺順序
+  - 側軸局部對齊
+summary: "說明如何用 order 與 align-self 調整單一 Flex 項目的順序與側軸對齊。"
 ---
 
 # order 與 align-self 單一項目調整

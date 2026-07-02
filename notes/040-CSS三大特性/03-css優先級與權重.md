@@ -4,6 +4,13 @@ source_atomic:
   - atomic/040-CSS三大特性/06-優先級注意點.md
   - atomic/040-CSS三大特性/07-權重的疊加.md
   - atomic/040-CSS三大特性/08-優先級練習題.md
+topics:
+  - 選擇器優先級
+  - specificity
+  - 四欄權重
+  - "!important"
+  - 權重疊加
+summary: "說明如何用四欄權重判斷選擇器勝負，並釐清 important、繼承與宣告順序的關係。"
 ---
 
 # CSS 優先級與權重：判斷哪個選擇器勝出

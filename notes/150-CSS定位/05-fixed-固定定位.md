@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/150-CSS定位/08-fixed-固定定位.md
   - atomic/150-CSS定位/09-fixed-固定在版心右側.md
+topics: [fixed, 固定定位, 視口, 脫離文檔流, 版心]
+summary: "說明 fixed 相對視口固定、不隨滾動移動，並整理固定在版心右側的計算方式。"
 ---
 
 # fixed：固定定位

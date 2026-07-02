@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/060-選擇器/18-常見偽元素選擇器.md
   - atomic/060-選擇器/19-before與after偽元素.md
+topics:
+  - 偽元素
+  - before/after
+  - content 屬性
+  - 裝飾性內容
+  - 文字局部樣式
+summary: "說明偽元素如何選取文字局部或生成裝飾內容，並強調 content 與語意邊界。"
 ---
 
 # 偽元素與 before / after

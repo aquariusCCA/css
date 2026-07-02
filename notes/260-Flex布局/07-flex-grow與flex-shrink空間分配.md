@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/260-Flex布局/11-flex-grow剩餘空間分配.md
   - atomic/260-Flex布局/13-flex-shrink超出空間壓縮.md
+topics:
+  - flex-grow
+  - flex-shrink
+  - 剩餘空間
+  - 超出空間
+  - Flex 空間分配
+summary: "說明 flex-grow 與 flex-shrink 分別如何處理剩餘空間與超出空間。"
 ---
 
 # flex-grow 與 flex-shrink 空間分配

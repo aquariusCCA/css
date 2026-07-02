@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/130-盒子模型/13-margin-負值運用.md
+topics: [負 margin, 邊框重疊, hover 狀態, position, z-index]
+summary: "說明負 margin 處理相鄰邊框重疊與 hover 層級問題。"
 ---
 
 # margin 負值：讓相鄰邊框重疊

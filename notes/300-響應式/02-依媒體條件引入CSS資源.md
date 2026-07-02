@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/300-響應式/03-依媒體條件引入CSS資源.md
+topics: [link media, CSS 拆檔, 媒體條件, min-width, 樣式覆蓋]
+summary: "說明如何用 link 的 media 屬性依條件載入 CSS，並處理多個樣式表同時成立時的覆蓋順序。"
 ---
 
 # 依媒體條件引入 CSS 資源

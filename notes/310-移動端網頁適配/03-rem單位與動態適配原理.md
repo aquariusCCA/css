@@ -3,6 +3,8 @@ source_atomic:
   - atomic/310-移動端網頁適配/07-rem-單位基礎與-em-對比.md
   - atomic/310-移動端網頁適配/08-媒體查詢與-rem-動態尺寸.md
   - atomic/310-移動端網頁適配/09-rem-適配原理與換算.md
+topics: [rem, em, 根字級, 媒體查詢, rem 換算]
+summary: "說明 rem 與 em 的基準差異，以及透過根字級動態控制整頁尺寸的換算原理。"
 ---
 
 # rem 單位與動態適配原理

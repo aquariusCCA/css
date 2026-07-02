@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/310-移動端網頁適配/11-flexible-js-與-rem-開發方案.md
+topics: [flexible.js, amfe-flexible, rem 適配, 根字級, 舊方案維護]
+summary: "說明 flexible.js 以 JavaScript 動態設定根字級的歷史 rem 方案與現代取捨。"
 ---
 
 # flexible.js 與 rem 歷史方案

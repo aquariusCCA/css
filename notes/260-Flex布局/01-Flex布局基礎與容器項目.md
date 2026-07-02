@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/260-Flex布局/01-Flex彈性布局與基本原理.md
   - atomic/260-Flex布局/02-Flex容器屬性總覽.md
+topics:
+  - Flex 布局
+  - Flex 容器
+  - Flex 項目
+  - 容器屬性
+  - 項目屬性
+summary: "說明 Flex 如何由父容器控制直接子項目的排列、對齊與空間分配。"
 ---
 
 # Flex 布局基礎與容器項目

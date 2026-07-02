@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/200-過渡transition/01-transition-基本概念與語法.md
   - atomic/200-過渡transition/02-transition-hover-過渡範例.md
+topics: [transition, 過渡效果, hover 互動, 運動曲線, 可過渡屬性]
+summary: "說明 transition 如何讓狀態變化平滑化，並整理語法欄位、hover 搭配與常見錯誤。"
 ---
 
 # transition 過渡效果基礎

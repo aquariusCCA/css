@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/240-空間轉換/06-3D旋轉與各軸旋轉.md
   - atomic/240-空間轉換/07-rotate3d自訂軸旋轉.md
+topics:
+  - 3D 旋轉
+  - rotate3d
+  - 自訂旋轉軸
+  - 左手準則
+  - rotateZ
+summary: "說明 3D 旋轉如何沿 x、y、z 軸或自訂軸轉動，並釐清 rotate3d 的向量參數。"
 ---
 
 # 3D 旋轉與 rotate3d

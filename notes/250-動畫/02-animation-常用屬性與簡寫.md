@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/250-動畫/04-animation常用屬性.md
   - atomic/250-動畫/06-animation簡寫屬性.md
+topics: [animation 屬性, animation 簡寫, 播放次數, 播放方向, 結束狀態]
+summary: "說明 animation-* 屬性如何控制動畫播放方式，並整理簡寫中的時間與狀態判讀。"
 ---
 
 # animation 常用屬性與簡寫

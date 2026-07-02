@@ -3,6 +3,13 @@ source_atomic:
   - atomic/040-CSS三大特性/02-css繼承性基本規則.md
   - atomic/040-CSS三大特性/03-行高的繼承.md
   - atomic/040-CSS三大特性/04-繼承失效的特殊情況.md
+topics:
+  - 繼承性
+  - 可繼承屬性
+  - line-height
+  - 瀏覽器預設樣式
+  - inherit
+summary: "說明 CSS 繼承性的基本規則、常見例外，以及如何明確要求元素沿用父層值。"
 ---
 
 # CSS 繼承性：讓子元素沿用父層樣式

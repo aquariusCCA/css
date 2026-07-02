@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/250-動畫/05-animation-timing-function與steps步長.md
+topics: [animation-timing-function, steps(), 速度曲線, 分步動畫, 打字機效果]
+summary: "說明動畫速度曲線與 steps() 的差異，以及如何製作逐格或打字機類效果。"
 ---
 
 # animation-timing-function 與 steps 步長

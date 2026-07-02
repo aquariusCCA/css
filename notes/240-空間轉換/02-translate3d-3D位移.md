@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/240-空間轉換/05-3D位移translate3d.md
+topics:
+  - translate3d
+  - 3D 位移
+  - translateZ
+  - z 軸位移
+  - perspective
+summary: "說明 translate3d 如何控制 x、y、z 三軸位移，以及 z 軸位移為何常需搭配透視。"
 ---
 
 # translate3d：3D 位移

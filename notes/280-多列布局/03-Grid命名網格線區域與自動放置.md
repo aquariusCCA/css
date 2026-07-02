@@ -3,6 +3,8 @@ source_atomic:
   - atomic/280-多列布局/06-命名網格線與Grid布局實例.md
   - atomic/280-多列布局/08-grid-template-areas區域命名.md
   - atomic/280-多列布局/09-grid-auto-flow自動放置順序.md
+topics: [命名網格線, grid-template-areas, grid-auto-flow, dense, 區域命名]
+summary: "說明 Grid 線名、區域命名與自動放置順序的用法。"
 ---
 
 # Grid 命名網格線、區域與自動放置

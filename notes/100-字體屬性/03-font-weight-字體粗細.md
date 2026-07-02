@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/100-字體屬性/04-font-weight-字體粗細.md
+topics: [font-weight, 字重, 視覺層級, 字體支援]
+summary: "說明 normal、bold 與數字字重的用法，以及字體檔支援不足時的顯示限制。"
 ---
 
 # font-weight：設定文字粗細

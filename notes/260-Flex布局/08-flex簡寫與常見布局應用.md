@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/260-Flex布局/12-flex-grow導覽列應用.md
   - atomic/260-Flex布局/14-flex簡寫屬性.md
+topics:
+  - flex 簡寫
+  - "flex: 1"
+  - 導覽列平均分配
+  - 左右固定中間自適應
+  - 比例分配
+summary: "說明 flex 簡寫如何整合 grow、shrink、basis，並應用於常見彈性版面。"
 ---
 
 # flex 簡寫與常見布局應用

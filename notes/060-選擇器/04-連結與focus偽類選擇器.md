@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/060-選擇器/12-鏈接偽類選擇器.md
   - atomic/060-選擇器/13-focus偽類選擇器.md
+topics:
+  - 偽類選擇器
+  - 連結偽類
+  - LVHA 順序
+  - focus 狀態
+  - 互動狀態
+summary: "說明連結與表單焦點狀態如何用偽類選取，並建立 LVHA 書寫順序觀念。"
 ---
 
 # 連結與 focus 偽類選擇器

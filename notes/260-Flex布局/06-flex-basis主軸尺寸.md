@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/260-Flex布局/10-flex-basis主軸尺寸.md
+topics:
+  - flex-basis
+  - 主軸尺寸
+  - 初始尺寸
+  - width/height 關係
+  - Flex 尺寸計算
+summary: "說明 flex-basis 作為項目初始主軸尺寸，如何成為 grow 與 shrink 計算基礎。"
 ---
 
 # flex-basis 主軸尺寸

@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/090-顏色/05-hsl-與-hsla-顏色值.md
+topics:
+  - HSL 色值
+  - HSLA
+  - hue
+  - saturation
+  - lightness
+summary: "說明 HSL 如何用色調、飽和度與亮度描述顏色，並加入 alpha 透明度。"
 ---
 
 # HSL 與 HSLA 顏色值

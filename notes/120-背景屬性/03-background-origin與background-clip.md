@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/120-背景屬性/10-background-origin-背景圖原點.md
   - atomic/120-背景屬性/11-background-clip-背景裁剪.md
+topics: [background-origin, background-clip, 盒模型區域, 文字背景效果]
+summary: "比較背景定位原點與裁剪範圍，說明它們如何對應 border、padding、content 區域。"
 ---
 
 # background-origin 與 background-clip：背景從哪裡開始、裁到哪裡

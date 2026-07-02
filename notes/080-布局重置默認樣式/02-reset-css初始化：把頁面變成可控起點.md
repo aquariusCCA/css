@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/080-布局重置默認樣式/03-reset-css-核心概念與初始化範例.md
   - atomic/080-布局重置默認樣式/04-常見-reset-css-範例.md
+topics: [reset.css, 初始化樣式, 默認樣式重置, 表單樣式, 可用性]
+summary: "拆解 reset.css 常見規則，說明初始化與設計樣式的差別。"
 ---
 
 # reset.css 初始化：把頁面變成可控起點

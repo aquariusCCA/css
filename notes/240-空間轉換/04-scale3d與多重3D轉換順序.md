@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/240-空間轉換/08-3D縮放scale3d.md
   - atomic/240-空間轉換/09-多重3D轉換的書寫順序.md
+topics:
+  - scale3d
+  - scaleZ
+  - 3D 縮放
+  - transform 順序
+  - 多重 3D 轉換
+summary: "說明 scale3d 與 scaleZ 的三軸縮放規則，以及多個 transform 函式的順序影響。"
 ---
 
 # scale3d 與多重 3D 轉換順序

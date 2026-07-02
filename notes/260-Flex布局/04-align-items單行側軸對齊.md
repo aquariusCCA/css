@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/260-Flex布局/05-align-items單行側軸對齊.md
+topics:
+  - align-items
+  - 側軸對齊
+  - 單行對齊
+  - stretch
+  - baseline
+summary: "說明 align-items 如何控制單行項目在側軸上的對齊，並釐清 stretch 生效條件。"
 ---
 
 # align-items 單行側軸對齊

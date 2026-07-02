@@ -3,6 +3,8 @@ source_atomic:
   - atomic/130-盒子模型/03-border-基本語法.md
   - atomic/130-盒子模型/04-border-影響盒子實際大小.md
   - atomic/130-盒子模型/06-outline-外輪廓.md
+topics: [border, outline, 邊框尺寸, focus 樣式, 可用性]
+summary: "比較 border 與 outline 的盒模型行為和可用性注意事項。"
 ---
 
 # border 與 outline：邊框和外輪廓的差異

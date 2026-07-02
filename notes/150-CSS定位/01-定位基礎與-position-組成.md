@@ -4,6 +4,8 @@ source_atomic:
   - atomic/150-CSS定位/02-定位組成-定位模式與邊偏移.md
   - atomic/150-CSS定位/03-static-靜態定位.md
   - atomic/150-CSS定位/14-定位模式總結.md
+topics: [CSS 定位, position, 定位模式, 邊偏移, static]
+summary: "說明定位的用途，以及 position 與 top、right、bottom、left 如何共同決定元素位置。"
 ---
 
 # 定位基礎與 position 組成

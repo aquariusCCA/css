@@ -4,6 +4,13 @@ source_atomic:
   - atomic/260-Flex布局/07-flex-wrap換行控制.md
   - atomic/260-Flex布局/08-flex-flow複合寫法.md
   - atomic/260-Flex布局/09-align-items與align-content差異.md
+topics:
+  - flex-wrap
+  - align-content
+  - 多行對齊
+  - flex-flow
+  - 換行控制
+summary: "說明 flex-wrap 如何產生多行，並用 align-content 控制多行在側軸上的整體分布。"
 ---
 
 # flex-wrap 與 align-content 多行對齊

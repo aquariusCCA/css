@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/260-Flex布局/03-flex-direction主軸方向.md
+topics:
+  - flex-direction
+  - 主軸
+  - 側軸
+  - 排列方向
+  - Flex 對齊方向
+summary: "說明 flex-direction 如何決定主軸與側軸，並影響後續對齊方向判斷。"
 ---
 
 # flex-direction 與主軸側軸

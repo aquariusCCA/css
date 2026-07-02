@@ -2,6 +2,13 @@
 source_atomic:
   - atomic/090-顏色/03-hex-顏色值.md
   - atomic/090-顏色/04-rgb-與-rgba-顏色值.md
+topics:
+  - HEX 色值
+  - RGB 色值
+  - RGBA
+  - alpha 透明度
+  - 色彩格式選擇
+summary: "說明 HEX、RGB 與 RGBA 的通道結構、簡寫規則、透明度寫法與選用情境。"
 ---
 
 # HEX、RGB 與 RGBA 顏色值

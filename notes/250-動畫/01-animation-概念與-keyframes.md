@@ -3,6 +3,8 @@ source_atomic:
   - atomic/250-動畫/01-CSS動畫概念與製作流程.md
   - atomic/250-動畫/02-keyframes定義與動畫基本使用.md
   - atomic/250-動畫/03-動畫序列與百分比節點.md
+topics: [animation, CSS 動畫, @keyframes, 動畫序列, 百分比節點]
+summary: "說明 animation 與 transition 的差異，以及如何用 @keyframes 定義多節點動畫。"
 ---
 
 # animation 概念與 keyframes 基礎

@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/100-字體屬性/06-font-字體複合屬性.md
+topics: [font, 複合屬性, font-size, font-family, line-height]
+summary: "說明 font 簡寫的必要項目、書寫順序、行高語法與省略值重設風險。"
 ---
 
 # font：一次設定多個字體屬性

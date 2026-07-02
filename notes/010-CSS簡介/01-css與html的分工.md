@@ -2,6 +2,12 @@
 source_atomic:
   - atomic/010-CSS簡介/01-html的侷限性.md
   - atomic/010-CSS簡介/02-css是什麼與用途.md
+topics:
+  - HTML 與 CSS 分工
+  - 結構與樣式分離
+  - CSS 用途
+  - 網頁樣式與布局
+summary: "說明 CSS 如何接手 HTML 不適合承擔的外觀與布局工作，建立結構與樣式分離的入門觀念。"
 ---
 
 # CSS 與 HTML 的分工

@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/070-元素的顯示與隱藏/01-overflow-溢出顯示和隱藏.md
+topics: [overflow, 溢出內容, 內容裁切, 捲動條]
+summary: "說明 overflow 如何處理超出盒子的內容，以及何時選擇顯示、裁切或捲動。"
 ---
 
 # overflow：控制超出盒子的內容怎麼顯示

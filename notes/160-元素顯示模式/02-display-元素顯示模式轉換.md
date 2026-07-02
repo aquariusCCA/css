@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/160-元素顯示模式/05-display-元素顯示模式轉換.md
+topics:
+  - display
+  - 顯示模式轉換
+  - block
+  - inline
+  - inline-block
+summary: "說明 display 如何轉換元素的版面表現，以及 block、inline、inline-block 的適用差異。"
 ---
 
 # display：元素顯示模式轉換

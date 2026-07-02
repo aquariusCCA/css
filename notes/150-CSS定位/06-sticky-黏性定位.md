@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/150-CSS定位/10-sticky-黏性定位.md
+topics: [sticky, 黏性定位, 滾動祖先, 邊偏移, 瀏覽器支援]
+summary: "說明 sticky 在佔位與固定間切換的條件，以及邊偏移與滾動祖先對生效的影響。"
 ---
 
 # sticky：黏性定位

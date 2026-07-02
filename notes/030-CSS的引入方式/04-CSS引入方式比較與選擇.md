@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/030-CSS的引入方式/04-css引入方式比較.md
+topics: [CSS 引入方式, 行內樣式表, 內部樣式表, 外部樣式表, 維護性]
+summary: "比較三種 CSS 引入方式，並說明不同情境下的選擇。"
 ---
 
 # CSS 引入方式比較與選擇

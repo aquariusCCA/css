@@ -1,6 +1,8 @@
 ---
 source_atomic:
   - atomic/170-濾鏡filter/01-filter-與-blur-模糊效果.md
+topics: [filter, blur, CSS濾鏡, 模糊效果, 長度單位]
+summary: "說明如何用 filter: blur(...) 套用模糊濾鏡，並避免漏寫單位或誤用 blur 屬性。"
 ---
 
 # filter 與 blur 模糊效果

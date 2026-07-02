@@ -3,6 +3,8 @@ source_atomic:
   - atomic/320-BFC/03-用BFC解決float容器高度塌陷.md
   - atomic/320-BFC/04-用BFC防止margin重疊.md
   - atomic/320-BFC/05-用BFC避免float遮住普通元素.md
+topics: [BFC, float, 高度塌陷, 外邊距合併, flow-root]
+summary: "說明如何用 BFC 隔離 float、margin 與遮擋影響，並判斷應讓哪個元素建立新環境。"
 ---
 
 # BFC 常見用途與案例

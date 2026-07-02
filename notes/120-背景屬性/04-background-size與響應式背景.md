@@ -3,6 +3,8 @@ source_atomic:
   - atomic/120-背景屬性/12-background-size-背景圖片大小.md
   - atomic/120-背景屬性/13-background-size-背景兩倍圖.md
   - atomic/120-背景屬性/14-background-size-響應式背景圖片.md
+topics: [background-size, contain與cover, 背景兩倍圖, 響應式背景]
+summary: "說明如何控制背景圖片尺寸，並用 contain、cover 與比例盒處理不同顯示需求。"
 ---
 
 # background-size 與響應式背景圖片

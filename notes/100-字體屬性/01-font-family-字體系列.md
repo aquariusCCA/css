@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/100-字體屬性/01-css-字體屬性概覽.md
   - atomic/100-字體屬性/02-font-family-字體系列.md
+topics: [font-family, 字體清單, 後備字體, 通用字體族]
+summary: "說明如何用字體清單指定優先字體與後備策略，讓文字在不同裝置上穩定呈現。"
 ---
 
 # font-family：設定文字使用哪一組字體

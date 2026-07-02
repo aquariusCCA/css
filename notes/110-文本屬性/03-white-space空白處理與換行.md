@@ -1,6 +1,13 @@
 ---
 source_atomic:
   - atomic/110-文本屬性/09-white-space-文本換行.md
+topics:
+  - white-space
+  - 空白處理
+  - 換行控制
+  - nowrap
+  - 格式保留
+summary: "說明 white-space 如何控制空白合併、原始換行保留與文字是否自動換行。"
 ---
 
 # white-space 空白處理與換行

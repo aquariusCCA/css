@@ -2,6 +2,8 @@
 source_atomic:
   - atomic/230-平面轉換/07-scale縮放語法與放大效果.md
   - atomic/230-平面轉換/08-多重transform綜合寫法與順序.md
+topics: [scale, 多重 transform, transform 順序, 縮放, 置中放大]
+summary: "說明 scale 縮放語法，以及多個 transform 函式的組合順序。"
 ---
 
 # scale 縮放與多重 transform 順序

@@ -4,6 +4,8 @@ source_atomic:
   - atomic/280-多列布局/05-grid-template彈性軌道與尺寸函數.md
   - atomic/280-多列布局/07-grid-gap網格間距.md
   - atomic/280-多列布局/12-grid-auto-tracks與grid簡寫.md
+topics: [grid-template, repeat, fr, minmax, gap]
+summary: "說明 Grid 軌道尺寸、彈性分配、間距與隱式軌道設定。"
 ---
 
 # Grid 軌道尺寸：repeat、fr、minmax 與 gap

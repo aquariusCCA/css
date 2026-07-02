@@ -3,6 +3,8 @@ source_atomic:
   - atomic/130-盒子模型/10-margin-基本語法.md
   - atomic/130-盒子模型/11-相鄰塊元素垂直外邊距合併.md
   - atomic/130-盒子模型/12-嵌套塊元素垂直外邊距塌陷.md
+topics: [margin, 外邊距, 外邊距合併, 外邊距塌陷, 間距控制]
+summary: "說明 margin 的用途、簡寫語法與垂直外距合併問題。"
 ---
 
 # margin：盒子與盒子之間的距離

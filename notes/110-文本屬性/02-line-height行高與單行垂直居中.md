@@ -2,6 +2,12 @@
 source_atomic:
   - atomic/110-文本屬性/07-line-height-行高.md
   - atomic/110-文本屬性/08-line-height-單行文字垂直居中.md
+topics:
+  - line-height
+  - 行高
+  - 行距
+  - 單行垂直居中
+summary: "說明行高如何影響文字行距，並界定用行高等於盒高做單行垂直居中的適用範圍。"
 ---
 
 # line-height 行高與單行垂直居中

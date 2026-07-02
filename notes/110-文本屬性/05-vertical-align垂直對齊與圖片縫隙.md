@@ -3,6 +3,13 @@ source_atomic:
   - atomic/110-文本屬性/13-vertical-align-概念與基線.md
   - atomic/110-文本屬性/14-圖片表單與文字垂直對齊.md
   - atomic/110-文本屬性/15-圖片底側空白縫隙解決.md
+topics:
+  - vertical-align
+  - 垂直對齊
+  - 基線對齊
+  - 行內塊元素
+  - 圖片底側縫隙
+summary: "說明 vertical-align 的適用對象，並用基線對齊理解圖片與文字對齊及底側縫隙。"
 ---
 
 # vertical-align 垂直對齊與圖片縫隙
