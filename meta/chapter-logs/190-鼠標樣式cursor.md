@@ -58,5 +58,13 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
 - 已同步 `meta/chapter-status.md`：`notes 索引元資料` 標記為 `已完成`，完成率更新為 `64%`，下一步更新為 `demos 生成`。
 
+### 2026-07-02（Demos 生成）
+
+- 已完成 `notes/190-鼠標樣式cursor/` 對應教學 demo 生成，產出範圍共 1 組 demo。
+- 已寫入 `demos/190-鼠標樣式cursor/01-cursor-游標樣式與自訂游標/`，展示系統預設游標、自訂游標 fallback，以及游標語意與實際互動狀態的一致性。
+- 已完成靜態檢查與瀏覽器驗證；確認 demo 可載入、核心展示區可見、游標卡片與互動切換狀態正確，且 console 無錯誤。
+- 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
+- 已同步 `meta/chapter-status.md`：`demos 生成` 標記為 `已完成`，完成率更新為 `71%`，下一步更新為 `practice 生成`。
+
 ## 下一步
-- 進入 demos 生成。
+- 進入 practice 生成。

@@ -57,5 +57,14 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
 - 已同步 `meta/chapter-status.md`：`notes 索引元資料` 標記為 `已完成`，完成率更新為 `64%`，下一步更新為 `demos 生成`。
 
+### 2026-07-02（Demos 生成）
+
+- 已依 `notes/170-濾鏡filter/01-filter-與-blur-模糊效果.md` 產生 CSS 教學 demo。
+- 已新增 `demos/170-濾鏡filter/01-filter-與-blur-模糊效果/`，包含 `index.html`、`style.css`、`script.js` 與自包含圖片資產 `assets/css-filter-img-002-354aea.jpg`。
+- demo 以 `filter: blur(...)` 的滑桿互動、固定數值比較與常見錯誤對照，展示 `blur()` 模糊半徑、長度單位需求，以及 `blur` 不是獨立 CSS 屬性。
+- 已完成靜態檢查，確認 HTML 骨架、單一 `Source notes` 註解、來源 notes 路徑與本地 `src`/`href` 引用皆可解析。
+- 已使用 headless Chrome 完成 DOM 載入與截圖驗證；Playwright 互動自動化受本機瀏覽器快取/權限限制未完成，滑桿互動保留低風險人工複核項。
+- 已同步 `meta/chapter-status.md`：`demos 生成` 標記為 `已完成`，完成率更新為 `71%`，下一步更新為 `practice 生成`。
+
 ## 下一步
-- 進入 demos 生成。
+- 進入 practice 生成。

@@ -59,5 +59,14 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
 - 已同步 `meta/chapter-status.md`：`notes 索引元資料` 標記為 `已完成`，完成率更新為 `64%`，下一步更新為 `demos 生成`。
 
+### 2026-07-02（Demos 生成）
+
+- 已完成 `demos/260-Flex布局/` 教學 demo 生成，共 9 組，對應 `notes/260-Flex布局/` 9 篇 notes。
+- 已建立 `01-Flex布局基礎與容器項目`、`02-flex-direction與主軸側軸`、`03-justify-content主軸對齊`、`04-align-items單行側軸對齊`、`05-flex-wrap與align-content多行對齊`、`06-flex-basis主軸尺寸`、`07-flex-grow與flex-shrink空間分配`、`08-flex簡寫與常見布局應用`、`09-order與align-self單一項目調整` 九組 demo。
+- 已完成靜態檢查：HTML 基本骨架、固定格式 `Source notes` 註解、來源 notes 路徑與本地 CSS/JS 相對路徑皆通過。
+- 已使用 Chrome headless 與 DevTools Protocol 載入 9 組 demo，頁面皆可成功載入，並完成主要互動驗證：切換主軸方向、主軸/側軸對齊、多行分布、`flex-basis` 方向、grow/shrink 寬度滑桿、`flex` 應用分頁、`order` 與 `align-self` 單項切換。
+- 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
+- 已同步 `meta/chapter-status.md`：`demos 生成` 標記為 `已完成`，完成率更新為 `71%`，下一步更新為 `practice 生成`。
+
 ## 下一步
-- 進入 demos 生成。
+- 進入 practice 生成。

@@ -54,5 +54,13 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
 - 已同步 `meta/chapter-status.md`：`notes 索引元資料` 標記為 `已完成`，完成率更新為 `64%`，下一步更新為 `demos 生成`。
 
+### 2026-07-02（Demos 生成）
+
+- 已完成 `demos/180-漸變linear-gradient/` CSS 教學 demo 生成，產出 1 組 demo。
+- 已建立 `demos/180-漸變linear-gradient/01-linear-gradient-漸層與圖片遮罩/`，包含 `index.html`、`style.css`、`script.js` 與自包含圖片資產。
+- Demo 已通過靜態檢查；headless Chrome 可載入頁面並輸出 DOM，互動自動化驗證受環境限制未完整執行。
+- 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
+- 已同步 `meta/chapter-status.md`：`demos 生成` 標記為 `已完成`，完成率更新為 `71%`，下一步更新為 `practice 生成`。
+
 ## 下一步
-- 進入 demos 生成。
+- 進入 practice 生成。

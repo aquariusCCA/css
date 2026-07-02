@@ -55,5 +55,13 @@
 - 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
 - 已同步 `meta/chapter-status.md`：`notes 索引元資料` 標記為 `已完成`，完成率更新為 `64%`，下一步更新為 `demos 生成`。
 
+### 2026-07-02（Demos 生成）
+
+- 已完成 `notes/200-過渡transition/` 對應教學 demo 生成，產出範圍共 1 組 demo。
+- 已寫入 `demos/200-過渡transition/01-transition-過渡效果基礎/`，展示無過渡與有過渡的差異、`duration` / `timing-function` / `delay` 欄位調整、`transition` 寫在一般狀態與錯誤位置的對照，以及 `all` 與明確指定屬性的差異。
+- 已完成靜態檢查與瀏覽器驗證；確認 demo 可載入、核心展示區可見、截圖非空白，且主要按鈕互動與運動曲線/延遲切換狀態正確。
+- 本次同步只更新 `meta/chapter-status.md` 與章節 log，未修改 `origin/`、`atomic/` 或 `notes/` 內容。
+- 已同步 `meta/chapter-status.md`：`demos 生成` 標記為 `已完成`，完成率更新為 `71%`，下一步更新為 `practice 生成`。
+
 ## 下一步
-- 進入 demos 生成。
+- 進入 practice 生成。
