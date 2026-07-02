@@ -1,0 +1,215 @@
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --ink: #222631;
+  --muted: #697286;
+  --line: #d8deea;
+  --accent: #6d5a16;
+  --accent-dark: #51420e;
+  --red: #c73d43;
+  --green: #228359;
+  --blue: #276bb0;
+  --purple: #7357a5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f3f1e8 0%, var(--bg) 42%);
+  color: var(--ink);
+  font-family: "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.demo-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.demo-header {
+  margin-bottom: 20px;
+}
+
+.kicker {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.preset-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid transparent;
+}
+
+.preset-button.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+  gap: 16px;
+}
+
+.result-card,
+.code-card,
+.score-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(44, 39, 25, 0.08);
+  padding: 18px;
+}
+
+.stage {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  border: 1px dashed #b9c2d0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 18px;
+}
+
+.father {
+  border: 3px solid #3e4655;
+  border-radius: 8px;
+  padding: 26px;
+  color: var(--red);
+}
+
+.box {
+  border-radius: 8px;
+  background: #fff;
+  padding: 22px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-align: center;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.case-id .box {
+  color: var(--green);
+}
+
+.case-many .box {
+  color: var(--green);
+}
+
+.case-tie .box {
+  color: var(--blue);
+}
+
+.case-important .box {
+  color: var(--purple);
+}
+
+.result-text {
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+pre {
+  min-height: 260px;
+  margin: 0;
+  overflow: auto;
+  border-radius: 8px;
+  background: #18202c;
+  color: #eaf1ff;
+  padding: 16px;
+  font-size: 0.95rem;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tuple {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(48px, 1fr));
+  gap: 8px;
+}
+
+.tuple-cell {
+  min-height: 72px;
+  border-radius: 8px;
+  background: #f3f5f8;
+  padding: 10px;
+  text-align: center;
+}
+
+.tuple-cell.is-leading {
+  outline: 3px solid rgba(109, 90, 22, 0.32);
+  background: #fff4cc;
+}
+
+.tuple-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.tuple-value {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.decision p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .workspace,
+  .scoreboard {
+    grid-template-columns: 1fr;
+  }
+}

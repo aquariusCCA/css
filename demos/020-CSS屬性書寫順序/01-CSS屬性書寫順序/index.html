@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 屬性書寫順序 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/020-CSS屬性書寫順序/01-CSS屬性書寫順序.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">CSS 屬性書寫順序</p>
+      <h1>同樣的畫面，整理後更容易讀懂</h1>
+      <p>
+        屬性排序不會讓一般宣告變得更強；它讓讀者先看版面，再看盒子、文字與裝飾。
+      </p>
+    </header>
+
+    <section class="order-demo" aria-labelledby="order-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">排序對照</p>
+          <h2 id="order-title">比較未整理與分組後的 CSS</h2>
+        </div>
+        <div class="segmented-control" aria-label="選擇要強調的 CSS 版本">
+          <button class="segment is-active" type="button" data-order-view="both" aria-pressed="true">並排</button>
+          <button class="segment" type="button" data-order-view="messy" aria-pressed="false">未整理</button>
+          <button class="segment" type="button" data-order-view="grouped" aria-pressed="false">分組後</button>
+        </div>
+      </div>
+
+      <div class="legend" aria-label="屬性分類">
+        <span><i class="legend-dot layout"></i>布局定位</span>
+        <span><i class="legend-dot box"></i>自身屬性</span>
+        <span><i class="legend-dot text"></i>文本屬性</span>
+        <span><i class="legend-dot effect"></i>其他效果</span>
+      </div>
+
+      <div class="comparison-grid" data-current-view="both">
+        <article class="code-panel messy-panel" aria-labelledby="messy-title">
+          <div class="panel-title">
+            <h3 id="messy-title">未整理</h3>
+            <p>同類屬性分散，掃讀時需要來回找。</p>
+          </div>
+          <pre><code>.card {
+  <span class="token text">color: #333;</span>
+  <span class="token box">padding: 16px;</span>
+  <span class="token layout">display: block;</span>
+  <span class="token effect">box-shadow: 0 8px 24px rgba(0, 0, 0, .12);</span>
+  <span class="token box">width: 320px;</span>
+  <span class="token layout">overflow: hidden;</span>
+  <span class="token text">font: 16px/1.6 Arial, sans-serif;</span>
+  <span class="token box">margin: 24px auto;</span>
+  <span class="token effect">border-radius: 8px;</span>
+  <span class="token box">background: #fff;</span>
+}</code></pre>
+        </article>
+
+        <article class="code-panel grouped-panel" aria-labelledby="grouped-title">
+          <div class="panel-title">
+            <h3 id="grouped-title">分組後</h3>
+            <p>閱讀路徑固定：版面、盒子、文字、效果。</p>
+          </div>
+          <pre><code>.card {
+  <span class="token layout">display: block;</span>
+  <span class="token layout">overflow: hidden;</span>
+
+  <span class="token box">width: 320px;</span>
+  <span class="token box">margin: 24px auto;</span>
+  <span class="token box">padding: 16px;</span>
+  <span class="token box">background: #fff;</span>
+
+  <span class="token text">color: #333;</span>
+  <span class="token text">font: 16px/1.6 Arial, sans-serif;</span>
+
+  <span class="token effect">border-radius: 8px;</span>
+  <span class="token effect">box-shadow: 0 8px 24px rgba(0, 0, 0, .12);</span>
+}</code></pre>
+        </article>
+      </div>
+
+      <div class="result-row" aria-label="兩段 CSS 的畫面結果">
+        <article class="sample-card">
+          <p class="sample-label">未整理 CSS 的結果</p>
+          <h3>課程卡片</h3>
+          <p>畫面結果相同，但維護時比較難快速定位屬性。</p>
+        </article>
+        <article class="sample-card">
+          <p class="sample-label">分組後 CSS 的結果</p>
+          <h3>課程卡片</h3>
+          <p>同類屬性集中，讀者更快理解這段規則。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="override-demo" aria-labelledby="override-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">真正會改變結果的情況</p>
+          <h2 id="override-title">同名屬性：後面的宣告覆蓋前面的宣告</h2>
+        </div>
+      </div>
+
+      <div class="override-grid">
+        <div class="choice-group" aria-label="選擇 color 宣告順序">
+          <button class="choice is-active" type="button" data-color-order="blue" aria-pressed="true">
+            red 後面寫 blue
+          </button>
+          <button class="choice" type="button" data-color-order="red" aria-pressed="false">
+            blue 後面寫 red
+          </button>
+        </div>
+
+        <pre class="override-code"><code id="overrideCode">.box {
+  color: red;
+  color: blue;
+}</code></pre>
+
+        <div class="color-result" data-final-color="blue">
+          <p class="sample-label">最後生效顏色</p>
+          <strong id="colorWord">blue</strong>
+          <span id="colorNote">因為後面的 color: blue 覆蓋了前面的 color: red。</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

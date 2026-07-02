@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HSL 與 HSLA 顏色值 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/090-顏色/03-hsl-hsla顏色值.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 顏色</p>
+      <h1>HSL：用色調、飽和度、亮度調色</h1>
+      <p>拖曳控制器，觀察 hue、saturation、lightness 與 alpha 分別如何改變顏色。</p>
+    </header>
+
+    <section class="workspace">
+      <article class="hsl-preview">
+        <h2>HSL 色塊</h2>
+        <div class="preview-wrap">
+          <div id="colorDisc" class="color-disc">
+            <span id="hslLabel">hsl(210 70% 50%)</span>
+          </div>
+        </div>
+        <div class="hover-demo">
+          <button class="demo-button" type="button">同色系按鈕</button>
+          <p>hover 狀態只提高 lightness，色相與飽和度不變。</p>
+        </div>
+      </article>
+
+      <article class="controls-panel">
+        <h2>控制器</h2>
+        <label>
+          <span>Hue 色調</span>
+          <input id="hueRange" type="range" min="0" max="360" value="210">
+          <output id="hueValue">210</output>
+        </label>
+        <label>
+          <span>Saturation 飽和度</span>
+          <input id="satRange" type="range" min="0" max="100" value="70">
+          <output id="satValue">70%</output>
+        </label>
+        <label>
+          <span>Lightness 亮度</span>
+          <input id="lightRange" type="range" min="0" max="100" value="50">
+          <output id="lightValue">50%</output>
+        </label>
+        <label>
+          <span>Alpha 透明度</span>
+          <input id="alphaRange" type="range" min="0" max="1" value="0.7" step="0.05">
+          <output id="alphaValue">0.70</output>
+        </label>
+        <pre><code id="cssCode"></code></pre>
+      </article>
+    </section>
+
+    <section class="comparison-grid" aria-label="HSL 分量對照">
+      <article>
+        <h2>Hue</h2>
+        <div class="hue-strip"></div>
+        <p>改變顏色種類：紅、黃、綠、青、藍、洋紅。</p>
+      </article>
+      <article>
+        <h2>Saturation</h2>
+        <div id="satStrip" class="sat-strip"></div>
+        <p>越低越灰，越高越鮮豔。</p>
+      </article>
+      <article>
+        <h2>Lightness</h2>
+        <div id="lightStrip" class="light-strip"></div>
+        <p><code>0%</code> 是黑色，<code>100%</code> 是白色。</p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

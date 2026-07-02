@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-style 文字樣式 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/100-字體屬性/04-font-style-文字樣式.md -->
+  <main class="app">
+    <header>
+      <p class="eyebrow">CSS 字體屬性</p>
+      <h1>font-style：語意與視覺分開看</h1>
+      <p class="lead">保留 HTML 的強調語意，同時用 CSS 決定它是否真的傾斜。</p>
+    </header>
+    <section class="workspace">
+      <div class="toolbar" role="group" aria-label="選擇 font-style 情境">
+        <button class="is-active" data-case="default" type="button">em 預設</button>
+        <button data-case="reset" type="button">em 改回 normal</button>
+        <button data-case="visual" type="button">span 視覺斜體</button>
+        <button data-case="overuse" type="button">大段斜體</button>
+      </div>
+      <section class="stage">
+        <article class="sample" id="sample">
+          <h2>下課時候的你</h2>
+          <p>同學，上課時候的你 <em>需要被強調</em>，但設計不一定希望它傾斜。</p>
+          <p><span class="visual">提示文字</span> 可以只靠 class 做視覺斜體。</p>
+        </article>
+      </section>
+      <section class="details">
+        <div class="panel"><h2>目前 CSS</h2><pre><code id="codeBlock"></code></pre></div>
+        <div class="panel"><h2>判斷</h2><p id="note"></p><ul id="points"></ul></div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

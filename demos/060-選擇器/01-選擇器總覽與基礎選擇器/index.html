@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>選擇器總覽與基礎選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/01-選擇器總覽與基礎選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">基礎選擇器的選取範圍</h1>
+
+            <div class="selector-bar" role="group" aria-label="選擇器切換">
+                <button type="button" class="is-active" data-selector="p">p</button>
+                <button type="button" data-selector=".notice">.notice</button>
+                <button type="button" data-selector="#featured">#featured</button>
+                <button type="button" data-selector=".notice.large">.notice.large</button>
+                <button type="button" data-selector="*">*</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>HTML 範例</h2>
+                    <div class="sample" id="sample">
+                        <h3 id="featured">主標題 id="featured"</h3>
+                        <p class="notice">段落 class="notice"</p>
+                        <p class="notice large">段落 class="notice large"</p>
+                        <div class="notice">div class="notice"</div>
+                        <span>一般 span</span>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

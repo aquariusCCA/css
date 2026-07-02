@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>連結與 focus 偽類選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/04-連結與focus偽類選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">連結狀態與表單焦點</h1>
+
+            <div class="selector-bar" role="group" aria-label="連結狀態切換">
+                <button type="button" class="is-active" data-state="link">:link</button>
+                <button type="button" data-state="visited">:visited</button>
+                <button type="button" data-state="hover">:hover</button>
+                <button type="button" data-state="active">:active</button>
+                <button type="button" data-state="focus">:focus</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>互動狀態</h2>
+                    <a class="demo-link state-link" id="demoLink" href="#">示範連結</a>
+                    <div class="fields">
+                        <label>姓名 <input id="nameInput" type="text" placeholder="點我取得 focus"></label>
+                        <label>Email <input type="email" placeholder="也可以用 Tab 切換"></label>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

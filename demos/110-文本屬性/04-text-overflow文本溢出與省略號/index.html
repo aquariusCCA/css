@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>text-overflow 文本溢出與省略號</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/110-文本屬性/04-text-overflow文本溢出與省略號.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">110-文本屬性</p>
+            <h1 id="demoTitle">text-overflow 文本溢出與省略號</h1>
+
+            <div class="mode-bar" role="group" aria-label="溢出模式">
+                <button class="is-active" type="button" data-mode="clip">clip</button>
+                <button type="button" data-mode="ellipsis">單行 ellipsis</button>
+                <button type="button" data-mode="missing">缺少條件</button>
+                <button type="button" data-mode="multiline">多行 line-clamp</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>呈現結果</h2>
+                    <div class="card">
+                        <p class="title" id="overflowText">這是一段很長很長的文章標題，用來示範文字溢出時如何使用省略號保持版面整齊</p>
+                    </div>
+                </section>
+                <section class="panel">
+                    <h2>目前 CSS</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

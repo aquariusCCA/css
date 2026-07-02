@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>浮動元素的特性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/140-CSS浮動/02-浮動元素的特性.md -->
+  <main class="demo-shell">
+    <header>
+      <p class="kicker">CSS 浮動</p>
+      <h1>浮動元素有哪些特殊行為</h1>
+      <p>觀察浮動元素脫離標準流、仍影響文字、多個浮動盒排列，以及行內元素浮動後可設定寬高。</p>
+    </header>
+    <nav class="tabs">
+      <button class="is-active" type="button" data-mode="detach">脫離標準流</button>
+      <button type="button" data-mode="text">影響文字</button>
+      <button type="button" data-mode="flow">浮動排列</button>
+      <button type="button" data-mode="inline">行內可設寬高</button>
+    </nav>
+    <section class="workspace">
+      <article class="stage-card">
+        <h2>畫面結果</h2>
+        <label class="width-control">容器寬度 <input id="widthRange" type="range" min="360" max="720" value="560"> <output id="widthOut">560px</output></label>
+        <div id="stage" class="stage mode-detach">
+          <div class="detach-demo"><div class="float-box">float</div><div class="normal-box">標準流盒子上移補位</div></div>
+          <div class="text-demo"><div class="float-box">float</div><p>這段文字會繞著浮動盒排列。浮動不像絕對定位那樣完全不影響文字，這正是圖文環繞可以成立的原因。</p></div>
+          <div class="flow-demo"><div>1</div><div class="tall">2</div><div>3</div><div>4</div><div>5</div></div>
+          <div class="inline-demo"><span>span</span><a href="#">a link</a><em>em</em></div>
+        </div>
+      </article>
+      <article class="code-card">
+        <h2>核心 CSS</h2>
+        <pre><code id="code"></code></pre>
+        <p id="explain" class="explain"></p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

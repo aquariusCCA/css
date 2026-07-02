@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>white-space 空白處理與換行</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/110-文本屬性/03-white-space空白處理與換行.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">110-文本屬性</p>
+            <h1 id="demoTitle">white-space 空白處理與換行</h1>
+
+            <div class="mode-bar" role="group" aria-label="white-space 值">
+                <button class="is-active" type="button" data-value="normal">normal</button>
+                <button type="button" data-value="pre">pre</button>
+                <button type="button" data-value="pre-wrap">pre-wrap</button>
+                <button type="button" data-value="pre-line">pre-line</button>
+                <button type="button" data-value="nowrap">nowrap</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>呈現結果</h2>
+                    <p class="sample" id="sampleText">第一行    有多個空格
+第二行保留原始換行，這是一段很長很長的文字，用來觀察是否會自動換行並留在容器中。</p>
+                </section>
+                <section class="panel">
+                    <h2>目前 CSS</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

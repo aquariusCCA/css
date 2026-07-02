@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-size 字體大小 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/100-字體屬性/02-font-size-字體大小.md -->
+  <main class="app">
+    <header>
+      <p class="eyebrow">CSS 字體屬性</p>
+      <h1>font-size：字號、單位與標題預設</h1>
+      <p class="lead">比較有效字號、漏單位錯誤，以及設定 body 後標題仍可能保留瀏覽器預設樣式的情況。</p>
+    </header>
+    <section class="workspace">
+      <div class="toolbar" role="group" aria-label="選擇 font-size 情境">
+        <button class="is-active" data-case="base" type="button">body 16px</button>
+        <button data-case="rem" type="button">1rem</button>
+        <button data-case="percent" type="button">90%</button>
+        <button data-case="invalid" type="button">漏單位</button>
+        <button data-case="heading" type="button">h2 也指定</button>
+      </div>
+      <section class="stage">
+        <article class="article" id="article">
+          <h2 id="title">pink 的秘密</h2>
+          <p>那一抹眾人中最漂亮的顏色。</p>
+          <p>前端總是伴隨著困難和犯錯。</p>
+          <p>靜心、坦然，攻克一個又一個。</p>
+        </article>
+      </section>
+      <section class="details">
+        <div class="panel"><h2>目前 CSS</h2><pre><code id="codeBlock"></code></pre></div>
+        <div class="panel"><h2>判斷</h2><p id="note"></p><div class="meter"><span id="meter"></span></div></div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS 與 HTML 的分工</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/010-CSS簡介/01-css與html的分工.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <div class="intro">
+                <p class="eyebrow">010-CSS簡介</p>
+                <h1 id="demoTitle">CSS 與 HTML 的分工</h1>
+            </div>
+
+            <div class="mode-bar" role="group" aria-label="樣式模式">
+                <button class="mode-button is-active" type="button" data-mode="none">
+                    無 CSS
+                </button>
+                <button class="mode-button" type="button" data-mode="basic">
+                    基礎樣式
+                </button>
+                <button class="mode-button" type="button" data-mode="layout">
+                    版面樣式
+                </button>
+            </div>
+
+            <div class="comparison-grid">
+                <section class="panel code-panel" aria-labelledby="htmlTitle">
+                    <h2 id="htmlTitle">HTML 結構</h2>
+                    <pre><code>&lt;article&gt;
+    &lt;h1&gt;我的第一個網頁&lt;/h1&gt;
+    &lt;p&gt;HTML 描述內容結構。&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;標題&lt;/li&gt;
+        &lt;li&gt;段落&lt;/li&gt;
+        &lt;li&gt;清單&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/article&gt;</code></pre>
+                </section>
+
+                <section class="panel preview-panel" aria-labelledby="previewTitle">
+                    <h2 id="previewTitle">呈現結果</h2>
+                    <div class="browser-frame">
+                        <article class="sample-page" id="samplePage">
+                            <h1>我的第一個網頁</h1>
+                            <p>HTML 描述內容結構，CSS 決定這些內容如何顯示。</p>
+                            <ul>
+                                <li>標題保留語意角色</li>
+                                <li>段落保留文字內容</li>
+                                <li>清單保留資料關係</li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel css-panel" aria-labelledby="cssTitle">
+                    <h2 id="cssTitle">CSS 片段</h2>
+                    <pre><code id="cssCode">/* 尚未套用 CSS，瀏覽器只使用預設樣式。 */</code></pre>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

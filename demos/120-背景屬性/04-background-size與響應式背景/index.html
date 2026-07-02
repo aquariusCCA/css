@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>background-size 與響應式背景 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/120-背景屬性/04-background-size與響應式背景.md -->
+  <main class="shell">
+    <header><p class="eyebrow">background-size</p><h1>完整顯示，還是鋪滿容器？</h1></header>
+    <section class="controls">
+      <label>background-size<select id="sizeSelect"><option>auto</option><option>160px</option><option>50%</option><option>contain</option><option>cover</option></select></label>
+      <label>響應式寬度<input id="widthRange" type="range" min="260" max="680" value="520"></label>
+    </section>
+    <section class="grid">
+      <div class="size-box" id="sizeBox"></div>
+      <aside class="panel"><pre><code id="codeText"></code></pre><p id="noteText"></p></aside>
+    </section>
+    <section class="ratio-wrap" id="ratioWrap"><div class="ratio-bg"></div></section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

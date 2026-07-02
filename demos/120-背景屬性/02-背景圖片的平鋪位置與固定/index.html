@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>背景平鋪位置與固定 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/120-背景屬性/02-背景圖片的平鋪位置與固定.md -->
+  <main class="shell">
+    <header><p class="eyebrow">background-repeat / position / attachment</p><h1>背景圖放上去之後，還要決定怎麼排</h1></header>
+    <section class="controls">
+      <label>平鋪<select id="repeatSelect"><option>repeat</option><option>no-repeat</option><option>repeat-x</option><option>repeat-y</option></select></label>
+      <label>位置<select id="positionSelect"><option>left top</option><option>center center</option><option>right top</option><option>right bottom</option><option>70px 50px</option></select></label>
+      <label>固定<select id="attachmentSelect"><option>scroll</option><option>fixed</option></select></label>
+    </section>
+    <section class="grid">
+      <div class="preview" id="previewBox"></div>
+      <aside class="panel">
+        <p class="label">分項寫法</p><pre><code id="longCode"></code></pre>
+        <p class="label">複合寫法</p><pre><code id="shortCode"></code></pre>
+      </aside>
+    </section>
+    <section class="scroll-demo" id="scrollDemo">
+      <p>向下捲動此區時，比較 `scroll` 與 `fixed` 的背景感受。</p>
+      <div></div>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

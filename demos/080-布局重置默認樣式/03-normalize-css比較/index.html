@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Normalize.css 比較 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/080-布局重置默認樣式/03-normalize-css：保留有用預設並修正瀏覽器差異.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">布局重置默認樣式</p>
+      <h1 id="page-title">Normalize.css 比較</h1>
+      <p>reset.css 偏向清空再重建；Normalize.css 偏向保留有用預設，並修正瀏覽器差異。</p>
+    </section>
+
+    <section class="controls" aria-label="策略選擇">
+      <button class="strategy is-active" type="button" data-strategy="browser">瀏覽器預設</button>
+      <button class="strategy" type="button" data-strategy="reset">reset.css</button>
+      <button class="strategy" type="button" data-strategy="normalize">Normalize.css</button>
+      <button class="strategy" type="button" data-strategy="project">Normalize + 專案樣式</button>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>策略片段</h2>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>基礎樣式起點</h2>
+        <div class="preview" id="preview">
+          <main class="article">
+            <h1>頁面標題</h1>
+            <p>Normalize.css 不追求清空一切，而是讓預設更一致。</p>
+            <button type="button">可聚焦按鈕</button>
+            <input type="text" value="表單文字" aria-label="表單文字">
+          </main>
+        </div>
+        <p class="note" id="stateNote"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

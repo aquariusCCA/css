@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>盒模型實務注意 Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #26313f;
+      --muted: #667085;
+      --line: #d8e1ea;
+      --surface: #ffffff;
+      --soft: #f5f8fb;
+      --accent: #0f766e;
+      --blue: #2563eb;
+      --warn: #b45309;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8fafc 0%, #eef6ff 48%, #fff7ed 100%);
+    }
+
+    .demo-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    .intro {
+      max-width: 820px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .tab {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 16px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab.is-active {
+      border-color: var(--accent);
+      background: #ccfbf1;
+      color: #115e59;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 18px 42px rgba(38, 49, 63, 0.08);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+
+    .controls {
+      padding: 18px;
+    }
+
+    .control {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .control label {
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    select {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 10px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+    }
+
+    .stage {
+      padding: 24px;
+      background: var(--soft);
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.is-active {
+      display: block;
+    }
+
+    .page-preview {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .page-preview.default h3 {
+      margin: 0.83em 0;
+    }
+
+    .page-preview.default p {
+      margin: 1em 0;
+    }
+
+    .page-preview.default ul {
+      margin: 1em 0;
+      padding-left: 40px;
+    }
+
+    .page-preview.reset h3,
+    .page-preview.reset p,
+    .page-preview.reset ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .text-line {
+      border: 1px dashed #94a3b8;
+      padding: 16px;
+      background: #fff;
+      line-height: 1.4;
+    }
+
+    .inline-target {
+      display: inline;
+      width: 160px;
+      height: 60px;
+      margin: 24px;
+      padding: 18px;
+      border: 2px solid var(--blue);
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-weight: 900;
+    }
+
+    .inline-target.as-inline-block {
+      display: inline-block;
+    }
+
+    .inline-target.as-block {
+      display: block;
+    }
+
+    .nav-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .nav-demo a {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 0 18px;
+      color: #fff;
+      background: var(--accent);
+      line-height: 42px;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .note {
+      margin: 14px 0 0;
+      color: var(--warn);
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f8fbff;
+      background: #172033;
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-shell {
+        width: min(100% - 20px, 1120px);
+        padding: 22px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source notes: notes/130-盒子模型/08-盒模型實務注意：預設間距與行內元素限制.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">盒模型實務注意</p>
+      <h1 id="page-title">reset 與 inline 元素要分開理解</h1>
+      <p>預設間距會影響版面起點；行內元素則不適合拿來控制完整盒子尺寸，必要時改用 `inline-block` 或 `block`。</p>
+    </section>
+
+    <div class="tabs" aria-label="展示模式">
+      <button class="tab is-active" type="button" data-view="reset">預設間距</button>
+      <button class="tab" type="button" data-view="inline">行內元素限制</button>
+      <button class="tab" type="button" data-view="lineheight">line-height 對齊</button>
+    </div>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>控制項</h2>
+        <div class="controls">
+          <div class="control" data-control="reset">
+            <label><input id="resetToggle" type="checkbox"> 套用 `margin: 0; padding: 0;`</label>
+          </div>
+          <div class="control" data-control="inline">
+            <label for="displayMode">span 的 display</label>
+            <select id="displayMode">
+              <option value="inline">inline</option>
+              <option value="inline-block">inline-block</option>
+              <option value="block">block</option>
+            </select>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>可觀察結果</h2>
+        <div class="stage">
+          <div class="view is-active" data-view-panel="reset">
+            <div class="page-preview default" id="pagePreview">
+              <h3>文章標題</h3>
+              <p>瀏覽器會給標題、段落與清單預設 margin。</p>
+              <ul>
+                <li>第一項</li>
+                <li>第二項</li>
+              </ul>
+            </div>
+            <p class="note" id="resetNote">預設樣式讓內容可讀，但做布局前常需要先清掉不確定的間距。</p>
+          </div>
+
+          <div class="view" data-view-panel="inline">
+            <p class="text-line">
+              前面的文字
+              <span class="inline-target" id="inlineTarget">span</span>
+              後面的文字會讓行內元素的限制更明顯。
+            </p>
+            <p class="note" id="inlineNote">`inline` 元素的 width、height 與垂直 margin 不會像 block 那樣推動版面。</p>
+          </div>
+
+          <div class="view" data-view-panel="lineheight">
+            <nav class="nav-demo" aria-label="line-height 導覽示範">
+              <a href="#">首頁</a>
+              <a href="#">作品</a>
+              <a href="#">聯絡</a>
+            </nav>
+            <p class="note">單行文字垂直置中常用 `line-height` 搭配固定高度的導覽項目。</p>
+          </div>
+        </div>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const tabs = [...document.querySelectorAll(".tab")];
+    const panels = [...document.querySelectorAll("[data-view-panel]")];
+    const resetToggle = document.querySelector("#resetToggle");
+    const displayMode = document.querySelector("#displayMode");
+    const pagePreview = document.querySelector("#pagePreview");
+    const inlineTarget = document.querySelector("#inlineTarget");
+    const codeOutput = document.querySelector("#codeOutput");
+    const inlineNote = document.querySelector("#inlineNote");
+    const resetNote = document.querySelector("#resetNote");
+    let activeView = "reset";
+
+    function render() {
+      pagePreview.classList.toggle("reset", resetToggle.checked);
+      pagePreview.classList.toggle("default", !resetToggle.checked);
+      resetNote.textContent = resetToggle.checked
+        ? "重置後，標題、段落和清單會貼在一起，後續樣式要自己明確建立間距。"
+        : "預設樣式讓內容可讀，但做布局前常需要先清掉不確定的間距。";
+
+      inlineTarget.classList.toggle("as-inline-block", displayMode.value === "inline-block");
+      inlineTarget.classList.toggle("as-block", displayMode.value === "block");
+      inlineNote.textContent = displayMode.value === "inline"
+        ? "`inline` 元素的 width、height 與垂直 margin 不會像 block 那樣推動版面。"
+        : displayMode.value === "inline-block"
+          ? "`inline-block` 保留行內排列感，同時可以控制 width、height、padding 與 margin。"
+          : "`block` 會佔據自己的水平空間，適合需要獨立成行的盒子。";
+
+      if (activeView === "reset") {
+        codeOutput.textContent = resetToggle.checked
+          ? `* {
+  margin: 0;
+  padding: 0;
+}`
+          : `/* 瀏覽器預設概念 */
+h1,
+p,
+ul {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
+ul {
+  padding-left: 40px;
+}`;
+      }
+
+      if (activeView === "inline") {
+        codeOutput.textContent = `span {
+  display: ${displayMode.value};
+  width: 160px;
+  height: 60px;
+  margin: 24px;
+  padding: 18px;
+}`;
+      }
+
+      if (activeView === "lineheight") {
+        codeOutput.textContent = `.nav a {
+  display: inline-block;
+  padding: 0 18px;
+  line-height: 42px;
+}`;
+      }
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        activeView = tab.dataset.view;
+        tabs.forEach((item) => item.classList.toggle("is-active", item === tab));
+        panels.forEach((panel) => panel.classList.toggle("is-active", panel.dataset.viewPanel === activeView));
+        render();
+      });
+    });
+
+    [resetToggle, displayMode].forEach((node) => node.addEventListener("input", render));
+    displayMode.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>

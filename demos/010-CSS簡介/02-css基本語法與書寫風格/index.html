@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS 基本語法與書寫風格</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/010-CSS簡介/02-css基本語法與書寫風格.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <div class="intro">
+                <p class="eyebrow">010-CSS簡介</p>
+                <h1 id="demoTitle">CSS 基本語法與書寫風格</h1>
+            </div>
+
+            <div class="tool-row">
+                <div class="segmented" role="group" aria-label="書寫風格">
+                    <button class="style-button is-active" type="button" data-format="expanded">展開風格</button>
+                    <button class="style-button" type="button" data-format="compact">緊湊風格</button>
+                </div>
+
+                <label class="control">
+                    <span>文字顏色</span>
+                    <select id="colorSelect">
+                        <option value="red">red</option>
+                        <option value="teal">teal</option>
+                        <option value="purple">purple</option>
+                    </select>
+                </label>
+
+                <label class="control">
+                    <span>字體大小</span>
+                    <input id="sizeRange" type="range" min="28" max="56" value="40">
+                    <output id="sizeOutput">40px</output>
+                </label>
+            </div>
+
+            <div class="syntax-grid">
+                <section class="panel code-panel" aria-labelledby="codeTitle">
+                    <h2 id="codeTitle">CSS 規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <div class="legend" aria-label="語法部件">
+                        <button type="button" data-highlight="selector">選擇器</button>
+                        <button type="button" data-highlight="block">宣告區塊</button>
+                        <button type="button" data-highlight="property">屬性</button>
+                        <button type="button" data-highlight="value">屬性值</button>
+                        <button type="button" data-highlight="punctuation">冒號與分號</button>
+                    </div>
+                </section>
+
+                <section class="panel preview-panel" aria-labelledby="previewTitle">
+                    <h2 id="previewTitle">套用結果</h2>
+                    <div class="preview-stage">
+                        <h1 id="sampleHeading">我的第一個網頁</h1>
+                    </div>
+                </section>
+
+                <section class="panel anatomy-panel" aria-labelledby="anatomyTitle">
+                    <h2 id="anatomyTitle">目前標示</h2>
+                    <dl>
+                        <div>
+                            <dt>選擇器</dt>
+                            <dd>指定要套用樣式的 HTML 元素。</dd>
+                        </div>
+                        <div>
+                            <dt>宣告區塊</dt>
+                            <dd>使用大括號包住一條或多條聲明。</dd>
+                        </div>
+                        <div>
+                            <dt>屬性與屬性值</dt>
+                            <dd>用冒號連接，用分號結束每一條聲明。</dd>
+                        </div>
+                    </dl>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

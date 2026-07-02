@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>absolute 絕對定位</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/03-absolute-絕對定位.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">position: absolute</p>
+      <h1>尋找最近的定位祖先</h1>
+      <p>absolute 會脫離文件流，並用最近一個 position 不是 static 的祖先當定位參照。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="定位祖先">
+        <button class="ref-btn active" type="button" data-ref="none">祖先都 static</button>
+        <button class="ref-btn" type="button" data-ref="yeye">爺爺 relative</button>
+        <button class="ref-btn" type="button" data-ref="father">父層 relative</button>
+      </nav>
+
+      <div class="stage" id="stage" data-ref="none">
+        <div class="page-frame">
+          <div class="yeye">
+            <span class="tag">.yeye</span>
+            <div class="father">
+              <span class="tag">.father</span>
+              <div class="placeholder">absolute 子元素不佔位</div>
+              <div class="son">.son</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">沒有定位祖先</h2>
+        <pre><code id="codeBox">.son {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}</code></pre>
+        <p id="note">父層與爺爺層都是 static 時，absolute 會繼續往上找定位參照。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

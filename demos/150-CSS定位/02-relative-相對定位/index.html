@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>relative 相對定位</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/02-relative-相對定位.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">position: relative</p>
+      <h1>相對定位保留原位</h1>
+      <p>元素看起來移動了，但原本佔據的空間仍留在文件流中，後面的元素不會補上去。</p>
+    </header>
+
+    <section class="workspace">
+      <div class="toolbar" aria-label="偏移方向">
+        <button class="shift-btn active" type="button" data-x="80" data-y="54" data-label="top: 54px; left: 80px;">往右下</button>
+        <button class="shift-btn" type="button" data-x="-70" data-y="42" data-label="top: 42px; right: 70px;">往左下</button>
+        <button class="shift-btn" type="button" data-x="54" data-y="-48" data-label="bottom: 48px; left: 54px;">往右上</button>
+        <button class="shift-btn" type="button" data-x="0" data-y="0" data-label="top: 0; left: 0;">不偏移</button>
+      </div>
+
+      <div class="stage" id="stage">
+        <div class="stack">
+          <div class="block muted">box 之前</div>
+          <div class="slot-wrap">
+            <div class="original">.box 原本的位置</div>
+            <div class="relative-box" id="relativeBox">position: relative</div>
+          </div>
+          <div class="block strong">box 之後仍排在原位後面</div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>邊偏移規則</h2>
+        <pre><code id="codeBox">.box {
+  position: relative;
+  top: 54px;
+  left: 80px;
+}</code></pre>
+        <p id="explain">top 從原本位置往下推，left 從原本位置往右推；原本位置仍被保留。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

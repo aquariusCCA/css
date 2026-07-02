@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行內樣式表 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/030-CSS的引入方式/01-行內樣式表.md -->
+  <main class="demo-shell">
+    <section class="workspace" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="kicker">CSS 引入方式</p>
+        <h1 id="page-title">行內樣式表</h1>
+        <p>把 CSS 寫在 HTML 標籤的 <code>style</code> 屬性中，只影響目前這個元素。</p>
+      </div>
+
+      <div class="controls" aria-label="行內樣式控制">
+        <label>
+          <span>示範狀態</span>
+          <select id="modeSelect">
+            <option value="single">只套用第一段</option>
+            <option value="none">不使用行內樣式</option>
+            <option value="repeat">三段都重複寫</option>
+          </select>
+        </label>
+        <label>
+          <span>文字大小</span>
+          <input id="sizeRange" type="range" min="16" max="32" value="20">
+        </label>
+        <label>
+          <span>文字顏色</span>
+          <select id="colorSelect">
+            <option value="pink">pink</option>
+            <option value="crimson">crimson</option>
+            <option value="teal">teal</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel code-panel" aria-labelledby="code-title">
+          <h2 id="code-title">HTML 片段</h2>
+          <pre><code id="codeOutput"></code></pre>
+        </section>
+
+        <section class="panel preview-panel" aria-labelledby="preview-title">
+          <h2 id="preview-title">瀏覽器結果</h2>
+          <div class="preview-copy" id="previewBox"></div>
+          <p class="result-note" id="resultNote"></p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

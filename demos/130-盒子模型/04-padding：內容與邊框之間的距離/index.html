@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>padding Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #26313f;
+      --muted: #667085;
+      --line: #d8e1ea;
+      --surface: #ffffff;
+      --soft: #f5f8fb;
+      --accent: #0f766e;
+      --amber: #d97706;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(135deg, #fbfdff 0%, #ecfeff 50%, #fff7ed 100%);
+    }
+
+    .demo-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    .intro {
+      max-width: 820px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 18px 42px rgba(38, 49, 63, 0.08);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+
+    .controls {
+      padding: 18px;
+    }
+
+    .control {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .control label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .stage {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+      background: var(--soft);
+    }
+
+    .box-demo {
+      border: 8px solid #fb923c;
+      background: #fef3c7;
+      transition: padding 160ms ease, width 160ms ease;
+    }
+
+    .box-demo span {
+      display: block;
+      width: 190px;
+      min-height: 90px;
+      padding: 12px;
+      background: #bfdbfe;
+      color: #1e3a8a;
+      font-weight: 900;
+    }
+
+    .nav-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .nav-demo a {
+      display: inline-block;
+      min-width: 88px;
+      border-radius: 6px;
+      padding: 0 16px;
+      color: #fff;
+      background: var(--accent);
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 800;
+      transition: padding 160ms ease;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.3rem;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f8fbff;
+      background: #172033;
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .note {
+      margin: 0;
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+      color: var(--amber);
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 860px) {
+      .layout,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-shell {
+        width: min(100% - 20px, 1120px);
+        padding: 22px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source notes: notes/130-盒子模型/04-padding：內容與邊框之間的距離.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">padding</p>
+      <h1 id="page-title">padding 是內容與邊框之間的距離</h1>
+      <p>padding 會讓內容離邊框更遠；在預設 content-box 下，也會讓盒子的實際寬高變大。</p>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>調整 padding</h2>
+        <div class="controls">
+          <div class="control">
+            <label for="topPadding">上 <span id="topValue">24px</span></label>
+            <input id="topPadding" type="range" min="0" max="54" value="24">
+          </div>
+          <div class="control">
+            <label for="rightPadding">右 <span id="rightValue">32px</span></label>
+            <input id="rightPadding" type="range" min="0" max="64" value="32">
+          </div>
+          <div class="control">
+            <label for="bottomPadding">下 <span id="bottomValue">24px</span></label>
+            <input id="bottomPadding" type="range" min="0" max="54" value="24">
+          </div>
+          <div class="control">
+            <label for="leftPadding">左 <span id="leftValue">32px</span></label>
+            <input id="leftPadding" type="range" min="0" max="64" value="32">
+          </div>
+          <div class="control">
+            <label for="navPadding">導覽水平 padding <span id="navValue">16px</span></label>
+            <input id="navPadding" type="range" min="0" max="40" value="16">
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>可觀察結果</h2>
+        <div class="stage">
+          <div class="box-demo" id="boxDemo">
+            <span>content 區域固定 190px，padding 讓外框變大</span>
+          </div>
+          <div class="metrics">
+            <p class="metric"><strong id="widthMetric">270px</strong><span>含 padding 與 border 的寬度</span></p>
+            <p class="metric"><strong id="heightMetric">154px</strong><span>含 padding 與 border 的高度</span></p>
+          </div>
+          <div class="nav-demo">
+            <a href="#">首頁</a>
+            <a href="#">課程</a>
+            <a href="#">關於</a>
+          </div>
+        </div>
+        <p class="note">導覽列常用 `display: inline-block`、水平 padding 與 line-height 做出穩定的可點擊區域。</p>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const inputs = {
+      top: document.querySelector("#topPadding"),
+      right: document.querySelector("#rightPadding"),
+      bottom: document.querySelector("#bottomPadding"),
+      left: document.querySelector("#leftPadding"),
+      nav: document.querySelector("#navPadding")
+    };
+    const boxDemo = document.querySelector("#boxDemo");
+    const navLinks = [...document.querySelectorAll(".nav-demo a")];
+    const codeOutput = document.querySelector("#codeOutput");
+
+    function render() {
+      const top = Number(inputs.top.value);
+      const right = Number(inputs.right.value);
+      const bottom = Number(inputs.bottom.value);
+      const left = Number(inputs.left.value);
+      const nav = Number(inputs.nav.value);
+      const width = 190 + left + right + 16;
+      const height = 90 + top + bottom + 16;
+
+      document.querySelector("#topValue").textContent = `${top}px`;
+      document.querySelector("#rightValue").textContent = `${right}px`;
+      document.querySelector("#bottomValue").textContent = `${bottom}px`;
+      document.querySelector("#leftValue").textContent = `${left}px`;
+      document.querySelector("#navValue").textContent = `${nav}px`;
+      document.querySelector("#widthMetric").textContent = `${width}px`;
+      document.querySelector("#heightMetric").textContent = `${height}px`;
+
+      boxDemo.style.padding = `${top}px ${right}px ${bottom}px ${left}px`;
+      navLinks.forEach((link) => {
+        link.style.paddingLeft = `${nav}px`;
+        link.style.paddingRight = `${nav}px`;
+      });
+
+      codeOutput.textContent = `.box {
+  width: 190px;
+  min-height: 90px;
+  padding: ${top}px ${right}px ${bottom}px ${left}px;
+  border: 8px solid #fb923c;
+}
+
+/* content-box 下：
+   實際寬度 = 190 + ${left} + ${right} + 16 = ${width}px
+*/
+
+.nav a {
+  display: inline-block;
+  padding: 0 ${nav}px;
+  line-height: 40px;
+}`;
+    }
+
+    Object.values(inputs).forEach((input) => input.addEventListener("input", render));
+    render();
+  </script>
+</body>
+</html>

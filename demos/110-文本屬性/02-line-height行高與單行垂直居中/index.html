@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>line-height 行高與單行垂直居中</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/110-文本屬性/02-line-height行高與單行垂直居中.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">110-文本屬性</p>
+            <h1 id="demoTitle">line-height 行高與單行垂直居中</h1>
+
+            <div class="controls">
+                <label>字體大小 <input id="fontSize" type="range" min="14" max="28" value="18"><output id="fontSizeOut">18px</output></label>
+                <label>行高 <input id="lineHeight" type="range" min="18" max="64" value="32"><output id="lineHeightOut">32px</output></label>
+                <label>盒高 <input id="boxHeight" type="range" min="36" max="72" value="44"><output id="boxHeightOut">44px</output></label>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>多行文字行距</h2>
+                    <p class="paragraph" id="paragraph">行高控制每一行文字佔用的高度。行高太小會擁擠，行高較大時段落會變得舒展，但過大也會顯得鬆散。</p>
+                </section>
+                <section class="panel">
+                    <h2>單行盒子置中</h2>
+                    <div class="badge" id="badge">單行文字</div>
+                    <p class="hint" id="hint"></p>
+                </section>
+                <section class="panel code-panel">
+                    <h2>目前 CSS</h2>
+                    <pre><code id="cssCode"></code></pre>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

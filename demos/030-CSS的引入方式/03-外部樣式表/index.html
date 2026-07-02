@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>外部樣式表 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/030-CSS的引入方式/03-外部樣式表.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">CSS 引入方式</p>
+      <h1 id="page-title">外部樣式表</h1>
+      <p>CSS 寫在獨立的 <code>.css</code> 檔案中，再用 <code>&lt;link&gt;</code> 從 HTML 引入。</p>
+    </section>
+
+    <section class="controls" aria-label="外部樣式表路徑">
+      <button class="path-button is-active" type="button" data-path="./style.css">正確路徑</button>
+      <button class="path-button" type="button" data-path="./missing.css">檔名錯誤</button>
+      <button class="path-button" type="button" data-path="./css/style.css">資料夾不同</button>
+    </section>
+
+    <section class="layout">
+      <article class="panel files">
+        <div class="tabs" role="tablist" aria-label="檔案">
+          <button class="tab is-active" type="button" data-file="html">index.html</button>
+          <button class="tab" type="button" data-file="css">style.css</button>
+        </div>
+        <pre><code id="fileCode"></code></pre>
+      </article>
+
+      <article class="panel browser">
+        <h2>共用樣式結果</h2>
+        <div class="page-strip" id="pageStrip">
+          <section>
+            <h3>index.html</h3>
+            <p>首頁內容</p>
+          </section>
+          <section>
+            <h3>about.html</h3>
+            <p>關於頁內容</p>
+          </section>
+          <section>
+            <h3>contact.html</h3>
+            <p>聯絡頁內容</p>
+          </section>
+        </div>
+        <p class="status" id="statusText"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

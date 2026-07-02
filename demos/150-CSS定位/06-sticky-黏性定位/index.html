@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sticky 黏性定位</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/06-sticky-黏性定位.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">position: sticky</p>
+      <h1>先像 relative，再像 fixed</h1>
+      <p>sticky 需要捲動容器與 top / left / right / bottom 門檻；沒有門檻時不會黏住。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="sticky 設定">
+        <button class="case-btn active" type="button" data-case="top">top: 0</button>
+        <button class="case-btn" type="button" data-case="gap">top: 24px</button>
+        <button class="case-btn" type="button" data-case="missing">缺少 top</button>
+      </nav>
+
+      <div class="stage" id="stage" data-case="top">
+        <div class="scrollbox" id="scrollbox">
+          <div class="intro">往下捲動這個框</div>
+          <div class="sticky-nav">章節導覽 sticky</div>
+          <article>
+            <p>內容段落 1：sticky 一開始仍在文件流中。</p>
+            <p>內容段落 2：當它碰到指定門檻，就會黏在捲動容器內。</p>
+            <p>內容段落 3：它不是永遠固定，仍受父層與捲動範圍限制。</p>
+            <p>內容段落 4：最常見用法是表頭、側邊目錄、區塊標題。</p>
+            <p>內容段落 5：若忘記 top 等偏移值，sticky 不會啟動。</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">設定 top: 0</h2>
+        <pre><code id="codeBox">.nav {
+  position: sticky;
+  top: 0;
+}</code></pre>
+        <p id="note">捲動到導覽列碰到容器頂端時，它會暫時黏住。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

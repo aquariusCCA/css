@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fixed 固定定位</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/05-fixed-固定定位.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">position: fixed</p>
+      <h1>相對視窗固定</h1>
+      <p>fixed 元素不隨內容捲動，通常用於浮動工具、固定導覽或貼在內容版心旁的元件。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="固定位置">
+        <button class="place-btn active" type="button" data-place="corner">右下角工具</button>
+        <button class="place-btn" type="button" data-place="top">左上固定</button>
+        <button class="place-btn" type="button" data-place="rail">版心右側</button>
+      </nav>
+
+      <div class="stage" id="stage" data-place="corner">
+        <div class="viewport">
+          <div class="content">
+            <p>內容區塊 1：捲動畫面時，fixed 工具仍貼著視窗。</p>
+            <p>內容區塊 2：它不佔文件流空間，所以內容可能被覆蓋。</p>
+            <p>內容區塊 3：需要時要替內容補 padding 或 margin。</p>
+            <p>內容區塊 4：常見在返回頂部、客服、固定選單。</p>
+            <p>內容區塊 5：版心旁固定可用 left: 50% 加 margin-left。</p>
+          </div>
+          <div class="fixed-tool">FIXED</div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">右下角固定工具</h2>
+        <pre><code id="codeBox">.tool {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+}</code></pre>
+        <p id="note">right 與 bottom 很適合建立貼在視窗角落的固定工具。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

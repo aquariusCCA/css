@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>overflow 控制溢出內容 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/070-元素的顯示與隱藏/01-overflow-控制溢出內容.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">overflow</p>
+      <h1>內容超出盒子時，畫面要怎麼處理？</h1>
+      <p>`overflow` 控制的是盒子內部超出範圍的內容，不是讓整個元素消失。</p>
+    </header>
+
+    <section class="demo-section" aria-labelledby="overflow-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">四種常用值</p>
+          <h2 id="overflow-title">切換 `overflow`，觀察同一段內容的變化</h2>
+        </div>
+        <div class="value-switcher" aria-label="選擇 overflow 值">
+          <button class="value-button is-active" type="button" data-overflow="visible" aria-pressed="true">visible</button>
+          <button class="value-button" type="button" data-overflow="hidden" aria-pressed="false">hidden</button>
+          <button class="value-button" type="button" data-overflow="scroll" aria-pressed="false">scroll</button>
+          <button class="value-button" type="button" data-overflow="auto" aria-pressed="false">auto</button>
+        </div>
+      </div>
+
+      <div class="overflow-lab">
+        <div class="stage">
+          <div class="message-box" id="messageBox">
+            <strong>固定高度訊息盒</strong>
+            <p>
+              這是一段故意放長的內容。盒子的寬度與高度固定，文字比盒子可以容納的空間還多。
+              當內容超出盒子時，`overflow` 會決定超出的部分要顯示在外面、被裁切，或透過捲動條查看。
+            </p>
+            <p>
+              再加一段內容，讓垂直方向明確產生溢出。請觀察盒子邊界和超出文字之間的關係。
+            </p>
+          </div>
+        </div>
+
+        <aside class="explain-panel" aria-live="polite">
+          <p class="panel-label">目前 CSS</p>
+          <pre><code id="overflowCode">.message {
+  overflow: visible;
+}</code></pre>
+          <p class="panel-label">觀察重點</p>
+          <p id="overflowNote">超出的內容仍會顯示在盒子外面，可能干擾周圍版面。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="demo-section" aria-labelledby="clip-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">常見踩雷</p>
+          <h2 id="clip-title">`overflow: hidden` 也會裁掉定位子元素</h2>
+        </div>
+      </div>
+
+      <div class="clip-grid">
+        <article class="clip-card clip-visible">
+          <p class="panel-label">未裁切</p>
+          <div class="clip-frame">
+            <span class="badge">NEW</span>
+            <strong>課程卡片</strong>
+            <p>徽章可以露出容器外。</p>
+          </div>
+          <pre><code>.card {
+  overflow: visible;
+}</code></pre>
+        </article>
+
+        <article class="clip-card clip-hidden">
+          <p class="panel-label">被裁切</p>
+          <div class="clip-frame">
+            <span class="badge">NEW</span>
+            <strong>課程卡片</strong>
+            <p>超出邊界的徽章會被切掉。</p>
+          </div>
+          <pre><code>.card {
+  overflow: hidden;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

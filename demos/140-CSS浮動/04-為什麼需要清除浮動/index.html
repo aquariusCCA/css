@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>為什麼需要清除浮動 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/140-CSS浮動/04-為什麼需要清除浮動.md -->
+  <main class="demo-shell">
+    <header>
+      <p class="kicker">CSS 浮動</p>
+      <h1>父級高度塌陷如何發生</h1>
+      <p>對照未清除與已閉合浮動的結果，觀察 footer 為什麼會上移。</p>
+    </header>
+    <label class="toggle"><input id="fixedHeight" type="checkbox"> 給父級固定高度</label>
+    <section class="workspace">
+      <article class="case-card">
+        <h2>未清除浮動</h2>
+        <div id="badCase" class="demo-case bad-case">
+          <div class="parent"><div class="child one">float</div><div class="child two">float</div></div>
+          <div class="footer">footer 上移</div>
+        </div>
+      </article>
+      <article class="case-card">
+        <h2>已閉合浮動</h2>
+        <div id="goodCase" class="demo-case good-case">
+          <div class="parent"><div class="child one">float</div><div class="child two">float</div></div>
+          <div class="footer">footer 正常接在後面</div>
+        </div>
+      </article>
+      <article class="code-card">
+        <h2>判斷</h2>
+        <pre><code id="code"></code></pre>
+        <p id="explain"></p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

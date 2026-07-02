@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>為什麼要重置瀏覽器默認樣式 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/080-布局重置默認樣式/01-為什麼要重置瀏覽器默認樣式.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">布局重置默認樣式</p>
+      <h1 id="page-title">為什麼要重置瀏覽器默認樣式</h1>
+      <p>同一份 HTML 即使沒有寫 CSS，也會受到瀏覽器預設樣式影響。重置的目的，是讓後續布局從更可控的起點開始。</p>
+    </section>
+
+    <section class="controls" aria-label="樣式狀態">
+      <button class="mode-button is-active" type="button" data-mode="default">瀏覽器預設</button>
+      <button class="mode-button" type="button" data-mode="simple-reset">簡單重置</button>
+      <button class="mode-button" type="button" data-mode="over-reset">過度全局</button>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>套用的 CSS</h2>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>同一份 HTML 的畫面</h2>
+        <div class="viewport">
+          <div class="sample-page" id="samplePage">
+            <h1>文章標題</h1>
+            <p>段落文字會帶著瀏覽器預設的上下間距。</p>
+            <ul>
+              <li>導覽項目</li>
+              <li>清單項目</li>
+            </ul>
+            <a href="#">預設連結樣式</a>
+            <button type="button">按鈕文字</button>
+          </div>
+        </div>
+        <p class="note" id="stateNote"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

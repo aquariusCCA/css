@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>盒子模型與內容區域 Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #243041;
+      --muted: #64748b;
+      --line: #d9e2ec;
+      --surface: #ffffff;
+      --soft: #f5f8fb;
+      --content: #bfdbfe;
+      --padding: #fde68a;
+      --border: #fca5a5;
+      --margin: #bbf7d0;
+      --accent: #0f766e;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8fafc 0%, #eef7f4 48%, #fff7ed 100%);
+    }
+
+    .demo-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    .intro {
+      max-width: 820px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      margin-top: 22px;
+    }
+
+    .panel {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 18px 42px rgba(36, 48, 65, 0.08);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+
+    .controls {
+      padding: 18px;
+    }
+
+    .control {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .control label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .stage {
+      min-height: 430px;
+      padding: 28px;
+      background: var(--soft);
+      overflow: auto;
+    }
+
+    .margin-area {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: repeating-linear-gradient(45deg, var(--margin), var(--margin) 10px, #dcfce7 10px, #dcfce7 20px);
+      transition: padding 160ms ease;
+    }
+
+    .border-area {
+      background: var(--border);
+      transition: padding 160ms ease;
+    }
+
+    .padding-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--padding);
+      transition: padding 160ms ease;
+    }
+
+    .content-area {
+      display: grid;
+      place-items: center;
+      width: 200px;
+      height: 110px;
+      color: #17406d;
+      background: var(--content);
+      font-weight: 900;
+      transition: width 160ms ease, height 160ms ease;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .swatch {
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 18px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfdff;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.35rem;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f8fbff;
+      background: #172033;
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    @media (max-width: 860px) {
+      .layout,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .legend {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .demo-shell {
+        width: min(100% - 20px, 1120px);
+        padding: 22px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source notes: notes/130-盒子模型/01-盒子模型與內容區域.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">盒子模型</p>
+      <h1 id="page-title">內容區域只是盒子的其中一層</h1>
+      <p>預設的 `width` 和 `height` 指的是 content 區域。實際佔用空間還要加上 padding、border 和 margin。</p>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>調整盒模型尺寸</h2>
+        <div class="controls">
+          <div class="control">
+            <label for="contentWidth">content width <span id="contentWidthValue">200px</span></label>
+            <input id="contentWidth" type="range" min="120" max="300" value="200">
+          </div>
+          <div class="control">
+            <label for="contentHeight">content height <span id="contentHeightValue">110px</span></label>
+            <input id="contentHeight" type="range" min="70" max="180" value="110">
+          </div>
+          <div class="control">
+            <label for="paddingSize">padding <span id="paddingSizeValue">24px</span></label>
+            <input id="paddingSize" type="range" min="0" max="48" value="24">
+          </div>
+          <div class="control">
+            <label for="borderSize">border <span id="borderSizeValue">10px</span></label>
+            <input id="borderSize" type="range" min="0" max="24" value="10">
+          </div>
+          <div class="control">
+            <label for="marginSize">margin <span id="marginSizeValue">30px</span></label>
+            <input id="marginSize" type="range" min="0" max="56" value="30">
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>可視化結果</h2>
+        <div class="stage">
+          <div class="margin-area" id="marginArea">
+            <div class="border-area" id="borderArea">
+              <div class="padding-area" id="paddingArea">
+                <div class="content-area" id="contentArea">content</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="legend" aria-label="圖例">
+          <span><i class="swatch" style="background: var(--content)"></i>content</span>
+          <span><i class="swatch" style="background: var(--padding)"></i>padding</span>
+          <span><i class="swatch" style="background: var(--border)"></i>border</span>
+          <span><i class="swatch" style="background: var(--margin)"></i>margin</span>
+        </div>
+        <div class="metrics">
+          <p class="metric"><strong id="borderBoxMetric">268px</strong><span>border-box 寬度</span></p>
+          <p class="metric"><strong id="outerMetric">328px</strong><span>含左右 margin 的寬度</span></p>
+          <p class="metric"><strong id="formulaMetric">200 + 48 + 20</strong><span>content + padding + border</span></p>
+        </div>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const controls = {
+      width: document.querySelector("#contentWidth"),
+      height: document.querySelector("#contentHeight"),
+      padding: document.querySelector("#paddingSize"),
+      border: document.querySelector("#borderSize"),
+      margin: document.querySelector("#marginSize")
+    };
+
+    const nodes = {
+      content: document.querySelector("#contentArea"),
+      padding: document.querySelector("#paddingArea"),
+      border: document.querySelector("#borderArea"),
+      margin: document.querySelector("#marginArea"),
+      code: document.querySelector("#codeOutput"),
+      borderBox: document.querySelector("#borderBoxMetric"),
+      outer: document.querySelector("#outerMetric"),
+      formula: document.querySelector("#formulaMetric")
+    };
+
+    function px(value) {
+      return `${value}px`;
+    }
+
+    function render() {
+      const width = Number(controls.width.value);
+      const height = Number(controls.height.value);
+      const padding = Number(controls.padding.value);
+      const border = Number(controls.border.value);
+      const margin = Number(controls.margin.value);
+      const borderBoxWidth = width + padding * 2 + border * 2;
+      const outerWidth = borderBoxWidth + margin * 2;
+
+      document.querySelector("#contentWidthValue").textContent = px(width);
+      document.querySelector("#contentHeightValue").textContent = px(height);
+      document.querySelector("#paddingSizeValue").textContent = px(padding);
+      document.querySelector("#borderSizeValue").textContent = px(border);
+      document.querySelector("#marginSizeValue").textContent = px(margin);
+
+      nodes.content.style.width = px(width);
+      nodes.content.style.height = px(height);
+      nodes.padding.style.padding = px(padding);
+      nodes.border.style.padding = px(border);
+      nodes.margin.style.padding = px(margin);
+
+      nodes.borderBox.textContent = px(borderBoxWidth);
+      nodes.outer.textContent = px(outerWidth);
+      nodes.formula.textContent = `${width} + ${padding * 2} + ${border * 2}`;
+      nodes.code.textContent = `.box {
+  width: ${px(width)};
+  height: ${px(height)};
+  padding: ${px(padding)};
+  border: ${px(border)} solid tomato;
+  margin: ${px(margin)};
+}
+
+/* 預設 content-box:
+   實際寬度 = width + 左右 padding + 左右 border
+   ${borderBoxWidth}px = ${width}px + ${padding * 2}px + ${border * 2}px
+*/`;
+    }
+
+    Object.values(controls).forEach((control) => control.addEventListener("input", render));
+    render();
+  </script>
+</body>
+</html>

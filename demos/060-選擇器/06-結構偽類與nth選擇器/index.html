@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>結構偽類與 nth 選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/06-結構偽類與nth選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">用位置與公式選取元素</h1>
+
+            <div class="selector-bar" role="group" aria-label="結構偽類選擇器">
+                <button type="button" class="is-active" data-selector=".list li:first-child">first-child</button>
+                <button type="button" data-selector=".list li:last-child">last-child</button>
+                <button type="button" data-selector=".list li:nth-child(even)">nth-child(even)</button>
+                <button type="button" data-selector=".list li:nth-child(n + 3)">nth-child(n + 3)</button>
+                <button type="button" data-selector=".list li:nth-child(-n + 3)">nth-child(-n + 3)</button>
+                <button type="button" data-selector=".mixed p:nth-child(2)">p:nth-child(2)</button>
+                <button type="button" data-selector=".mixed p:nth-of-type(2)">p:nth-of-type(2)</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>同類型列表</h2>
+                    <ol class="sample list" id="listSample">
+                        <li>第 1 個 li</li>
+                        <li>第 2 個 li</li>
+                        <li>第 3 個 li</li>
+                        <li>第 4 個 li</li>
+                        <li>第 5 個 li</li>
+                        <li>第 6 個 li</li>
+                    </ol>
+                </section>
+
+                <section class="panel">
+                    <h2>混合元素</h2>
+                    <div class="sample mixed" id="mixedSample">
+                        <h3>第 1 個子元素 h3</h3>
+                        <p>第 2 個子元素，也是第 1 個 p</p>
+                        <div>第 3 個子元素 div</div>
+                        <p>第 4 個子元素，也是第 2 個 p</p>
+                    </div>
+                </section>
+
+                <section class="panel code-panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

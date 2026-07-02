@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>常見浮動布局 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/140-CSS浮動/03-常見浮動布局.md -->
+  <main class="demo-shell">
+    <header>
+      <p class="kicker">CSS 浮動</p>
+      <h1>標準流控制上下，浮動控制左右</h1>
+      <p>切換傳統頁面、多欄卡片與左右欄網格，觀察浮動布局如何計算寬度與間距。</p>
+    </header>
+    <nav class="tabs">
+      <button class="is-active" type="button" data-layout="page">通欄 + 四欄</button>
+      <button type="button" data-layout="cards">等寬卡片</button>
+      <button type="button" data-layout="grid">左右欄網格</button>
+    </nav>
+    <label class="toggle"><input id="badGap" type="checkbox"> 移除最後一項的 margin-right: 0</label>
+    <section class="workspace">
+      <article class="stage-card">
+        <h2>布局結果</h2>
+        <div id="stage" class="stage layout-page">
+          <div class="page-demo"><div class="top">top</div><div class="banner">banner</div><ul class="four"><li>1</li><li>2</li><li>3</li><li class="last">4</li></ul><div class="footer">footer</div></div>
+          <ul class="cards-demo"><li>296</li><li>296</li><li>296</li><li class="last">296</li></ul>
+          <div class="grid-demo"><aside>234</aside><section><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></section></div>
+        </div>
+      </article>
+      <article class="code-card">
+        <h2>核心 CSS</h2>
+        <pre><code id="code"></code></pre>
+        <p id="calc" class="calc"></p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS3 多背景圖 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/120-背景屬性/05-CSS3多背景圖.md -->
+  <main class="shell">
+    <header><p class="eyebrow">CSS3 多背景圖</p><h1>同一個元素可以疊多層裝飾背景</h1></header>
+    <section class="controls">
+      <label><input type="checkbox" data-layer="top" checked>右上裝飾</label>
+      <label><input type="checkbox" data-layer="bottom" checked>左下圖示</label>
+      <label><input type="checkbox" data-layer="base" checked>底層主背景</label>
+      <button id="reverseButton" type="button">交換上層與底層</button>
+    </section>
+    <section class="grid">
+      <div class="multi-bg" id="multiBg"><strong>多背景圖區塊</strong></div>
+      <aside class="panel"><pre><code id="codeText"></code></pre><p>先寫的背景會畫在較上層，越後面越接近底層。</p></aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

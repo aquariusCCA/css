@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-weight 字體粗細 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/100-字體屬性/03-font-weight-字體粗細.md -->
+  <main class="app">
+    <header>
+      <p class="eyebrow">CSS 字體屬性</p>
+      <h1>font-weight：字重與視覺層級</h1>
+      <p class="lead">切換 normal、bold、數字字重與錯誤單位，理解字重不是長度，也不保證每個字體都能顯示所有粗細。</p>
+    </header>
+    <section class="workspace">
+      <div class="toolbar" role="group" aria-label="選擇 font-weight">
+        <button class="is-active" data-weight="400" type="button">400</button>
+        <button data-weight="700" type="button">700</button>
+        <button data-weight="500" type="button">500</button>
+        <button data-weight="normal" type="button">normal</button>
+        <button data-weight="bold" type="button">bold</button>
+        <button data-weight="invalid" type="button">700px</button>
+      </div>
+      <label class="toggle"><input id="limitedFont" type="checkbox"> 模擬字體只提供 400 / 700</label>
+      <section class="stage">
+        <article class="sample" id="sample"><h2>視覺層級靠字重建立</h2><p>重點文字可以加粗，但整頁都加粗會失去層次。</p></article>
+      </section>
+      <section class="details">
+        <div class="panel"><h2>目前 CSS</h2><pre><code id="codeBlock"></code></pre></div>
+        <div class="panel"><h2>判斷</h2><p id="note"></p><div class="scale" id="scale"></div></div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

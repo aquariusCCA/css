@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>定位元素的特殊特性與覆蓋行為</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/07-定位元素的特殊特性與覆蓋行為.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">positioned element</p>
+      <h1>定位後的尺寸與覆蓋</h1>
+      <p>absolute / fixed 會脫離文件流，inline 元素也可設定寬高；未指定尺寸時常由內容撐開。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="展示案例">
+        <button class="demo-btn active" type="button" data-demo="inline">inline 可設寬高</button>
+        <button class="demo-btn" type="button" data-demo="shrink">未設寬度由內容撐開</button>
+        <button class="demo-btn" type="button" data-demo="cover">脫離文件流並覆蓋</button>
+        <button class="demo-btn" type="button" data-demo="reserve">固定工具需預留空間</button>
+      </nav>
+
+      <div class="stage" id="stage" data-demo="inline">
+        <div class="sample">
+          <p class="text">這是一段文字，其中的 <span class="chip">span</span> 被設定為 absolute。</p>
+          <div class="overlay-box">定位元素</div>
+          <p class="text after">後面的段落不會替 absolute 元素讓位，因此容易產生覆蓋。</p>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">inline 元素定位後可設定寬高</h2>
+        <pre><code id="codeBox">span {
+  position: absolute;
+  width: 180px;
+  height: 90px;
+}</code></pre>
+        <p id="note">span 原本是 inline，但 absolute 後可以像區塊一樣套用 width 與 height。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

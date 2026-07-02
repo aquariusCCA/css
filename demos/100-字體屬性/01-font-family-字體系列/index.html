@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font-family 字體系列 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/100-字體屬性/01-font-family-字體系列.md -->
+  <main class="app">
+    <header>
+      <p class="eyebrow">CSS 字體屬性</p>
+      <h1>font-family：字體候選清單</h1>
+      <p class="lead">切換不同寫法，觀察瀏覽器如何從左到右尋找可用字體，並理解英文逗號、引號與通用字體族的作用。</p>
+    </header>
+
+    <section class="workspace">
+      <div class="toolbar" role="group" aria-label="選擇 font-family 寫法">
+        <button class="is-active" data-case="good" type="button">完整清單</button>
+        <button data-case="single" type="button">只寫 Arial</button>
+        <button data-case="comma" type="button">中文逗號</button>
+        <button data-case="generic" type="button">缺少通用族</button>
+      </div>
+
+      <section class="stage" aria-label="字體預覽">
+        <article class="sample" id="sampleText">
+          <span>Preview</span>
+          <h2>字體會沿著清單往後找</h2>
+          <p>Arial 顯示英文，中文字可能需要後備字體。CSS font-family 讓你明確安排退路。</p>
+          <code>font-family</code>
+        </article>
+      </section>
+
+      <section class="details">
+        <div class="panel">
+          <h2>目前 CSS</h2>
+          <pre><code id="codeBlock"></code></pre>
+        </div>
+        <div class="panel">
+          <h2>瀏覽器選字體流程</h2>
+          <ol id="steps"></ol>
+          <p class="result" id="resultText"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

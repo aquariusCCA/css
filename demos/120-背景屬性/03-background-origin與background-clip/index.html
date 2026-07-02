@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>background-origin 與 background-clip Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/120-背景屬性/03-background-origin與background-clip.md -->
+  <main class="shell">
+    <header><p class="eyebrow">origin 管起點，clip 管範圍</p><h1>背景從哪裡開始，又畫到哪裡為止？</h1></header>
+    <section class="controls">
+      <label>background-origin<select id="originSelect"><option>padding-box</option><option>border-box</option><option>content-box</option></select></label>
+      <label>background-clip<select id="clipSelect"><option>border-box</option><option>padding-box</option><option>content-box</option></select></label>
+    </section>
+    <section class="grid">
+      <div class="box-demo" id="boxDemo"><div class="content">content</div></div>
+      <aside class="panel"><pre><code id="codeText"></code></pre><p>虛線邊框、padding 與內容區讓三個 box 的差異變得可見。</p></aside>
+    </section>
+    <section class="text-clip"><p class="eyebrow">background-clip: text</p><strong>Background Clip</strong></section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

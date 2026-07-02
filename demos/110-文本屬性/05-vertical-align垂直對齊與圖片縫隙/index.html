@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vertical-align 垂直對齊與圖片縫隙</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/110-文本屬性/05-vertical-align垂直對齊與圖片縫隙.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">110-文本屬性</p>
+            <h1 id="demoTitle">vertical-align 與基線縫隙</h1>
+
+            <div class="mode-bar" role="group" aria-label="vertical-align 模式">
+                <button class="is-active" type="button" data-mode="baseline">baseline</button>
+                <button type="button" data-mode="top">top</button>
+                <button type="button" data-mode="middle">middle</button>
+                <button type="button" data-mode="bottom">bottom</button>
+                <button type="button" data-mode="block">display:block</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>同一行中的圖片、表單與文字</h2>
+                    <div class="line-demo" id="lineDemo">
+                        <span class="fake-image" id="fakeImage" role="img" aria-label="示範圖片"></span>
+                        <textarea id="textarea" aria-label="留言示範">留言</textarea>
+                        <span class="label-text">文字基線</span>
+                    </div>
+                    <div class="image-box" id="imageBox">
+                        <span class="fake-photo" id="fakePhoto" role="img" aria-label="獨立圖片"></span>
+                    </div>
+                </section>
+                <section class="panel">
+                    <h2>目前 CSS</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

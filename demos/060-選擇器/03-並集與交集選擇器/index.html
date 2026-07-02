@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>並集與交集選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/03-並集與交集選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">逗號、無空格、空格的差異</h1>
+
+            <div class="selector-bar" role="group" aria-label="並集與交集選擇器">
+                <button type="button" class="is-active" data-selector="div, .box">div, .box</button>
+                <button type="button" data-selector="div.box">div.box</button>
+                <button type="button" data-selector="div .box">div .box</button>
+                <button type="button" data-selector="p.box">p.box</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>同一組 HTML</h2>
+                    <div class="sample" id="sample">
+                        <div class="box">div class="box"</div>
+                        <div>一般 div <span class="box">span class="box"</span></div>
+                        <p class="box">p class="box"</p>
+                        <p>一般 p</p>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

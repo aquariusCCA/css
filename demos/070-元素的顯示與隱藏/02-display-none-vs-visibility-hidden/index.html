@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>display none 與 visibility hidden Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/070-元素的顯示與隱藏/02-display-none-vs-visibility-hidden.md -->
+  <main class="demo-shell">
+    <header class="page-header">
+      <p class="eyebrow">元素顯示與隱藏</p>
+      <h1>看不見，不代表版面行為一樣</h1>
+      <p>`display: none` 會移出版面；`visibility: hidden` 會保留原本位置。</p>
+    </header>
+
+    <section class="demo-section" aria-labelledby="hide-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">隱藏方式</p>
+          <h2 id="hide-title">切換第一個方塊，觀察第二個方塊是否補位</h2>
+        </div>
+        <div class="mode-switcher" aria-label="選擇隱藏模式">
+          <button class="mode-button is-active" type="button" data-mode="visible" aria-pressed="true">正常顯示</button>
+          <button class="mode-button" type="button" data-mode="display" aria-pressed="false">display: none</button>
+          <button class="mode-button" type="button" data-mode="visibility" aria-pressed="false">visibility: hidden</button>
+        </div>
+      </div>
+
+      <div class="hide-lab">
+        <div class="layout-stage">
+          <div class="stack">
+            <div class="demo-box target-box" id="targetBox">
+              <strong>box 1</strong>
+              <span>要被隱藏的元素</span>
+            </div>
+            <div class="demo-box follower-box">
+              <strong>box 2</strong>
+              <span>觀察我會不會補上來</span>
+            </div>
+            <div class="demo-box third-box">
+              <strong>box 3</strong>
+              <span>下方參考元素</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-panel" aria-live="polite">
+          <p class="panel-label">目前 CSS</p>
+          <pre><code id="modeCode">.box1 {
+  display: block;
+  visibility: visible;
+}</code></pre>
+
+          <div class="status-grid">
+            <div>
+              <span class="status-label">是否可見</span>
+              <strong id="visibleState">可見</strong>
+            </div>
+            <div>
+              <span class="status-label">是否保留位置</span>
+              <strong id="spaceState">保留</strong>
+            </div>
+          </div>
+          <p id="modeNote">第一個方塊正常參與版面，第二個方塊維持在它下方。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="demo-section" aria-labelledby="restore-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">還原顯示模式</p>
+          <h2 id="restore-title">重新顯示時，要回到合適的 `display` 值</h2>
+        </div>
+      </div>
+
+      <div class="restore-grid">
+        <article class="restore-card">
+          <p class="panel-label">原本是 inline-flex</p>
+          <div class="inline-row">
+            <span class="pill good-pill">標籤一</span>
+            <span class="pill good-pill">標籤二</span>
+          </div>
+          <pre><code>.tag {
+  display: inline-flex;
+}</code></pre>
+        </article>
+
+        <article class="restore-card">
+          <p class="panel-label">誤還原成 block</p>
+          <div class="inline-row block-row">
+            <span class="pill bad-pill">標籤一</span>
+            <span class="pill bad-pill">標籤二</span>
+          </div>
+          <pre><code>.tag {
+  display: block;
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

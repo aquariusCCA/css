@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HEX、RGB 與 RGBA 顏色值 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/090-顏色/02-hex-rgb-rgba顏色值.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 顏色</p>
+      <h1>HEX、RGB 與 RGBA</h1>
+      <p>調整 RGB 通道、檢查 HEX 簡寫條件，並觀察 alpha 透明度如何讓底色透出。</p>
+    </header>
+
+    <section class="workspace">
+      <article class="color-lab">
+        <h2>RGB 通道實驗</h2>
+        <div id="colorPreview" class="color-preview">
+          <span id="previewLabel">rgb(255, 107, 44)</span>
+        </div>
+        <div class="slider-stack">
+          <label>
+            <span>Red</span>
+            <input id="redRange" type="range" min="0" max="255" value="255">
+            <output id="redValue">255</output>
+          </label>
+          <label>
+            <span>Green</span>
+            <input id="greenRange" type="range" min="0" max="255" value="107">
+            <output id="greenValue">107</output>
+          </label>
+          <label>
+            <span>Blue</span>
+            <input id="blueRange" type="range" min="0" max="255" value="44">
+            <output id="blueValue">44</output>
+          </label>
+          <label>
+            <span>Alpha</span>
+            <input id="alphaRange" type="range" min="0" max="1" value="0.65" step="0.05">
+            <output id="alphaValue">0.65</output>
+          </label>
+        </div>
+      </article>
+
+      <article class="code-panel">
+        <h2>即時 CSS</h2>
+        <pre><code id="cssCode"></code></pre>
+        <div class="alpha-demo">
+          <div class="checker">
+            <div id="alphaSwatch" class="alpha-swatch"></div>
+          </div>
+          <p>透明度低時，棋盤背景會更明顯透出。</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="hex-panel">
+      <div>
+        <h2>HEX 簡寫判斷</h2>
+        <p>只有 `#RRGGBB` 的每一組兩個字元都相同，才能改寫成 `#RGB`。</p>
+      </div>
+      <div class="hex-options" aria-label="HEX 範例">
+        <button class="hex-button is-active" type="button" data-hex="#aabbcc">#aabbcc</button>
+        <button class="hex-button" type="button" data-hex="#ff0000">#ff0000</button>
+        <button class="hex-button" type="button" data-hex="#ff0b00">#ff0b00</button>
+        <button class="hex-button" type="button" data-hex="#112233">#112233</button>
+      </div>
+      <div id="hexResult" class="hex-result"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

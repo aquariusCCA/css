@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>後代、子與兄弟選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/02-後代子與兄弟選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">用符號看懂元素關係</h1>
+
+            <div class="selector-bar" role="group" aria-label="關係選擇器">
+                <button type="button" class="is-active" data-selector=".nav a">.nav a</button>
+                <button type="button" data-selector=".nav > a">.nav &gt; a</button>
+                <button type="button" data-selector="h2 + p">h2 + p</button>
+                <button type="button" data-selector="h2 ~ p">h2 ~ p</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>DOM 片段</h2>
+                    <div class="sample" id="sample">
+                        <nav class="nav">
+                            <a href="#">直接子元素連結</a>
+                            <p><a href="#">段落裡的後代連結</a></p>
+                        </nav>
+                        <article>
+                            <h2>標題</h2>
+                            <p>緊接在 h2 後面的段落</p>
+                            <p>第二個同層段落</p>
+                            <div>中間的 div</div>
+                            <p>更後面的同層段落</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+:root {
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --ink: #20242c;
+  --muted: #697386;
+  --line: #dbe1ec;
+  --accent: #7b4fc4;
+  --hue: 210;
+  --sat: 70%;
+  --light: 50%;
+  --alpha: 0.7;
+  --hsl-color: hsl(var(--hue) var(--sat) var(--light));
+  --hsla-color: hsl(var(--hue) var(--sat) var(--light) / var(--alpha));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f2ecfb 0%, var(--bg) 42%);
+  color: var(--ink);
+  font-family: "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.demo-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.demo-header {
+  margin-bottom: 20px;
+}
+
+.kicker {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
+  gap: 16px;
+}
+
+.hsl-preview,
+.controls-panel,
+.comparison-grid article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 28px rgba(38, 47, 66, 0.08);
+  padding: 18px;
+}
+
+.preview-wrap {
+  display: grid;
+  min-height: 340px;
+  place-items: center;
+  border: 1px dashed #bac4d3;
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, #d7dce7 25%, transparent 25%),
+    linear-gradient(-45deg, #d7dce7 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #d7dce7 75%),
+    linear-gradient(-45deg, transparent 75%, #d7dce7 75%);
+  background-color: #fff;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+  background-size: 24px 24px;
+  padding: 22px;
+}
+
+.color-disc {
+  display: grid;
+  width: min(280px, 75vw);
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--hsla-color);
+  box-shadow: 0 22px 48px rgba(37, 44, 64, 0.22);
+  transition: background-color 120ms ease;
+}
+
+.color-disc span {
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  padding: 8px 14px;
+  font-weight: 900;
+}
+
+.controls-panel label {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 64px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.controls-panel span {
+  font-weight: 800;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+output {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  text-align: right;
+}
+
+pre {
+  min-height: 178px;
+  margin: 14px 0 0;
+  overflow: auto;
+  border-radius: 8px;
+  background: #18202c;
+  color: #eaf1ff;
+  padding: 16px;
+  font-size: 0.95rem;
+}
+
+.hover-demo {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.demo-button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--hsl-color);
+  color: #fff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.demo-button:hover,
+.demo-button:focus-visible {
+  background: hsl(var(--hue) var(--sat) calc(var(--light) + 10%));
+  outline: 2px solid transparent;
+  transform: translateY(-1px);
+}
+
+.hover-demo p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.comparison-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.hue-strip,
+.sat-strip,
+.light-strip {
+  height: 64px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.hue-strip {
+  background: linear-gradient(90deg, hsl(0 100% 50%), hsl(60 100% 50%), hsl(120 100% 50%), hsl(180 100% 50%), hsl(240 100% 50%), hsl(300 100% 50%), hsl(360 100% 50%));
+}
+
+.sat-strip {
+  background: linear-gradient(90deg, hsl(var(--hue) 0% var(--light)), hsl(var(--hue) 100% var(--light)));
+}
+
+.light-strip {
+  background: linear-gradient(90deg, hsl(var(--hue) var(--sat) 0%), hsl(var(--hue) var(--sat) 50%), hsl(var(--hue) var(--sat) 100%));
+}
+
+@media (max-width: 900px) {
+  .workspace,
+  .comparison-grid,
+  .hover-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .controls-panel label {
+    grid-template-columns: 1fr;
+  }
+
+  output {
+    text-align: left;
+  }
+}

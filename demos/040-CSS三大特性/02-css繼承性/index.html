@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 繼承性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/040-CSS三大特性/02-css繼承性.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 三大特性</p>
+      <h1>繼承性：子元素如何沿用父層樣式</h1>
+      <p>用同一組父子元素觀察文字屬性、盒模型屬性、無單位行高與瀏覽器預設樣式的差異。</p>
+    </header>
+
+    <section class="toolbar" aria-label="繼承展示主題">
+      <button class="topic-button is-active" type="button" data-topic="text">文字屬性</button>
+      <button class="topic-button" type="button" data-topic="box">盒模型屬性</button>
+      <button class="topic-button" type="button" data-topic="line">line-height</button>
+      <button class="topic-button" type="button" data-topic="defaults">預設樣式</button>
+    </section>
+
+    <section class="workspace">
+      <article class="preview-card">
+        <h2>畫面觀察</h2>
+        <div id="inheritStage" class="inherit-stage topic-text">
+          <div class="parent-box">
+            <span class="tag">父層 div</span>
+            <p class="child-text">子元素 p：沒有直接設定 color。</p>
+            <a class="child-link" href="#">子元素 a：連結預設樣式</a>
+            <h3 class="child-heading">子元素 h3：標題預設樣式</h3>
+          </div>
+        </div>
+      </article>
+
+      <article class="inspector-card">
+        <h2>CSS 與判斷</h2>
+        <pre><code id="cssCode"></code></pre>
+        <div class="line-controls">
+          <label for="ratioRange">行高比例</label>
+          <input id="ratioRange" type="range" min="1.2" max="2" value="1.5" step="0.1">
+          <output id="ratioOutput">1.5</output>
+        </div>
+        <label class="toggle-row">
+          <input id="inheritToggle" type="checkbox">
+          <span>對 a 與標題加上 inherit</span>
+        </label>
+        <p id="explanation" class="explanation"></p>
+      </article>
+    </section>
+
+    <section class="metric-strip">
+      <div>
+        <span>div font-size</span>
+        <strong>14px</strong>
+      </div>
+      <div>
+        <span>p font-size</span>
+        <strong>16px</strong>
+      </div>
+      <div>
+        <span>p line-height</span>
+        <strong id="lineHeightValue">24px</strong>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>margin 負值 Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #26313f;
+      --muted: #667085;
+      --line: #d8e1ea;
+      --surface: #ffffff;
+      --soft: #f5f8fb;
+      --accent: #0f766e;
+      --warn: #b45309;
+      font-family: "Segoe UI", "Noto Sans TC", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: linear-gradient(135deg, #f8fafc 0%, #fff7ed 50%, #ecfeff 100%);
+    }
+
+    .demo-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    .intro {
+      max-width: 820px;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--warn);
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 18px 42px rgba(38, 49, 63, 0.08);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.05rem;
+    }
+
+    .controls {
+      padding: 18px;
+    }
+
+    .control {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .control label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--warn);
+    }
+
+    .stage {
+      padding: 24px;
+      background: var(--soft);
+    }
+
+    .item-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      padding: 16px;
+      border: 1px dashed #94a3b8;
+      background: #fff;
+    }
+
+    .item {
+      position: static;
+      display: grid;
+      place-items: center;
+      width: 128px;
+      height: 96px;
+      margin-left: 0;
+      border: 1px solid #94a3b8;
+      background: #eff6ff;
+      color: #1e3a8a;
+      font-weight: 900;
+      transition: margin-left 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .item:first-child {
+      margin-left: 0;
+    }
+
+    .item.is-hovered {
+      border-color: #ef4444;
+      box-shadow: inset 0 0 0 1px #ef4444;
+    }
+
+    .item.fix-relative.is-hovered {
+      position: relative;
+    }
+
+    .item.fix-z.is-hovered {
+      position: relative;
+      z-index: 1;
+    }
+
+    .note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow: auto;
+      color: #f8fbff;
+      background: #172033;
+      line-height: 1.7;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-shell {
+        width: min(100% - 20px, 1120px);
+        padding: 22px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Source notes: notes/130-盒子模型/06-margin負值：讓相鄰邊框重疊.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">margin 負值</p>
+      <h1 id="page-title">用負 margin 疊合相鄰邊框</h1>
+      <p>清單或商品格常用 `margin-left: -1px` 讓相鄰 1px 邊框重疊；hover 邊框被壓住時，再用定位或 z-index 修正。</p>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>控制項</h2>
+        <div class="controls">
+          <div class="control">
+            <label for="negativeMargin">margin-left <span id="negativeValue">-1px</span></label>
+            <input id="negativeMargin" type="range" min="-12" max="8" value="-1">
+          </div>
+          <div class="control">
+            <label><input id="hoverSecond" type="checkbox" checked> 模擬第二格 hover</label>
+          </div>
+          <div class="control">
+            <label><input id="relativeFix" type="checkbox"> hover 時加 `position: relative`</label>
+          </div>
+          <div class="control">
+            <label><input id="zFix" type="checkbox"> hover 時加 `z-index: 1`</label>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>相鄰邊框</h2>
+        <div class="stage">
+          <div class="item-row" id="itemRow">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+          </div>
+          <p class="note" id="noteOutput">`-1px` 會讓後一格往前壓 1px，兩條 1px 邊框看起來只剩一條。</p>
+        </div>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const marginInput = document.querySelector("#negativeMargin");
+    const hoverInput = document.querySelector("#hoverSecond");
+    const relativeInput = document.querySelector("#relativeFix");
+    const zInput = document.querySelector("#zFix");
+    const items = [...document.querySelectorAll(".item")];
+    const codeOutput = document.querySelector("#codeOutput");
+    const noteOutput = document.querySelector("#noteOutput");
+
+    function render() {
+      const margin = Number(marginInput.value);
+      document.querySelector("#negativeValue").textContent = `${margin}px`;
+      items.forEach((item, index) => {
+        item.style.marginLeft = index === 0 ? "0" : `${margin}px`;
+        item.classList.toggle("is-hovered", hoverInput.checked && index === 1);
+        item.classList.toggle("fix-relative", relativeInput.checked);
+        item.classList.toggle("fix-z", zInput.checked);
+      });
+
+      noteOutput.textContent = zInput.checked
+        ? "已有定位的元素可用 z-index 把 hover 邊框提到上層。"
+        : relativeInput.checked
+          ? "hover 時加 position: relative，讓目前格子形成新的繪製位置。"
+          : "`-1px` 會讓後一格往前壓 1px，兩條 1px 邊框看起來只剩一條。";
+
+      codeOutput.textContent = `.item {
+  border: 1px solid #94a3b8;
+}
+
+.item + .item {
+  margin-left: ${margin}px;
+}
+
+.item:hover {
+  border-color: #ef4444;
+${relativeInput.checked || zInput.checked ? "  position: relative;\n" : ""}${zInput.checked ? "  z-index: 1;\n" : ""}}`;
+    }
+
+    [marginInput, hoverInput, relativeInput, zInput].forEach((node) => node.addEventListener("input", render));
+    render();
+  </script>
+</body>
+</html>

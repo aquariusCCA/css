@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>浮動與標準流 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/140-CSS浮動/01-浮動與標準流.md -->
+  <main class="demo-shell">
+    <header>
+      <p class="kicker">CSS 浮動</p>
+      <h1>標準流與 float 的排列差異</h1>
+      <p>切換情境，觀察塊級元素在標準流中如何上下排列，以及浮動如何讓盒子左右排列或讓文字環繞。</p>
+    </header>
+    <nav class="tabs" aria-label="展示模式">
+      <button class="is-active" type="button" data-mode="normal">標準流</button>
+      <button type="button" data-mode="left">float: left</button>
+      <button type="button" data-mode="split">左右對齊</button>
+      <button type="button" data-mode="wrap">文字環繞</button>
+    </nav>
+    <section class="workspace">
+      <article class="stage-card">
+        <h2>畫面結果</h2>
+        <div id="stage" class="stage mode-normal">
+          <div class="boxes">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+          </div>
+          <div class="wrap-demo">
+            <div class="fake-image">img</div>
+            <p>浮動最早常用於圖文排版。圖片向左浮動後，後面的文字會沿著圖片右側排列，而不是把圖片當作普通塊級元素獨占一行。</p>
+          </div>
+        </div>
+      </article>
+      <article class="code-card">
+        <h2>核心 CSS</h2>
+        <pre><code id="code"></code></pre>
+        <p id="explain" class="explain"></p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

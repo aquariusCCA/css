@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>常用文本外觀屬性</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/110-文本屬性/01-常用文本外觀屬性.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">110-文本屬性</p>
+            <h1 id="demoTitle">常用文本外觀屬性</h1>
+
+            <div class="controls" aria-label="文本外觀控制">
+                <label>顏色
+                    <select id="colorSelect">
+                        <option value="#b91c1c">紅色</option>
+                        <option value="#0f766e">青綠</option>
+                        <option value="#1d4ed8">藍色</option>
+                    </select>
+                </label>
+                <label>對齊
+                    <select id="alignSelect">
+                        <option value="left">left</option>
+                        <option value="center">center</option>
+                        <option value="right">right</option>
+                    </select>
+                </label>
+                <label>裝飾線
+                    <select id="decorationSelect">
+                        <option value="none">none</option>
+                        <option value="underline">underline</option>
+                        <option value="line-through">line-through</option>
+                        <option value="overline">overline</option>
+                    </select>
+                </label>
+                <label>首行縮進
+                    <select id="indentSelect">
+                        <option value="0">0</option>
+                        <option value="2em">2em</option>
+                    </select>
+                </label>
+                <label class="check">
+                    <input id="shadowToggle" type="checkbox">
+                    文字陰影
+                </label>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>呈現結果</h2>
+                    <article class="preview" id="previewText">
+                        <h3>文本屬性讓文字更容易閱讀</h3>
+                        <p>CSS 可以控制文字顏色、水平對齊、裝飾線、首行縮進與文字陰影。這些屬性改變外觀，不改變 HTML 的內容語意。</p>
+                    </article>
+                </section>
+
+                <section class="panel">
+                    <h2>目前 CSS</h2>
+                    <pre><code id="cssCode"></code></pre>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

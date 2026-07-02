@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>font 複合屬性 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/100-字體屬性/05-font-字體複合屬性.md -->
+  <main class="app">
+    <header>
+      <p class="eyebrow">CSS 字體屬性</p>
+      <h1>font：複合屬性的順序與重設</h1>
+      <p class="lead">組合不同 font 簡寫，檢查必填項目、行高位置，以及省略值會被重設的風險。</p>
+    </header>
+    <section class="workspace">
+      <div class="toolbar" role="group" aria-label="選擇 font 簡寫情境">
+        <button class="is-active" data-case="full" type="button">完整寫法</button>
+        <button data-case="missing" type="button">缺 font-family</button>
+        <button data-case="order" type="button">family 放前面</button>
+        <button data-case="line" type="button">行高位置錯</button>
+        <button data-case="reset" type="button">省略值重設</button>
+      </div>
+      <section class="stage">
+        <article class="sample" id="sample">正在努力學習前端知識中 ...</article>
+      </section>
+      <section class="details">
+        <div class="panel"><h2>目前 CSS</h2><pre><code id="codeBlock"></code></pre></div>
+        <div class="panel"><h2>解析結果</h2><ol id="tokens"></ol><p class="result" id="result"></p></div>
+      </section>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

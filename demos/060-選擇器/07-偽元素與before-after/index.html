@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>偽元素與 before / after</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/07-偽元素與before-after.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">偽元素：局部表現與裝飾內容</h1>
+
+            <div class="selector-bar" role="group" aria-label="偽元素切換">
+                <button type="button" class="is-active" data-mode="first-letter">::first-letter</button>
+                <button type="button" data-mode="first-line">::first-line</button>
+                <button type="button" data-mode="selection">::selection</button>
+                <button type="button" data-mode="before-after">::before / ::after</button>
+                <button type="button" data-mode="no-content">沒有 content</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>呈現結果</h2>
+                    <article class="sample mode-first-letter" id="sample">
+                        <p>CSS 偽元素可以選取文字的局部表現，也可以在元素前後加入裝飾性內容。</p>
+                    </article>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

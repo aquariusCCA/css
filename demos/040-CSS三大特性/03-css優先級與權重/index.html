@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 優先級與權重 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/040-CSS三大特性/03-css優先級與權重.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 三大特性</p>
+      <h1>優先級與權重：用四欄 tuple 判斷勝負</h1>
+      <p>選一組規則，觀察 specificity 如何由左到右比較，以及 `!important`、繼承值和宣告順序各自扮演什麼角色。</p>
+    </header>
+
+    <section class="preset-bar" aria-label="優先級案例">
+      <button class="preset-button is-active" type="button" data-case="id">ID 對 class</button>
+      <button class="preset-button" type="button" data-case="many">多個元素對 class</button>
+      <button class="preset-button" type="button" data-case="tie">權重相同</button>
+      <button class="preset-button" type="button" data-case="important">父層 important</button>
+    </section>
+
+    <section class="workspace">
+      <article class="result-card">
+        <h2>目標元素</h2>
+        <div id="stage" class="stage case-id">
+          <div id="father" class="father">
+            <div id="box" class="box one text">白日依山盡，黃河入海流。</div>
+          </div>
+        </div>
+        <p id="resultText" class="result-text"></p>
+      </article>
+
+      <article class="code-card">
+        <h2>CSS 規則</h2>
+        <pre><code id="cssCode"></code></pre>
+      </article>
+    </section>
+
+    <section class="scoreboard">
+      <article class="score-card">
+        <h2 id="ruleAName">規則 A</h2>
+        <div class="tuple" id="tupleA"></div>
+      </article>
+      <article class="score-card">
+        <h2 id="ruleBName">規則 B</h2>
+        <div class="tuple" id="tupleB"></div>
+      </article>
+      <article class="score-card decision">
+        <h2>判斷</h2>
+        <p id="decisionText"></p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

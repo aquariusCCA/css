@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>定位基礎與 position 組成</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/01-定位基礎與-position-組成.md -->
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CSS Position</p>
+        <h1>position 與邊偏移</h1>
+      </div>
+      <p>切換定位模式，觀察元素是否仍佔據原本空間，以及 top / left 這類邊偏移何時才會生效。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="定位模式">
+        <button class="mode-btn active" type="button" data-mode="static">static</button>
+        <button class="mode-btn" type="button" data-mode="relative">relative</button>
+        <button class="mode-btn" type="button" data-mode="absolute">absolute</button>
+        <button class="mode-btn" type="button" data-mode="fixed">fixed</button>
+        <button class="mode-btn" type="button" data-mode="sticky">sticky</button>
+      </nav>
+
+      <div class="stage" id="stage" data-mode="static">
+        <div class="viewport-label">示意視窗</div>
+        <div class="flow">
+          <div class="card">上一個區塊</div>
+          <div class="slot">原本位置</div>
+          <div class="box" id="demoBox">觀察元素</div>
+          <div class="card">下一個區塊</div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="modeTitle">static：正常文件流</h2>
+        <pre><code id="codeBox">.box {
+  position: static;
+  top: 32px;
+  left: 32px;
+}</code></pre>
+        <dl class="facts">
+          <div><dt>是否佔位</dt><dd id="flowFact">會，元素照正常順序排列。</dd></div>
+          <div><dt>邊偏移</dt><dd id="offsetFact">static 下 top / left 不會讓元素移動。</dd></div>
+          <div><dt>參照點</dt><dd id="refFact">不建立定位參照，維持一般排版。</dd></div>
+        </dl>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

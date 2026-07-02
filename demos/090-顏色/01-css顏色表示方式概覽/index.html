@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 顏色表示方式概覽 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/090-顏色/01-css顏色表示方式概覽.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 顏色</p>
+      <h1>選對顏色寫法</h1>
+      <p>切換使用情境，觀察具名顏色、HEX、RGB、HSL 與 alpha 透明度各自適合解決什麼問題。</p>
+    </header>
+
+    <section class="scenario-tabs" aria-label="顏色使用情境">
+      <button class="scenario-button is-active" type="button" data-mode="named">快速測試</button>
+      <button class="scenario-button" type="button" data-mode="hex">設計稿色碼</button>
+      <button class="scenario-button" type="button" data-mode="rgb">通道調整</button>
+      <button class="scenario-button" type="button" data-mode="alpha">半透明遮罩</button>
+      <button class="scenario-button" type="button" data-mode="hsl">同色系變化</button>
+    </section>
+
+    <section class="workspace">
+      <article class="preview-panel">
+        <h2>畫面結果</h2>
+        <div id="demoStage" class="demo-stage mode-named">
+          <div class="sample-card">
+            <span id="sampleBadge" class="sample-badge">named color</span>
+            <strong id="sampleTitle">快速看見樣式</strong>
+            <p id="sampleText">具名顏色容易閱讀，適合初學與臨時測試。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="inspector-panel">
+        <h2>CSS 寫法</h2>
+        <pre><code id="cssCode"></code></pre>
+        <dl class="usage-list">
+          <div>
+            <dt>適合情境</dt>
+            <dd id="bestFor"></dd>
+          </div>
+          <div>
+            <dt>注意事項</dt>
+            <dd id="caution"></dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="format-grid" aria-label="顏色格式對照">
+      <article data-mode="named">
+        <span class="swatch named"></span>
+        <h2>具名顏色</h2>
+        <p><code>red</code>、<code>blue</code>、<code>rebeccapurple</code>，易讀但不夠精準。</p>
+      </article>
+      <article data-mode="hex">
+        <span class="swatch hex"></span>
+        <h2>HEX</h2>
+        <p><code>#ff6b2c</code>，常見於設計稿與色票。</p>
+      </article>
+      <article data-mode="rgb">
+        <span class="swatch rgb"></span>
+        <h2>RGB</h2>
+        <p><code>rgb(48, 126, 204)</code>，適合看紅綠藍通道。</p>
+      </article>
+      <article data-mode="alpha">
+        <span class="swatch alpha"></span>
+        <h2>Alpha</h2>
+        <p><code>rgb(... / 45%)</code>，適合遮罩與半透明背景。</p>
+      </article>
+      <article data-mode="hsl">
+        <span class="swatch hsl"></span>
+        <h2>HSL</h2>
+        <p><code>hsl(210 70% 50%)</code>，適合調整色相、飽和度與亮度。</p>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

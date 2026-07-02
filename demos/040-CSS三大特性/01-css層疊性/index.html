@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 層疊性 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/040-CSS三大特性/01-css層疊性.md -->
+  <main class="demo-shell">
+    <header class="demo-header">
+      <p class="kicker">CSS 三大特性</p>
+      <h1>層疊性：衝突時誰會生效</h1>
+      <p>切換不同衝突情境，觀察瀏覽器如何在同一元素、同一屬性被多次設定時選出最後值。</p>
+    </header>
+
+    <section class="control-panel" aria-label="層疊情境">
+      <button class="scenario-button is-active" type="button" data-scenario="same">相同選擇器</button>
+      <button class="scenario-button" type="button" data-scenario="different">不同屬性</button>
+      <button class="scenario-button" type="button" data-scenario="specificity">優先級不同</button>
+    </section>
+
+    <section class="workspace" aria-live="polite">
+      <article class="code-card">
+        <div class="card-heading">
+          <h2>CSS 規則</h2>
+          <button class="order-toggle" type="button" aria-pressed="false">交換宣告順序</button>
+        </div>
+        <pre><code id="cssCode"></code></pre>
+      </article>
+
+      <article class="result-card">
+        <h2>畫面結果</h2>
+        <div id="stage" class="stage scenario-same">
+          <div class="sample-box">
+            <p class="sample-text">長江後浪推前浪，前浪停在沙灘上。</p>
+          </div>
+        </div>
+        <dl class="decision-list">
+          <div>
+            <dt>是否同一元素</dt>
+            <dd id="sameElement">是</dd>
+          </div>
+          <div>
+            <dt>是否同一屬性</dt>
+            <dd id="sameProperty">是</dd>
+          </div>
+          <div>
+            <dt>最後生效</dt>
+            <dd id="winner">color: pink;</dd>
+          </div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="reason-card">
+      <h2>判斷理由</h2>
+      <p id="reasonText"></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

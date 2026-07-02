@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>背景屬性入門 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/120-背景屬性/01-背景屬性入門.md -->
+  <main class="shell">
+    <header>
+      <p class="eyebrow">背景屬性入門</p>
+      <h1>背景是盒子背後的裝飾層</h1>
+      <p>背景色、半透明背景與背景圖片都不會取代 HTML 內容本身。</p>
+    </header>
+    <section class="toolbar" aria-label="背景模式">
+      <button class="is-active" data-mode="color" type="button">背景色</button>
+      <button data-mode="rgba" type="button">rgba 背景</button>
+      <button data-mode="opacity" type="button">opacity</button>
+      <button data-mode="image" type="button">背景圖</button>
+    </section>
+    <section class="grid">
+      <article class="preview-card" id="previewCard">
+        <h2>課程卡片</h2>
+        <p>文字內容仍在元素裡，背景只負責裝飾與襯底。</p>
+      </article>
+      <aside class="panel">
+        <p class="label">目前 CSS</p>
+        <pre><code id="codeText">.card {
+  background-color: #f9a8d4;
+}</code></pre>
+        <p id="noteText">背景色可以幫你看清楚盒子的大小與位置。</p>
+      </aside>
+    </section>
+    <section class="compare">
+      <article>
+        <p class="label">CSS 背景圖</p>
+        <div class="decorative-bg"></div>
+        <p>沒有內容或尺寸時，背景圖不會把元素撐開。</p>
+      </article>
+      <article>
+        <p class="label">內容圖片 img</p>
+        <div class="content-img" role="img" aria-label="示意內容圖片"></div>
+        <p>重要圖片應用 HTML 內容承載，並提供替代文字。</p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

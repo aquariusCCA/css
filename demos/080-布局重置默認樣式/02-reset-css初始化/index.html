@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>reset.css 初始化 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/080-布局重置默認樣式/02-reset-css初始化：把頁面變成可控起點.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">布局重置默認樣式</p>
+      <h1 id="page-title">reset.css 初始化</h1>
+      <p>reset.css 先清除或統一常見默認樣式，後續的布局與元件樣式再負責真正設計。</p>
+    </section>
+
+    <section class="control-grid" aria-label="reset 規則">
+      <label><input type="checkbox" value="spacing" checked> 清除內外距</label>
+      <label><input type="checkbox" value="list" checked> 清除列表符號</label>
+      <label><input type="checkbox" value="image"> 處理圖片空隙</label>
+      <label><input type="checkbox" value="link"> 統一連結外觀</label>
+      <label><input type="checkbox" value="form"> 表單繼承字型</label>
+    </section>
+
+    <section class="layout">
+      <article class="panel">
+        <h2>累積出的 reset.css</h2>
+        <pre><code id="codeOutput"></code></pre>
+      </article>
+
+      <article class="panel">
+        <h2>被初始化的元素</h2>
+        <div class="preview" id="preview">
+          <h1>頁面標題</h1>
+          <p>這是一段內容文字，用來觀察段落間距。</p>
+          <ul>
+            <li>清單項目一</li>
+            <li>清單項目二</li>
+          </ul>
+          <span class="image-inline" aria-label="圖片示意"></span>
+          <a href="#">文字連結</a>
+          <button type="button">表單按鈕</button>
+          <input type="text" value="輸入框文字" aria-label="輸入框示意">
+        </div>
+        <p class="note" id="stateNote"></p>
+      </article>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

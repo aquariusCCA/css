@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>瀏覽器私有前綴與相容寫法 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/050-瀏覽器的私有前綴/01-瀏覽器私有前綴與相容寫法.md -->
+  <main class="app">
+    <header class="intro">
+      <p class="eyebrow">CSS 相容性 Demo</p>
+      <h1>瀏覽器私有前綴與相容寫法</h1>
+      <p class="lead">切換 CSS 寫法與支援目標，觀察前綴版本、標準版本與工具管理之間的差異。</p>
+    </header>
+
+    <section class="workbench" aria-label="私有前綴互動展示">
+      <div class="controls" aria-label="Demo 控制">
+        <div class="control-group">
+          <span class="control-label">寫法</span>
+          <div class="segmented" role="group" aria-label="選擇 CSS 寫法">
+            <button class="segment is-active" type="button" data-mode="prefixed">只寫前綴</button>
+            <button class="segment" type="button" data-mode="compatible">前綴加標準</button>
+            <button class="segment" type="button" data-mode="tooling">工具管理</button>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">支援目標</span>
+          <div class="segmented" role="group" aria-label="選擇支援目標">
+            <button class="segment target is-active" type="button" data-target="modern">現代瀏覽器</button>
+            <button class="segment target" type="button" data-target="legacy">包含舊瀏覽器</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-grid">
+        <section class="preview-panel" aria-label="視覺結果">
+          <div class="browser-frame">
+            <div class="browser-topbar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="browser-stage">
+              <article class="sample-card" id="sampleCard">
+                <p class="card-kicker">Profile Card</p>
+                <h2>標準寫法優先</h2>
+                <p>這張卡片用圓角與陰影模擬舊程式碼中常見的相容性範例。</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="browser-list" aria-label="瀏覽器讀取結果">
+            <div class="browser-chip" data-browser="webkit">
+              <span class="chip-name">舊 WebKit</span>
+              <strong id="webkitStatus">讀到前綴</strong>
+            </div>
+            <div class="browser-chip" data-browser="standard">
+              <span class="chip-name">標準支援</span>
+              <strong id="standardStatus">缺少標準</strong>
+            </div>
+            <div class="browser-chip" data-browser="tool">
+              <span class="chip-name">Autoprefixer</span>
+              <strong id="toolStatus">未參與</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="code-panel" aria-label="CSS 宣告">
+          <div class="panel-heading">
+            <span>目前 CSS</span>
+            <strong id="modeBadge">只寫前綴</strong>
+          </div>
+          <pre class="code-block"><code id="cssOutput"></code></pre>
+          <ol class="rule-stack" id="ruleStack" aria-label="宣告套用順序"></ol>
+        </section>
+      </div>
+
+      <section class="decision-panel" aria-label="判斷結果">
+        <div>
+          <span class="decision-label">判斷</span>
+          <h2 id="decisionTitle">這不是完整的跨瀏覽器寫法</h2>
+        </div>
+        <p id="decisionText"></p>
+        <ul class="checklist" id="checklist"></ul>
+      </section>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

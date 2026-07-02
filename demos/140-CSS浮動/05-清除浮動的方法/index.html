@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>清除浮動的方法 Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Source notes: notes/140-CSS浮動/05-清除浮動的方法.md -->
+  <main class="demo-shell">
+    <header>
+      <p class="kicker">CSS 浮動</p>
+      <h1>清除浮動方法比較</h1>
+      <p>在同一個高度塌陷案例中切換方法，觀察父級是否包住浮動子元素，以及 footer 是否正常下移。</p>
+    </header>
+    <nav class="tabs">
+      <button class="is-active" type="button" data-method="none">不清除</button>
+      <button type="button" data-method="extra">額外標籤</button>
+      <button type="button" data-method="overflow">overflow</button>
+      <button type="button" data-method="after">::after</button>
+      <button type="button" data-method="both">雙偽元素</button>
+      <button type="button" data-method="flow">flow-root</button>
+    </nav>
+    <section class="workspace">
+      <article class="stage-card">
+        <h2>畫面結果</h2>
+        <div id="stage" class="stage method-none">
+          <div class="parent"><div class="child one">大毛</div><div class="child two">二毛</div><div class="clear-node"></div></div>
+          <div class="footer">footer</div>
+        </div>
+      </article>
+      <article class="code-card">
+        <h2>方法說明</h2>
+        <pre><code id="code"></code></pre>
+        <dl><div><dt>優點</dt><dd id="pros"></dd></div><div><dt>注意</dt><dd id="cons"></dd></div></dl>
+      </article>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

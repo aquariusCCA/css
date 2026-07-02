@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>absolute 居中與子絕父相</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/04-absolute-居中與子絕父相.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">absolute center</p>
+      <h1>absolute 居中與子絕父相</h1>
+      <p>比較負 margin、transform、水平 auto，以及忘記讓父層成為定位參照時的位置差異。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="居中方法">
+        <button class="method-btn active" type="button" data-method="transform">transform 居中</button>
+        <button class="method-btn" type="button" data-method="margin">負 margin 居中</button>
+        <button class="method-btn" type="button" data-method="auto">左右 0 + auto</button>
+        <button class="method-btn" type="button" data-method="missing">缺少父層 relative</button>
+      </nav>
+
+      <div class="stage" id="stage" data-method="transform">
+        <div class="outer">
+          <div class="card">
+            <span class="corner">NEW</span>
+            <div class="target">CENTER</div>
+            <p>父層卡片</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">transform：最常用的未知尺寸居中</h2>
+        <pre><code id="codeBox">.card { position: relative; }
+.target {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}</code></pre>
+        <p id="note">left: 50% 先把元素左邊移到中心，再用 translate 把自身寬高的一半拉回來。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

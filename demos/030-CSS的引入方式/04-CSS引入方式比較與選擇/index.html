@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS 引入方式比較與選擇 Demo</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/030-CSS的引入方式/04-CSS引入方式比較與選擇.md -->
+  <main class="demo-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">CSS 引入方式</p>
+      <h1 id="page-title">比較與選擇</h1>
+      <p>根據作用範圍、複用性與維護性，選出適合目前情境的 CSS 引入方式。</p>
+    </section>
+
+    <section class="scenario-picker" aria-label="情境選擇">
+      <button class="scenario is-active" type="button" data-choice="inline">快速測試單一元素</button>
+      <button class="scenario" type="button" data-choice="internal">單頁練習選擇器</button>
+      <button class="scenario" type="button" data-choice="external">多頁共用樣式</button>
+      <button class="scenario" type="button" data-choice="external-maintain">長期維護網站</button>
+    </section>
+
+    <section class="decision-grid">
+      <article class="method" data-method="inline">
+        <h2>行內樣式表</h2>
+        <p class="where">寫在 HTML 標籤的 <code>style</code> 屬性</p>
+        <p>作用範圍最小，適合少量、臨時、單一元素樣式。</p>
+      </article>
+      <article class="method" data-method="internal">
+        <h2>內部樣式表</h2>
+        <p class="where">寫在 HTML 文件的 <code>&lt;style&gt;</code> 標籤</p>
+        <p>控制目前頁面，適合練習、示範與單頁樣式。</p>
+      </article>
+      <article class="method" data-method="external">
+        <h2>外部樣式表</h2>
+        <p class="where">寫在獨立的 <code>.css</code> 檔案</p>
+        <p>可被多個頁面共用，適合實際開發與長期維護。</p>
+      </article>
+    </section>
+
+    <section class="panel outcome" aria-labelledby="outcome-title">
+      <h2 id="outcome-title">建議結果</h2>
+      <div class="outcome-body">
+        <p id="answerText"></p>
+        <pre><code id="exampleCode"></code></pre>
+      </div>
+    </section>
+
+    <section class="panel comparison" aria-labelledby="table-title">
+      <h2 id="table-title">快速比較</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>引入方式</th>
+              <th>寫在哪裡</th>
+              <th>作用範圍</th>
+              <th>適合情境</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-row="inline">
+              <td>行內樣式表</td>
+              <td><code>style</code> 屬性</td>
+              <td>當前標籤</td>
+              <td>少量、臨時、單一元素樣式</td>
+            </tr>
+            <tr data-row="internal">
+              <td>內部樣式表</td>
+              <td><code>&lt;style&gt;</code> 標籤</td>
+              <td>當前頁面</td>
+              <td>練習、示範、單頁樣式</td>
+            </tr>
+            <tr data-row="external">
+              <td>外部樣式表</td>
+              <td>獨立 <code>.css</code> 檔案</td>
+              <td>多個頁面可共用</td>
+              <td>實際開發、多頁網站、需要維護的樣式</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

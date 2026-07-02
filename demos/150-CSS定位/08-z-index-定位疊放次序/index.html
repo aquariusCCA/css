@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>z-index 定位疊放次序</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Source notes: notes/150-CSS定位/08-z-index-定位疊放次序.md -->
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">z-index</p>
+      <h1>誰疊在最上面</h1>
+      <p>z-index 需要整數值，通常作用在定位元素上；同值時，HTML 後出現的元素會覆蓋前面的元素。</p>
+    </header>
+
+    <section class="workspace">
+      <nav class="toolbar" aria-label="疊放案例">
+        <button class="layer-btn active" type="button" data-layer="ordered">綠色 z-index 2</button>
+        <button class="layer-btn" type="button" data-layer="same">同為 z-index 1</button>
+        <button class="layer-btn" type="button" data-layer="invalid">錯誤單位</button>
+        <button class="layer-btn" type="button" data-layer="static">未定位元素</button>
+      </nav>
+
+      <div class="stage" id="stage" data-layer="ordered">
+        <div class="stack">
+          <div class="box red">red<br><span>z: 1</span></div>
+          <div class="box green">green<br><span>z: 2</span></div>
+          <div class="box blue">blue<br><span>auto</span></div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2 id="title">z-index 數字越大越上層</h2>
+        <pre><code id="codeBox">.red { z-index: 1; }
+.green { z-index: 2; }
+.blue { z-index: auto; }</code></pre>
+        <p id="note">三個盒子都是 absolute；綠色的 z-index 最大，因此蓋在最上面。</p>
+      </aside>
+    </section>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

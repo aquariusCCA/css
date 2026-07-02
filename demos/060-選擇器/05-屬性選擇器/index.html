@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>屬性選擇器</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Source notes: notes/060-選擇器/05-屬性選擇器.md -->
+    <main class="demo-shell">
+        <section class="workspace" aria-labelledby="demoTitle">
+            <p class="eyebrow">060-選擇器</p>
+            <h1 id="demoTitle">根據屬性與屬性值選元素</h1>
+
+            <div class="selector-bar" role="group" aria-label="屬性選擇器">
+                <button type="button" class="is-active" data-selector="input[value]">input[value]</button>
+                <button type="button" data-selector="input[type=&quot;text&quot;]">input[type="text"]</button>
+                <button type="button" data-selector="div[class^=&quot;icon&quot;]">div[class^="icon"]</button>
+                <button type="button" data-selector="section[class$=&quot;data&quot;]">section[class$="data"]</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>HTML 範例</h2>
+                    <div class="sample" id="sample">
+                        <input type="text" value="Kevin" aria-label="文字輸入框">
+                        <input type="password" aria-label="密碼輸入框">
+                        <input type="email" value="mail@example.com" aria-label="email 輸入框">
+                        <div class="icon-home">div class="icon-home"</div>
+                        <div class="card icon-alert">div class="card icon-alert"</div>
+                        <section class="report-data">section class="report-data"</section>
+                        <section class="data-card">section class="data-card"</section>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <h2>目前規則</h2>
+                    <pre><code id="cssCode"></code></pre>
+                    <p class="result" id="resultText"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>
